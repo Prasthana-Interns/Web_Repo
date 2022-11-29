@@ -1,0 +1,43 @@
+[
+   
+     { "id":"EMPId-002","name":"Chaitanya Guptha" ,"email":"chaithanya@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
+    "devices":["laptop","charger"]},
+
+     { "id":"EMPId-003","name":"Mayur Chawhan" ,"email":"mayur@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
+    "devices":["laptop","charger","bag","mouse","bottle"]},
+
+     { "id":"EMPId-004","name":"Laya Boini" ,"email":"laya@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
+    "devices":["laptop"]},
+
+     {"id":"EMPId-005", "name":"Hari Krishna" ,"email":"hari@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
+    "devices":[]},
+
+      { "id":"EMPId-002","name":"Chaitanya Guptha" ,"email":"chaithanya@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
+    "devices":["laptop","charger"]},
+
+    
+     { "id":"EMPId-002","name":"Chaitanya Guptha" ,"email":"chaithanya@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
+    "devices":["laptop","charger"]},
+
+     { "id":"EMPId-003","name":"Mayur Chawhan" ,"email":"mayur@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
+    "devices":["laptop","charger","bag","mouse","bottle"]},
+
+     { "id":"EMPId-004","name":"Laya Boini" ,"email":"laya@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
+    "devices":["laptop"]},
+
+     {"id":"EMPId-005", "name":"Hari Krishna" ,"email":"hari@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
+    "devices":[]},
+
+      { "id":"EMPId-002","name":"Chaitanya Guptha" ,"email":"chaithanya@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
+    "devices":["laptop","charger"]}
+
+
+
+    
+
+
+
+
+
+
+]
