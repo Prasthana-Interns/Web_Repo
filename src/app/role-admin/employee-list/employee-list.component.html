@@ -1,0 +1,119 @@
+<div style="display: flex; width: auto" class="container">
+  <div class="scroll whole" *ngIf="emplist; else err">
+    <div class="emp-list">
+      <div style="display: flex">
+        <fieldset>
+          <span class="material-symbols-outlined">search</span>
+          <input
+            type="text"
+            placeholder="Search for Employee"
+            class="searchingarea"
+          />
+        </fieldset>
+
+        <div class="add" (click)="addEmpoyee()">
+          <span
+            class="material-symbols-outlined"
+            style="
+              color: rgb(19, 18, 18);
+              font-size: 25px;
+              margin-left: 10px;
+              margin-right: 20px;
+            "
+            >person_add</span
+          >
+        </div>
+      </div>
+
+      <div class="emp" *ngFor="let emp of emplist">
+        <div class="dp">
+          {{ emp.name.split(" ")[0][0] + emp.name.split(" ")[1][0] }}
+        </div>
+   
+        <div class="details">
+          <h5 style="margin-bottom: -0px">{{ emp.name }}</h5>
+          <div class="singleline">
+            <ul class="list">
+              <li>
+                <small class="text">{{ emp.id }}</small>
+              </li>
+              <li style="margin-left: 30px">
+                <small>{{ emp.role }}</small>
+              </li>
+            </ul>
+
+            <div class="devices" *ngIf="emp.devices">
+              <div>
+                <span class="material-symbols-outlined">laptop_mac</span>
+              </div>
+              <div>
+                <span class="material-symbols-outlined">ev_charger</span>
+              </div>
+              <div><span class="material-symbols-outlined">backpack</span></div>
+              <div><span class="material-symbols-outlined">mouse</span></div>
+            </div>
+          </div>
+        </div>
+        <div (click)="empDetailView()">
+              <span
+                class="material-symbols-outlined"
+                style="padding-top: 40px; margin-left: 40px"
+                >arrow_forward_ios</span
+              >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- add employees -->
+
+  
+<div class="addemployee" *ngIf="addform" style="margin-left: 10px;">
+  <h2 style="text-align:center;color:rgb(128, 128, 237)">Add Employee</h2>
+  <hr>
+  <p style="text-align:center;">Enter  details to add employee with his provided devices</p>
+  
+   <div class="adddetails">
+
+<form  class="form">
+  <div class="form-group">
+  <label for="name"> Name : </label>
+  <input type="text" class="form-control col-8" placeholder="Enter employee name">
+  </div>
+
+  <div class="form-group">
+  <label for="email"> Email : </label>
+  <input type="email" class="form-control col-8" placeholder="Enter email">
+  </div>
+
+  <div class="form-group">
+  <label for="name"> Designation : </label>
+  <input type="text" class="form-control col-8" placeholder="  Enter employee Designation">
+  </div>
+
+  <div class="form-group">
+  <label for="name"> Phone Number : </label>
+  <input type="text" class="form-control col-8" placeholder="enter mobile number">
+ </div>
+
+  <div class="form-group">
+  <label for="name"> Role : </label>
+  <select class="form-control col-8" >
+  <option value="selected"> Select Employee Role</option>
+  <option value="1">Employee</option>
+  <option value="2">Admin</option>
+  </select>
+  </div>
+
+ <div >
+   <button type="button" class="btn btn-primary" style="margin-left:20px ;">Add Employee</button>
+ </div>
+
+</form>
+   </div>  
+</div>
+
+  <ng-template #err style="color: red"> error fetching data</ng-template>
+</div>
+<h2>hiiii</h2>
+<router-outlet></router-outlet>

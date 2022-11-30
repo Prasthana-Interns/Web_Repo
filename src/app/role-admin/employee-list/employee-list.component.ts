@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ListServiceService } from '../list-service.service';
+import {  Router, TitleStrategy } from '@angular/router';
+import { ListServiceService } from '../../list-service.service';
+
 
 
 @Component({
@@ -16,31 +18,34 @@ export class EmployeeListComponent implements OnInit{
 //  public sm=this.emplist.name.split("")
   
 
-  constructor(private listservice: ListServiceService) { }
+  constructor(private listservice: ListServiceService, private router:Router) { }
 
 
   ngOnInit(): void {
-   
-    this.listservice.getlist().subscribe((response) => {
+    this.getlist()
+  
+ 
+  }
+  getlist() {
+     this.listservice.getlist().subscribe((response) => {
       this.emplist = response;
       console.log(response);
       console.log(this.emplist)
     },
       (error) => { console.log("error") }
     )
- 
   }
   
 
   addEmpoyee() {
     this.addform = true
     this.empdetailform=false
+  
   }
  
   
-  empdetail() {
-    this.empdetailform = true
-    this.addform = false;
+  empDetailView() {
+    this.router.navigate(['admin/employees/employee-detail'])
   }
  
 

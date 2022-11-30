@@ -1,10 +1,23 @@
+/* 
+*{
+    box-sizing: border-box;
+    overflow: hidden;
+} */
+
+
 .whole {
     background-color: #abeafd;
-    width: 740px;
+    /* width: 740px; */
     padding-top: 10px;
-    margin-left: 10%;
-    height: 600px;
+    padding-right: 20px;
+    margin-left:2px;
+    height: auto;
     /* overflow-y: scroll; */
+    @media screen and (max-width:600px){
+        background-color:black;
+        font-size:50px
+        
+    }
 
 }
 .scroll{
@@ -183,7 +196,7 @@ label {
 }
 
 .employeedetails {
-    width: 600px;
+    width: 630px;
     border: 2px solid black;
     padding-top: 10px;
     background-color:rgba(214, 210, 210, 0.362);
@@ -191,7 +204,7 @@ label {
     margin-left: 15px;
     padding-right: 20px;
     overflow-y: scroll;
-    height: 590px;
+    height: 670px;
     scroll-behavior:smooth;
 }
 
