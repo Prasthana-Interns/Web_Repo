@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { last } from 'rxjs';
 
 @Component({
   selector: 'app-approvals',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApprovalsComponent implements OnInit {
 
+  showApproval=true;
+  removeApproval=true;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  acceptEmp(){
+    this.showApproval=false;
+    alert("approval Accepted");
+  }
+  rejectEmp(){
+    this.removeApproval=false;
+    alert("approval rejected");
+  }
 }

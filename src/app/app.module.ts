@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-// import { Router } from '@angular/router';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +10,7 @@ import { AddDeviceComponent } from './add-device/add-device.component';
 import { AdminComponent } from './admin/admin.component';
 import { ApprovalsComponent } from './approvals/approvals.component';
 import { DevicesComponent } from './devices/devices.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { DevicesComponent } from './devices/devices.component';
     AdminComponent,
     ApprovalsComponent,
     DevicesComponent,
+    CardComponent,
   
-    // Router
   ],
   imports: [
     BrowserModule,
