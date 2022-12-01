@@ -1,9 +1,9 @@
 .sec{
-    padding-left: 430px;
-    padding-top: 150px;
+    padding-left: 30rem;
+    padding-top: 9rem;
     width:600px;
     height:1000px;
-   }
+}
 *{
    padding: 0;
    margin: 0px;
@@ -41,3 +41,25 @@ body{
     font-weight: bold;
     border-radius: 10px;
    }
+input.ng-touched.ng-invalid{
+    border:1px solid red;
+}
+input.ng-touched.ng-valid{
+    border:1px solid green;
+}
+.text-danger{
+    color:red;
+}
+html{
+    font-size: 62.5%;
+}
+@media(max-width: 768px){
+    html{
+        font-size: 45%;
+    }
+} 
+@media(max-width: 998px){
+    html{
+        font-size: 55%;
+    }
+}
