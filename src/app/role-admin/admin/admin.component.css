@@ -64,5 +64,6 @@
 .main {   
   -ms-flex: 92%;
   flex: 92%;
-  background-color: white;
+
+  background-color: rgb(169, 224, 247);
 }

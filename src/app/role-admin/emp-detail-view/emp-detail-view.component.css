@@ -1,29 +1,32 @@
-.employeedetails {
-    width: 630px;
+
+.compHeader {
+    background-color: #92dde7;
+    font-size: 20px;
+    padding: 20px;
+    font-weight: bold;
+}
+.employee-details {
+   
     border: 2px solid black;
     padding-top: 10px;
-    background-color: rgba(214, 210, 210, 0.362);
-    /* padding-bottom: 30px; */
-    margin-left: 15px;
+    background-color: rgba(194, 254, 255, 0.362);
+    margin: auto;
     padding-right: 20px;
     overflow-y: scroll;
     height: 590px;
     scroll-behavior: smooth;
 }
-
-.det {
-    width: 580px;
+.whole-det {
+    width: 55%;
     background-color: white;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    height: 170px;
     border-radius: 20px;
     padding: 15px;
+    margin: auto;
+    margin-bottom: 40px;
 }
-
-.dpDet {
-    width: 70px;
-    height: 63px;
+.dp-Det {
+    width: 85px;
+    height: 80px;
     background-color: rgb(244, 169, 20);
     color: white;
     text-align: center;
@@ -32,49 +35,77 @@
     font-size: 35px;
     margin-left: 15px;
 }
-
-.personaldet {
+.personal-details {
     display: flex;
     margin-bottom: 15px;
+  }
+  .details{
+    margin:20px
+  }
+.name{
+        margin-top: -10px;
 }
-
-.officedet {
-    margin-left: 20px;
+small{
+    display: flex;
+    font-size: 15px;
+}
+.office-details {
+   
+   padding-left:30px;
     display: flex;
     justify-content: space-between;
+}
+.delete{
+    margin-top:10px;
+    margin-left: 100px;color: red;
+}
+.dev-ass-heading{
+    padding-left: 23%;
+}
+.bold{
+    font-weight:bold ;
 
 }
-
+.div-icons{
+    display: flex;
+    margin-top: -5px;
+    color: rgb(56, 56, 202);
+    gap:30px
+}
 .devassgn {
 
     display: flex;
-    width: 560px;
-    background-color: #c4f7f7;
-    margin: 18px;
+    width: 55%;
+    height:120px; 
+    margin: auto;
+    background-color:white;
+    margin-bottom: 18px;
     border-radius: 20px;
     padding-top: 10px;
 }
-
-.divname {
+.devicename {
     background-color: blue;
     border-radius: 20px;
     color: whitesmoke;
     padding-left: 15px;
     padding-right: 15px;
-    margin-top: -20px;
-    margin-left: 15px;
-
-
+   
+}
+img{
+    height:100px;
+    width:100px ;
+    border-radius: 10px;
+   border: 1px solid rgb(151, 145, 145); 
+   margin-left:15px;
+}
+.button{
+    margin-left: 320px;
 }
 
-::-webkit-scrollbar {
-    background-color: red;
+.device-details{
+    display: flex;
+    margin-top: -10px;
 }
-
-::-webkit-scrollbar-track {
-    background-color: blue;
-}
-
 ::-webkit-scrollbar-track {
     background-color: rgb(184, 184, 194);
 }

@@ -11,7 +11,7 @@ export class EmpDetailViewComponent  implements OnInit{
   public id: any;
 
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor() { }
   
 
   ngOnInit() {

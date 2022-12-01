@@ -16,9 +16,9 @@ const routes: Routes = [{path:' ',redirectTo:'EmployeeListComponent',pathMatch:'
                                        children: [{ path: 'add-device', component: AddDeviceComponent }]
                                      },
                                      { path: 'approvals', component: ApprovalsComponent },
-                                     { path: 'employees', component: EmployeeListComponent,
-                                      children: [{ path: 'employee-detail', component: EmpDetailViewComponent }]
-                                     }]  
+                             { path: 'employees', component: EmployeeListComponent },
+                             { path: 'employee-detail', component: EmpDetailViewComponent }]
+                                     
                          },
                        ];
 

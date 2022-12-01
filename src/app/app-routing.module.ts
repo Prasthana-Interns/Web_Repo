@@ -17,7 +17,7 @@ const routes: Routes = [
                         {path:'reset',component:ResetPasswordComponent},
                         {path:'signup',component:SignUpComponent},
 
-                        {path: 'admin', loadChildren: () => import('./role-admin/role-admin.module').then(m => m.RoleAdminModule)}
+                        {path: 'admin-role', loadChildren: () => import('./role-admin/role-admin.module').then(m => m.RoleAdminModule)}
                         ];
                                      
                  
