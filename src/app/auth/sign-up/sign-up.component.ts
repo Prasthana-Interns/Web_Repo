@@ -10,7 +10,16 @@ import {FormControl,FormGroup,Validators} from '@angular/forms';
 })
 export class SignUpComponent {
   constructor(private route:Router){}
-
+  dropdownList = [
+    { item_id: 1, item_text: 'Employee'},
+    { item_id: 2, item_text: 'Admin'},
+  ];
+dropdownSettings = {
+    idField: 'item_id',
+    textField: 'item_text',
+    enableCheckAll: false,
+  };
+  
   signUp:any = new FormGroup({
     name: new FormControl(null,[Validators.required]),
     email: new FormControl(null,[Validators.required,Validators.email]),
@@ -18,15 +27,7 @@ export class SignUpComponent {
     designation:new FormControl(null,[Validators.required]),
   })
 
-  dropdownList = [
-    { item_id: 1, item_text: 'Employee' },
-    { item_id: 2, item_text: 'Admin' },
-  ];
-dropdownSettings = {
-    idField: 'item_id',
-    textField: 'item_text',
-    enableCheckAll: false,
-  };
+
 
 submitSignUp(){ 
   console.log(this.signUp.value)
