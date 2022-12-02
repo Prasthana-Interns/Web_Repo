@@ -1,26 +1,26 @@
 <h1>Add Device</h1>
 <div>
-  <section class="sec" >
+  <section>
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-lg-7 ">
-            <form>
-                <label for="name">Name</label>
-                <input type="text" placeholder=" Device Name" class="form-control" name="name"><br>
+          <div class="formdiv">
+            <form [formGroup]="addDevice">
+                <label for="name">Name</label><br>
+                <input type="text" placeholder=" Device Name" class="form-control" name="name" required><br>
 
-                <label for="deviceType">Device Type</label>
-                <input type="text" placeholder="Device Type" class="form-control" name="deviceType"><br>
+                <label for="deviceType">Device Type</label><br>
+                <input type="text" placeholder="Device Type" class="form-control" name="deviceType" required><br>
 
-                <label for="os">OS</label>
+                <label for="os">OS</label><br>
                 <input type="text" placeholder="OS" class="form-control removescroll" name="os"><br>
 
-                <label for="serviceTag">Device Id</label>
-                <input type="text" placeholder="Service Tag" class="form-control" name="serviceTag"><br>
+                <label for="serviceTag">Device Id</label><br>
+                <input type="text" placeholder="Service Tag" class="form-control" name="serviceTag" required><br>
   
-                <label for="assignedTo">Assigned To</label>
+                <label for="assignedTo">Assigned To</label><br>
                 <input type="text" placeholder="Employee Id" class="form-control" name="assignedId"><br>
                 
-                <button type="button" class="btn1" > Add Device</button>
+                <button type="button" class="btn1" (click)="submitAddDevice()"> Add Device</button>
             </form>
           </div>
         </div>
