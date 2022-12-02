@@ -1,0 +1,66 @@
+.sec{
+    padding-left: 30rem;
+    padding-top: 9rem;
+    width:35rem;
+    height:100rem;
+}
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: content-box;
+  }
+body{
+   background-color: #c0eae5;
+   width:100%;
+   position: fixed;
+  }
+.invImg{
+    padding-left: 5.8rem;
+    margin-bottom: 2rem;
+  }
+.row{
+    background: white; 
+    border-radius: 0.3rem;
+    }
+.col-lg-7{
+    padding-left: 8rem;
+    margin-top: 2.5rem; 
+    }
+.inputLog{
+    width:20rem;
+    height:3rem;
+    margin-bottom:1.3rem;
+       }
+.btn1{  
+    margin:0rem 0rem 1.8rem 0.2rem;
+    border:none;
+    outline: none;
+    height:2.5rem;
+    width:21.5rem;
+    background-color: #6563FF;
+    color:white;
+    font-weight: bold;
+    border-radius: 0.7rem;
+   }
+input.ng-touched.ng-invalid{
+    border:0.09rem solid red;
+}
+input.ng-touched.ng-valid{
+    border:0.09rem solid green;
+}
+.text-danger{
+    color:red;
+}
+html{
+    font-size: 62.5%;
+}
+@media(max-width: 768px){
+    html{
+        font-size: 45%;
+    }
+} 
+@media(max-width: 998px){
+    html{
+        font-size: 55%;
+    }
+}
