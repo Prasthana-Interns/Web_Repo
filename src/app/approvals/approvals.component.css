@@ -6,13 +6,14 @@
     margin:0.3rem;
     position: sticky;
     position: -webkit-sticky;
+    background-color: #ABAEB6;
   }
   .divs{
-    /* height:80rem; */
+    height:70rem;
     overflow:scroll;
     margin: 0.3rem 0rem 0rem 0.3rem;
-    background-color: #c0eae5;
-  }
+    background-color: #F0F1F5;
+    }
   .container{
     margin:auto;
     width:50%;
