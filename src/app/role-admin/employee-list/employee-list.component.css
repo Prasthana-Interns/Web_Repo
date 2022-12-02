@@ -10,7 +10,8 @@
     background-color:#F0F1F5;
     margin:auto;
     padding-top: 10px;
-
+    top: 0px;
+   left: 0;
     height: 600px;
     overflow-y: scroll;
 }
@@ -149,14 +150,18 @@ fieldset {
    border:2px solid blueviolet
 }
 .form-wrappper {
-   
+    margin-top:200px;
+    margin-left: 120px;
+   display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: rgba(0,0,0,0.2);
-    z-index: 100%;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,0.08);
+    z-index: 80;
 }
 
 .addDetails {
