@@ -31,7 +31,7 @@
     background-color: #c0eae5;
     padding: 10px;
     text-align:center;
-    position: sticky;
+    /* position: sticky; */
     position: -webkit-sticky;
     top: 0;
     display:block;

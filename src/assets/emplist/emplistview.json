@@ -2,13 +2,13 @@
    
      { "id":"EMPId-002","name":"Chaitanya Guptha" ,"email":"chaithanya@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
      
-    "devices":["laptop","charger"]},
+    "devices":["laptop","charger"],"token":"ftgyfhuiojhb .425678t9iohfvbjm .fygoojh"},
 
      { "id":"EMPId-003","name":"Mayur Chawhan" ,"email":"mayur@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
-    "devices":["laptop","charger","bag","mouse","bottle"]},
+    "devices":["laptop","charger","bag","mouse","bottle"],"token":"ftgyfhuiojhb .425678t9iohfvbjm .fygoojh"},
 
      { "id":"EMPId-004","name":"Laya Boini" ,"email":"laya@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
-    "devices":["laptop"]},
+    "devices":["laptop"],"token":"ftgyfhuiojhb .425678t9iohfvbjm .fygoojh"},
 
      {"id":"EMPId-005", "name":"Hari Krishna" ,"email":"hari@gmail.com","designation":"intern","phonenumber":605361081,"role":"employee",
     "devices":[]},

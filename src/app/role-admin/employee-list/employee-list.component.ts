@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {  Router, TitleStrategy } from '@angular/router';
-import { ListServiceService } from '../../list-service.service';
 
 // import { IDropdownSettings, } from 'ng-multiselect-dropdown';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
+import { HttpRequestService } from '../http-request.service';
 
 
 
@@ -15,14 +15,13 @@ import {FormControl,FormGroup,Validators} from '@angular/forms';
 })
 export class EmployeeListComponent implements OnInit {
 
-  empList: any = null;
-  addForm: any = true;
- 
+  employees: any;
+  addForm: any = false;
   laptop: any;
-  //  public sm=this.emplist.name.split("")
-  
+  id:any
 
-  constructor(private listService: ListServiceService, private router: Router) { }
+
+  constructor(private router: Router, private sevice: HttpRequestService) { }
   
   addEmploye: any = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -38,24 +37,32 @@ export class EmployeeListComponent implements OnInit {
   dropDownSettings = {
     idField: 'item_id',
     textField: 'item_text',
-    // enableCheckAll: false,
+   
   };
   ngOnInit(): void {
-    this.getList()
+ this. getEmployees()
   }
-  getList() {
-    this.listService.getlist().subscribe((response) => {
-      this.empList = response;
-      console.log(response);
-      console.log(this.empList)
+
+  getEmployees() {
+    this.sevice.getEmployees().subscribe(response => {
+      this.employees = response 
+    localStorage.setItem('token',"sdfitr345")
+      console.log("dfghjk")
     }
-    )
+
+      )
   }
+  
   addEmpoyee() {
     this.addForm = true
   }
-  empDetailView() {
+  empDetailView(emp: any) {
+    console.log(emp)
  
-    this.router.navigate(['admin/employee-detail'])
+    this.router.navigate(['admin/employees/',emp.id])
   }
+  saveAddEmployee() {
+  this.addForm=false
+}
+  
 }
