@@ -28,7 +28,7 @@
     background-color: #CBD0D7;
     /* padding: 1rem; */
     text-align:center;
-    position: sticky;
+    /* position: sticky; */
     position: -webkit-sticky;
     top: 0;
     display:block;
