@@ -10,16 +10,18 @@
    box-sizing: content-box;
   }
 body{
-   background-color: #c0eae5;
+   background-color: #F0F1F5;
    width:100%;
    position: fixed;
   }
 .invImg{
     padding-left: 5.8rem;
     margin-bottom: 2rem;
+    width:150;
+    height:20;
   }
 .row{
-    background: white; 
+    background: #FFFFFF; 
     border-radius: 0.3rem;
     }
 .col-lg-7{

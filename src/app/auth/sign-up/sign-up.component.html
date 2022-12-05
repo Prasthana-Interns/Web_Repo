@@ -11,7 +11,7 @@
       <div class="container">
         <div class="row no-gutters">
           <div class="col-lg-7 ">
-            <img src="assets\INVENTORY 1.jpg" class="invImg" alt="Inventory App" width="150" height="20">
+            <img src="assets\INVENTORY 1.jpg" class="invImg" alt="Inventory App" >
             <h3 class="heading">SignUp</h3>
             <form [formGroup]="signUp">
               <div class="inputSignUp">
@@ -34,7 +34,8 @@
                 <ng-multiselect-dropdown
                   [placeholder]="'Role'"
                   [settings]="dropdownSettings"
-                  [data]="dropdownList">
+                  [data]="dropdownList"
+                  formControlName="role">
                 </ng-multiselect-dropdown>
               </div>
               <button type="submit" [disabled]="signUp.invalid" class="btn1" (click)="submitSignUp()"> Sign Up</button>

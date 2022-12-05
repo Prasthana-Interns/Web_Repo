@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormGroup,FormControl, Validators} from '@angular/forms'
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private route:Router){ }
+  constructor(private au:AuthService, private route:Router){ }
 
 login:any= new FormGroup({
       empId:new FormControl(null,[Validators.required,Validators.minLength(7),Validators.maxLength(7)]),
@@ -16,11 +17,13 @@ login:any= new FormGroup({
 })
 submitLogin(){
   if(this.login.valid){
+    // localStorage.setItem('token');
     this.route.navigate(["/admin"]);
   }
   else{
     alert("Invalid EmpId or Password")
   }
 }
+
 
 }

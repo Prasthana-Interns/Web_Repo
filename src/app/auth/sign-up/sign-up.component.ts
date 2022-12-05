@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IDropdownSettings, } from 'ng-multiselect-dropdown';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,17 +10,27 @@ import {FormControl,FormGroup,Validators} from '@angular/forms';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  constructor(private route:Router){}
+  name:string="";
+  email:any;
+  phoneNo:number | undefined;
+  designation:string="";
+  approve:boolean=true;
+  password:number=1234567745; 
+  role=[];
+
+
+  
+  constructor(private au:AuthService, private route:Router){}
   dropdownList = [
     { item_id: 1, item_text: 'Employee'},
     { item_id: 2, item_text: 'Admin'},
   ];
-dropdownSettings = {
+  dropdownSettings = {
     idField: 'item_id',
     textField: 'item_text',
     enableCheckAll: false,
   };
-  
+
   signUp:any = new FormGroup({
     name: new FormControl(null,[Validators.required]),
     email: new FormControl(null,[Validators.required,Validators.email]),
@@ -27,12 +38,26 @@ dropdownSettings = {
     designation:new FormControl(null,[Validators.required]),
   })
 
-
-
 submitSignUp(){ 
   console.log(this.signUp.value)
-this.route.navigate(["/login"]); 
-};
+
+    let body= { 
+                 "user": {
+                         "name": this.name,
+                         "phone_number": this.phoneNo,
+                         "designation":this.designation,
+                         "email": this.email,
+                         "approved": this.approve,
+                         "roles":this.role,
+                         "password":this.password               
+                         }
+              }
+   if(true){
+     this.au.postEmp(body).subscribe((res:any)=>{
+     })
+     this.route.navigate(["/login"]); 
+   }
+}
 }
 
 
