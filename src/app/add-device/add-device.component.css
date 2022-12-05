@@ -3,92 +3,24 @@ h1{
     justify-content: center;
 }
 input{
-    width:100%;
+    width:70%;
     padding:20px;
     font-size: 10px;
-    margin:10px;
+    margin:auto;
     border-radius:5px;
 }
 button{
     border-radius:8px;
+    background-color: #514efe;
+    padding:10px;
+    border:0;
 }
-
-
-    
-    /* Add Employee
-    
-    .adddetails{
-        width:700px;
-        margin-left:20px;
-    }
-    .form{
-        margin-left:80px;
-    }
-
-    .form-control{
-        border-radius: 10px;
-        border:2px 2px 2px 2px solid black;
-        box-shadow:2px 1px 1px rgb(47,47,64);
-    }    
-    
-    label{
-        font-weight:bold;
-    }
-    
-    .employeedetails {
-        width: 680px;
-        border: 2px black;
-        padding-top: 10px;
-        background-color:rgba(214, 210, 210, 0.362);
-        padding-bottom: 30px;
-    }
-
-    .det {
-        width: 630px;
-        background-color: white;
-        margin: 18px;
-        border-radius: 20px;
-        padding-left: 20px;
-        padding-bottom: 30px;
-        padding-top: 50px;
-    }
-    
-    .dpDet {
-    width: 90px;
-    height: 100px;
-    background-color: orange;
-    color: white;
-    text-align: center;
-    padding-top: 10px;
-    border-radius: 10px;
-    font-size: 39px;
-    margin-top: 9px;
-    margin-left: 15px;
-    }
-    
-    .personaldet {
+.container{
+    background-color: cadetblue;
+    width:75%;
+    padding:20px;
+}
+section{
     display: flex;
-    margin-bottom: 35px;
-    }
-    
-    .officedet {
-    margin-left: 20px;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 0px;
-    
-    }
-    
-    .devassgn {
-    display: flex;
-    width: 630px;
-    background-color: #c4f7f7;
-    margin: 18px
-    }
-    .whole {
-        background-color: #abeafd;
-        width: 740px;
-        padding-top: 10px;
-        margin-left: 10%;
-    
-    } */
+    justify-content: center;
+}

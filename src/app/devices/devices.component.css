@@ -1,35 +1,52 @@
-
+img{
+  padding:1rem 0rem 0rem 0rem;
+  width:8rem;
+  height:8rem;
+}
+h2{
+  /* font-size:2rem; */
+  font-family:Poppins,sans-serif;
+}
 .compHeader{
-  background-color: #92dde7;
-  font-size: 20px;
-  padding:20px;
+  font-size: 1.5rem;
+  padding:1rem;
   font-weight: bold;
+  margin:0.3rem;
+  position: sticky;
+  position: -webkit-sticky;
+  background-color: #ABAEB6;
 }
 .divs{
-  height:800px;
+  height:70rem;
   overflow:scroll;
-  margin: 3px 0px 0px 3px;
-  background-color: #c0eae5;
+  margin: 0rem 0rem 0rem 0.3rem;
+  background-color: #F0F1F5;
+  /* margin:auto; */
 }
-input{
-    width:600px;
-    height:40px;
+  input{
+    width:80%;
     border:0;
     outline:0;
+    margin-top:0.8rem;
+    font-size: 1rem;
     background-color: rgb(255, 255, 255);
   }
-  
-  .add{
-    font-size:40px;
-    margin:15px 0px  0px 20px;
-    /* color:black; */
+  section{
+    display:flex;
+    justify-content: center;
   }
-  span{
-    margin-top:10px;
+  .add{
+    font-size:4rem;
+    margin:1.8rem 0rem  0rem 2rem;
+    font-size:2.5rem;
+    font-weight: bold;
+  }
+  .searchIcon{
+    margin-top:1rem;
     font-weight: bold;
   }
   .bt_s{
-      font-size: 15px;
+      font-size: 1.5rem;
       font-weight: bold;
   }
   .material-symbols-outlined {
@@ -41,37 +58,39 @@ input{
   }
   fieldset{
     background-color: rgb(255, 255, 255);
-    border-radius:40px;
-    border:2px;
-    width:500px;
+    border-radius:4rem;
+    border:0.2rem;
+    width:90%;
     display:flex;
-    justify-items: center;
-    padding:5px 30px;
-    margin:10px 0px 10px 5px;
+    justify-items: flex-start;
+    padding:0.5rem 1.5rem 1rem 1.5rem;
+    margin:1rem 0rem 1rem 0.5rem;
   }
   
   .row{
     width:100%;
-    
+    margin:auto;
+  }
+  label{
+    margin-bottom: 0.5rem;
+}
+  html{
+    font-size:62.5%;
   }
   
-  .column {
-    float: left;
-    padding:10px;
-    margin-top:10px 5px 5px 5px;
+  @media(max-width:768px){
+    html{
+      font-size:45%;
+    }
   }
-    
-    
-  /* Style the counter cards */
-  .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  background-color: #f1f1f1;
-  margin-bottom:10px;
-  border-radius: 10px;
-  }
-  
-  
-  
 
+  @media(max-width:998px){
+    html{
+      font-size:55%;
+    }
+  }
+.container{
+  margin:auto;
+  width:60%;
+}
    
