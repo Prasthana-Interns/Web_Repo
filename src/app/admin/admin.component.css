@@ -47,9 +47,7 @@
     padding: 1rem;
   }
   .iconDiv:hover{
-    background-color:#d8d8d8;
-    /* border-radius: 0.5rem; */
-    
+    background-color:#d8d8d8;    
   }
   a{
     color:black;
@@ -58,16 +56,12 @@
   }
 .iconDiv.active{
     background: white;
-    /* border-radius:0.5rem;  */
-    /* border-right: #393b3f; */
     border-right: 0.2rem solid #393b3f;
 }
-  
-/* Main column */
 .main {   
   -ms-flex: 92%;
   flex: 50%;
-  /* height:85rem; */
+  height:85rem;
   background-color: #F0F1F5;
 }
 html{

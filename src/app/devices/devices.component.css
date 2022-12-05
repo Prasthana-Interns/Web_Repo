@@ -4,7 +4,6 @@ img{
   height:8rem;
 }
 h2{
-  /* font-size:2rem; */
   font-family:Poppins,sans-serif;
 }
 .compHeader{
@@ -21,7 +20,6 @@ h2{
   overflow:scroll;
   margin: 0rem 0rem 0rem 0.3rem;
   background-color: #F0F1F5;
-  /* margin:auto; */
 }
   input{
     width:80%;

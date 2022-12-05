@@ -9,7 +9,7 @@ import { last } from 'rxjs';
 export class ApprovalsComponent implements OnInit {
 
   showApproval=true;
-  removeApproval=true;
+  removeApproval=false;
   constructor() { }
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class ApprovalsComponent implements OnInit {
     alert("approval Accepted");
   }
   rejectEmp(){
-    this.removeApproval=false;
+    this.showApproval=false;
     alert("approval rejected");
   }
 }

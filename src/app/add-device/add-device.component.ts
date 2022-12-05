@@ -25,5 +25,9 @@ export class AddDeviceComponent implements OnInit {
     console.log(this.addDevice.value);
     alert("Device Added Successfully");
     this.router.navigate(['/devices']);
-   }
+  }
+
+  // changecolor(){
+  //   this.router.navigate['/add-device'];
+  // }
 }
