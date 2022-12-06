@@ -1,0 +1,26 @@
+h1{
+    display:flex;
+    justify-content: center;
+}
+input{
+    width:70%;
+    padding:20px;
+    font-size: 10px;
+    margin:auto;
+    border-radius:5px;
+}
+button{
+    border-radius:8px;
+    background-color: #514efe;
+    padding:10px;
+    border:0;
+}
+.container{
+    background-color: cadetblue;
+    width:75%;
+    padding:20px;
+}
+section{
+    display: flex;
+    justify-content: center;
+}

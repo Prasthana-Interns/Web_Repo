@@ -2,26 +2,29 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddDeviceComponent } from './add-device/add-device.component';
-import { AdminComponent } from './admin/admin.component';
-import { ApprovalsComponent } from './approvals/approvals.component';
-import { DevicesComponent } from './devices/devices.component';
 import { AuthModule } from './auth/auth.module';
-
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginInterceptor } from './auth/login.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    AddDeviceComponent,
-    AdminComponent,
-    ApprovalsComponent,
-    DevicesComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
+    ReactiveFormsModule,
+    FormsModule 
   ],
-  providers:[],
+  providers:[
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass: LoginInterceptor,
+      multi:true
+    }
+    ],
   bootstrap:[AppComponent]
  
 })

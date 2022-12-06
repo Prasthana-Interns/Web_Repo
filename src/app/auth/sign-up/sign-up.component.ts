@@ -18,8 +18,6 @@ export class SignUpComponent {
   password:number=1234567745; 
   role=[];
 
-
-  
   constructor(private au:AuthService, private route:Router){}
   dropdownList = [
     { item_id: 1, item_text: 'Employee'},
@@ -40,7 +38,6 @@ export class SignUpComponent {
 
 submitSignUp(){ 
   console.log(this.signUp.value)
-
     let body= { 
                  "user": {
                          "name": this.name,
@@ -52,12 +49,11 @@ submitSignUp(){
                          "password":this.password               
                          }
               }
-   if(true){
      this.au.postEmp(body).subscribe((res:any)=>{
      })
      this.route.navigate(["/login"]); 
    }
 }
-}
+
 
 

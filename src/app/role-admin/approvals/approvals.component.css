@@ -1,0 +1,52 @@
+
+  .compHeader{
+    font-size: 1.5rem;
+    padding:1rem;
+    font-weight: bold;
+    margin:0.3rem;
+    position: sticky;
+    position: -webkit-sticky;
+    background-color: #ABAEB6;
+  }
+  .divs{
+    height:70rem;
+    overflow:scroll;
+    margin: 0.3rem 0rem 0rem 0.3rem;
+    background-color: #F0F1F5;
+    }
+  .container{
+    margin:auto;
+    width:50%;
+  } 
+  .card {
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  background-color: #f1f1f1;
+  margin-top:1rem;
+  margin-bottom:1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  }
+    
+  button{
+  margin-left:1rem;
+  padding:0.5rem;
+  font-weight: bold;
+  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  }
+  html{
+    font-size:62.5%;
+  }
+  @media(max-width:768px){
+    html{
+      font-size:45%;
+    }
+  }
+  @media(max-width:998px){
+    html{
+      font-size:55%;
+    }
+  }
+    
+  
+     

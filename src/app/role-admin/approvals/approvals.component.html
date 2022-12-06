@@ -1,0 +1,47 @@
+<div class="compHeader">
+    <label>Approvals</label>
+</div>
+<div class="divs">
+    <div class="container">
+
+    <div class="row">
+        <div class="card" *ngIf=showApproval>
+            <form>
+                <h2 for="name">Name :</h2>
+                <label name="name" >{{mayur}</label>
+            </form>
+            <div style="display:flex;justify-content:flex-end">
+                <button (click)="acceptEmp()">Accept </button>
+                <button (click)="rejectEmp()">Reject</button>
+            </div>
+        </div>
+        </div>
+    
+        <div class="row">
+            <div class="card" *ngIf=showApproval>
+                <form>
+                    <h2 for="name">Name :</h2>
+                    <label name="name" >{{chaitanya}</label>
+                </form>
+                <div style="display:flex;justify-content:flex-end">
+                    <button (click)="acceptEmp()">Accept </button>
+                    <button (click)="rejectEmp()">Reject</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="card" *ngIf=showApproval>
+                <form>
+                    <h2 for="name">Name :</h2>
+                    <label name="name" >{{chaitanya}</label>
+                </form>
+                <div style="display:flex;justify-content:flex-end">
+                    <button (click)="acceptEmp()">Accept </button>
+                    <button (click)="rejectEmp()">Reject</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,104 @@
+
+  <div class="compHeader">
+    <label>Devices</label>
+  </div>
+  <div class="divs">
+    <div class="SearchBar">
+        <div class="container">
+          <div style="display:flex;justify-content:flex-start;margin:.5rem 0rem 0rem 0rem;display:flex;justify-content: center;">
+            <fieldset>
+              <section>
+                <span class="material-symbols-outlined searchIcon">search</span>
+                <input type="text" placeholder="Search for Device">
+              </section>
+            </fieldset>
+      
+            <span routerLink="/admin/devices/add-device" routerLinkActive="active" class="material-symbols-outlined add" (click)="changecolor()">add</span>
+              
+          </div>
+            <div class="row">
+              <app-card>
+                <div image>
+                  <img src="assets\laptopimg.jpeg">
+                </div>
+                <h2 deviceName>Mac Book pro</h2>
+                <label device>Laptop</label>
+                <label deviceOS>MacOS</label>                
+                <label deviceId>QWEDFRDFVCDSED23</label>
+                <label assignedTo>Assigned to Mayur</label>
+              </app-card>
+            </div>
+
+            <div class="row">
+              <app-card>
+                
+                <div image>
+                  <img src="assets\laptopBag.jpeg">
+                </div>
+                                
+                <h2 deviceName>Dell Bag</h2>
+                <label device>Bag</label>                
+                <label deviceId>QWEDFRDFVCDSED23</label>
+                <label assignedTo>Assigned to Mayur</label>
+                
+              </app-card>
+            </div>
+
+            <div class="row">
+              <app-card>
+                <div image>
+                  <img src="assets\laptopimg.jpeg">
+                </div>
+                <h2 deviceName>Mac Book pro</h2>
+                <label device>Laptop</label>
+                <label deviceOS>MacOS</label>                
+                <label deviceId>QWEDFRDFVCDSED23</label>
+                <label assignedTo>Assigned to Mayur</label>
+              </app-card>
+            </div>
+
+            <div class="row">
+              <app-card>
+                <div image>
+                  <img src="assets\laptopBag.jpeg">
+                </div>
+                <h2 deviceName>Dell Bag</h2>
+                <label device>Bag</label>                
+                <label deviceId>QWEDFRDFVCDSED23</label>
+                <label assignedTo>Assigned to Mayur</label>
+              </app-card>
+            </div>
+
+            <div class="row">
+              <app-card>
+                <div image>
+                  <img src="assets\laptopimg.jpeg">
+                </div>
+                <h2 deviceName>Mac Book pro</h2>
+                <label device>Laptop</label>
+                <label deviceOS>MacOS</label>                
+                <label deviceId>QWEDFRDFVCDSED23</label>
+                <label assignedTo>Assigned to Mayur</label>
+              </app-card>
+            </div>
+
+            <div class="row">
+              <app-card>
+                <div image>
+                  <img src="assets\laptopBag.jpeg">
+                </div>
+                <h2 deviceName>Dell Bag</h2>
+                <label device>Bag</label>                
+                <label deviceId>QWEDFRDFVCDSED23</label>
+                <label assignedTo>Assigned to Mayur</label>
+              </app-card>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+

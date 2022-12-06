@@ -4,7 +4,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown'
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -20,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    NgMultiSelectDropDownModule.forRoot() 
+    NgMultiSelectDropDownModule.forRoot()
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
