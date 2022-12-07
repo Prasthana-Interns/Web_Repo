@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeviceListComponent } from './device-list.component';
+import { EmployeePopUpComponent } from './employee-pop-up.component';
 
-describe('DeviceListComponent', () => {
-  let component: DeviceListComponent;
-  let fixture: ComponentFixture<DeviceListComponent>;
+describe('EmployeePopUpComponent', () => {
+  let component: EmployeePopUpComponent;
+  let fixture: ComponentFixture<EmployeePopUpComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeviceListComponent ]
+      declarations: [ EmployeePopUpComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DeviceListComponent);
+    fixture = TestBed.createComponent(EmployeePopUpComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

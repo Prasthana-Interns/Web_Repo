@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl,Validators } from '@angular/forms';
+import { FormGroup,FormControl,Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpRequestService } from '../http-request.service';
 
 @Component({
   selector: 'app-add-device',
@@ -9,22 +10,34 @@ import { Router } from '@angular/router';
 })
 export class AddDeviceComponent implements OnInit {
 
-  constructor(private router :Router) { }
-  addDevice:any = new FormGroup({
-    name: new FormControl(null,[Validators.required]),
-    deviceType: new FormControl(null,[Validators.required]),
-    os: new FormControl(null),
-    serviceTag:new FormControl(null,[Validators.required]),
-    assignedTo:new FormControl(null),
-  })
+  addDeviceShow=false;
+  addDeviceBody:any 
+  constructor(private router :Router,private ser:HttpRequestService,private fb:FormBuilder) { }
 
-  ngOnInit(): void {
+
+
+  ngOnInit(){
+    this.addDeviceBody= this.fb.group({
+                          name: new FormControl(null,[Validators.required]),
+                          deviceType: new FormControl(null,[Validators.required]),
+                          os: new FormControl(null),
+                          user_id:new FormControl(null),
+    })  
+  }
+
+  showAddDeviceForm(){
+    this.addDeviceShow=true;
+  }
+  cancelAddDevice(){
+    this.addDeviceShow=false;
   }
 
   submitAddDevice(){
-    console.log(this.addDevice.value);
+    console.log(this.addDeviceBody.value);
+    this.ser.addDevice(this.addDeviceBody).subscribe((res)=>{
+    })
     alert("Device Added Successfully");
-    this.router.navigate(['/devices']);
+    this.router.navigate(['/admin/admin/devices']);
   }
 
   // changecolor(){

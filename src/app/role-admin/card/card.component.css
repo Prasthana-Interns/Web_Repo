@@ -3,22 +3,19 @@
     padding: 0.5rem 1rem;
     background-color: #FFFFFF;
     margin-bottom:1rem;
-    border-radius: 1rem;
-    display:flex;
-    justify-content: flex-start;
+    border-radius: 1rem; 
     height:fit-content;
+    display: flex;
+    justify-content: flex-start;
+    font-family: sans-serif;
 }
 .left{
-    width:18%;
-    float:left; 
     width:10rem;
-    padding:auto
 }
 .deviceInfo{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-right:auto;
+  display: flex;
+  justify-content: space-between;
+  /* gap:2rem; */
 }
 .deviceCSS{
     background-color: blue;
@@ -29,21 +26,22 @@
     display:flex;
     justify-content:center;
     padding:auto;
-    /* margin-bottom:1rem; */
-}
+    margin-bottom:1rem;
+ }
 .right{
-  width: 100%;
   display: flex;
-  flex-direction: column;
+  width:90%;
+  margin-top: 0.8rem;
 }
-.row{
-    display: flex;
-    justify-content:flex-start;
-    gap:3rem;
+.content{
+  width:50%;  
 }
-html{
-    font-size:62.5%;
-  }
+.cardRightMost{
+  margin-left: 5rem;
+}
+ html{
+  font-size:62.5%;
+}
   
   @media(max-width:768px){
     html{
@@ -53,7 +51,7 @@ html{
       flex-direction:column;
   }
     .right{
-      flex-direction: row;
+      flex-direction: column;
     }
   }
 

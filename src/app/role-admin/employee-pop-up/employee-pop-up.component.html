@@ -1,0 +1,20 @@
+<div class="blurDiv">
+    <div class="box">
+        <div class="container">
+            <div class="col">
+            <!-- <div class="formdiv"> -->
+                <!-- <div *ngIf="showEmployees"> -->
+                <div class="rows" *ngFor="let employeeList of allEmployees; let f=first; let l=last">
+                    <app-card>
+                        <h5 deviceName>{{employeeList?.emp_name}}</h5>
+                        <label deviceId>{{employeeList?.EmpId}}</label>
+                        <label deviceos>{{employeeList?.emp_designation}}</label>
+                        <button assignButton>Assign</button>
+                    </app-card>
+                <!-- </div> -->
+                <!-- </div> -->
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

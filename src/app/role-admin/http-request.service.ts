@@ -8,7 +8,12 @@ import { EmpInterface } from '../employeeI';
 })
 export class HttpRequestService {
 
-  private url='assets/emplist/emplistview.json'
+  private url='assets/emplist/emplistview.json';
+
+  // for getting all devices
+  private deviceURL='http://13.251.95.54:3000/devices';
+
+
 
   constructor(private http_: HttpClient) { }
   
@@ -24,4 +29,12 @@ export class HttpRequestService {
     return localStorage.getItem('token')
   }
 
+
+  //Mayur fetchAllDevices
+  getDevices(){
+    return this.http_.get(this.deviceURL);
+  }
+  addDevice(body:any){
+    return this.http_.post(this.deviceURL,body)
+  }
 }
