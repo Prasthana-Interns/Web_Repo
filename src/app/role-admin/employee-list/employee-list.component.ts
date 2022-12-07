@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {  Router, TitleStrategy } from '@angular/router';
-
-// import { IDropdownSettings, } from 'ng-multiselect-dropdown';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
 import { HttpRequestService } from '../http-request.service';
 
@@ -48,9 +46,7 @@ export class EmployeeListComponent implements OnInit {
       this.employees = response 
     localStorage.setItem('token',"sdfitr345")
       console.log("dfghjk")
-    }
-
-      )
+    })
   }
   
   addEmpoyee() {

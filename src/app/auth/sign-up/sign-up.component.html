@@ -17,28 +17,29 @@
             <form [formGroup]="signUp">
               <div class="inputSignUp">
                 <input type="text" placeholder="Name" class="form-control" formControlName="name" required>
-                <div class="text-danger" *ngIf="signUp.controls['name'].touched && signUp.controls.name.errors['required']"><p class="textForErrorMSg">*Name is required</p></div>
+                <div class="text-danger" *ngIf="signUp?.controls?.name.touched && signUp?.controls?.name?.errors"><p class="textForErrorMSg">*Name is required</p></div>
               </div>
               <div class="inputSignUp">
                 <input type="email" placeholder="Email" class="form-control" formControlName="email" required>
-                <div class="text-danger" *ngIf="signUp.controls['email'].touched && signUp.controls.email.errors['required']"><p class="textForErrorMSg">*email is required</p></div>
+                <div class="text-danger" *ngIf="signUp?.controls?.email.touched && signUp?.controls?.email?.errors"><p class="textForErrorMSg">*email is required</p></div>
               </div>
               <div class="inputSignUp">
                 <input type="number" placeholder="Phone No." class="form-control removescroll" formControlName="phoneNo" required>
-                <div class="text-danger" *ngIf="signUp.controls['phoneNo'].touched && signUp.controls.phoneNo.errors['required']"><p class="textForErrorMSg">*PhoneNo. is required</p></div>
+                <div class="text-danger" *ngIf="signUp?.controls?.phoneNo.touched && signUp?.controls?.phoneNo?.errors"><p class="textForErrorMSg">*PhoneNo. is required</p></div>
               </div>
               <div class="inputSignUp">
                 <input type="text" placeholder="Designation" class="form-control" formControlName="designation" required>
-                <div class="text-danger" *ngIf="signUp.controls['designation'].touched && signUp.controls.designation.errors['required']"><p class="textForErrorMSg">*Designation is required</p></div>
+                <div class="text-danger" *ngIf="signUp.controls?.designation.touched && signUp?.controls?.designation?.errors"><p class="textForErrorMSg">*Designation is required</p></div>
               </div>   
               <div class="dropDown">
                 <ng-multiselect-dropdown
                   [placeholder]="'Role'"
                   [settings]="dropdownSettings"
-                  [data]="dropdownList">
+                  [data]="dropdownList"
+                  formControlName="role">
                 </ng-multiselect-dropdown>
               </div>
-              <button type="submit" [disabled]="signUp.invalid" class="btn1" (click)="submitSignUp()"> Sign Up</button>
+              <button type="submit"  class="btn1" (click)="submitSignUp()"> Sign Up</button>
               <a class="backtologin" href="#" routerLink="/login" routerLinkActive="active">Back to Login</a><br><br>
             </form>
           </div>
