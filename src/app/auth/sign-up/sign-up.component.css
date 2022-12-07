@@ -9,7 +9,7 @@
    box-sizing: content-box;
 }
 body{
-    background-color: #c0eae5;
+    background-color: #F0F1F5;
     width:100%;
     height:100%;
     position: fixed;
@@ -17,6 +17,8 @@ body{
 .invImg{
     padding-left: 13rem;
     margin:2rem 0rem 0.5rem 0rem;
+    width:150;
+    height:20;
 }
 .heading{
     font-weight: 700;
@@ -25,21 +27,21 @@ body{
     color:#403df9;
 }
 .row{
-    background: white;
+    background: #FFFFFF;
     border-radius: 0.3rem;
 }
 .col-lg-7{
     padding-left: 2rem;
-    margin-top: 1rem; 
+    margin-top: 1.3rem; 
 }
 .inputSignUp{
     width:25rem;
     height:3rem;
     padding-left:3.5rem ;
-    margin-bottom:1.5rem;
+    margin-bottom:1.7rem;
 }
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+    -webkit-appearance:none;
 }
 input{
     margin-left: 0rem;
@@ -75,4 +77,14 @@ input.ng-touched.ng-valid{
 }
 .text-danger{
     color:red;
+}
+@media(max-width: 768px){
+    html{
+        font-size: 45%;
+    }
+} 
+@media(max-width: 998px){
+    html{
+        font-size: 55%;
+    }
 }

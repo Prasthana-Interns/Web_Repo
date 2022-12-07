@@ -11,7 +11,7 @@
    box-sizing: content-box;
   }
 body{
-   background-color: #c0eae5;
+   background-color: #F0F1F5;
    width:100%;
    position: fixed;
    height: 100%;
@@ -19,9 +19,11 @@ body{
 .invImg{
     padding-left: 5.8rem;
     margin-bottom: 2rem;
+    width:150;
+    height:20;
   }
 .row{
-    background: white; 
+    background: #FFFFFF; 
     border-radius: 0.3rem;
     display: flex;
     align-items: center;
@@ -33,7 +35,7 @@ body{
     }
 .inputLog{
     width:20rem;
-    height:3rem;
+    height:3 rem;
     margin-bottom:1.3rem;
        }
 .btn1{  
