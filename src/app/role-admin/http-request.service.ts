@@ -8,7 +8,7 @@ import { EmpInterface } from '../employeeI';
 })
 export class HttpRequestService {
 
-  private url='assets/emplist/emplistview.json'
+  private url='assets/emplist/employeeListView.json'
 
   constructor(private http_: HttpClient) { }
   
@@ -16,10 +16,11 @@ export class HttpRequestService {
       return this.http_.get<EmpInterface[]>(this.url)
     }
   getEmployeById(id: any): Observable<EmpInterface[]>{
-       return this.http_.get<EmpInterface[]>(this.url+'/'+id)
-      // return this.http_.get<EmpInterface[]>('http://localhost:53724/admin/employees/'+id)
+    return this.http_.get<EmpInterface[]>(this.url + '/' + id)
   }
-  
+  addEmployee(body:any) {
+    return this.http_.post(this.url,body)
+  }
   getToken() {
     return localStorage.getItem('token')
   }

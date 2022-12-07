@@ -1,0 +1,50 @@
+/* Add Employee*/
+.addEmployee {
+    background-color: #d9e5e6;
+    background-color: white;
+    width: 600px;
+    padding: 20px 50px;
+    border-radius: 5px;
+    border: 2px solid blueviolet
+}
+.addHeader {
+    text-align: center;
+    color: #403df9
+}
+
+.form-wrappper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 80;
+    overflow-y: scroll;
+    }
+
+.addDetails {
+    width: 500px;
+}
+
+.form {
+    margin-left: 80px;
+
+}
+
+.form-control {
+    border-radius: 5px;
+    width: 90%
+}
+
+label {
+    font-weight: bold;
+}
+
+.action {
+    /* margin-top:10px; */
+    justify-content: space-between;
+    margin-right: 30px;
+}

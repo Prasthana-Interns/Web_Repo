@@ -10,13 +10,13 @@ import { AdminComponent } from './admin/admin.component';
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { ApprovalsComponent } from './approvals/approvals.component';
 import { DevicesComponent } from './devices/devices.component';
-import { DeviceListComponent } from './device-list/device-list.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmpDetailViewComponent } from './emp-detail-view/emp-detail-view.component';
-import { RoleAdminInterceptor } from '../role-admin.interceptor';
+import { RoleAdminInterceptor } from './role-admin.interceptor';
 import { HttpRequestService } from './http-request.service';
-
-
+import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devices.component';
+import { CardComponent } from './card/card.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +25,10 @@ import { HttpRequestService } from './http-request.service';
     EmpDetailViewComponent,
     DevicesComponent,
     AddDeviceComponent,
-    DeviceListComponent,
     ApprovalsComponent,
-
-
+    UnassignedDevicesComponent,
+    CardComponent,
+    AddEmployeeComponent
   ],
   imports: [
     CommonModule,
@@ -38,15 +38,16 @@ import { HttpRequestService } from './http-request.service';
     NgMultiSelectDropDownModule.forRoot(),
     HttpClientModule,
   ],
-
-  // providers: [HttpRequestService, {
-  //   provide:HTTP_INTERCEPTORS,useClass:RoleAdminInterceptor,multi:true
-  // }],
-    schemas: [
+  providers: [HttpRequestService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RoleAdminInterceptor,
+      multi: true
+    }], 
+  schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
   ],
-  exports:[DeviceListComponent]
   
 })
 export class RoleAdminModule { }

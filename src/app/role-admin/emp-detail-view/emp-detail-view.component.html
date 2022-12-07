@@ -1,72 +1,60 @@
 <!-- employee details -->
 
-    
-
-    <div class="compHeader">
+<div class="compHeader">
   <label>Employee Details</label>
 </div>
-  
-   <div class="employee-details">
-            
-      <div class="whole-det" >
-       <div class="personal-details"> 
-        <div class="dp-Det">SM</div>
-        <div class="details">
-        <h4 class="name">Swarna Mudhiraj</h4>
-       <ng-container>
-        <small> swarnamamindla1@gal.com</small>
-        <small> 605361081</small></ng-container>
-        </div>
-        <div class="delete"style=><span class="material-symbols-outlined">delete</span> </div>
-         </div>
-       <div class="office-details">
-            <div>
-          <ng-container>
-          <p class="bold">EMPid-001</p>
-           <p>Employee ID</p>
-           </ng-container>
-            </div>
-         <div>
-          <ng-container>
-          <p class="bold">EMPid-001</p>
-           <p>Employee ID</p>
-           </ng-container>
-         </div>
 
-         <div>
-          <div class="div-icons">
-           <div><span class="material-symbols-outlined" >laptop_mac</span></div>
-            <div><span class="material-symbols-outlined">ev_charger</span></div>
-            <div><span class="material-symbols-outlined">backpack</span></div>
-            <div><span class="material-symbols-outlined">mouse</span></div>
-           <div><span class="material-symbols-outlined">ev_charger</span></div>
-          </div>
-           <div >Devices</div>
-         </div>
-       </div>
-    </div>
-   <h4 class="dev-ass-heading"> Devices Assigned </h4>
-      <div>
-          <div class="devassgn"> 
-        <div  >
-        <img src='assets\images\laptop.jpg'>
-        </div>
-        <div class="details" >
-          <div  class=" device-details"> 
-            <h5>MacBook Pro 13'</h5> 
-            <div class="devicename">laptop</div>
-          </div>
-          <ul class="list" >
-            <li><small class="text">sevicetag no.</small></li>
-            <li><small>device name</small></li>
-          </ul>
-              </div>
-              <div class="delete"><span class="material-symbols-outlined">delete</span> </div>
-         </div>
-    <div >
-   <button type="button" class="btn btn-primary button" >Add Device</button>
- </div>
-    </div>
-   </div>
-
+<div class="employee-details">
+  <!--if employeedata.id -->
+  <!-- *ngFor="let emp of employeeData"  {{emp | json }} -->
+  <div class="card-comp">
+    <app-card>
+      <div image class="dp-Det">MS</div>
+      <h3 Name>Swarna Mudhiraj</h3>
+      <small email>swarnamamindla1</small>
+      <small phoneNo>6305361081</small>
+      <span
+        deleteSymbol
+        class="material-symbols-outlined"
+        (click)="deleteEmployee()"
+        >delete</span
+      >
+      <span empId class="bold">EMPID-002</span>
+      <small empIdLabel>Employee ID</small>
+      <span designation class="bold">Intern</span>
+      <small designationLabel>Designation </small>
+     <!-- <div devicesIcons> -->
+      <span laptop class="material-symbols-outlined">laptop_mac</span>
+      <span bag class="material-symbols-outlined">ev_charger</span>
+      <span charger class="material-symbols-outlined">backpack</span>
+      <span mouse class="material-symbols-outlined">mouse</span>
+      <small deviceLabel>Devices </small>
+      <!-- </div> -->
+    </app-card>
+  </div>
+  <!-- Assigned Devices -->
+  <h4 class="dev-ass-heading">Devices Assigned</h4>
+  <div class="card-comp">
+    <app-card>
+      <div image>
+        <img src="assets\laptopimg.jpeg" />
+      </div>
+      <h3 Name>Mac Book pro</h3>
+      <label device class="deviceCSS">Laptop</label>
+      <label deviceOS>MacOS</label>
+      <label deviceId>QWEDFRDFVCDSED23</label>
+      <span
+        deleteSymbol
+        class="material-symbols-outlined"
+        (click)="deleteEmployee()"
+        >delete</span
+      >
+    </app-card>
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary button" (click)="addDevice()">
+      Add Device
+    </button>
+  </div>
+</div>
 <router-outlet></router-outlet>

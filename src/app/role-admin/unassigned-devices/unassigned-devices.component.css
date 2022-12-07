@@ -1,0 +1,30 @@
+.card-comp {
+    width: 55%;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+   
+}
+img {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid rgb(151, 145, 145);
+}
+.assign{
+margin-left: 100px;
+margin-top: 20px;
+width:70%
+}
+.form-wrappper { 
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    padding-top: 15%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 80;
+    overflow-y: scroll;
+}

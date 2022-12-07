@@ -1,0 +1,55 @@
+ .card{
+    box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+    padding:20px;
+    background-color: #FFFFFF;
+    margin: auto;
+    border-radius: 15px;
+} 
+.left{
+    /* float:left; */
+}
+.right{
+  display:flex ;
+margin-left:5%
+}
+.contentNaming{
+display: flex;
+justify-content: space-between
+}
+.deviceInfo{
+    display: flex;
+    justify-content:flex-start;
+}
+.deviceCSS {
+
+  background-color: blue;
+  border-radius: 20px;
+  color: whitesmoke;
+  height: 30%;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+    .office-details{
+      display: flex;
+        margin-top: 6%;
+        margin-left: 2%;
+        justify-content: space-between;
+    }
+.delete{
+      margin-top: 10px;
+      margin-left: 100px;
+      color: red;
+    }
+        .device-icons {
+          display: flex;
+          margin-top: -5px;
+          color: rgb(56, 56, 202);
+          gap: 30px
+        }
+
+  @media(max-width:820px){
+    .card{
+      flex-direction:column-reverse;
+    }
+  }
+ 

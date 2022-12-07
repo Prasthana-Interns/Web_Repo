@@ -4,7 +4,7 @@
     </div>
 
     <div class="employee">
-      <div class="emp-list" *ngIf="employees; else err">
+   <div class="emp-list" *ngIf="employees; else err">
         <div class="search-add">
           <fieldset>
             <span class="material-symbols-outlined">search</span>
@@ -15,14 +15,14 @@
             />
           </fieldset>
 
-          <div class="add" (click)="addEmpoyee()">
+          <div class="add" (click)="addEmployee()">
             <span class="material-symbols-outlined addSymbol">person_add</span>
           </div>
         </div>
 
         <div class="emp" *ngFor="let employee of employees">
           <div class="dp">
-            {{ "MS" }}
+            {{employee.name.split(" ")[0][0] + employee.name.split(" ")[1][0]}}
           </div>
 
           <div class="details">
@@ -60,54 +60,4 @@
       </div>
     </div>
     <ng-template #err style="color: red"> error fetching data</ng-template>
-
-    <!-- add employees -->
-
-    <div class="form-wrappper" *ngIf="addForm">
-      <div class="addEmployee" style="margin-left: 10px">
-        <h2 class="addHeader">Add Employee</h2>
-        <hr />
-        <p style="text-align: center">
-          Enter details to add employee with his provided devices
-        </p>
-
-        <div class="addDetails">
-
-          <form [formGroup]="addEmploye" class="form">
-            <div class="form-group">
-                <input type="text" placeholder="Name" class="form-control" formControlName="name" required>
-                <div class="text-danger" *ngIf="addEmploye.controls['name'].touched && addEmploye.controls.name.errors['required']"><p class="textForErrorMSg">*Name is required</p></div>
-              </div>
-
-            <div class="form-group">
-               <input type="email" placeholder="Email" class="form-control" formControlName="email" required>
-                <div class="text-danger" *ngIf="addEmploye.controls['email'].touched && addEmploye.controls.email.errors['required']"><p class="textForErrorMSg">*email is required</p></div>
-              </div>
-
-            <div class="form-group">
-              <input type="number" placeholder="Phone No." class="form-control removescroll" formControlName="phoneNo" required>
-                <div class="text-danger" *ngIf="addEmploye.controls['phoneNo'].touched && addEmploye.controls.phoneNo.errors['required']"><p class="textForErrorMSg">*PhoneNo. is required</p></div>
-              </div>
-
-            <div class="form-group">
-              <input type="text" placeholder="Designation" class="form-control" formControlName="designation" required>
-                <div class="text-danger" *ngIf="addEmploye.controls['designation'].touched && addEmploye.controls.designation.errors['required']"><p class="textForErrorMSg">*Designation is required</p></div>
-              </div>
-
-            <div class="form-group ">
-                <ng-multiselect-dropdown
-                  [placeholder]="'Role'"
-                  [settings]="dropDownSettings"
-                  [data]="dropDownList">
-                </ng-multiselect-dropdown>
-              </div>
-
-           <button type="submit" class="btn btn-primary action" (click)="saveAddEmployee()">Add Employee</button>
-           <button type="submit" class="btn btn-danger action">Cancel</button>
-           
-          </form>
-        </div>
-      </div>
-      <ng-template #err style="color: red"> error fetching data</ng-template>
-    </div>
-
+<router-outlet></router-outlet>
