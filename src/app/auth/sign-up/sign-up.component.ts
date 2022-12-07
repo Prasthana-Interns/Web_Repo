@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IDropdownSettings, } from 'ng-multiselect-dropdown';
+
 import {FormArray, FormBuilder, FormControl,Validators} from '@angular/forms';
+
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -9,10 +11,14 @@ import { AuthService } from '../auth.service';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
+
 export class SignUpComponent implements OnInit {
   signUp:any;
   approve:boolean=true;
   constructor(private au:AuthService, private route:Router, private fb: FormBuilder){}
+
+
+
   dropdownList = [
     { item_id: 1, item_text: 'Employee'},
     { item_id: 2, item_text: 'Admin'},
@@ -22,8 +28,10 @@ export class SignUpComponent implements OnInit {
     textField: 'item_text',
     enableCheckAll: true,
   };
+
   ngOnInit(){
   this.signUp = this.fb.group ({
+
     name: new FormControl(null,[Validators.required]),
     email: new FormControl(null,[Validators.required,Validators.email]),
     phoneNo: new FormControl(null,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
@@ -33,7 +41,6 @@ export class SignUpComponent implements OnInit {
   })
   console.log(this.signUp)
   }
-
   submitSignUp(){ 
     console.log("qwerf")
   console.log(this.signUp.value)
@@ -52,8 +59,8 @@ export class SignUpComponent implements OnInit {
      })
      this.route.navigate(["/auth/login"]); 
    }
-   
 }
 
 }
+
 

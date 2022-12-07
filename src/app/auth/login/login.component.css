@@ -10,7 +10,7 @@
    box-sizing: content-box;
 }
 body{
-   background-color: #c0eae5;
+   background-color: #F0F1F5;
    width:100%;
    position: fixed;
    height: 100%;
@@ -27,7 +27,7 @@ body{
      margin:1rem 0rem 1rem 3rem; 
 }
 .row{
-    background: white; 
+    background: #FFFFFF; 
     border-radius: 0.3rem;
  }
 .col-lg-7{

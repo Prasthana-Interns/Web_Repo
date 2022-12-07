@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
+
 
 
 @Injectable({
@@ -14,20 +16,27 @@ export class AuthService {
   public resetPassUrl="http://13.251.95.54:3000/reset_password"
 
 
+
+
+
 postEmp(body:any){
 return this.http.post(this.signUpUrl,body)
 }
 
+
 getToken(){
   return localStorage.getItem('token')
+
 }
 
 logInEmp(body:any){
   return this.http.post(this.signInUrl,body)
 }
 
+
 resetPasswordEmp(body:any){
   return this.http.put(this.resetPassUrl,body)
 }
+
 
 }
