@@ -16,6 +16,7 @@
         <div class="row no-gutters">
           <div class="">
             <img src="assets\INVENTORY 1.jpg" class="invImg" alt="Inventory App" width="150" height="20">
+            <p class="errorMsg">{{alertMsg}}</p>
             <h6 class="font-weight-bold header">Login to Your Account</h6>
             <form [formGroup]="login">
               <div class="inputLog">
@@ -29,7 +30,6 @@
               <div>
                 <button type="button" class="btn1" (click)="submitLogin()"> Sign In </button>
               </div>
-              <p style="padding-left: 9rem; color:red">{{alertMsg}}</p>
               <a class="fpName"href="#"  routerLink="/reset" routerLinkActive="active">Forgot Password?</a>
               <p class="signUpName">Don't have an account?<a href="#" routerLink="/signup" routerLinkActive="active">SignUp</a></p>
             </form>

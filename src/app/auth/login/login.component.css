@@ -16,7 +16,7 @@ body{
    height: 100%;
 }
 .invImg{
-    padding: 2.5rem 0rem 1rem 9.5rem;
+    padding: 2.5rem 0rem 0.5rem 9.5rem;
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
@@ -44,7 +44,7 @@ input{
     height:1.7rem;
 }
 .btn1{  
-    margin:0.3rem 1rem 1.3rem 2.8rem;
+    margin:0.3rem 1rem 1rem 2.8rem;
     border:none;
     outline: none;
     height:2.5rem;
@@ -55,7 +55,7 @@ input{
     border-radius: 0.7rem;
 }
 .errorMsg{
-    padding-left: 9rem;
+    padding-left: 2.8rem;
     color:red;
 }
 .fpName{

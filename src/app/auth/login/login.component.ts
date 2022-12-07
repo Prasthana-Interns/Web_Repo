@@ -30,10 +30,9 @@ export class LoginComponent implements OnInit {
           "password": this.login.controls.password.value
         }    
       }
-      console.log(body)
+
       this.au.logInEmp(body).subscribe((res: any) => {
-        console.log(res)
-        console.log(res.token)
+       
         if (res?.userrole) {
           res?.userrole.map((res: any) => {
           

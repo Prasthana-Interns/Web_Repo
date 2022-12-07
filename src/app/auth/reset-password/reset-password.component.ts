@@ -26,8 +26,6 @@ submitResetPass(){
      "emp_id": this.resetPass.controls.empId.value
     }
     this.as.resetPasswordEmp(body).subscribe((res)=>{
-      console.log(res);
-      alert(res);
     })
 
   this.router.navigate(["/login"]);
