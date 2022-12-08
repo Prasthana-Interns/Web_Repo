@@ -46,8 +46,8 @@ export class EmployeeListComponent implements OnInit {
   getEmployees() {
     this.sevice.getEmployees().subscribe(response => {
       this.employees = response 
-    localStorage.setItem('token',"sdfitr345")
-      console.log("dfghjk")
+    // localStorage.setItem('token',"sdfitr345")
+      // console.log("dfghjk")
     }
 
       )
@@ -59,7 +59,7 @@ export class EmployeeListComponent implements OnInit {
   empDetailView(emp: any) {
     console.log(emp)
  
-    this.router.navigate(['admin/employees/',emp.id])
+    this.router.navigate(['/admin/admin/employees/',emp.id])
   }
   saveAddEmployee() {
   this.addForm=false
