@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IDropdownSettings, } from 'ng-multiselect-dropdown';
+
 import {FormArray, FormBuilder, FormControl,Validators} from '@angular/forms';
+
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -9,12 +11,15 @@ import { AuthService } from '../auth.service';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
+
 export class SignUpComponent implements OnInit {
   signUp:any;
   approve:boolean=false;
   dropdownList:any=[];
   dropdownSettings:IDropdownSettings={}
   constructor(private au:AuthService, private route:Router, private fb: FormBuilder){}
+
+
 
   ngOnInit(){
     this.dropdownList = [
@@ -27,6 +32,7 @@ export class SignUpComponent implements OnInit {
       enableCheckAll: true,
     };
   this.signUp = this.fb.group ({
+
     name: new FormControl(null,[Validators.required]),
     email: new FormControl(null,[Validators.required,Validators.email]),
     phoneNo: new FormControl(null,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
@@ -62,6 +68,8 @@ export class SignUpComponent implements OnInit {
    
 }
 
+
 }
+
 
 

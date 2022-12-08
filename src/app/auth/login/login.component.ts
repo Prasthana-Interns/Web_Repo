@@ -1,5 +1,7 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder } from '@angular/forms'
+
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -9,6 +11,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   constructor(private au: AuthService, private route: Router, private fb: FormBuilder) { }
   login: any;
   alertMsg:any;
@@ -52,8 +55,7 @@ export class LoginComponent implements OnInit {
     }
     else {
       this.alertMsg="*Invalid login details"; 
+
     }
   }
-}
-
-
+} 
