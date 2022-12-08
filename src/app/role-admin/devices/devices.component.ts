@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { devices} from 'src/app/model';
+// import { devices} from 'src/app/model';
 import { employees } from '../../employeeModel';
 import { HttpRequestService } from '../http-request.service';
 
@@ -11,7 +11,7 @@ import { HttpRequestService } from '../http-request.service';
 })
 export class DevicesComponent implements OnInit {
 
-  allDevices = devices;
+  // allDevices = devices;
   allEmployees=employees;
   
 
@@ -34,24 +34,16 @@ export class DevicesComponent implements OnInit {
   }
   getAllDevices(){
     this.http.getDevices().subscribe((res)=>{
-      this.devicesList=res;
+    this.devicesList=res;
+    console.log(res);
     })
   }
   getEmployeesToAssign(dId:any){
-    // this.http.getEmployees().subscribe((res)=>{
-    //   this.employeeList=res;
-      // this.showEmployees=true;
-      this.deviceId=dId;
-      console.log(this.deviceId);
       this.router.navigate(['/admin/admin/devices/employeePopUp'])
-
     }
-    // )
-  // }
   addDevice(){
-    console.log("asdfghjk");
-    // this.addDeviceShow=true;
     this.router.navigate(['/admin/admin/devices/add-device'])
+    this.getAllDevices();
   }
 
 

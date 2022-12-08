@@ -57,40 +57,44 @@ img{
 h2{
   font-family:Poppins,sans-serif;
 }
-  .bt_s{
-      font-size: 1.5rem;
-      font-weight: bold;
-  }
-  .material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
-  }
-  .rows{
-    width:100%;
-    margin:auto;
-    /* 
-    . */
-  }
-  label{
-    margin-bottom: 0.5rem;
+.bt_s{
+    font-size: 1.5rem;
+    font-weight: bold;
 }
-  html{
-    font-size:62.5%;
-  }
-  
-  @media(max-width:768px){
-    html{
-      font-size:45%;
-    }
-  }
+.binBtn{
+  margin-left: 3rem;
+  float:right;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+.rows{
+  width:100%;
+  margin:auto;
+  /* 
+  . */
+}
+label{
+  margin-bottom: 0.5rem;
+}
+html{
+  font-size:62.5%;
+}
 
-  @media(max-width:998px){
-    html{
-      font-size:55%;
-    }
+@media(max-width:768px){
+  html{
+    font-size:45%;
   }
+}
+
+@media(max-width:998px){
+  html{
+    font-size:55%;
+  }
+}
 
    

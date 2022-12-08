@@ -15,7 +15,6 @@
 .deviceInfo{
   display: flex;
   justify-content: space-between;
-  /* gap:2rem; */
 }
 .deviceCSS{
     background-color: blue;
@@ -38,6 +37,7 @@
 }
 .cardRightMost{
   margin-left: 5rem;
+
 }
  html{
   font-size:62.5%;

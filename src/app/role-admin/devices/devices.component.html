@@ -14,31 +14,25 @@
         (click)="addDevice()">add</span>
 
     </div>
-    <section>
-      <!-- <section *ngIf="devicesList"> -->
-      <div class="rows" *ngFor="let devices of allDevices; let f=first; let l=last">
-
+    <ng-container>
+      <div class="rows" *ngFor="let devices of devicesList; let f=first; let l=last">
         <app-card>
-
           <div image>
             <img src="{{devices?.url}}">
           </div>
-
-          <h3 deviceName>{{devices?.device_name}}</h3>
+          <h3 deviceName>{{devices?.name}}</h3>
           <label device>{{devices?.device_type}}</label>
           <label deviceOS>{{devices?.os}}</label>
-          <label deviceId>{{devices?.id}}</label>
-
-          
-
-          <div *ngIf="devices?.Assigned_to === null ||devices?.Assigned_to === '' else elseBlock" assignedTo ><a style="color:orange" (click)="getEmployeesToAssign(devices?.id)">Click here to assign</a></div>
-          <ng-template #elseBlock><label style="color:blue" assignedTo>{{"Assigned to "+devices?.Assigned_to}}</label></ng-template>
-
+          <label deviceId>{{devices?.device_no}}</label>
+          <div *ngIf="devices?.user === null ||devices?.user=== '' else elseBlock" assignedTo ><a style="color:orange" (click)="getEmployeesToAssign(devices?.id)">Click here to assign</a></div>
+          <ng-template #elseBlock><label style="color:blue" assignedTo>{{"Assigned to "+devices?.user?.name}}</label></ng-template>
           <app-employee-pop-up [deviceID]="deviceId"></app-employee-pop-up>
-          
         </app-card>
       </div>
-    </section>
+      <!-- <div>
+        <span class="material-symbols-outlined">clear</span>
+      </div> -->
+    </ng-container>
   </div>
 </div>
 <div>

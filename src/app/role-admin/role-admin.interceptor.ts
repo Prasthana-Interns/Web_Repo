@@ -18,7 +18,7 @@ export class RoleAdminInterceptor implements HttpInterceptor {
     let tokenizedReq = request.clone(
       {
       setHeaders: {
-           Authorization:`Bearer ${http.getToken()}`
+           Authorization:`${http.getToken()}`
          }
        }
       )

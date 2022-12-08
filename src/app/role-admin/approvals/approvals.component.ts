@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { last } from 'rxjs';
+import { HttpRequestService } from '../http-request.service';
 
 @Component({
   selector: 'app-approvals',
@@ -8,19 +8,33 @@ import { last } from 'rxjs';
 })
 export class ApprovalsComponent implements OnInit {
 
-  showApproval=true;
-  removeApproval=false;
-  constructor() { }
+  approvalList:any;
+
+  constructor(private httpservice:HttpRequestService) { }
 
   ngOnInit(): void {
+    this.fetchPendingEmp();
   }
 
-  acceptEmp(){
-    this.showApproval=false;
+
+  fetchPendingEmp(){
+    // this.httpservice.getApprovals().subscribe((res)=>{
+      this.httpservice.getApprovals().subscribe((res)=>{
+      console.log(res)
+      this.approvalList=res;
+    })
+  }
+  acceptEmp(id:any){
+    const body={
+      user:{
+        approved:true
+      }
+    }
+    this.httpservice.acceptApproval(id,body).subscribe((res)=>{})
     alert("approval Accepted");
   }
   rejectEmp(){
-    this.showApproval=false;
+    
     alert("approval rejected");
   }
 }

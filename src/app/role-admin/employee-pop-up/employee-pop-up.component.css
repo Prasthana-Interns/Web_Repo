@@ -23,6 +23,18 @@
     background-color: snow;
     margin-top:5rem;
     padding: 5rem;
+    height:50rem;
+    overflow-y: scroll;
+}
+.btn2{
+    border-radius:0.8rem;
+    background-color: #fd3838;
+    padding:0.5rem;
+    border:0;
+    border:0.1rem solid black;
+    color:#FFFFFF;
+    margin-bottom:5rem;
+
 }
 html{
 font-size:62.5%;

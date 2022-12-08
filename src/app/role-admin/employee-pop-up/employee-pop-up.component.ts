@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { employees } from '../../employeeModel';
+import { Router } from '@angular/router';
+import { HttpRequestService } from '../http-request.service';
 
 
 @Component({
@@ -8,10 +9,36 @@ import { employees } from '../../employeeModel';
   styleUrls: ['./employee-pop-up.component.css']
 })
 export class EmployeePopUpComponent {
-  allEmployees=employees;
+  allEmployees:any;
+  temp:any;
   @Input()deviceId:any;
 
+  constructor(private router:Router,private http:HttpRequestService){}
+
   ngOnInit(){
-    console.log(this.deviceId);
+    // console.log(this.deviceId);
+    this.fetchAssignEmployee()
   }
+  canceladdDevice(){
+    this.router.navigate(['/admin/admin/devices']);
+  }
+  fetchAssignEmployee(){
+    this.http.getListEmployee().subscribe((res)=>
+    this.allEmployees=res
+    );
+  }
+  // :3000/devices/id 
+  assignClicked(id:any){
+    this.temp=id;
+    const assignBody= {
+                    device:
+                  { 
+                    "user_id":this.temp
+                  }
+  }
+  console.log(id)
+  this.http.assignDeviceToEmployee(assignBody,id)
+  this.router.navigate(['/admin/admin/devices']);
+  }
+
 }

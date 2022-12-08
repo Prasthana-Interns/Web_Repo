@@ -40,11 +40,8 @@ import { CardComponent } from './card/card.component';
     NgMultiSelectDropDownModule.forRoot(),
     HttpClientModule,
   ],
-  providers:[HttpRequestService],
-
-  // providers: [HttpRequestService, {
-  //   provide:HTTP_INTERCEPTORS,useClass:RoleAdminInterceptor,multi:true
-  // }],
+  providers:[HttpRequestService,{  provide:HTTP_INTERCEPTORS,useClass:RoleAdminInterceptor,multi:true}],
+  
     schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA

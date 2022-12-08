@@ -2,19 +2,35 @@
     <div class="box">
         <div class="container">
             <div class="col">
-            <!-- <div class="formdiv"> -->
-                <!-- <div *ngIf="showEmployees"> -->
-                <div class="rows" *ngFor="let employeeList of allEmployees; let f=first; let l=last">
+                <div class="rows" *ngFor="let employee of allEmployees; let f=first; let l=last">
                     <app-card>
-                        <h5 deviceName>{{employeeList?.emp_name}}</h5>
-                        <label deviceId>{{employeeList?.EmpId}}</label>
-                        <label deviceos>{{employeeList?.emp_designation}}</label>
-                        <button assignButton>Assign</button>
+                        <div image style="width:4rem;height:4rem;border-radius:0.5rem;background-color:brown">
+                            <p style="display:flex;justify-content:space-around">Mc</p>
+                        </div>
+                        <h5 deviceName>{{employee?.name}}</h5>
+                        <label deviceId>{{employee?.emp_id}}</label>
+                        <label assignedTo>{{employee?.designation}}</label>
+                        <button assignButton (click)="assignClicked(employee?.id)">Assign</button>
+                        <h5 bottomMost>{{employee?.devices?.device_type |lowercase}}</h5>
+                        <ng-container bottomMost>
+                            <ng-container *ngIf="employee?.device_type  === 'laptop'">
+                                <span class="material-symbols-outlined" >laptop_mac</span></ng-container>
+                            
+                  
+                        </ng-container>
                     </app-card>
-                <!-- </div> -->
-                <!-- </div> -->
+                </div>
+                <button type="button" class="btn2" (click)="canceladdDevice()"> Cancel</button>
+                
             </div>
-            </div>
+            <!-- <div *ngIf="devices?.user === null ||devices?.user=== '' else elseBlock" assignedTo ><a style="color:orange" (click)="getEmployeesToAssign(devices?.id)">Click here to assign</a></div>
+                <ng-template #elseBlock><label style="color:blue" assignedTo>{{"Assigned to "+devices?.user?.name}}</label></ng-template> -->
+
+            <!-- <div><span class="material-symbols-outlined" >laptop_mac</span></div>
+            <div><span class="material-symbols-outlined">ev_charger</span></div>
+            <div><span class="material-symbols-outlined">backpack</span></div>
+            <div><span class="material-symbols-outlined">mouse</span></div>
+           <div><span class="material-symbols-outlined">ev_charger</span></div> -->
         </div>
     </div>
 </div>

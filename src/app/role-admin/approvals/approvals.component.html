@@ -4,44 +4,25 @@
 <div class="divs">
     <div class="container">
 
-    <div class="row">
-        <div class="card">
-            <form>
-                <h2 for="name">Name :</h2>
-                <label name="name" >{{mayur}</label>
-            </form>
-            <div style="display:flex;justify-content:flex-end">
-                <button (click)="acceptEmp()">Accept </button>
-                <button (click)="rejectEmp()">Reject</button>
-            </div>
-        </div>
-        </div>
-    
-        <div class="row">
-            <div class="card">
-                <form>
-                    <h2 for="name">Name :</h2>
-                    <label name="name" >{{chaitanya}</label>
-                </form>
-                <div style="display:flex;justify-content:flex-end">
-                    <button (click)="acceptEmp()">Accept </button>
-                    <button (click)="rejectEmp()">Reject</button>
-                </div>
-            </div>
-        </div>
+        <ng-container class="row" *ngFor="let employee of approvalList">
+            <!-- <div *ngIf="employee?.user?.approved === 'false' "> -->
+                <app-card>
+                    <div image style="width:4rem;height:4rem;background-color:rgb(177, 174, 174);border-radius: 0.2rem;">
+                        <label>MC</label>
+                    </div>
 
-        <div class="row">
-            <div class="card">
-                <form>
-                    <h2 for="name">Name :</h2>
-                    <label name="name" >{{chaitanya}</label>
-                </form>
-                <div style="display:flex;justify-content:flex-end">
-                    <button (click)="acceptEmp()">Accept </button>
-                    <button (click)="rejectEmp()">Reject</button>
-                </div>
-            </div>
-        </div>
+                    <h5 deviceName>{{employee?.name}}</h5>
+                    <label device>{{employee?.emp_id}}</label>
+                    <label deviceOS>{{employee?.user_roles}}</label>
+                    <!-- <div *ngIf="employee?.approved === false "></div> -->
+                    <!-- <label deviceId>{{employee?.user_approved}}</label> -->
 
+                    <ng-container assignButton>
+                        <button (click)="acceptEmp(employee?.id)">Accept </button>
+                        <button (click)="rejectEmp()">Reject</button>
+                    </ng-container>
+                </app-card>
+            <!-- </div> -->
+        </ng-container>
     </div>
 </div>
