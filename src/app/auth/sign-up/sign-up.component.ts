@@ -28,7 +28,8 @@ export class SignUpComponent implements OnInit {
     email: new FormControl(null,[Validators.required,Validators.email]),
     phoneNo: new FormControl(null,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
     designation:new FormControl(null,[Validators.required]),
-    role:new FormArray([new FormControl(null)])
+    role:this.fb.array([
+        new FormControl(null)])
       
   })
   console.log(this.signUp)
