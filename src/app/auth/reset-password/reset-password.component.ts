@@ -19,13 +19,13 @@ ngOnInit() {
       empId:new FormControl(null,[Validators.required,Validators.minLength(7),Validators.maxLength(7)]),
   })
 }
-
 submitResetPass(){
   if(this.resetPass.valid){
   let body={
      "emp_id": this.resetPass.controls.empId.value
     }
     this.as.resetPasswordEmp(body).subscribe((res)=>{
+      console.log(res)
     })
 
   this.router.navigate(["/login"]);

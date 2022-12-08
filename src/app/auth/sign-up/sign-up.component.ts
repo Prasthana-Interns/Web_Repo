@@ -11,28 +11,34 @@ import { AuthService } from '../auth.service';
 })
 export class SignUpComponent implements OnInit {
   signUp:any;
-  approve:boolean=true;
+  approve:boolean=false;
+  dropdownList:any=[];
+  dropdownSettings:IDropdownSettings={}
   constructor(private au:AuthService, private route:Router, private fb: FormBuilder){}
-  dropdownList = [
-    { item_id: 1, item_text: 'Employee'},
-    { item_id: 2, item_text: 'Admin'},
-  ];
-  dropdownSettings = {
-    idField: 'item_id',
-    textField: 'item_text',
-    enableCheckAll: true,
-  };
+
   ngOnInit(){
+    this.dropdownList = [
+      { item_id: 1, item_text: 'Employee'},
+      { item_id: 2, item_text: 'Admin'},
+    ];
+    this.dropdownSettings = {
+      idField: 'item_id',
+      textField: 'item_text',
+      enableCheckAll: true,
+    };
   this.signUp = this.fb.group ({
     name: new FormControl(null,[Validators.required]),
     email: new FormControl(null,[Validators.required,Validators.email]),
     phoneNo: new FormControl(null,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
     designation:new FormControl(null,[Validators.required]),
-    role:this.fb.array([
-        new FormControl(null)])
-      
+    roles:this.fb.array([
+      // new FormControl(null)
+    ]), 
   })
   console.log(this.signUp)
+  }
+  get roles():FormArray{
+    return this.signUp.get("roles") as FormArray
   }
 
   submitSignUp(){ 
@@ -47,7 +53,7 @@ export class SignUpComponent implements OnInit {
                         "designation":this.signUp.controls.designation.value,
                         "approved": this.approve,         
                       },
-                        "roles":this.signUp.controls.role.value
+                        "roles":this.signUp.controls.roles.value
               }
      this.au.postEmp(body).subscribe((res:any)=>{
      })
