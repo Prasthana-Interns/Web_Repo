@@ -16,6 +16,7 @@
             <form [formGroup]="signUp">
               <div class="inputSignUp">
                 <input type="text" placeholder="Name" class="form-control" formControlName="name" required>
+
                 <div class="text-danger" *ngIf="signUp?.controls?.name.touched && signUp?.controls?.name?.errors"><p class="textForErrorMSg">*Name is required</p></div>
               </div>
               <div class="inputSignUp">
@@ -29,6 +30,7 @@
               <div class="inputSignUp">
                 <input type="text" placeholder="Designation" class="form-control" formControlName="designation" required>
                 <div class="text-danger" *ngIf="signUp.controls?.designation.touched && signUp?.controls?.designation?.errors"><p class="textForErrorMSg">*Designation is required</p></div>
+
               </div>   
               <div class="dropDown">
                 <ng-multiselect-dropdown
