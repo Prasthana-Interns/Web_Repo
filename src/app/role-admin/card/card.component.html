@@ -1,0 +1,31 @@
+<div class="card">
+    <div style="display:flex;">
+        <div class="left">
+            <ng-content select="[image]"></ng-content>
+        </div>
+
+        <div class="right">
+            <div class="content">
+                <div style="display:flex;justify-content:space-between;">
+                    <ng-content select="[deviceName]"></ng-content>
+                    <ng-content select="[device]" class="deviceCSS"></ng-content>
+                </div>
+                <ng-content select="[deviceOS]"></ng-content>
+
+                <div class="deviceInfo">
+                    <ng-content select="[deviceId]"></ng-content>
+                    <ng-content select="[assignedTo]"></ng-content>
+                </div>
+                
+            </div>
+            <div class="cardRightMost">
+                <ng-content select="[assignButton]"></ng-content>
+            </div>
+        </div>
+        
+    </div>
+    <div>
+        <ng-content select="[bottomMost]"></ng-content>
+    </div>
+
+</div>

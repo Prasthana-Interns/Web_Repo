@@ -1,83 +1,67 @@
-<h1>Add Device</h1>
-<div>
-  <section>
-      <div class="container">
-        <div class="row no-gutters">
-          <div class="formdiv">
-            <form [formGroup]="addDevice">
-                <label for="name">Name</label><br>
-                <input type="text" placeholder=" Device Name" class="form-control" name="name" required><br>
+<div class="blurDiv" *ngIf="showAddDeviceForm">
+  <div class="box">
+    <section>
+      <h1>Add Device</h1>
+    </section>
+    <hr>
+    <div class="container">
+      <div class="row">
+        <div class="formdiv">
+          <form [formGroup]="addDeviceBody">
 
-                <label for="deviceType">Device Type</label><br>
-                <input type="text" placeholder="Device Type" class="form-control" name="deviceType" required><br>
+            <label for="name"> Device Name</label><br>
+            <div class="form-group">
+              <input type="text" placeholder=" Device Name" class="form-control" formControlName="name" required><br>
+              <div class="text-danger"
+                *ngIf="addDeviceBody?.controls?.name?.touched && addDeviceBody?.controls?.name?.errors">
+                <p class="textForErrorMSg">*Device Name is required</p>
+              </div>
+            </div>
 
-                <label for="os">OS</label><br>
-                <input type="text" placeholder="OS" class="form-control removescroll" name="os"><br>
+            <label for="deviceType">Device Type</label><br>
+            <div class="form-group">
+              <input type="text" placeholder="Device Type" class="form-control" formControlName="deviceType"
+                required><br>
+              <div class="text-danger"
+                *ngIf="addDeviceBody?.controls?.deviceType?.touched && addDeviceBody?.controls?.deviceType?.errors">
+                <p class="textForErrorMSg">*Device type is required</p>
+              </div>
+            </div>
 
-                <label for="serviceTag">Device Id</label><br>
-                <input type="text" placeholder="Service Tag" class="form-control" name="serviceTag" required><br>
-  
-                <label for="assignedTo">Assigned To</label><br>
-                <input type="text" placeholder="Employee Id" class="form-control" name="assignedId"><br>
-                
-                <button type="button" class="btn1" (click)="submitAddDevice()"> Add Device</button>
-            </form>
-          </div>
+            <label for="os">OS</label><br>
+            <div class="form-group">
+              <input type="text" placeholder="OS" class="form-control removescroll" formControlName="os"><br>
+            </div>
+
+            <!-- <label for="serviceTag">Device Id</label><br>
+            <div class="form-group">
+            <input type="text" placeholder="Device Id" class="form-control" name="serviceTag" required><br>
+            <div class="text-danger" *ngIf="addDeviceBody.controls['serviceTag'].touched && addDeviceBody.controls.serviceTag.errors['required']"><p class="textForErrorMSg">*Service Tag is required</p></div>
+            </div> -->
+
+            <label for="assignedTo">Assigned To</label><br>
+            <div class="dropDown">
+              <ng-multiselect-dropdown
+                [placeholder]="'Employee'"
+                [settings]="dropdownSettings"
+                [data]="dropdownList"
+                formControlName="user_id">
+              </ng-multiselect-dropdown>
+            </div>
+            <!-- <div class="form-group">
+              <input type="number" placeholder="Employee Id" class="form-control" formControlName="user_id"><br>
+            </div> -->
+
+            <div class="buttonDiv">
+              <button type="button" class="btn1" (click)="submitAddDevice()"> Add Device</button>
+              <button type="button" class="btn2" (click)="canceladdDevice()"> Cancel</button>
+            </div>
+
+
+          </form>
         </div>
       </div>
-  </section>
+      <ng-template #err style="color: red"> error fetching data</ng-template>
+    </div>
+  </div>
 </div>
-
-
-
-
-<!-- <div class="addemployee"  style="margin-left: 10px;">
-  <h2 style="text-align:center;color:rgb(128, 128, 237)">Add Employee</h2>
-  <hr>
-  <p style="text-align:center;">Enter  details to add employee with his provided devices</p>
-  
-   <div class="adddetails">
-
-<form  class="form">
-  <div class="form-group">
-  <label for="name"> Name : </label>
-  <input type="text" class="form-control col-8" placeholder="Enter employee name">
-  </div>
-
-  <div class="form-group">
-  <label for="email"> Email : </label>
-  <input type="email" class="form-control col-8" placeholder="Enter email">
-  </div>
-
-  <div class="form-group">
-  <label for="name"> Designation : </label>
-  <input type="text" class="form-control col-8" placeholder="  Enter employee Designation">
-  </div>
-
-  <div class="form-group">
-  <label for="name"> Phone Number : </label>
-  <input type="text" class="form-control col-8" placeholder="enter mobile number">
-  </div> -->
-<!-- 
-  <div class="form-group">
-  <label for="name"> EMP ID : </label>
-  <input type="text" class="form-control col-8" placeholder=" ex.  EMP-001">
-  </div> -->
-
-  <!-- <div class="form-group">
-  <label for="name"> Role : </label>
-  <select class="form-control col-8" >
-  <option value="selected"> Select Employee Role</option>
-  <option value="1">Employee</option>
-  <option value="2">Admin</option>
-  </select>
-  </div>
-
- <div >
-   <button type="button" class="btn btn-primary" style="margin-left:20px ;">Add Employee</button>
-   <button type="button" class="btn btn-danger" style="margin-left: 200px;" >Cancel</button>
- </div>
-
-</form>
-   </div>  
-</div> -->
