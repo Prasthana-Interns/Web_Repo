@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import {  Router } from '@angular/router';
+=======
+import {  Router, TitleStrategy } from '@angular/router';
+import {FormControl,FormGroup,Validators} from '@angular/forms';
+>>>>>>> dev
 import { HttpRequestService } from '../http-request.service';
 
 @Component({
@@ -18,7 +23,15 @@ export class EmployeeListComponent implements OnInit {
   getEmployees() {
     this.sevice.getEmployees().subscribe(response => {
       this.employees = response 
+<<<<<<< HEAD
     })
+=======
+
+    localStorage.setItem('token',"sdfitr345")
+      console.log("dfghjk")
+    })
+
+>>>>>>> dev
   }
   addEmployee() {
     this.router.navigate(['/admin/admin/employees/add-employee'])

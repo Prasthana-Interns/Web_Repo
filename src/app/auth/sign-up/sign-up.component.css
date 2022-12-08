@@ -1,7 +1,7 @@
 .sec{
-    padding-top: 2rem;
+    padding-top: 4rem;
     margin: auto;
-    width:35rem;
+    width:33rem;
 }
 *{
    padding: 0rem;
@@ -22,9 +22,9 @@ body{
 }
 .heading{
     font-weight: 700;
-    padding-left:14.5rem;
+    padding-left:13.8rem;
     margin:1rem 0rem 2rem 0rem;
-    color:#403df9;
+    color:#6562fc;
 }
 .row{
     background: #FFFFFF;
@@ -36,25 +36,27 @@ body{
 }
 .inputSignUp{
     width:25rem;
-    height:3rem;
     padding-left:3.5rem ;
-    margin-bottom:1.7rem;
+
+    margin-bottom:1.8rem;
+
 }
 input::-webkit-inner-spin-button {
     -webkit-appearance:none;
 }
 input{
     margin-left: 0rem;
+    height:1.7rem;
 }
 .textForErrorMSg{
     font-size: 1rem;
 }
 .btn1{
-    margin:2rem 0px 1rem 7rem;
+    margin:1.5rem 0px 1rem 7rem;
     border:none;
     outline: none;
     height:2.5rem;
-    width:20rem;
+    width:18rem;
     background-color: #6563FF;
     color:white;
     font-weight: bold;
@@ -62,7 +64,7 @@ input{
     text-decoration: none;
 }
 .backtologin{
-    padding-left:14rem;
+    padding-left:13rem;
 }
 .dropDown{
     width:26.8rem;
@@ -71,9 +73,6 @@ input{
 }
 input.ng-touched.ng-invalid{
     border:1px solid red;
-}
-input.ng-touched.ng-valid{
-    border:1px solid green;
 }
 .text-danger{
     color:red;

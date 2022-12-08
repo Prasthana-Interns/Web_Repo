@@ -1,7 +1,6 @@
 .sec{
     display: flex;
     align-items: center;
-    text-align: center;
     height: 100%;
     width: 30%
 }
@@ -9,46 +8,66 @@
    padding: 0;
    margin: 0;
    box-sizing: content-box;
-  }
+}
 body{
    background-color: #F0F1F5;
    width:100%;
    position: fixed;
    height: 100%;
-  }
+}
 .invImg{
-    padding-left: 5.8rem;
+    padding: 2.5rem 0rem 0.5rem 9.5rem;
+    display: flex;
+    align-items: center;
     margin-bottom: 2rem;
     width:150;
     height:20;
-  }
+
+}
+.header{
+     margin:1rem 0rem 1rem 3rem; 
+}
+
 .row{
     background: #FFFFFF; 
     border-radius: 0.3rem;
-    display: flex;
-    align-items: center;
-
-    }
+ }
 .col-lg-7{
-    padding-left: 8rem;
+    padding-right:10rem;
     margin-top: 2.5rem; 
-    }
+}
 .inputLog{
     width:20rem;
-    height:3 rem;
-    margin-bottom:1.3rem;
-       }
+
+    height:3rem;
+    margin-bottom:1rem;
+    padding-left: 2.8rem;
+}
+input{
+    height:1.7rem;
+}
+
 .btn1{  
-    margin:0rem 0rem 1.8rem 0.2rem;
+    margin:0.3rem 1rem 1rem 2.8rem;
     border:none;
     outline: none;
     height:2.5rem;
-    width:21.5rem;
+    width:21.8rem;
     background-color: #6563FF;
     color:white;
     font-weight: bold;
     border-radius: 0.7rem;
-   }
+}
+.errorMsg{
+    padding-left: 2.8rem;
+    color:red;
+}
+.fpName{
+    margin-left: 10rem;
+}
+.signUpName{
+    margin:0.5rem 0rem 2rem 6rem;
+}
 input.ng-touched.ng-invalid{
     border:0.09rem solid red;
 }
