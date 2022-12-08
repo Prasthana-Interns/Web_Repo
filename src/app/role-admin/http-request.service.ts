@@ -1,25 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { EmpInterface } from '../employeeI';
-
 @Injectable({
   providedIn: 'root'
 })
 export class HttpRequestService {
 
-  private url='assets/emplist/employeeListView.json'
+  private employeeList_url = 'http://13.251.95.54:3000/users'
+
+  
 
   constructor(private http_: HttpClient) { }
   
-  getEmployees():Observable<EmpInterface[]>{
-      return this.http_.get<EmpInterface[]>(this.url)
+  getEmployees() {
+    return this.http_.get(this.employeeList_url)
     }
-  getEmployeById(id: any): Observable<EmpInterface[]>{
-    return this.http_.get<EmpInterface[]>(this.url + '/' + id)
+  getEmployeById(id: any) {
+    console.log(this.http_.get('http://13.251.95.54:3000/users/'+id))
+    return this.http_.get('http://13.251.95.54:3000/users/'+id)
+    
   }
   addEmployee(body:any) {
-    return this.http_.post(this.url,body)
+    return this.http_.post('http://13.251.95.54:3000/users/singup',body)
   }
   getToken() {
     return localStorage.getItem('token')

@@ -1,26 +1,60 @@
-import { Component } from '@angular/core';
-import {FormGroup,FormControl, Validators} from '@angular/forms'
+import { IfStmt } from '@angular/compiler';
+import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators, FormBuilder} from '@angular/forms'
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  constructor(private route:Router){ }
-
-login:any= new FormGroup({
+export class LoginComponent implements OnInit {
+  constructor(private au:AuthService, private route:Router, private fb: FormBuilder){ }
+  login: any;
+ngOnInit(){
+this.login= this.fb.group({
       empId:new FormControl(null,[Validators.required,Validators.minLength(7),Validators.maxLength(7)]),
       password:new FormControl(null,[Validators.required,Validators.minLength(4)]),
+      
 })
-submitLogin(){
-  if(this.login.valid){
-    this.route.navigate(["/admin"]);
-  }
-  else{
-    alert("Invalid EmpId or Password")
-  }
+console.log(this.login);
 }
+
+
+submitLogin(){
+  console.log(this.login)
+  if(this.login.valid){
+
+    let body= { 
+               "user": {
+                         "emp_id": this.login.controls.empId.value,
+                         "password":this.login.controls.password.value               
+                       }
+              }
+              console.log(body)
+this.au.logInEmp(body).subscribe((res:any)=>{
+  console.log(res);
+  console.log(res.token);
+  if(res?.userrole){
+    res?.userrole.map((res: any)=>{
+      console.log(res)
+      if(res?.role_type === 'Admin' ){
+        console.log()
+      }else if(res?.role_type === 'Employee'){
+
+      }
+    })
+  }
+  localStorage.setItem('token', res.token)
+})
+
+  this.route.navigate(["/admin/admin/employees"]);
+    }
+    else {
+      alert("Invalid EmpId or Password")
+    }
+  }
+
 
 }

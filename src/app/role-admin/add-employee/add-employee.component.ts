@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import {FormControl,FormGroup,Validators} from '@angular/forms';
+import { Component, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
+import { IDropdownSettings, } from 'ng-multiselect-dropdown';
+import {FormArray, FormBuilder, FormControl,Validators} from '@angular/forms';
 import { HttpRequestService } from '../http-request.service';
 
 @Component({
@@ -8,52 +9,51 @@ import { HttpRequestService } from '../http-request.service';
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.css']
 })
-export class AddEmployeeComponent {
- employees: any;
+export class AddEmployeeComponent  implements OnInit {
   addForm: any = false;
-  laptop: any;
-  id: any
-  
-  name:string="";
-  email:any;
-  phoneNo:number | undefined;
-  designation:string="";
+  id: any;
+  addEmployeeForm: any;
   approve:boolean=true;
-  role=[];
- constructor(private sevice: HttpRequestService,private router:Router) { }
+ constructor(private sevice: HttpRequestService,private router:Router,private fb: FormBuilder) { }
 
-  addEmployeeForm: any = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    phoneNo: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
-    designation: new FormControl('', [Validators.required]),
-  })
-
-  dropDownList = [
-    { item_id: 1, item_text: 'Employee' },
-    { item_id: 2, item_text: 'Admin' },
-  ]
-  
-  dropDownSettings = {
+  dropdownList = [
+    { item_id: 1, item_text: 'Employee'},
+    { item_id: 2, item_text: 'Admin'},
+  ];
+  dropdownSettings = {
     idField: 'item_id',
     textField: 'item_text',
+    enableCheckAll: true,
+  };
+  
+  ngOnInit() {
+    this.addEmployeeForm =  this.fb.group ({
+    name: new FormControl(null,[Validators.required]),
+    email: new FormControl(null,[Validators.required,Validators.email]),
+    phoneNo: new FormControl(null,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
+    designation:new FormControl(null,[Validators.required]),
+    role:new FormArray([new FormControl(null)])
+      
+  })
   }
    addEmployee() {
-    this.addForm = false;
-    let body= { 
-                 "user": {
-                         "name": this.name,
-                         "phone_number": this.phoneNo,
-                         "designation":this.designation,
-                         "email": this.email,
-                         "approved": this.approve,
-                         "roles":this.role,           
-                         }
-              }
-     this.sevice.addEmployee(body).subscribe((res:any)=>{
-     })
+     this.addForm = false;
+     if(this.addEmployeeForm.valid){
+       let body = {
+         "user": {
+           "name": this.addEmployeeForm.controls.name.value,
+           "phone_number": this.addEmployeeForm.controls.name.value,
+           "designation": this.addEmployeeForm.controls.name.value,
+           "email": this.addEmployeeForm.controls.name.value,
+           "approved": this.approve,
+         },
+        //  "roles": this.addEmployeeForm.controls.name.value,
+         "roles":null
+       }
+     this.sevice.addEmployee(body).subscribe((res:any)=>{  })
      this.router.navigate(['admin/admin/employees'])
-  }
+     }
+   }
   cancelForm() {
   this.router.navigate(['admin/admin/employees'])
   }

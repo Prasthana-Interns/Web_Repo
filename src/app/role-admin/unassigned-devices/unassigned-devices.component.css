@@ -1,5 +1,5 @@
 .card-comp {
-    width: 55%;
+    width: 80%;
     margin: auto;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -12,9 +12,9 @@ img {
     border: 1px solid rgb(151, 145, 145);
 }
 .assign{
-margin-left: 100px;
+margin-left: 2%;
 margin-top: 20px;
-width:70%
+width:100%
 }
 .form-wrappper { 
     justify-content: center;
@@ -27,4 +27,15 @@ width:70%
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 80;
     overflow-y: scroll;
+}
+.popUp{
+    background-color: white;
+    width:45%;
+    margin:auto;
+    border-radius:10px
+}
+@media(max-width:820px){
+    .card-comp{
+        flex-direction: column;
+    }
 }

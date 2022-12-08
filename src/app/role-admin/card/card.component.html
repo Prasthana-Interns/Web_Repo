@@ -1,4 +1,4 @@
-<div class="card-Componet">
+<!-- <div class="card-Componet" style="margin-bottom:15px ;">
   <div class="card">
     <div style="display: flex">
       <div class="left">
@@ -6,27 +6,44 @@
       </div>
 
       <div class="right">
-        <div class="content">
+        <div class="content" style="display:flex">
           <div>
             <ng-content select="[Name]"></ng-content>
             <ng-content select="[deviceOS]"></ng-content>
             <ng-content select="[email]"></ng-content>
             <ng-content select="[phoneNo]"></ng-content>
+               <div class="office-details">
+      <div style="justify-content:space-around">
+        <ng-content select="[empId]"></ng-content
+        ><ng-content select="[empIdLabel]"></ng-content>
+      </div>
+      <div>
+        <ng-content select="[designation]"></ng-content
+        ><ng-content select="[designationLabel]"></ng-content>
+      </div>
+
+      <div>
+        <ng-content select="[deviceSymbols]"></ng-content>
+        <ng-content select="[deviceLabel]"></ng-content>
+      </div>
+    </div>
+         
           </div>
+          
+   
           <div class="deviceInfo">
             <ng-content select="[deviceId]"></ng-content>
             <ng-content select="[assignedTo]"></ng-content>
           </div>
         </div>
-        
-          <ng-content select="[device]"></ng-content>
-      
+
+        <ng-content select="[device]"></ng-content>
+
         <div class="delete">
           <ng-content select="[deleteSymbol]"></ng-content>
           <ng-content select="[assign]"></ng-content>
         </div>
       </div>
-      <div></div>
     </div>
 
     <div class="office-details">
@@ -40,15 +57,9 @@
       </div>
 
       <div>
-        <div class="device-icons">
-          <!-- <ng-content select="[devicesIcons]"></ng-content> -->
-          <ng-content select="[laptop]"></ng-content>
-          <ng-content select="[bag]"></ng-content>
-          <ng-content select="[charger]"></ng-content>
-          <ng-content select="[mouse]"></ng-content>
-        </div>
+        <ng-content select="[deviceSymbols]"></ng-content>
         <ng-content select="[deviceLabel]"></ng-content>
       </div>
     </div>
   </div>
-</div>
+</div> -->

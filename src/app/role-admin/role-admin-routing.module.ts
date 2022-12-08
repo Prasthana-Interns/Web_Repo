@@ -23,10 +23,7 @@ const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:
                                      },
                                     { path: 'employees/:id', component: EmpDetailViewComponent,
                              children:[{path: 'unassigned-devices', component: UnassignedDevicesComponent}]},
-                                 
-                            { path: 'employee-details', component: EmpDetailViewComponent,
-                             children:[{path: 'unassigned-devices', component: UnassignedDevicesComponent}]},
-                                 ]
+                         ]
                          },
                         ];
 

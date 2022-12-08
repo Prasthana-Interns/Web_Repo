@@ -18,26 +18,24 @@ export class EmpDetailViewComponent  implements OnInit{
   ngOnInit() {
     
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      let ids=params.get('id');
-      this.ids = 'id';
-      console.log(ids)
-    }
-    )
+      let id=params.get('id');
+      this.ids =id;
+      console.log(id)
+    })
      this. getDetailsById()
   }
   
 
   getDetailsById() {
     console.log("hiii")
-    // this.service.getEmployees().subscribe(res=>{  console.log(res)})
     this.service.getEmployeById(this.ids).subscribe(response => {
       this.employeeData = response;
-       console.log(response);
+      console.log(this.employeeData );
     })
   }
   addDevice() {
-  //  this. unAssaignDevices = false;
-   this.router.navigate(['/admin/admin/employees/employee-details/unassigned-devices'])
+    console.log("unassgned devices")
+   this.router.navigate(['/admin/admin/employees/'+this.employeeData.id+'/unassigned-devices'])
   }
   deleteEmployee() {
   } 

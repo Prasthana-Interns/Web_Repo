@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-unassigned-devices',
@@ -7,9 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./unassigned-devices.component.css']
 })
 export class UnassignedDevicesComponent {
-  constructor(private router: Router) { }
+  constructor(private router: Router,private activatedRoute:ActivatedRoute) { }
   
   assign() {
     this.router.navigate(['admin/admin/employees/employee-details'])
   }
+  
 }

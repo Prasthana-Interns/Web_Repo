@@ -1,63 +1,93 @@
+<div class="compHeader">
+  <label>Employees</label>
+</div>
 
-    <div class="compHeader">
-      <label>Employees</label>
+<div class="employee">
+  <div class="emp-list" *ngIf="employees; else err">
+    <div class="search-add">
+      <fieldset>
+        <span class="material-symbols-outlined search">search</span>
+        <input
+          type="text"
+          placeholder="Search for Employee"
+          class="searchBox"
+        />
+      </fieldset>
+      <div class="add" (click)="addEmployee()">
+        <span class="material-symbols-outlined addSymbol">person_add</span>
+      </div>
     </div>
 
-    <div class="employee">
-   <div class="emp-list" *ngIf="employees; else err">
-        <div class="search-add">
-          <fieldset>
-            <span class="material-symbols-outlined">search</span>
-            <input
-              type="text"
-              placeholder="Search for Employee"
-              class="searchBox"
-            />
-          </fieldset>
+<!-- ....................................... -->
+<div style="margin-top:10px">
+<app-card>
+   <div image class="dp">{{"MS"}}</div>
+   <h3 Name>{{"Swarna"}}</h3>
+   <label empId> EMP-006</label>
+   <label designation> Intern</label>
+   <div  deviceSymbols    style="color:blue ; display:flex ;">
+      <span device class="material-symbols-outlined">laptop_mac</span>
+      <span bag class="material-symbols-outlined">ev_charger</span>
+      <span charger class="material-symbols-outlined">backpack</span>
+      <span mouse class="material-symbols-outlined">phone_iphone</span>
+   </div>
 
-          <div class="add" (click)="addEmployee()">
-            <span class="material-symbols-outlined addSymbol">person_add</span>
-          </div>
-        </div>
 
-        <div class="emp" *ngFor="let employee of employees">
-          <div class="dp">
-            {{employee.name.split(" ")[0][0] + employee.name.split(" ")[1][0]}}
-          </div>
+    
+</app-card>
 
-          <div class="details">
-            <h5>{{employee.name}}</h5>
-            <div class="singleline">
-              <ul class="list">
-                <li>
-                 <small class="text">{{ employee.id }}</small>
-                </li>
-                <li style="margin-left: 30px">
-                  <small>{{ employee.designation}}</small>
-                </li>
-              </ul>
+</div>
 
-              <div class="devices">
-                <div>
-                  <span class="material-symbols-outlined">laptop_mac</span>
-                </div>
-                <div>
-                  <span class="material-symbols-outlined">ev_charger</span>
-                </div>
-                <div>
-                  <span class="material-symbols-outlined hello">backpack</span>
-                </div>
-                <div>
-                  <span class="material-symbols-outlined hello">mouse</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div (click)="empDetailView(employee)">
-            <span class="material-symbols-outlined detailview" >arrow_forward_ios</span>
+
+<!-- ....................................... -->
+    <div class="emp" *ngFor="let employee of employees">
+    <div style="display:flex ;justify-content:flex-start">
+      <div class="dp">
+        <h3>{{ employee.name.split("")[0] }}</h3>
+      </div>
+
+      <div class="details">
+        <h4>{{ employee.name }}</h4>
+        <div class="singleline">
+          <ul class="list" style="justify-content: space-between">
+            <li class="text">{{ employee.emp_id }}</li>
+            <li class="text">{{ employee.designation }}</li>
+          </ul>
+          <div class="devices" *ngFor="let device of employee.devices">
+            <span
+              *ngIf="device?.device_type === 'laptop'"
+              class="material-symbols-outlined"
+              >laptop_mac</span
+            >
+            <span
+              *ngIf="device?.device_type === 'laptop'"
+              class="material-symbols-outlined"
+              >ev_charger</span
+            >
+            <span
+              *ngIf="device?.device_type === 'bag'"
+              class="material-symbols-outlined"
+              >backpack</span
+            >
+            <span
+              *ngIf="device?.device_type === 'mobile'"
+              class="material-symbols-outlined"
+              >phone_iphone</span
+            >
           </div>
         </div>
       </div>
+      </div>
+      <div
+        (click)="empDetailView(employee)"
+        style="display: flex; align-items: baseline; justify-content: end"
+      >
+        <span class="material-symbols-outlined detailview"
+          >arrow_forward_ios</span
+        >
+      </div>
     </div>
-    <ng-template #err style="color: red"> error fetching data</ng-template>
+  </div>
+</div>
+<ng-template #err style="color: red"> error fetching data</ng-template>
 <router-outlet></router-outlet>
