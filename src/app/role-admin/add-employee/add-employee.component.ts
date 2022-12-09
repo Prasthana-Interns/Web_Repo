@@ -14,7 +14,7 @@ export class AddEmployeeComponent  implements OnInit {
   id: any;
   addEmployeeForm: any;
   approve:boolean=true;
- constructor(private sevice: HttpRequestService,private router:Router,private fb: FormBuilder) { }
+ constructor(private httpService: HttpRequestService,private router:Router,private fb: FormBuilder) { }
 
   dropdownList = [
     { item_id: 1, item_text: 'Employee'},
@@ -47,10 +47,9 @@ export class AddEmployeeComponent  implements OnInit {
            "email": this.addEmployeeForm.controls.name.value,
            "approved": this.approve,
          },
-        //  "roles": this.addEmployeeForm.controls.name.value,
          "roles":null
        }
-     this.sevice.addEmployee(body).subscribe((res:any)=>{  })
+     this.httpService.post(`users/signup`,body).subscribe((res:any)=>{  })
      this.router.navigate(['admin/admin/employees'])
      }
    }

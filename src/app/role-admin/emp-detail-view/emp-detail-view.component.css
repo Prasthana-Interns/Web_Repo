@@ -6,7 +6,6 @@ background-color: #ABAEB6;
 }
 
 .employee-details {
-
     padding-top: 10px;
     background-color: #F0F1F5;
     margin: auto;
@@ -15,19 +14,9 @@ background-color: #ABAEB6;
     height: 590px;
     scroll-behavior: smooth;
 }
-
-.whole-det {
-    width: 50%;
-    background-color: white;
-    border-radius: 20px;
-    padding: 15px;
-    margin: auto;
-    margin-bottom: 40px;
-    border: 1px ;
-    box-shadow: 1px 1px 2px rgb(91, 91, 93);
-        
+.name{
+font-weight: bold;
 }
-
 .dp-Det {
     width: 85px;
     height: 80px;
@@ -39,25 +28,10 @@ background-color: #ABAEB6;
     font-size: 35px;
     display: flex;
 }
-
-.personal-details {
-    display: flex;
-    margin-bottom: 15px;
-}
-
-.details {
-    margin: 20px
-}
-
-.name {
-    margin-top: -10px;
-}
-
 small {
     display: flex;
     font-size: 18px;
 }
-
 .office-details {
 
     padding-left: 30px;
@@ -65,7 +39,6 @@ small {
     justify-content: space-between;
       
 }
-
 .delete {
     margin-top: 10px;
     margin-left: 10%;
@@ -83,22 +56,25 @@ small {
 }
 
 .div-icons {
+color: blue;
     display: flex;
-    margin-top: -5px;
-    color: rgb(56, 56, 202);
-    gap: 30px
+    padding-right: 10px;
+    gap: 5px
 }
 .card-comp{
     width:55%;
     margin: auto;
     margin-bottom: 20px;
-    border-radius: 10px;
+    border-radius: 10px;  
 }
 img {
-    height: 100px;
+    height: 110px;
     width: 100px;
     border-radius: 10px;
     border: 1px solid rgb(151, 145, 145);
+}
+.marginPurpose{
+margin-top: 40px
 }
 .button {
     margin-left: 320px;

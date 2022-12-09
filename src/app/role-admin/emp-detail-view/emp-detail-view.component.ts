@@ -8,34 +8,30 @@ import { HttpRequestService } from '../http-request.service';
   styleUrls: ['./emp-detail-view.component.css']
 })
 export class EmpDetailViewComponent  implements OnInit{
-  empDetailForm: any = true;
+  public empDetailForm: any = true;
   public ids: any;
-  employeeData: any;
-//  unAssaignDevices=false
-
-  constructor( private activatedRoute:ActivatedRoute,private service:HttpRequestService,private router:Router) { }
+  public employeeData: any;
+  
+  constructor( private activatedRoute:ActivatedRoute,private httpService:HttpRequestService,private router:Router) { }
   
   ngOnInit() {
     
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
       let id=params.get('id');
       this.ids =id;
-      console.log(id)
     })
-     this. getDetailsById()
+     this. getEmployeeById()
   }
   
 
-  getDetailsById() {
+  getEmployeeById() {
     console.log("hiii")
-    this.service.getEmployeById(this.ids).subscribe(response => {
+    this.httpService.get(`users/${this.ids}`).subscribe(response => {
       this.employeeData = response;
-      console.log(this.employeeData );
     })
   }
-  addDevice() {
-    console.log("unassgned devices")
-   this.router.navigate(['/admin/admin/employees/'+this.employeeData.id+'/unassigned-devices'])
+  addDevice(emp:any) {
+   this.router.navigate(['/admin/admin/employees/'+emp.id+'/unassigned-devices'])
   }
   deleteEmployee() {
   } 

@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-import {FormControl,FormGroup,Validators} from '@angular/forms';
-=======
 import { IDropdownSettings, } from 'ng-multiselect-dropdown';
 
 import {FormArray, FormBuilder, FormControl,Validators} from '@angular/forms';
 
->>>>>>> dev
 import { AuthService } from '../auth.service';
 
 @Component({

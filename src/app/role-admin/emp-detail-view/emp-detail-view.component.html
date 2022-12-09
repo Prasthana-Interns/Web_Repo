@@ -5,60 +5,46 @@
 </div>
 
 <div class="employee-details">
-  <!--if employeedata.id -->
-  <!-- *ngFor="let emp of employeeData"  {{emp | json }} -->
-  <div class="card-comp">
-    <app-card>
+   <div class="card-comp ">
+    <app-card class="card-component">
       <div image class="dp-Det">{{ employeeData.name.split("")[0] }}</div>
-      <h3 Name>{{ employeeData?.name }}</h3>
+      <h3 name class="name">{{ employeeData?.name }}</h3>
       <small email>{{ employeeData?.email }}</small>
       <small phoneNo>{{ employeeData?.phone_number }}</small>
-      <span
-        deleteSymbol
-        class="material-symbols-outlined"
-        (click)="deleteEmployee()"
-        >delete</span
-      >
+      <span deleteSymbol class="delete" (click)="deleteEmployee()">delete</span>
+      <div marginPurpose ></div>
       <span empId class="bold">{{ employeeData?.emp_id }}</span>
       <small empIdLabel>Employee ID</small>
       <span designation class="bold">{{ employeeData?.designation }}</span>
       <small designationLabel>Designation </small>
 
-      <div  deviceSymbols *ngFor="let device of employeeData?.devices"   style="color:blue ; display:flex ;">
-      <ng-container *ngIf="device?.id;else noDevice" >
-      <span device *ngIf="device?.name === 'laptop'" class="material-symbols-outlined">laptop_mac</span>
-      <span bag *ngIf="device?.name === 'charger'" class="material-symbols-outlined">ev_charger</span>
-      <span charger *ngIf="device?.name === 'bag'" class="material-symbols-outlined">backpack</span>
-      <span mouse *ngIf="device?.name === 'mobile'" class="material-symbols-outlined">phone_iphone</span>
-      </ng-container>
-      <ng-template #noDevice >No Devices assigned</ng-template>
-      </div>
+      <div deviceSymbols *ngFor="let device of employeeData?.devices">
+      <span style="display:flex " *ngIf="device?.device_type === 'laptop'" class="material-symbols-outlined">laptop_mac</span>
+      <span style="display:flex"*ngIf="device?.device_type === 'charger'" class="material-symbols-outlined">ev_charger</span>
+      <span style="display:flex" *ngIf="device?.device_type === 'bag'" class="material-symbols-outlined">backpack</span>
+      <span style="display:flex" *ngIf="device?.device_type === 'mobile'" class="material-symbols-outlined">phone_iphone</span>
+      <span style="display:flex"*ngIf="device?.id"> No devices assigned</span>
+      </div>     
       <small deviceLabel>Devices </small>
+
     </app-card>
   </div>
+
+  <!-- ..........Devices Assigned..... -->
 
   <h4 class="dev-ass-heading">Devices Assigned</h4>
   <div class="card-comp">
     <app-card *ngFor="let device of employeeData?.devices">
-      <div image>
-        <img src="assets\laptopimg.jpeg" />
-      </div>
-      <h3 Name>{{device?.device_type}}</h3>
+      <div image> <img src="assets\laptopimg.jpeg" /></div>
+      <h3 name>{{device?.device_type}}</h3>
       <label device class="deviceCSS">{{device?.name}}</label>
       <label deviceOS>{{device?.os}}</label>
       <label deviceId>{{device?.device_no}}</label>
-      <span
-        deleteSymbol
-        class="material-symbols-outlined"
-        (click)="deleteEmployee()"
-        >delete</span
-      >
+      <span deleteSymbol class="material-symbols-outlined" (click)="deleteEmployee()">delete</span>
     </app-card>
   </div>
   <div>
-    <button type="button" class="btn btn-primary button" (click)="addDevice()">
-      Add Device
-    </button>
+    <button type="button" class="btn btn-primary button" (click)="addDevice(employeeData)">Add Device</button>
   </div>
 </div>
 <router-outlet></router-outlet>

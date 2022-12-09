@@ -1,56 +1,31 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-<<<<<<< HEAD
-=======
-import { Observable } from 'rxjs';
-import { EmpInterface } from '../employeeI';
-import { identifierName } from '@angular/compiler';
 
->>>>>>> dev
 @Injectable({
   providedIn: 'root'
 })
 export class HttpRequestService {
 
-<<<<<<< HEAD
+  private domain_url = 'http://13.251.95.54:3000/'
   private employeeList_url = 'http://13.251.95.54:3000/users'
-
-  
-=======
-  private url='assets/emplist/emplistview.json';
-
-  // for getting all devices..
-  private deviceURL='http://13.251.95.54:3000/devices';
-
-  // for getting approval =false..
-  private approvedURL='http://13.251.95.54:3000/users/pending_users';
-
-  // for getting employees..
-  private employeeList_url='http://13.251.95.54:3000/users';
-
-
->>>>>>> dev
+  private deviceURL = 'http://13.251.95.54:3000/devices';  
+  private approvedURL = 'http://13.251.95.54:3000/users/pending_users';
 
   constructor(private http_: HttpClient) { }
-  
-  getEmployees() {
-    return this.http_.get(this.employeeList_url)
-    }
-<<<<<<< HEAD
-  getEmployeById(id: any) {
-    console.log(this.http_.get('http://13.251.95.54:3000/users/'+id))
-    return this.http_.get('http://13.251.95.54:3000/users/'+id)
-    
-  }
-  addEmployee(body:any) {
-    return this.http_.post('http://13.251.95.54:3000/users/singup',body)
-=======
-  getEmployeById(id: any): Observable<EmpInterface[]>{
-       return this.http_.get<EmpInterface[]>(this.url+'/'+id)
->>>>>>> dev
-  }
+  //employee api calls
+
+
   getToken() {
     return localStorage.getItem('token')
+  }
+  get(url: any) {
+    return this.http_.get(this.domain_url+ url)
+  }
+  post(url: any, body?:any) {
+    return this.http_.post(this.domain_url +url, body)
+  }
+  delete(url:any) {
+    return this.http_.delete(this.domain_url+url)
   }
 
 
