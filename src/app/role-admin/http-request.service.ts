@@ -10,6 +10,7 @@ export class HttpRequestService {
   private employeeList_url = 'http://13.251.95.54:3000/users'
   private deviceURL = 'http://13.251.95.54:3000/devices';  
   private approvedURL = 'http://13.251.95.54:3000/users/pending_users';
+  message: any;
 
   constructor(private http_: HttpClient) { }
   //employee api calls
@@ -26,6 +27,12 @@ export class HttpRequestService {
   }
   delete(url:any) {
     return this.http_.delete(this.domain_url+url)
+  }
+  setShareData(data: any) {
+    this.message = data;
+  }
+  getShareData() {
+    return this.message;
   }
 
 
