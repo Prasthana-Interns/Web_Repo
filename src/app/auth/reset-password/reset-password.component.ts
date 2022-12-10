@@ -24,10 +24,9 @@ submitResetPass(){
   let body={
      "emp_id": this.resetPass.controls.empId.value
     }
-    this.as.resetPasswordEmp(body).subscribe((res)=>{
+    this.as.put(`reset_password`,body).subscribe((res)=>{
       console.log(res)
     })
-
   this.router.navigate(["/login"]);
 }
 else{

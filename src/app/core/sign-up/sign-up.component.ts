@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IDropdownSettings, } from 'ng-multiselect-dropdown';
-
 import {FormArray, FormBuilder, FormControl,Validators} from '@angular/forms';
-
-import { AuthService } from '../auth.service';
-
+import { AuthService } from '../../auth/auth.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -19,8 +16,6 @@ export class SignUpComponent implements OnInit {
   dropdownSettings:IDropdownSettings={}
   constructor(private au:AuthService, private route:Router, private fb: FormBuilder){}
 
-
-
   ngOnInit(){
     this.dropdownList = [
       { item_id: 1, item_text: 'Employee'},
@@ -31,24 +26,27 @@ export class SignUpComponent implements OnInit {
       textField: 'item_text',
       enableCheckAll: true,
     };
-  this.signUp = this.fb.group ({
-
+    this.signUp = this.fb.group ({
     name: new FormControl(null,[Validators.required]),
     email: new FormControl(null,[Validators.required,Validators.email]),
     phoneNo: new FormControl(null,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
     designation:new FormControl(null,[Validators.required]),
-    roles:this.fb.array([
-      // new FormControl(null)
-    ]), 
+    roles:new FormControl([]), 
   })
   console.log(this.signUp)
   }
-  get roles():FormArray{
-    return this.signUp.get("roles") as FormArray
+  roles = new Array()
+  hello(data:any){
+  console.log(data)
+  
+  data.map((res: { item_text: any; })=>{
+  return this.roles.push(res?.item_text);
+    })
+  this.signUp.controls['roles'].value  = this.roles
+  console.log(this.signUp)
   }
 
   submitSignUp(){ 
-    console.log("qwerf")
   console.log(this.signUp.value)
   if(this.signUp.valid){
     let body= { 
@@ -59,16 +57,14 @@ export class SignUpComponent implements OnInit {
                         "designation":this.signUp.controls.designation.value,
                         "approved": this.approve,         
                       },
-                        "roles":this.signUp.controls.roles.value
+                        "roles":this.signUp.controls['roles'].value=this.roles
               }
-     this.au.postEmp(body).subscribe((res:any)=>{
+              console.log(body);
+     this.au.post(`users/signup`,body).subscribe((res:any)=>{
      })
      this.route.navigate(["/auth/login"]); 
    }
-   
-}
-
-
+  }
 }
 
 

@@ -34,17 +34,21 @@ export class LoginComponent implements OnInit {
         }    
       }
 
-      this.au.logInEmp(body).subscribe((res: any) => {
-       
+      this.au.post(`users/signin`,body).subscribe((res: any) => {
+        console.log(res)
         if (res?.userrole) {
           res?.userrole.map((res: any) => {
           
-            if (res?.role_type === 'Admin') {
-              
+            if (res?.user?.['user_roles'].length===2) {
             this.route.navigate(["/admin/admin/employees"]);
             }
-            else if (res?.role_type === 'Employee') {
-
+            else  {
+              if(res?.user?.['user_roles'].length===1 && res?.user?.user_roles==='Admin'){
+                this.route.navigate(["/admin/admin/employees"]);
+              }
+              if(res?.user?.['user_roles'].length===1 && res?.user?.user_roles==='Admin'){
+                this.route.navigate
+              }
             }
           })
         }

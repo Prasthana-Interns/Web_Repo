@@ -9,7 +9,6 @@ import { LoginInterceptor } from './auth/login.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-   
   ],
   imports: [
     BrowserModule,

@@ -30,18 +30,13 @@
               <div class="inputSignUp">
                 <input type="text" placeholder="Designation" class="form-control" formControlName="designation" required>
                 <div class="text-danger" *ngIf="signUp.controls?.designation.touched && signUp?.controls?.designation?.errors"><p class="textForErrorMSg">*Designation is required</p></div>
-
               </div>   
-              <div class="dropDown" >
-                <!-- formArrayName="roles" -->
-                <!-- <div *ngFor="let role of roles().controls; let i=index>
-                <div [formGroupName]="i"></div>
-                </div> -->
+              <div class="dropDown">
                 <ng-multiselect-dropdown
                   [placeholder]="'Role'"
                   [settings]="dropdownSettings"
                   [data]="dropdownList"
-                  formControlName="roles">
+                  (onSelectAll)="hello($event)">
                 </ng-multiselect-dropdown>
               </div>
               <button type="submit"  class="btn1" (click)="submitSignUp()"> Sign Up</button>
