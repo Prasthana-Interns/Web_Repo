@@ -12,7 +12,6 @@ export class AuthService {
 
   public signInUrl="http://13.251.95.54:3000/users/signin"
   public signUpUrl="http://13.251.95.54:3000/users/signup"
-
   public resetPassUrl="http://13.251.95.54:3000/reset_password"
 
 
