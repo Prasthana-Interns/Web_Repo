@@ -23,8 +23,13 @@ body{
 .heading{
     font-weight: 700;
     padding-left:13.8rem;
-    margin:1rem 0rem 2rem 0rem;
+    margin:1rem 0rem 1.5rem 0rem;
     color:#6562fc;
+}
+.errorMsg{
+    padding-left: 3.4rem;
+    margin-bottom: 1rem;
+    color:red;
 }
 .row{
     background: #FFFFFF;
@@ -37,9 +42,7 @@ body{
 .inputSignUp{
     width:25rem;
     padding-left:3.5rem ;
-
     margin-bottom:1.8rem;
-
 }
 input::-webkit-inner-spin-button {
     -webkit-appearance:none;

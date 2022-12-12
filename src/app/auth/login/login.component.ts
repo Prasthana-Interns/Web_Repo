@@ -33,33 +33,32 @@ export class LoginComponent implements OnInit {
           "password": this.login.controls.password.value
         }    
       }
-
-      this.au.post(`users/signin`,body).subscribe((res: any) => {
+        this.au.post(`users/signin`,body).subscribe((res: any) => {
         console.log(res)
-        if (res?.userrole) {
-          res?.userrole.map((res: any) => {
-          
-            if (res?.user?.['user_roles'].length===2) {
+        localStorage.setItem('token',res.token)
+        localStorage.setItem('token', res.token) 
+        if (res?.user.user_roles)
+        // if (res?.user_roles) {
+        //   res?.user_roles.map((res: any) => {
+            if ((res?.user.user_roles).length===2) {
+              console.log("entered in cdn")              
             this.route.navigate(["/admin/admin/employees"]);
             }
             else  {
-              if(res?.user?.['user_roles'].length===1 && res?.user?.user_roles==='Admin'){
+              if(res?.user['user_roles'].length===1 && res?.user?.user_roles==='Admin'){
                 this.route.navigate(["/admin/admin/employees"]);
               }
-              if(res?.user?.['user_roles'].length===1 && res?.user?.user_roles==='Admin'){
-                this.route.navigate
+              if(res?.user['user_roles'].length===1 && res?.user?.user_roles==='Admin'){
+                this.route.navigate(["employee/employee-view"]);
               }
-            }
-          })
-        }
-        localStorage.setItem('token', res.token)
+            } 
+        // }
+        //   )}
       })
-
-      this.route.navigate(["/admin/admin/employees"]);
+      // this.route.navigate(["/admin/admin/employees"]);
     }
     else {
       this.alertMsg="*Invalid login details"; 
-
     }
   }
 } 

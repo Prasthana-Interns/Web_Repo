@@ -11,6 +11,7 @@ import { AuthService } from '../../auth/auth.service';
 
 export class SignUpComponent implements OnInit {
   signUp:any;
+  alertMsg:any;
   approve:boolean=false;
   dropdownList:any=[];
   dropdownSettings:IDropdownSettings={}
@@ -24,7 +25,7 @@ export class SignUpComponent implements OnInit {
     this.dropdownSettings = {
       idField: 'item_id',
       textField: 'item_text',
-      enableCheckAll: true,
+      enableCheckAll: false,
     };
     this.signUp = this.fb.group ({
     name: new FormControl(null,[Validators.required]),
@@ -35,19 +36,28 @@ export class SignUpComponent implements OnInit {
   })
   console.log(this.signUp)
   }
+ 
   roles = new Array()
   hello(data:any){
-  console.log(data)
-  
+    data.map((res: { item_text: any; })=>{
+      return this.roles.push(res?.item_text);
+        })
+        this.signUp.controls['roles'].value  = this.roles
+  }
+  onItemSelect(data:any){
+  console.log(data?.item_text)
+  if(data?.item_text==='Employee' && data?.item_text==='Admin'){
   data.map((res: { item_text: any; })=>{
   return this.roles.push(res?.item_text);
     })
+  }
+  else{
+   this.roles.push(data?.item_text);
+  }
   this.signUp.controls['roles'].value  = this.roles
   console.log(this.signUp)
   }
-
   submitSignUp(){ 
-  console.log(this.signUp.value)
   if(this.signUp.valid){
     let body= { 
                "user": {
@@ -63,6 +73,9 @@ export class SignUpComponent implements OnInit {
      this.au.post(`users/signup`,body).subscribe((res:any)=>{
      })
      this.route.navigate(["/auth/login"]); 
+   }
+   else{
+    this.alertMsg="*Invalid login details"; 
    }
   }
 }
