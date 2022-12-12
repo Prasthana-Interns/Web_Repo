@@ -1,5 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
 
 @Component({
@@ -8,32 +8,49 @@ import { HttpRequestService } from '../http-request.service';
   styleUrls: ['./emp-detail-view.component.css']
 })
 export class EmpDetailViewComponent  implements OnInit{
-  empDetailForm: any = true;
-  public ids: any;
-  employeeData: any;
+  public empDetailForm: any = true;
+  public employeeId: any;
+  public employeeData: any;
 
-  constructor( private activatedRoute:ActivatedRoute,private service:HttpRequestService) { }
+  constructor( private activatedRoute:ActivatedRoute,private httpService:HttpRequestService,private router:Router) { }
   
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      let ids=params.get('id');
-      this.ids = 'id';
-      console.log(ids)
-    }
-    )
-     this. getDetailsById()
+    let id = params.get('id');
+    this.employeeId = id;
+    })
+    this.getEmployeeById()
   }
-  
-
-  getDetailsById() {
-    console.log("hiii")
-    // this.service.getEmployees().subscribe(res=>{  console.log(res)})
-    this.service.getEmployeById(this.ids).subscribe(response => {
+  getEmployeeById() {
+    console.log( "employee id",this.employeeId)
+    this.httpService.get(`users/${this.employeeId}`).subscribe(response => {
       this.employeeData = response;
-       console.log(response);
     })
   }
- 
+  addDevice(empId: any) {
+    this.employeeId = empId;
+    // this.httpService.setShareData(this.employeeId);
+    this.getEmployeeById();
+    this.router.navigate(['/admin/admin/employees/'+empId+'/unassigned-devices',empId])
+  }
+   deleteEmployee() {
+    console.log("delete employee" ,this.employeeId)
+    this.httpService.delete(`users`,this.employeeId).subscribe(res => {
+    console.log( 'deleted employee',res);})
+    this.httpService.get(`users`).subscribe(res => { })
+    this.router.navigate(['/admin/admin/employees'])
+  } 
+  unAssignDevice(devId: any){
+    const body = {
+      "device":
+      {
+        "user_id": null
+      }
+    }
+    console.log ( "device id",devId)
+    this.httpService.put(`devices/${devId}`, body).subscribe(res=>console.log('devdeleted',res))
+    this.getEmployeeById();
+  }
   }
 
 
