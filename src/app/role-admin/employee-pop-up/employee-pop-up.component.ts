@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -11,34 +12,35 @@ import { HttpRequestService } from '../http-request.service';
 export class EmployeePopUpComponent {
   allEmployees:any;
   temp:any;
-  @Input()deviceId:any;
+  deviceId:any;
 
-  constructor(private router:Router,private http:HttpRequestService){}
+  constructor(private router:Router,private http:HttpRequestService,private location:Location){}
 
   ngOnInit(){
-    // console.log(this.deviceId);
-    this.fetchAssignEmployee()
+    this.fetchAssignEmployee();
+    this.deviceId=this.http.getShareData();
   }
   canceladdDevice(){
     this.router.navigate(['/admin/admin/devices']);
   }
   fetchAssignEmployee(){
-    this.http.getListEmployee().subscribe((res)=>
+    this.http.get(`users`).subscribe((res)=>
     this.allEmployees=res
     );
   }
-  // :3000/devices/id 
   assignClicked(id:any){
     this.temp=id;
-    const assignBody= {
+    const body= {
                     device:
                   { 
                     "user_id":this.temp
                   }
   }
   console.log(id)
-  this.http.assignDeviceToEmployee(assignBody,id)
-  this.router.navigate(['/admin/admin/devices']);
+  console.log(this.deviceId)
+  this.http.put(`devices/${this.deviceId}`,body).subscribe((res)=>{})
+  // this.router.navigate(['/admin/admin/devices']);
+  this.location.back()
   }
 
 }

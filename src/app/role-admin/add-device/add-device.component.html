@@ -1,11 +1,9 @@
-<div class="blurDiv" *ngIf="showAddDeviceForm">
+<div class="blurDiv">
   <div class="box">
-    <section>
-      <h1>Add Device</h1>
-    </section>
+    <h1>Add Device</h1>
     <hr>
     <div class="container">
-      <div class="row">
+      <!-- <div class="row"> -->
         <div class="formdiv">
           <form [formGroup]="addDeviceBody">
 
@@ -33,24 +31,10 @@
               <input type="text" placeholder="OS" class="form-control removescroll" formControlName="os"><br>
             </div>
 
-            <!-- <label for="serviceTag">Device Id</label><br>
-            <div class="form-group">
-            <input type="text" placeholder="Device Id" class="form-control" name="serviceTag" required><br>
-            <div class="text-danger" *ngIf="addDeviceBody.controls['serviceTag'].touched && addDeviceBody.controls.serviceTag.errors['required']"><p class="textForErrorMSg">*Service Tag is required</p></div>
-            </div> -->
-
             <label for="assignedTo">Assigned To</label><br>
-            <div class="dropDown">
-              <ng-multiselect-dropdown
-                [placeholder]="'Employee'"
-                [settings]="dropdownSettings"
-                [data]="dropdownList"
-                formControlName="user_id">
-              </ng-multiselect-dropdown>
+            <div class="form-group">
+              <input type="number" placeholder="Employee Id" class="form-control" formControlName="user_id" (click)="employeeGet()">
             </div>
-            <!-- <div class="form-group">
-              <input type="number" placeholder="Employee Id" class="form-control" formControlName="user_id"><br>
-            </div> -->
 
             <div class="buttonDiv">
               <button type="button" class="btn1" (click)="submitAddDevice()"> Add Device</button>
@@ -60,7 +44,7 @@
 
           </form>
         </div>
-      </div>
+      <!-- </div> -->
       <ng-template #err style="color: red"> error fetching data</ng-template>
     </div>
   </div>

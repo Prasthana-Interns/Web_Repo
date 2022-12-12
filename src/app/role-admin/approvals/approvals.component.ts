@@ -18,9 +18,8 @@ export class ApprovalsComponent implements OnInit {
 
 
   fetchPendingEmp(){
-    // this.httpservice.getApprovals().subscribe((res)=>{
-      this.httpservice.getApprovals().subscribe((res)=>{
-      console.log(res)
+      this.httpservice.get(`users/pending_users`).subscribe((res)=>{
+      // console.log(res)
       this.approvalList=res;
     })
   }
@@ -30,11 +29,11 @@ export class ApprovalsComponent implements OnInit {
         approved:true
       }
     }
-    this.httpservice.acceptApproval(id,body).subscribe((res)=>{})
-    alert("approval Accepted");
+    this.httpservice.put(`users/${id}`,body).subscribe((res)=>{})
+    this.fetchPendingEmp();
   }
-  rejectEmp(){
-    
-    alert("approval rejected");
+  rejectEmp(id:any){
+    this.httpservice.delete(`users`,id).subscribe((res)=>{})
+    this.fetchPendingEmp();
   }
 }

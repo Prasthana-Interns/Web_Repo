@@ -11,21 +11,19 @@
 }
 .left{
     width:10rem;
+    align-items: center;
+    margin-right:1rem;
+    display:flex;
+    justify-content: center;
 }
 .deviceInfo{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+
 }
 .deviceCSS{
     background-color: blue;
     border-radius: 0.5rem;
-    width:4.5rem;
-    padding:0.3rem;
-    color:white;
-    display:flex;
-    justify-content:center;
-    padding:auto;
-    margin-bottom:1rem;
  }
 .right{
   display: flex;
@@ -33,11 +31,17 @@
   margin-top: 0.8rem;
 }
 .content{
-  width:50%;  
+  width:70%;
+}
+.cardLayout{
+  display:flex;
 }
 .cardRightMost{
-  margin-left: 5rem;
-
+  width:20%
+}
+.deviceInfo{
+  display:flex;
+  justify-content:space-between;
 }
  html{
   font-size:62.5%;
@@ -51,6 +55,14 @@
       flex-direction:column;
   }
     .right{
+      flex-direction: column;
+    }
+    .deviceInfo{
+      flex-direction: column;
+    }
+    .card{
+      flex-direction: row;
+    }.cardLayout{
       flex-direction: column;
     }
   }

@@ -1,12 +1,12 @@
 <div class="card">
-    <div style="display:flex;">
+    <div class="cardLayout">
         <div class="left">
             <ng-content select="[image]"></ng-content>
         </div>
 
         <div class="right">
             <div class="content">
-                <div style="display:flex;justify-content:space-between;">
+                <div class="deviceInfo">
                     <ng-content select="[deviceName]"></ng-content>
                     <ng-content select="[device]" class="deviceCSS"></ng-content>
                 </div>
@@ -18,6 +18,8 @@
                 </div>
                 
             </div>
+        </div>
+        <div>
             <div class="cardRightMost">
                 <ng-content select="[assignButton]"></ng-content>
             </div>

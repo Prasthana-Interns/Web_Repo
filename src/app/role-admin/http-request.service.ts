@@ -2,23 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EmpInterface } from '../employeeI';
-import { identifierName } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpRequestService {
 
+  message:any;
   private url='assets/emplist/emplistview.json';
 
-  // for getting all devices..
-  private deviceURL='http://13.251.95.54:3000/devices';
-
-  // for getting approval =false..
-  private approvedURL='http://13.251.95.54:3000/users/pending_users';
-
-  // for getting employees..
-  private employeeList_url='http://13.251.95.54:3000/users';
+  private domain_url='http://13.251.95.54:3000/';
 
 
 
@@ -37,24 +30,25 @@ export class HttpRequestService {
 
 
   //Mayur fetchAllDevices
-  getDevices(){
-    return this.http_.get(this.deviceURL);
+  get(url?:any,body?:any){
+    return this.http_.get(this.domain_url+url,body);
   }
-  addDevice(body:any){
-    return this.http_.post(this.deviceURL,body);
+  post(url?:any,body?:any){
+    return this.http_.post(this.domain_url+url,body);
   }
-  getApprovals(){
-    return this.http_.get(this.approvedURL)
+  put(url?:any,body?:any,){
+    return this.http_.put(this.domain_url+url,body)
   }
-  getListEmployee(){
-    return this.http_.get(this.employeeList_url)
+  setShareData(data:any){
+    this.message=data;
   }
-  assignDeviceToEmployee(assignBody:any,id:any){
+  getShareData(){
+    return this.message;
+  }
+  delete(url?:any,id?:any){
     console.log(id)
-    return this.http_.put(this.deviceURL+"/"+id,assignBody)
+    console.log(url)
+    console.log(this.domain_url+url+'/'+id)
+    return this.http_.delete(this.domain_url+url+'/'+id)
   }
-  acceptApproval(id:any,body:any){
-    return this.http_.put(this.employeeList_url+"/"+id,body)
-  }
-
 }
