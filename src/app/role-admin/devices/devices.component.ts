@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { devices} from 'src/app/model';
-import { employees } from '../../employeeModel';
 import { HttpRequestService } from '../http-request.service';
 
 @Component({
@@ -11,13 +9,6 @@ import { HttpRequestService } from '../http-request.service';
 })
 export class DevicesComponent implements OnInit {
 
-  // allDevices = devices;
-  allEmployees=employees;
-  
-
-  // addDeviceForm=false;
-  // addDeviceShow=false;
-  // showEmployees=false;
 
   devicesList:any;
   employeeList:any;

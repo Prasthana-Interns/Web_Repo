@@ -8,12 +8,13 @@
     display: flex;
     justify-content: flex-start;
     font-family: sans-serif;
-}
+}employeeLessDetails
 .left{
     width:10rem;
 }
 .deviceInfo{
   display: flex;
+  gap:10px
   /* justify-content: space-between; */
 }
 .deviceCSS{

@@ -1,7 +1,9 @@
 
 <!-- ..................card compon........ -->
     <div class="form-wrappper">
-      <div class="popUp">
+      <div class="box">
+      <div class="popUp"> <h3 style="text-align:center">Unassigned devices </h3>
+        <div  class="deviceHolder">
        <div class="card-comp">
               <app-card *ngFor="let device of unAssignedDevices">
                 <div image>
@@ -11,9 +13,11 @@
                 <label device class="deviceCSS">{{device?.device_type}}</label>
                 <label deviceOS>{{device?.os}}</label>                
                 <label deviceId>{{device?.device_no}}</label>
-                <button  assign type="submit" class="btn btn-primary assign"(click)="assign(device)">Assign</button>
+                <button  assign type="submit" class="btn btn-primary assign"(click)="assignDevice(device?.id)">Assign</button>
               </app-card>
           </div> 
+          </div>
+       </div>
        </div>
    </div> 
 

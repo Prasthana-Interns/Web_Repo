@@ -17,6 +17,8 @@ export class HttpRequestService {
 
 
   getToken() {
+    let tok = localStorage.getItem('token')
+    console.log( "token generated ....",tok)
     return localStorage.getItem('token')
   }
   get(url: any) {
@@ -25,8 +27,11 @@ export class HttpRequestService {
   post(url: any, body?:any) {
     return this.http_.post(this.domain_url +url, body)
   }
-  delete(url:any) {
-    return this.http_.delete(this.domain_url+url)
+  put(url: any, body?: any) {
+    return this.http_.put(this.domain_url + url, body);
+  }
+  delete(url:any,id:any) {
+    return this.http_.delete(this.domain_url+url+"/"+id)
   }
   setShareData(data: any) {
     this.message = data;

@@ -18,12 +18,13 @@ export class EmployeeListComponent implements OnInit {
   getEmployees() {
     this.httpService.get(`users`).subscribe(response => {
       this.employees = response;
+      console.log(response)
     })
   }
   addEmployee() {
     this.router.navigate(['/admin/admin/employees/add-employee'])
   }
-   empDetailView(emp: any) {
+  empDetailView(emp: any) {
     this.router.navigate(['/admin/admin/employees/',emp.id])
   }
   

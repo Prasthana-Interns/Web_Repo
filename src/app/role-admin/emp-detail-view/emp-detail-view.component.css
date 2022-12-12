@@ -41,7 +41,7 @@ small {
 }
 .delete {
     margin-top: 10px;
-    margin-left: 10%;
+    /* margin-left: 20%; */
     color: red;
 }
 

@@ -9,33 +9,48 @@ import { HttpRequestService } from '../http-request.service';
 })
 export class EmpDetailViewComponent  implements OnInit{
   public empDetailForm: any = true;
-  public ids: any;
+  public employeeId: any;
   public employeeData: any;
-  
+
   constructor( private activatedRoute:ActivatedRoute,private httpService:HttpRequestService,private router:Router) { }
   
   ngOnInit() {
-    
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      let id=params.get('id');
-      this.ids =id;
+    let id = params.get('id');
+    this.employeeId = id;
     })
-     this. getEmployeeById()
+    this.getEmployeeById()
   }
-  
-
   getEmployeeById() {
-    console.log("hiii")
-    this.httpService.get(`users/${this.ids}`).subscribe(response => {
+    console.log( "employee id",this.employeeId)
+    this.httpService.get(`users/${this.employeeId}`).subscribe(response => {
       this.employeeData = response;
     })
   }
-  addDevice(emp:any) {
-   this.router.navigate(['/admin/admin/employees/'+emp.id+'/unassigned-devices'])
+  addDevice(empId: any) {
+    this.employeeId = empId;
+    // this.httpService.setShareData(this.employeeId);
+    this.getEmployeeById();
+    this.router.navigate(['/admin/admin/employees/'+empId+'/unassigned-devices',empId])
   }
-  deleteEmployee() {
+   deleteEmployee() {
+    console.log("delete employee" ,this.employeeId)
+    this.httpService.delete(`users`,this.employeeId).subscribe(res => {
+    console.log( 'deleted employee',res);})
+    this.httpService.get(`users`).subscribe(res => { })
+    this.router.navigate(['/admin/admin/employees'])
   } 
-  deleteDevice(){}
+  unAssignDevice(devId: any){
+    const body = {
+      "device":
+      {
+        "user_id": null
+      }
+    }
+    console.log ( "device id",devId)
+    this.httpService.put(`devices/${devId}`, body).subscribe(res=>console.log('devdeleted',res))
+    this.getEmployeeById();
+  }
   }
 
 

@@ -1,4 +1,4 @@
-<div class="compHeadeiconsr">icons
+<div class="compHeader">
   <label>Employees</label>
 </div>
 <div class="employee">
@@ -18,11 +18,11 @@
       <label designation_>{{ employee.user_roles }}</label>
       
        <div deviceSymbols_ class="devices" *ngFor="let device of employee?.devices">
-      <span *ngIf="device?.device_type === 'laptop'" class="material-symbols-outlined">laptop_mac</span>
-      <span style="display:flex" *ngIf="device?.device_type === 'charger'" class="material-symbols-outlined">ev_charger</span>
-      <span style="display:flex" *ngIf="device?.device_type === 'bag'" class="material-symbols-outlined">backpack</span>
-      <span style="display:flex" *ngIf="device?.device_type === 'mobile'" class="material-symbols-outlined">phone_iphone</span>
-      <span style="display:flex"*ngIf="device?.id"> No devices assigned</span>
+      <span *ngIf="device?.device_type === 'Laptop'" class="material-symbols-outlined">laptop_mac</span>
+      <span style="display:flex" *ngIf="device?.device_type === 'Charger'" class="material-symbols-outlined">ev_charger</span>
+      <span style="display:flex" *ngIf="device?.device_type === 'Bag'" class="material-symbols-outlined">backpack</span>
+      <span style="display:flex" *ngIf="device?.device_type === 'Mobile'" class="material-symbols-outlined">phone_iphone</span>
+      <!-- <span style="display:flex"*ngIf="!device?.id"> No devices assigned</span> -->
       </div> 
       <div arrow  class="arrowDiv"(click)="empDetailView(employee)">
         <span class="material-symbols-outlined detailview">arrow_forward_ios</span>
