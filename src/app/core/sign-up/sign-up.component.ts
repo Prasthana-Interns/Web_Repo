@@ -36,7 +36,6 @@ export class SignUpComponent implements OnInit {
   })
   console.log(this.signUp)
   }
- 
   roles = new Array()
   hello(data:any){
     data.map((res: { item_text: any; })=>{
