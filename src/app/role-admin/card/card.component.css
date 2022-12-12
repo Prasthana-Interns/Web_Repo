@@ -1,6 +1,6 @@
 .card{
     box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     background-color: #FFFFFF;
     margin-bottom:1rem;
     border-radius: 1rem; 
@@ -8,32 +8,31 @@
     display: flex;
     justify-content: flex-start;
     font-family: sans-serif;
-}
+}employeeLessDetails
 .left{
     width:10rem;
 }
 .deviceInfo{
   display: flex;
-  justify-content: space-between;
+  gap:10px
+  /* justify-content: space-between; */
 }
 .deviceCSS{
     background-color: blue;
     border-radius: 0.5rem;
-    width:4.5rem;
+    width:20px;
     padding:0.3rem;
     color:white;
     display:flex;
-    justify-content:center;
     padding:auto;
     margin-bottom:1rem;
  }
 .right{
   display: flex;
   width:90%;
-  margin-top: 0.8rem;
 }
 .content{
-  width:50%;  
+  width:70%;  
 }
 .cardRightMost{
   margin-left: 5rem;

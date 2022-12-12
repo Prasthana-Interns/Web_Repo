@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
           "password": this.login.controls.password.value
         }    
       }
-
       this.au.logInEmp(body).subscribe((res: any) => {
        
         if (res?.userrole) {
