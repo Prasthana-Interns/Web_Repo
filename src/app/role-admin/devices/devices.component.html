@@ -6,35 +6,37 @@
     <div class="SearchBar">
       <fieldset>
         <span class="material-symbols-outlined searchIcon">search</span>
-        <input type="text" placeholder="Search for Device"  (click)="searchMethod()">
-        <!-- {{search}} -->
+        <input type="text" placeholder="Search for Device" #searchInput (keyup)="searchMethod(searchInput.value)">
       </fieldset>
 
       <span routerLink="/admin/admin/devices/add-device" routerLinkActive="active" class="material-symbols-outlined add"
-        (click)="addDevice()">add</span>
+        (click)="post()">add</span>
 
     </div>
     <ng-container>
       <div class="rows" *ngFor="let devices of devicesList; let f=first; let l=last">
         <app-card>
           <div image>
-            <img src="{{devices?.url}}">
+            <ng-template [ngIf]="devices?.device_type == 'Laptop' || devices?.device_type == 'laptop'"><img src="assets\images\laptopimg.jpeg"></ng-template>
+            <ng-template [ngIf]="devices?.device_type == 'Mouse' || devices?.device_type == 'mouse'"><img src="assets\images\Mouse.jpeg"></ng-template>
+            <ng-template [ngIf]="devices?.device_type == 'Mobile' || devices?.device_type == 'mobile'"><img src="assets\images\mobileP.jpeg"></ng-template>     
+            <ng-template [ngIf]="devices?.device_type == 'Charger' || devices?.device_type == 'charger'"><img src="assets\images\charger.jpeg"></ng-template>     
+            <ng-template [ngIf]="devices?.device_type == 'Bag' || devices?.device_type == 'bag'"><img src="assets\images\laptopBag.jpeg"></ng-template>     
+            <ng-template [ngIf]="devices?.device_type == 'Keyboard' || devices?.device_type == 'keyboard'"><img src="assets\images\keyboard.jpeg"></ng-template>     
           </div>
-          <h3 deviceName>{{devices?.name}}</h3>
-          <label device>{{devices?.device_type}}</label>
-          <label deviceOS>{{devices?.os}}</label>
-          <label deviceId>{{devices?.device_no}}</label>
+          <h3 deviceName>{{devices?.name | titlecase}}</h3>
+          <label device>{{devices?.device_type | titlecase}}</label>
+          <label deviceOS>{{devices?.os | titlecase}}</label>
+          <label deviceId>{{devices?.device_no | titlecase}}</label>
           <div *ngIf="devices?.user === null ||devices?.user=== '' else elseBlock" assignedTo ><a style="color:orange" (click)="getEmployeesToAssign(devices?.id)">Click here to assign</a></div>
           <ng-template #elseBlock><label style="color:blue" assignedTo>{{"Assigned to "+devices?.user?.name}}</label></ng-template>
-          <app-employee-pop-up [deviceID]="deviceId"></app-employee-pop-up>
+          <span assignButton class="material-symbols-outlined delete" (click)="deleteDevice(devices?.id)">delete</span>     
         </app-card>
       </div>
-      <!-- <div>
-        <span class="material-symbols-outlined">clear</span>
-      </div> -->
     </ng-container>
   </div>
 </div>
 <div>
   <router-outlet></router-outlet>
 </div>
+<ng-confirm></ng-confirm>
