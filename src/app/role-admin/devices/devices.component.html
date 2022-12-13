@@ -17,12 +17,12 @@
       <div class="rows" *ngFor="let devices of devicesList; let f=first; let l=last">
         <app-card>
           <div image>
-            <ng-template [ngIf]="devices?.device_type == 'Laptop' || devices?.device_type == 'laptop'"><img src="assets\laptopimg.jpeg"></ng-template>
-            <ng-template [ngIf]="devices?.device_type == 'Mouse' || devices?.device_type == 'mouse'"><img src="assets\Mouse.jpeg"></ng-template>
-            <ng-template [ngIf]="devices?.device_type == 'Mobile' || devices?.device_type == 'mobile'"><img src="assets\mobileP.jpeg"></ng-template>     
-            <ng-template [ngIf]="devices?.device_type == 'Charger' || devices?.device_type == 'charger'"><img src="assets\charger.jpeg"></ng-template>     
-            <ng-template [ngIf]="devices?.device_type == 'Bag' || devices?.device_type == 'bag'"><img src="assets\laptopBag.jpeg"></ng-template>     
-            <ng-template [ngIf]="devices?.device_type == 'Keyboard' || devices?.device_type == 'keyboard'"><img src="assets\keyboard.jpeg"></ng-template>     
+            <ng-template [ngIf]="devices?.device_type == 'Laptop' || devices?.device_type == 'laptop'"><img src="assets\images\laptopimg.jpeg"></ng-template>
+            <ng-template [ngIf]="devices?.device_type == 'Mouse' || devices?.device_type == 'mouse'"><img src="assets\images\Mouse.jpeg"></ng-template>
+            <ng-template [ngIf]="devices?.device_type == 'Mobile' || devices?.device_type == 'mobile'"><img src="assets\images\mobileP.jpeg"></ng-template>     
+            <ng-template [ngIf]="devices?.device_type == 'Charger' || devices?.device_type == 'charger'"><img src="assets\images\charger.jpeg"></ng-template>     
+            <ng-template [ngIf]="devices?.device_type == 'Bag' || devices?.device_type == 'bag'"><img src="assets\images\laptopBag.jpeg"></ng-template>     
+            <ng-template [ngIf]="devices?.device_type == 'Keyboard' || devices?.device_type == 'keyboard'"><img src="assets\images\keyboard.jpeg"></ng-template>     
           </div>
           <h3 deviceName>{{devices?.name | titlecase}}</h3>
           <label device>{{devices?.device_type | titlecase}}</label>
@@ -30,7 +30,7 @@
           <label deviceId>{{devices?.device_no | titlecase}}</label>
           <div *ngIf="devices?.user === null ||devices?.user=== '' else elseBlock" assignedTo ><a style="color:orange" (click)="getEmployeesToAssign(devices?.id)">Click here to assign</a></div>
           <ng-template #elseBlock><label style="color:blue" assignedTo>{{"Assigned to "+devices?.user?.name}}</label></ng-template>
-          <span assignButton class="material-symbols-outlined delete" style="float:right;" (click)="deleteDevice(devices?.id)">delete</span>     
+          <span assignButton class="material-symbols-outlined delete" (click)="deleteDevice(devices?.id)">delete</span>     
         </app-card>
       </div>
     </ng-container>
@@ -39,3 +39,4 @@
 <div>
   <router-outlet></router-outlet>
 </div>
+<ng-confirm></ng-confirm>

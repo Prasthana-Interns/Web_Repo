@@ -1,4 +1,3 @@
-import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,10 +10,8 @@ import { HttpRequestService } from '../http-request.service';
 })
 export class AddDeviceComponent implements OnInit {
 
-  addDeviceShow=false;
   addDeviceBody:any
-  listOfEmployees:any;
-  
+  listOfEmployees:any;  
   name:string='';
   deviceType:string="";
   os:string="";
@@ -33,20 +30,15 @@ export class AddDeviceComponent implements OnInit {
                   user_id:new FormControl(null),
   })
   this.deviceId,this.SId=this.http.getShareData();
-  // console.log(this.deviceId)
-  console.log("wertyuioiugfdsgh")
-  // console.log(this.SId)
+  this.getEmployees();
   }
+
+
   getEmployees(){
-    this.http.getEmployees().subscribe((res)=>{
+    this.http.get(`users/`).subscribe((res)=>{
       this.listOfEmployees=res
+      console.log(res)
     })
-  }
-  showAddDeviceForm(){
-    this.addDeviceShow=true;
-  }
-  employeeGet(){
-    // this.router.navigate(['/admin/admin/devices/employeePopUp'])
   }
   canceladdDevice(){
     this.router.navigate(['/admin/admin/devices']);
@@ -60,11 +52,11 @@ export class AddDeviceComponent implements OnInit {
               "user_id": this.addDeviceBody?.controls?.user_id?.value,               
               }
     this.ser.post(`/devices`,body).subscribe((res:any)=>{
-    // console.log(res);
+      console.log(res )
     })
-    alert("Device Added Successfully");
     this.router.navigate(['/admin/admin/devices']);
   }
 
   
 }
+  // this.router.navigate(['/admin/admin/devices/add-device/employeeDropdown'])

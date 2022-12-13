@@ -1,0 +1,115 @@
+<div class="form-wrappper">
+  <div class="addEmployee">
+    <h2 class="addHeader">Add Employee</h2>
+    <hr />
+    <p style="text-align: center">
+      Enter details to add employee with his provided devices
+    </p>
+
+    <div class="addDetails">
+      <form [formGroup]="addEmployeeForm" class="form">
+        <div class="form-group">
+          <label for="name">Name :</label>
+          <input
+            type="text"
+            placeholder="Name"
+            class="form-control"
+            formControlName="name"
+            required
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              addEmployeeForm?.controls?.name.touched &&
+              addEmployeeForm?.controls?.name?.errors
+            "
+          >
+            <p class="textForErrorMSg">*Name is required</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name">Email :</label>
+          <input
+            type="email"
+            placeholder="Email"
+            class="form-control"
+            formControlName="email"
+            required
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              addEmployeeForm?.controls?.email.touched &&
+              addEmployeeForm?.controls?.email?.errors
+            "
+          >
+            <p class="textForErrorMSg">*email is required</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name">Phone Number :</label>
+          <input
+            type="number"
+            placeholder="Phone No."
+            class="form-control removescroll"
+            formControlName="phoneNo"
+            required
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              addEmployeeForm?.controls?.phoneNo.touched &&
+              addEmployeeForm?.controls?.phoneNo?.errors
+            "
+          >
+            <p class="textForErrorMSg">*PhoneNo. is required</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name">Designation :</label>
+          <input
+            type="text"
+            placeholder="Designation"
+            class="form-control"
+            formControlName="designation"
+            required
+          />
+          <div
+            class="text-danger"
+            *ngIf="
+              addEmployeeForm.controls?.designation.touched &&
+              addEmployeeForm?.controls?.designation?.errors
+            "
+          >
+            <p class="textForErrorMSg">*Designation is required</p>
+          </div>
+        </div>
+        <div class="dropDown">
+          <label for="name">Role :</label>
+          <ng-multiselect-dropdown
+            [placeholder]="'Role'"
+            [settings]="dropdownSettings"
+            [data]="dropdownList"
+            formControlName="role"
+          >
+          </ng-multiselect-dropdown>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary action"
+          (click)="addEmployee()"
+        >
+          Add Employee
+        </button>
+        <button
+          type="submit"
+          class="btn btn-danger action"
+          (click)="cancelForm()"
+        >
+          Cancel
+        </button>
+      </form>
+    </div>
+  </div>
+  <ng-template #err style="color: red"> error fetching data</ng-template>
+</div>

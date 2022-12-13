@@ -1,0 +1,68 @@
+.card-comp {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+ 
+}
+img {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid rgb(151, 145, 145);
+}
+.assign{
+margin-left: 2%;
+margin-top: 20px;
+width:100%
+}
+.form-wrappper { 
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    top:0;
+    padding-top: 12%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 80;
+    overflow-y: scroll;
+  
+}
+.box {
+    background-color: snow;
+     width:40%;
+    margin-left: 30rem;
+    border-radius: 0.5rem;
+}
+.deviceHolder{
+    height: 460px;
+        overflow-y: scroll;
+        margin-top: 40px
+}
+.popUp{
+    justify-content: center;
+    background-color: white;
+    height:550px;
+    margin:auto;
+    border-radius:10px;
+    padding-top:2%;
+    padding-bottom: 2%;
+   
+}   
+.deviceCSS {
+
+    background-color: blue;
+    border-radius: 20px;
+    color: whitesmoke;
+    height: 30%;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+@media(max-width:820px){
+    .card-comp{
+        flex-direction: column;
+    }
+}

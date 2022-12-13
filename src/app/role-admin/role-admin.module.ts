@@ -4,6 +4,7 @@ import { RoleAdminRoutingModule } from './role-admin-routing.module';
 import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NgConfirmModule} from 'ng-confirm-box';
 
 
 import { AdminComponent } from './admin/admin.component';
@@ -14,6 +15,8 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmpDetailViewComponent } from './emp-detail-view/emp-detail-view.component';
 import { RoleAdminInterceptor } from './role-admin.interceptor';
 import { HttpRequestService } from './http-request.service';
+import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devices.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
 import { CardComponent } from './card/card.component';
 
@@ -26,10 +29,11 @@ import { CardComponent } from './card/card.component';
     EmpDetailViewComponent,
     DevicesComponent,
     AddDeviceComponent,
+    AddEmployeeComponent,
+    UnassignedDevicesComponent,
     ApprovalsComponent,
     EmployeePopUpComponent,
     CardComponent,
-
 
   ],
   imports: [
@@ -39,6 +43,7 @@ import { CardComponent } from './card/card.component';
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
     HttpClientModule,
+    NgConfirmModule
   ],
   providers:[HttpRequestService,{  provide:HTTP_INTERCEPTORS,useClass:RoleAdminInterceptor,multi:true}],
   

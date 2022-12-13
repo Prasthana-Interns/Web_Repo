@@ -1,7 +1,8 @@
-import { Component, OnInit} from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router ,NavigationEnd} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
+import { NavigationEnd } from '@angular/router';
+import { NgConfirmService} from 'ng-confirm-box'
 
 @Component({
   selector: 'app-devices',
@@ -17,11 +18,7 @@ export class DevicesComponent implements OnInit {
 
   private searchDeviceList:any;
 
-  searchForm:FormGroup=new FormGroup({
-    search:new FormControl('')
-  })
-
-  constructor(private router :Router,private http:HttpRequestService) {
+  constructor(private router :Router,private http:HttpRequestService,private confirmService:NgConfirmService) {
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
           this.getAllDevices();
@@ -50,13 +47,20 @@ export class DevicesComponent implements OnInit {
     this.router.navigate(['/admin/admin/devices/add-device'])
   }
   deleteDevice(id:any){
-    this.http.delete(`devices`,id).subscribe((res)=>{
+    this.confirmService.showConfirm("Are you sure want to Delete?",
+     () => {
+      this.http.delete(`devices`,id).subscribe((res)=>{
+      })
+      this.getAllDevices();
+    },
+    () => {
+      this.getAllDevices();
     })
-    this.getAllDevices();
   }
-  searchMethod(value?:string){
-  this.http.get(`devices/search/?search=${value}`).subscribe((res)=>{
-    this.devicesList=res
-  })
-  }
+
+searchMethod(value?:string){
+this.http.get(`devices/search/?search=${value}`).subscribe((res)=>{
+  this.devicesList=res
+})
+}
 }

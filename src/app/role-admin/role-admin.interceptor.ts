@@ -15,13 +15,13 @@ export class RoleAdminInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let http=this.injector.get(HttpRequestService)
-    let tokenizedReq = request.clone(
+    let token = request.clone(
       {
       setHeaders: {
            Authorization:`${http.getToken()}`
          }
        }
       )
-    return next.handle(tokenizedReq);
+    return next.handle(token);
   }
 }

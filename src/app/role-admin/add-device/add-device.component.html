@@ -8,7 +8,7 @@
           <form [formGroup]="addDeviceBody">
 
             <label for="name"> Device Name</label><br>
-            <div class="form-group">
+            <div>
               <input type="text" placeholder=" Device Name" class="form-control" formControlName="name" required><br>
               <div class="text-danger"
                 *ngIf="addDeviceBody?.controls?.name?.touched && addDeviceBody?.controls?.name?.errors">
@@ -17,7 +17,7 @@
             </div>
 
             <label for="deviceType">Device Type</label><br>
-            <div class="form-group">
+            <div>
               <input type="text" placeholder="Device Type" class="form-control" formControlName="deviceType"
                 required><br>
               <div class="text-danger"
@@ -27,14 +27,18 @@
             </div>
 
             <label for="os">OS</label><br>
-            <div class="form-group">
+            <div>
               <input type="text" placeholder="OS" class="form-control removescroll" formControlName="os"><br>
             </div>
 
             <label for="assignedTo">Assigned To</label><br>
-            <div class="form-group">
-              <input type="number" placeholder="Employee Id" class="form-control" formControlName="user_id" (click)="employeeGet()">
-            </div>
+            <select class="selectDropdown" formControlName="user_id">
+              <option>Select an Employee</option>
+              <option *ngFor="let employee of listOfEmployees">
+                {{employee?.id}},{{employee?.name}}
+              </option>
+            </select>
+            
 
             <div class="buttonDiv">
               <button type="button" class="btn1" (click)="submitAddDevice()"> Add Device</button>
