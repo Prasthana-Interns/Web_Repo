@@ -14,9 +14,19 @@
 .box{
     background-color: snow;
     width:40rem;
-   
     border-radius: 0.5rem;
     display:flex;
+}
+.popuphead{
+    display:flex;
+    justify-content:space-between;
+}
+.employeeDp{
+    display:flex;
+    justify-content:space-around;
+}
+.closeButton{
+    font-size:3rem;
 }
 .container{
     background-color: snow;
