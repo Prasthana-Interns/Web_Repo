@@ -11,11 +11,10 @@ import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devi
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
 
-
 const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:'full'},
                          {path:'admin',component:AdminComponent,
                            children:[{ path: 'devices', component: DevicesComponent,
-                                       children: [{ path: 'add-device', component: AddDeviceComponent },
+                                       children: [{ path: 'add-device', component: AddDeviceComponent},
                                                   { path: 'employeePopUp', component: EmployeePopUpComponent}]
                                      },
                                      { path: 'approvals', component: ApprovalsComponent },
@@ -24,9 +23,9 @@ const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:
                                       children: [{ path: 'add-employee', component: AddEmployeeComponent }]
                                      },
                                     { path: 'employees/:id', component: EmpDetailViewComponent,
-                             children:[{path: 'unassigned-devices/:id', component: UnassignedDevicesComponent}]},
-                             { path: 'employees', component: EmployeeListComponent },
-                             { path: 'employees/:id', component: EmpDetailViewComponent },
+                                        children:[{path: 'unassigned-devices/:id', component: UnassignedDevicesComponent}]},
+                                                  { path: 'employees', component: EmployeeListComponent },
+                                                  { path: 'employees/:id', component: EmpDetailViewComponent },
                             ]
                                      
                          },

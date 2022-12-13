@@ -1,7 +1,9 @@
 * {
     box-sizing: border-box;
   }
-  
+  .wholePage{
+    overflow-y: hidden;
+  }
   /* Header/logo Title */
   .header {
     padding: 0.5rem;
@@ -21,8 +23,6 @@
     display: -ms-flexbox;
     display: flex;
   }
-  
-
   .side {
     width:7rem;
     background-color: #CBD0D7;
@@ -61,9 +61,9 @@
 .main {   
   -ms-flex: 92%;
   flex: 50%;
-  height:85rem;
+  height:56rem;
   background-color: #F0F1F5;
-  
+  /* overflow-y: scroll; */
 }
 html{
   font-size:62.5%;
@@ -73,10 +73,28 @@ html{
   html{
     font-size:45%;
   }
+  /* .side{
+    width:2rem;
+  } */
+  /* span{
+    font-size: 2rem;
+  } */
+  /* a{
+    font-size:1rem;
+  } */
 }
 
 @media(max-width:998px){
   html{
     font-size:55%;
   }
+  /* .side{
+    width:6rem;
+  } */
+  /* span{
+    font-size: 1rem;
+  } */
+  /* a{
+    font-size:0.5rem;
+  } */
 }
