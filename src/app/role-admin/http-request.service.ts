@@ -21,13 +21,13 @@ export class HttpRequestService {
 
     return localStorage.getItem('token')
   }
-  get(url: any) {
-    return this.http_.get(this.domain_url+ url)
-  }
+ 
   post(url: any, body?:any) {
     return this.http_.post(this.domain_url +url, body)
   }
-  put(url: any, body?: any) {
+ get(url: any) {
+    return this.http_.get(this.domain_url+ url)
+  }  put(url: any, body?: any) {
     return this.http_.put(this.domain_url + url, body);
   }
   delete(url:any,id:any) {

@@ -37,7 +37,8 @@
                   [placeholder]="'Role'"
                   [settings]="dropdownSettings"
                   [data]="dropdownList"
-                  (onSelect)="onItemSelect($event)">
+                  (onSelect)="onItemSelect($event)"
+                  (onSelectAll)="hello($event)">
                 </ng-multiselect-dropdown>
               </div>
               <button type="submit"  class="btn1" (click)="submitSignUp()"> Sign Up</button>

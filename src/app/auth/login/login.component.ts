@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder } from '@angular/forms'
-
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -35,7 +34,8 @@ export class LoginComponent implements OnInit {
       }
         this.au.post(`users/signin`,body).subscribe((res: any) => {
         console.log(res)
-        localStorage.setItem('token',res.token)
+        localStorage.setItem('token',res?.token)
+        localStorage.setItem('id' ,res?.user?.id)
         if((res?.user?.user_roles).length===2) {
           console.log(" FOR BOTH THE ROLES")              
           this.route.navigate(["/admin/admin/employees"]);

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
-
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',

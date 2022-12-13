@@ -68,7 +68,7 @@ export class SignUpComponent implements OnInit {
                       },
                         "roles":this.signUp.controls['roles'].value=this.roles
               }
-              console.log(body);
+            console.log(body);
      this.au.post(`users/signup`,body).subscribe((res:any)=>{
      })
      this.route.navigate(["/auth/login"]); 
