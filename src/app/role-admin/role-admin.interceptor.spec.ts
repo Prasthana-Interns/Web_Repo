@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { RoleAdminInterceptor} from './role-admin.interceptor'
 
-describe('RoleAdminInterceptor', () => {
+import { RoleAdminInterceptor } from './role-admin.interceptor';
+
+describe('RoleAdminInterceptor', () => {  
   beforeEach(() => TestBed.configureTestingModule({
     providers: [
       RoleAdminInterceptor
