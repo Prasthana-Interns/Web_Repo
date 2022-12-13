@@ -15,8 +15,6 @@ export class ApprovalsComponent implements OnInit {
   ngOnInit(): void {
     this.fetchPendingEmp();
   }
-
-
   fetchPendingEmp(){
     // this.httpservice.getApprovals().subscribe((res)=>{
       this.httpservice.getApprovals().subscribe((res)=>{

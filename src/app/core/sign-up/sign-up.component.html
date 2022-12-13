@@ -13,6 +13,7 @@
           <div class="col-lg-7 ">
             <img src="assets\INVENTORY 1.jpg" class="invImg" alt="Inventory App" >
             <h3 class="heading">SignUp</h3>
+            <p class="errorMsg">{{alertMsg}}</p>
             <form [formGroup]="signUp">
               <div class="inputSignUp">
                 <input type="text" placeholder="Name" class="form-control" formControlName="name" required>
@@ -30,14 +31,13 @@
               <div class="inputSignUp">
                 <input type="text" placeholder="Designation" class="form-control" formControlName="designation" required>
                 <div class="text-danger" *ngIf="signUp.controls?.designation.touched && signUp?.controls?.designation?.errors"><p class="textForErrorMSg">*Designation is required</p></div>
-
               </div>   
               <div class="dropDown">
                 <ng-multiselect-dropdown
                   [placeholder]="'Role'"
                   [settings]="dropdownSettings"
                   [data]="dropdownList"
-                  formControlName="role">
+                  (onSelect)="onItemSelect($event)">
                 </ng-multiselect-dropdown>
               </div>
               <button type="submit"  class="btn1" (click)="submitSignUp()"> Sign Up</button>

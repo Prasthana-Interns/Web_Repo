@@ -33,28 +33,25 @@ export class LoginComponent implements OnInit {
           "password": this.login.controls.password.value
         }    
       }
-      this.au.logInEmp(body).subscribe((res: any) => {
-       
-        if (res?.userrole) {
-          res?.userrole.map((res: any) => {
-          
-            if (res?.role_type === 'Admin') {
-              
-            this.route.navigate(["/admin/admin/employees"]);
-            }
-            else if (res?.role_type === 'Employee') {
-
-            }
-          })
+        this.au.post(`users/signin`,body).subscribe((res: any) => {
+        console.log(res)
+        localStorage.setItem('token',res.token)
+        if((res?.user?.user_roles).length===2) {
+          console.log(" FOR BOTH THE ROLES")              
+          this.route.navigate(["/admin/admin/employees"]);
         }
-        localStorage.setItem('token', res.token)
+        if((res?.user?.user_roles).length===1 && res?.user?.user_roles=='Admin'){
+          console.log("FOR THE ADMIN ROLE")  
+          this.route.navigate(["/admin/admin/employees"]);
+        }
+        if(res?.user?.user_roles.length===1 && res?.user?.user_roles=='Employee'){
+          console.log("FOR THE EMPLOYEE ROLE")  
+          this.route.navigate(["employee/employee-view"]);
+        }
       })
-
-      this.route.navigate(["/admin/admin/employees"]);
     }
     else {
       this.alertMsg="*Invalid login details"; 
-
     }
   }
 } 

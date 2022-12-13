@@ -10,7 +10,6 @@ import { RoleAdminModule } from './role-admin/role-admin.module';
 @NgModule({
   declarations: [
     AppComponent,
-   
   ],
   imports: [
     BrowserModule,

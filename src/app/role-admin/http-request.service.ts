@@ -18,7 +18,7 @@ export class HttpRequestService {
 
   getToken() {
     let tok = localStorage.getItem('token')
-    console.log( "token generated ....",tok)
+
     return localStorage.getItem('token')
   }
   get(url: any) {
