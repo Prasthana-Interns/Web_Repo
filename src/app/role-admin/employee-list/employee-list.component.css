@@ -35,11 +35,6 @@
     font-size: 15px;
     padding-top: 5px;
 }
-span {
-    margin-top: -10px;
-    margin-left: 15px;
-    padding-bottom: 1px;
-}
 fieldset {
     background-color: white;
     border-radius: 30px;
@@ -90,9 +85,11 @@ fieldset {
 .devices {
 color:blue;
 display:flex;
-margin-left:20px ;
+margin-top: -5px;
+padding-left: 10px;
+justify-content: flex-end;
  } 
-.material-symbols-outlined {
+.search {
     margin-left: 25px;
     padding-top: 10px;
     margin-right: 5px;

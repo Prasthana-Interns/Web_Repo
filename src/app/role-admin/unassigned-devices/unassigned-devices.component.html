@@ -2,14 +2,18 @@
 <!-- ..................card compon........ -->
     <div class="form-wrappper">
       <div class="box">
-      <div class="popUp"> <h3 style="text-align:center">Unassigned devices </h3>
+      <div class="popUp"> 
+        <div class="header">
+          <h3  style="margin-left:50px">Devices list </h3> 
+          <span (click)="unAssingnDevices()" class="material-symbols-outlined cancel">close</span>
+        </div>
         <div  class="deviceHolder">
        <div class="card-comp">
               <app-card *ngFor="let device of unAssignedDevices">
                 <div image>
                   <img src="assets\laptopimg.jpeg">
                 </div>
-                <h5 name>{{device?.name}}</h5>
+                <h5 name>{{device?.name+sendEmpId}}</h5>
                 <label device class="deviceCSS">{{device?.device_type}}</label>
                 <label deviceOS>{{device?.os}}</label>                
                 <label deviceId>{{device?.device_no}}</label>

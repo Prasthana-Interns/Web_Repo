@@ -7,6 +7,7 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginInterceptor } from './auth/login.interceptor';
 import { RoleAdminModule } from './role-admin/role-admin.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { RoleAdminModule } from './role-admin/role-admin.module';
     AuthModule,
     RoleAdminModule,
     ReactiveFormsModule,
-    FormsModule 
+    FormsModule,
+  
   ],
   providers:[
     {

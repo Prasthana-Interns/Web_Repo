@@ -18,7 +18,6 @@ export class EmployeeListComponent implements OnInit {
   getEmployees() {
     this.httpService.get(`users`).subscribe(response => {
       this.employees = response;
-      console.log(response)
     })
   }
   addEmployee() {
@@ -27,5 +26,10 @@ export class EmployeeListComponent implements OnInit {
   empDetailView(emp: any) {
     this.router.navigate(['/admin/admin/employees/',emp.id])
   }
+  searchMethod(value?:string) {
+    this.httpService.get(`users/search/?search=${value}`).subscribe((res) => {
+     this.employees=res
+    })   
   
-}
+  }
+  }

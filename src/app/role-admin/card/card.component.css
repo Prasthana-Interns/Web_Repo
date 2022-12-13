@@ -8,7 +8,7 @@
     display: flex;
     justify-content: flex-start;
     font-family: sans-serif;
-}employeeLessDetails
+}
 .left{
     width:10rem;
 }
@@ -32,7 +32,8 @@
   width:90%;
 }
 .content{
-  width:70%;  
+  width:70%; 
+  /* padding-right:1px;  */
 }
 .cardRightMost{
   margin-left: 5rem;

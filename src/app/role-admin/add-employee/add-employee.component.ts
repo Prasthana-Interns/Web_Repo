@@ -1,7 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
 import { IDropdownSettings, } from 'ng-multiselect-dropdown';
-import {FormArray, FormBuilder, FormControl,Validators} from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { HttpRequestService } from '../http-request.service';
 
 @Component({
@@ -10,51 +10,69 @@ import { HttpRequestService } from '../http-request.service';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent  implements OnInit {
-  addForm: any = false;
-  id: any;
-  addEmployeeForm: any;
-  approve:boolean=true;
- constructor(private httpService: HttpRequestService,private router:Router,private fb: FormBuilder) { }
+ addEmployeeForm:any;
+  isApprove:boolean=true;
+  dropdownList:any=[];
+  dropdownSettings:IDropdownSettings={}
+  constructor(private httpService: HttpRequestService, private router:Router, private fb: FormBuilder){}
 
-  dropdownList = [
-    { item_id: 1, item_text: 'Employee'},
-    { item_id: 2, item_text: 'Admin'},
-  ];
-  dropdownSettings = {
-    idField: 'item_id',
-    textField: 'item_text',
-    enableCheckAll: true,
-  };
-  
-  ngOnInit() {
-    this.addEmployeeForm =  this.fb.group ({
+  ngOnInit(){
+    this.dropdownList = [
+      { item_id: 1, item_text: 'Employee'},
+      { item_id: 2, item_text: 'Admin'},
+    ];
+    this.dropdownSettings = {
+      idField: 'item_id',
+      textField: 'item_text',
+      enableCheckAll: false,
+    };
+    this.addEmployeeForm = this.fb.group ({
     name: new FormControl(null,[Validators.required]),
     email: new FormControl(null,[Validators.required,Validators.email]),
     phoneNo: new FormControl(null,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
     designation:new FormControl(null,[Validators.required]),
-    role:new FormArray([new FormControl(null)])
-      
+    roles:new FormControl([]), 
   })
+  console.log(this.addEmployeeForm)
   }
-   addEmployee() {
-     this.addForm = false;
-     if(this.addEmployeeForm.valid){
-       let body = {
-         "user": {
-           "name": this.addEmployeeForm.controls.name.value,
-           "phone_number": this.addEmployeeForm.controls.name.value,
-           "designation": this.addEmployeeForm.controls.name.value,
-           "email": this.addEmployeeForm.controls.name.value,
-           "approved": this.approve,
-         },
-         "roles":null
-       }
-     this.httpService.post(`users/signup`,body).subscribe((res:any)=>{  })
-     this.router.navigate(['admin/admin/employees'])
+  roles = new Array()
+  hello(data:any){
+    data.map((res: { item_text: any; })=>{
+      return this.roles.push(res?.item_text);
+        })
+        this.addEmployeeForm.controls['roles'].value  = this.roles
+  }
+  onItemSelect(data:any){
+  console.log(data?.item_text)
+  if(data?.item_text==='Employee' && data?.item_text==='Admin'){
+  data.map((res: { item_text: any; })=>{
+  return this.roles.push(res?.item_text);
+    })
+  }
+  else{
+   this.roles.push(data?.item_text);
+  }
+  this.addEmployeeForm.controls['roles'].value  = this.roles
+  console.log(this.addEmployeeForm)
+  }
+ addEmployee() { 
+  if(this.addEmployeeForm.valid){
+    let body= { 
+               "user": {
+                        "name": this.addEmployeeForm.controls.name.value,
+                        "phone_number": this.addEmployeeForm.controls.phoneNo.value,
+                        "email": this.addEmployeeForm.controls.email.value,
+                        "designation":this.addEmployeeForm.controls.designation.value,
+                        "approved": this.isApprove,         
+                      },
+                        "roles":this.addEmployeeForm.controls['roles'].value=this.roles
+              }
+              console.log(body);
+     this.httpService.post(`users/signup`,body).subscribe((res:any)=>{console.log(res)})
+    this.router.navigate(['admin/admin/employees'])
      }
    }
   cancelForm() {
   this.router.navigate(['admin/admin/employees'])
   }
-
 }
