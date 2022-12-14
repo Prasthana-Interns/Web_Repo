@@ -10,7 +10,7 @@
             <div>
               <input type="text" placeholder=" Device Name" class="form-control" formControlName="name" required><br>
               <div class="text-danger"
-                *ngIf="addDeviceBody?.controls?.name?.touched && addDeviceBody?.controls?.name?.errors">
+                *ngIf="addDeviceBody?.controls?.name?.touched && addDeviceBody?.controls?.name?.errors || addDeviceBody?.controls?.name?.untouched">
                 <p class="textForErrorMSg">*Device Name is required</p>
               </div>
             </div>
