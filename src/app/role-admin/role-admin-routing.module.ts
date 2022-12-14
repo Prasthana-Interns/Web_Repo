@@ -13,11 +13,10 @@ import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.compon
 import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
-
 const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:'full'},
                          {path:'admin',component:AdminComponent,
                            children:[{ path: 'devices', component: DevicesComponent,
-                                       children: [{ path: 'add-device', component: AddDeviceComponent },
+                                       children: [{ path: 'add-device', component: AddDeviceComponent},
                                                   { path: 'employeePopUp', component: EmployeePopUpComponent}]
                                      },
                                      { path: 'approvals', component: ApprovalsComponent },

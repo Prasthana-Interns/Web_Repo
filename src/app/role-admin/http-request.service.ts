@@ -7,51 +7,32 @@ import { HttpClient } from '@angular/common/http';
 export class HttpRequestService {
 
   private domain_url = 'http://13.251.95.54:3000/'
-  private employeeList_url = 'http://13.251.95.54:3000/users'
-  private deviceURL = 'http://13.251.95.54:3000/devices';  
-  private approvedURL = 'http://13.251.95.54:3000/users/pending_users';
   message: any;
 
   constructor(private http_: HttpClient) { }
-  //employee api calls
 
 
   getToken() {
     return localStorage.getItem('token')
   }
-  get(url: any) {
-    return this.http_.get(this.domain_url+ url)
-  }
-  post(url: any, body?:any) {
-    return this.http_.post(this.domain_url +url, body)
-  }
-  put(url: any, body?: any) {
-    return this.http_.put(this.domain_url + url, body);
-  }
-  delete(url:any,id:any) {
-    return this.http_.delete(this.domain_url+url+"/"+id)
-  }
-
-
+  
   //Mayur fetchAllDevices
-  getDevices(){
-    return this.http_.get(this.deviceURL);
+  get(url?:any,body?:any){
+    return this.http_.get(this.domain_url+url,body);
   }
-  addDevice(body:any){
-    return this.http_.post(this.deviceURL,body);
+  post(url?:any,body?:any){
+    return this.http_.post(this.domain_url+url,body);
   }
-  getApprovals(){
-    return this.http_.get(this.approvedURL)
+  put(url?:any,body?:any,){
+    return this.http_.put(this.domain_url+url,body)
   }
-  getListEmployee(){
-    return this.http_.get(this.employeeList_url)
+  setShareData(data:any){
+    this.message=data;
   }
-  assignDeviceToEmployee(assignBody:any,id:any){
-    console.log(id)
-    return this.http_.put(this.deviceURL+"/"+id,assignBody)
+  getShareData(){
+    return this.message;
   }
-  acceptApproval(id:any,body:any){
-    return this.http_.put(this.employeeList_url+"/"+id,body)
+  delete(url?:any,id?:any){
+    return this.http_.delete(this.domain_url+url+'/'+id)
   }
-
 }

@@ -16,11 +16,9 @@
     }
   .container{
     margin:auto;
-    width:50%;
+    width:40%;
   } 
-  .row{
-    width:80%;
-  }
+
   .card{
   box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
   padding: 1rem;
@@ -30,12 +28,23 @@
   border-radius: 1rem;
   width:40rem;
   }
-    
+  .image{
+    width:4rem;
+    height:4rem;
+    background-color:rgb(177, 174, 174);
+    border-radius:0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   button{
   margin-left:1rem;
+  margin-bottom:1rem;
   padding:0.5rem;
   font-weight: bold;
   box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+
   }
   html{
     font-size:62.5%;

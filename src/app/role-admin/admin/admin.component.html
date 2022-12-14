@@ -1,32 +1,37 @@
-<div class="header">
-  <h1>Inventory Management System</h1>
-</div>
+<div class="wholePage">
+  <div class="header">
+    <h1>Inventory Management System</h1>
+  </div>
 
-<div class="nav">
-  <div class="side">
-    <div class="iconDiv" routerLink="/admin/admin/employees" routerLinkActive="active">
-      <span class="material-symbols-outlined">group</span><br />
-      <a>Employees</a>
+  <div class="nav">
+    <div class="side">
+      <div class="iconDiv" routerLink="/admin/admin/employees" routerLinkActive="active">
+        <span class="material-symbols-outlined">group</span><br />
+        <a>Employees</a>
+      </div>
+
+      <div class="iconDiv" routerLink="/admin/admin/devices" routerLinkActive="active">
+        <span class="material-symbols-outlined">devices</span><br />
+        <a>Devices</a>
+      </div>
+
+      <div
+        class="iconDiv"
+        routerLink="/admin/admin/approvals"
+        routerLinkActive="active"
+      >
+        <span class="material-symbols-outlined">checklist</span><br />
+        <a>Approvals</a>
+      </div>
     </div>
-
-    <div class="iconDiv" routerLink="/admin/admin/devices" routerLinkActive="active">
-      <span class="material-symbols-outlined">devices</span><br />
-      <a>Devices</a>
-    </div>
-
-    <div class="iconDiv" routerLink="/admin/admin/approvals"routerLinkActive="active">
-      <span class="material-symbols-outlined">checklist</span><br />
-      <a>Approvals</a>
-    </div>
-
-   <div class="iconDiv" routerLink="/admin/admin/profile"routerLinkActive="active">
+    <div class="iconDiv" routerLink="/admin/admin/profile"routerLinkActive="active">
       <span class="material-symbols-outlined">person</span><br />
       <a>Profile</a>
     </div>
-  </div>
 
-  <div class="main">
-    <router-outlet></router-outlet>
+    <div class="main">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
 <ng-confirm></ng-confirm>

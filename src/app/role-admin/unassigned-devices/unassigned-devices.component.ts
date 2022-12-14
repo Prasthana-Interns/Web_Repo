@@ -4,7 +4,7 @@ import { HttpRequestService } from '../http-request.service';
 
 @Component({
   selector: 'app-unassigned-devices',
-  templateUrl: './unassigned-devices.component.html',
+  templateUrl:'./unassigned-devices.component.html',
   styleUrls: ['./unassigned-devices.component.css']
 })
 export class UnassignedDevicesComponent implements OnInit{
