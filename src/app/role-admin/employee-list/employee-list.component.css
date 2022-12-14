@@ -45,15 +45,19 @@ fieldset {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.add {
-    color: black;
-    margin:auto;
-    border-radius: 30%;
+.addSymbol {
+    /* color: black; */
+    /* margin:auto;
+    border-radius: 30%; */
    justify-content: center;
     display: flex;
-    background-color: white;
-    height: 38px;
-    width: 40px
+    margin-left:15px;
+    /* height: 38px;
+    width: 40px; */
+    font-size: 40px;
+    /* font-weight: bold; */
+   
+
 }
 .detailview{
    justify-content: center;
@@ -91,7 +95,6 @@ justify-content: flex-end;
  } 
 .search {
     margin-left: 25px;
-    padding-top: 10px;
     margin-right: 5px;
     margin-left: 15px;
 }

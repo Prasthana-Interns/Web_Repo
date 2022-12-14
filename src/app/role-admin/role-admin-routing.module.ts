@@ -10,6 +10,8 @@ import { EmpDetailViewComponent } from './emp-detail-view/emp-detail-view.compon
 import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devices.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:'full'},
@@ -23,19 +25,13 @@ const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:
                                       path: 'employees', component: EmployeeListComponent,
                                       children: [{ path: 'add-employee', component: AddEmployeeComponent }]
                                      },
-                                    { path: 'employees/:id', component: EmpDetailViewComponent,
-                             children:[{path: 'unassigned-devices/:id', component: UnassignedDevicesComponent}]},
-                             { path: 'employees', component: EmployeeListComponent },
-                             { path: 'employees/:id', component: EmpDetailViewComponent },
-                            ]
-                                     
-                         },
-                        ];
-
-                              
-                            
-                             
-                        
+                                     { path: 'employees/:id', component: EmpDetailViewComponent },                                    
+                                     { path: 'unassigned-devices', component: UnassignedDevicesComponent },
+                                     { path: 'profile', component: ProfileComponent },
+                                     {path:'edit-profile',component:EditProfileComponent}
+                                    ]                                     
+                         }];
+                  
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

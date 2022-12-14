@@ -28,7 +28,7 @@ export class EmployeeListComponent implements OnInit {
   }
   searchMethod(value?:string) {
     this.httpService.get(`users/search/?search=${value}`).subscribe((res) => {
-     this.employees=res
+      this.employees = res
     })   
   
   }

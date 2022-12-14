@@ -39,7 +39,7 @@ width:100%
 .deviceHolder{
     height: 430px;
         overflow-y: scroll;
-        margin-top: 40px
+        margin-top: 20px
 }
 .popUp{
     justify-content: center;

@@ -13,10 +13,11 @@ export class AddEmployeeComponent  implements OnInit {
  addEmployeeForm:any;
   isApprove:boolean=true;
   dropdownList:any=[];
-  dropdownSettings:IDropdownSettings={}
-  constructor(private httpService: HttpRequestService, private router:Router, private fb: FormBuilder){}
-
-  ngOnInit(){
+  dropdownSettings: IDropdownSettings = {}
+  constructor(private httpService: HttpRequestService, private router: Router, private fb: FormBuilder) { }
+  
+  ngOnInit() {
+   this.httpService.get(`users`).subscribe(res => { });
     this.dropdownList = [
       { item_id: 1, item_text: 'Employee'},
       { item_id: 2, item_text: 'Admin'},
@@ -34,20 +35,21 @@ export class AddEmployeeComponent  implements OnInit {
     roles:new FormControl([]), 
   })
   console.log(this.addEmployeeForm)
+  
   }
+  
   roles = new Array()
-  hello(data:any){
+hello(data:any){
     data.map((res: { item_text: any; })=>{
       return this.roles.push(res?.item_text);
         })
         this.addEmployeeForm.controls['roles'].value  = this.roles
-  }
-  onItemSelect(data:any){
+}
+onItemSelect(data:any){
   console.log(data?.item_text)
   if(data?.item_text==='Employee' && data?.item_text==='Admin'){
   data.map((res: { item_text: any; })=>{
-  return this.roles.push(res?.item_text);
-    })
+  return this.roles.push(res?.item_text);})
   }
   else{
    this.roles.push(data?.item_text);
@@ -55,7 +57,8 @@ export class AddEmployeeComponent  implements OnInit {
   this.addEmployeeForm.controls['roles'].value  = this.roles
   console.log(this.addEmployeeForm)
   }
- addEmployee() { 
+
+addEmployee() { 
   if(this.addEmployeeForm.valid){
     let body= { 
                "user": {
@@ -68,11 +71,13 @@ export class AddEmployeeComponent  implements OnInit {
                         "roles":this.addEmployeeForm.controls['roles'].value=this.roles
               }
               console.log(body);
-     this.httpService.post(`users/signup`,body).subscribe((res:any)=>{console.log(res)})
-    this.router.navigate(['admin/admin/employees'])
+    this.httpService.post(`users/signup`, body).subscribe((res: any) => { console.log(res) });
+    this.httpService.get(`users`).subscribe(res => { });
+    this.router.navigate(['admin/admin/employees']);
      }
-   }
+}
   cancelForm() {
-  this.router.navigate(['admin/admin/employees'])
+    this.router.navigate(['admin/admin/employees'])
   }
 }
+

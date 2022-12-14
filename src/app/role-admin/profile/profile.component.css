@@ -1,6 +1,6 @@
 .compHeader {
-background-color: #ABAEB6;
-    font-size:20px;
+    background-color: #ABAEB6;
+    font-size: 20px;
     padding: 20px;
     font-weight: bold;
 }
@@ -14,9 +14,11 @@ background-color: #ABAEB6;
     height: 570px;
     /* scroll-behavior: smooth; */
 }
-.name{
-font-weight: bold;
+
+.name {
+    font-weight: bold;
 }
+
 .dp-Det {
     width: 100px;
     height: 80px;
@@ -29,22 +31,24 @@ font-weight: bold;
     display: flex;
     box-sizing: content-box;
 }
+
 small {
     display: flex;
     font-size: 18px;
 }
+
 .office-details {
 
     padding-left: 30px;
     display: flex;
     justify-content: space-between;
-      
+
 }
+
 .delete {
-   
+    margin-top: 10px;
     /* margin-left: 20%; */
     color: red;
-    padding-left:110px
 }
 
 .dev-ass-heading {
@@ -58,31 +62,36 @@ small {
 }
 
 .div-icons {
-color: blue;
-display: flex;
+    color: blue;
+    display: flex;
 }
-.card-comp{
-    width:55%;
-    max-height:280px;
+
+.card-comp {
+    width: 55%;
+    max-height: 280px;
     margin: auto;
     margin-bottom: 20px;
-    border-radius: 10px;  
+    border-radius: 10px;
 }
+
 img {
     height: 92px;
     width: 100px;
     border-radius: 10px;
     border: 1px solid rgb(151, 145, 145);
 }
-.marginPurpose{
-margin-top: 20px
+
+.marginPurpose {
+    margin-top: 20px
 }
+
 .button {
     margin-left: 320px;
     border: 1px;
-    margin-top:5px ;
+    margin-top: 5px;
     box-shadow: 1px 1px 2px rgb(91, 91, 93);
 }
+
 .deviceCSS {
 
     background-color: blue;
@@ -92,22 +101,26 @@ margin-top: 20px
     padding-left: 7px;
     padding-right: 7px;
 }
+
 .deviceHolder {
     max-height: 270px;
     overflow-y: scroll;
 }
+
 ::-webkit-scrollbar {
     display: none;
 }
+
 @media(max-width:850px) {
     .office-details {
         flex-direction: column;
     }
-   
-    .personal-details{
+
+    .personal-details {
         flex-direction: column;
     }
-    .delete{
-       flex-direction: column-reverse;
+
+    .delete {
+        flex-direction: column-reverse;
     }
 }
