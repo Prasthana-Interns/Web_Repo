@@ -7,8 +7,9 @@
   position: -webkit-sticky;
   background-color: #ABAEB6;
 }
+
 .divs{
-  height:70rem;
+  height:50rem;
   overflow:scroll;
   margin: 0rem 0rem 0rem 0.3rem;
   background-color: #F0F1F5;
@@ -49,6 +50,14 @@ input{
   font-size:2.5rem;
   font-weight: bold;
 }
+.delete{
+  font-size: 1.5rem;
+  color:#ABAEB6;
+  padding: 0.4rem;
+}
+.delete:hover{
+  color:red;
+}
 img{
   padding:1rem 0rem 0rem 0rem;
   width:8rem;
@@ -75,8 +84,6 @@ h2{
 .rows{
   width:100%;
   margin:auto;
-  /* 
-  . */
 }
 label{
   margin-bottom: 0.5rem;

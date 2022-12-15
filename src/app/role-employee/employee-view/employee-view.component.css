@@ -1,109 +1,98 @@
 .compHeader {
     background-color: #ABAEB6;
-        font-size:20px;
-        padding: 20px;
-        font-weight: bold;
-        text-align: center;
-    }
-    
-    .employee-details {
-        padding-top: 10px;
-        background-color: #F0F1F5;
-        margin: auto;
-        padding-right: 20px;
-        overflow-y: scroll;
-        height: 590px;
-        scroll-behavior: smooth;
-    }
-    .name{
+    font-size:20px;
+    padding: 20px;
     font-weight: bold;
-    }
-    .dp-Det {
-        width: 85px;
-        height: 80px;
-        background-color: rgb(244, 169, 20);
-        color: white;
-        justify-content: center;
-        padding-top: 10%;
-        border-radius: 10px;
-        font-size: 35px;
-        display: flex;
-    }
-    small {
-        display: flex;
-        font-size: 18px;
-    }
-    .office-details {
-    
-        padding-left: 30px;
-        display: flex;
-        justify-content: space-between;
-          
-    }
-    .delete {
-        margin-top: 10px;
-        /* margin-left: 20%; */
-        color: red;
-    }
-    
-    .dev-ass-heading {
-        padding-left: 23%;
-    }
-    
-    .bold {
-        font-weight: bold;
-        font-size: 18px;
-    
-    }
-    
-    .div-icons {
+    text-align: center;
+}
+.employee-details {
+    padding-top: 10px;
+    background-color: #F0F1F5;
+    margin: auto;
+    padding-right: 20px;
+    overflow-y: scroll;
+    height: 590px;
+    scroll-behavior: smooth;
+}
+.name{
+    font-weight: bold;
+}
+.dp-Det {
+    width: 85px;
+    height: 80px;
+    background-color: rgb(244, 169, 20);
+    color: white;
+    justify-content: center;
+    padding-top: 10%;
+    border-radius: 10px;
+    font-size: 35px;
+    display: flex;
+}
+small {
+    display: flex;
+    font-size: 18px;
+}
+.office-details {
+    padding-left: 30px;
+    display: flex;
+    justify-content: space-between;      
+}
+.delete {
+    margin-top: 10px;
+    color: red;
+} 
+.dev-ass-heading {
+    padding-left: 23%;
+} 
+.bold {
+    font-weight: bold;
+    font-size: 18px;   
+}
+.div-icons {
     color: blue;
-        display: flex;
-        padding-right: 10px;
-        gap: 5px
-    }
-    .card-comp{
-        width:55%;
-        margin: auto;
-        margin-bottom: 20px;
-        border-radius: 10px;  
-    }
-    img {
-        height: 110px;
-        width: 100px;
-        border-radius: 10px;
-        border: 1px solid rgb(151, 145, 145);
-    }
-    .marginPurpose{
+    display: flex;
+    padding-right: 10px;
+    gap: 5px
+}
+.card-comp{
+    width:55%;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;  
+}
+img {
+    height: 110px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid rgb(151, 145, 145);
+}
+.marginPurpose{
     margin-top: 40px
-    }
-    .button {
-        margin-left: 320px;
-        border: 1px;
-        box-shadow: 1px 1px 2px rgb(91, 91, 93);
-    }
-    .deviceCSS {
-    
-        background-color: blue;
-        border-radius: 20px;
-        color: whitesmoke;
-        height: 30%;
-        padding-left: 7px;
-        padding-right: 7px;
-    }
-    
-    ::-webkit-scrollbar-track {
-        background-color: rgb(184, 184, 194);
-    }
-    @media(max-width:850px) {
-        .office-details {
-            flex-direction: column;
-        }
-       
-        .personal-details{
-            flex-direction: column;
-        }
-        .delete{
-           flex-direction: column-reverse;
-        }
-    }
+}
+.button {
+    margin-left: 320px;
+    border: 1px;
+    box-shadow: 1px 1px 2px rgb(91, 91, 93);
+}
+.deviceCSS {
+     background-color: blue;
+    border-radius: 20px;
+    color: whitesmoke;
+    height: 30%;
+    padding-left: 7px;
+    padding-right: 7px;
+}  
+::-webkit-scrollbar-track {
+    background-color: rgb(184, 184, 194);
+}
+@media(max-width:850px) {
+    .office-details {
+    flex-direction: column;
+}
+.personal-details{
+    flex-direction: column;
+}
+.delete{
+    flex-direction: column-reverse;
+}
+}

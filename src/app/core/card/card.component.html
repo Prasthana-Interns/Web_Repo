@@ -1,14 +1,13 @@
 <div class="card">
-    <div >
-    <div style="display:flex;">
+    <div class="cardLayout">
         <div class="left">
             <ng-content select="[image]"></ng-content>
         </div>
 
         <div class="right">
             <div class="content">
-                <div class="deviceInfo" style="display:flex;">
-                    <ng-content select="[name]"></ng-content>
+                <div class="deviceInfo">
+                    <ng-content select="[deviceName]"></ng-content>
                     <ng-content select="[device]" class="deviceCSS"></ng-content>
                        </div>
                     <div class="employeeLessDetails" style="display:flex;width:100%;justify-content: space-between;">
@@ -36,6 +35,8 @@
                 </div>
                 
             </div>
+        </div>
+        <div>
             <div class="cardRightMost">
                 <ng-content select="[assignButton]"></ng-content>
                 <ng-content select="[assign]"></ng-content>
@@ -65,4 +66,4 @@
                         </div>
                     </div>
 
-</div>
+<!-- </div> -->

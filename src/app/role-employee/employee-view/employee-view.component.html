@@ -3,10 +3,10 @@
 <div class="compHeader">
     <label >Your Profile</label>
   </div>
-  
   <div class="employee-details">
      <div class="card-comp ">
-      <app-card class="card-component">
+      <!-- class="card-component" -->
+      <app-card>
         <div image class="dp-Det">{{ employeeData.name.split("")[0] }}</div>
         <h3 name class="name">{{ employeeData?.name }}</h3>
         <small email>{{ employeeData?.email }}</small>
@@ -30,7 +30,8 @@
     <!-- ..........Devices Assigned..... -->
     <h4 class="dev-ass-heading">Devices Assigned</h4>
     <div class="card-comp">
-      <app-card *ngFor="let device of employeeData?.devices">
+      <div *ngFor="let device of employeeData?.devices">
+      <app-card> 
         <div image> <img src="assets\laptopimg.jpeg" /></div>
         <h3 name>{{device?.device_type}}</h3>
         <label device class="deviceCSS">{{device?.name}}</label>
@@ -38,5 +39,8 @@
         <label deviceId>{{device?.device_no}}</label>
       </app-card>
     </div>
+    </div>
   </div>
+  <app-edit-details localId="id"></app-edit-details>
   <router-outlet></router-outlet>
+

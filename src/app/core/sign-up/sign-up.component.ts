@@ -10,14 +10,29 @@ import { AuthService } from '../../auth/auth.service';
 })
 
 export class SignUpComponent implements OnInit {
+  buttonText:any;
+  heading:any;
   signUp:any;
+  hideLogin=false;
+  cancel=false;
   alertMsg:any;
   approve:boolean=false;
   dropdownList:any=[];
   dropdownSettings:IDropdownSettings={}
   constructor(private au:AuthService, private route:Router, private fb: FormBuilder){}
-
   ngOnInit(){
+    if(!!localStorage.getItem('token')){
+      this.heading="Add Employee"
+      this.buttonText="Add"
+      this.hideLogin=false;
+      this.cancel=true;
+    }
+    else{
+      this.heading="SignUp"
+      this.buttonText="signUp"
+      this.hideLogin=true;
+      this.cancel=false;
+    }
     this.dropdownList = [
       { item_id: 1, item_text: 'Employee'},
       { item_id: 2, item_text: 'Admin'},
@@ -74,7 +89,7 @@ export class SignUpComponent implements OnInit {
      this.route.navigate(["/auth/login"]); 
    }
    else{
-    this.alertMsg="*Invalid login details"; 
+    this.alertMsg="*Invalid details"; 
    }
   }
 }

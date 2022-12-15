@@ -1,20 +1,21 @@
 <p>edit-details works!</p>
-<div class="form-wrapper" >
+<div class="form-wrapper" *ngIf="showForm" >
     <div class="mobileForm" >
-      <h2 class="text-center text-info">{{formHeader}}</h2>     
+      <h2 class="text-center text-info">{{formHeader}}</h2>
+      <form [formGroup]="editForm">  
         <div class="group">
-          <label for="userName">Name</label>
-           <input type="text" class="form-Control" name="name" [(ngModel)]="name" >
+          <label for="name">Name</label>
+           <input type="text" class="form-Control" name="name" formControlName="name" >
         </div>
         <div class="group">
-          <label for="email">Email</label>
-          <input type="number" class="form-Control" name="phoneNo" [(ngModel)]="phoneNo" required>
-        </div> 
+          <label for="phoneNo">Email</label>
+          <input type="number" class="form-Control" name="phoneNo" formControlName="phoneNo" >
+        </div>
+      </form>    
         <div class="action">
-          <button class="btn btn-primary save" (click)="saveMobile()">Save changes</button>
+          <button class="btn btn-primary save" (click)="saveDetails()">Save changes</button>
           <button class="btn btn-danger cancel" (click)="closeForm()">Cancel</button>
-         </div>
-  
+         </div>  
     </div>
   </div>
   

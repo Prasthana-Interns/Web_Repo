@@ -22,9 +22,17 @@ body{
 }
 .heading{
     font-weight: 700;
-    padding-left:13.8rem;
-    margin:1rem 0rem 1.5rem 0rem;
+    display: flex;
+    justify-content: center;
+     margin:1rem 0rem 1.5rem 0rem; 
     color:#6562fc;
+}
+.closeButton{
+    margin-left:10rem;
+    margin-top:1rem;
+    font-size: 2rem;
+    color:red;
+    font-weight: bold;
 }
 .errorMsg{
     padding-left: 3.4rem;
