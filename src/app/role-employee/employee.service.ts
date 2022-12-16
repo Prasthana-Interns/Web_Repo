@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  get(arg0: string) {
-    throw new Error('Method not implemented.');
+
+  constructor(private http:HttpClient) { }
+  public baseurl="http://13.251.95.54:3000/"
+ 
+  getToken(){
+    return localStorage.getItem('token')
   }
 
-  constructor() { }
+  get(url:any){
+    return this.http.get(this.baseurl+url)
+  }
 }
