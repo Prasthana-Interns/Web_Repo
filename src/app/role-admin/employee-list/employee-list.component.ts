@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
-
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -22,7 +21,7 @@ export class EmployeeListComponent implements OnInit {
     })
   }
   addEmployee() {
-    this.router.navigate(['/admin/admin/employees/add-employee'])
+    this.router.navigate(['/core/signup'])
   }
   empDetailView(emp: any) {
     this.router.navigate(['/admin/admin/employees/',emp.id])

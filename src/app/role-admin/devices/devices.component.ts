@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
 import { NavigationEnd } from '@angular/router';
 import { NgConfirmService} from 'ng-confirm-box'
-
+import { TitleCasePipe } from '@angular/common';
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.component.html',

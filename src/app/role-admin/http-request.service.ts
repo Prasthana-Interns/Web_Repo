@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class HttpRequestService {
 
   private domain_url = 'http://13.251.95.54:3000/'
-  message: any;
+  message: any; 
 
   constructor(private http_: HttpClient) { }
 

@@ -10,9 +10,10 @@
     <section class="sec" >
       <div class="container">
         <div class="row no-gutters">
-          <div class="col-lg-7 ">
+          <div>
             <img src="assets\images\INVENTORY 1.jpg" class="invImg" alt="Inventory App" >
-            <h3 class="heading">SignUp</h3>
+            <span class="material-symbols-outlined closeButton" *ngIf="cancel">clear</span>
+            <h4 class="heading">{{heading}}</h4>
             <p class="errorMsg">{{alertMsg}}</p>
             <form [formGroup]="signUp">
               <div class="inputSignUp">
@@ -37,11 +38,12 @@
                   [placeholder]="'Role'"
                   [settings]="dropdownSettings"
                   [data]="dropdownList"
-                  (onSelect)="onItemSelect($event)">
+                  (onSelect)="onItemSelect($event)"
+                  (onSelectAll)="hello($event)">
                 </ng-multiselect-dropdown>
               </div>
-              <button type="submit"  class="btn1" (click)="submitSignUp()"> Sign Up</button>
-              <a class="backtologin" href="#" routerLink="/login" routerLinkActive="active">Back to Login</a><br><br>
+              <button type="submit"  class="btn1" (click)="submitSignUp()"> {{buttonText}}</button>
+              <a class="backtologin" href="#" routerLink="/login" routerLinkActive="active" *ngIf="hideLogin">Back to Login</a><br><br>
             </form>
           </div>
         </div>
