@@ -7,12 +7,20 @@
   /* Header/logo Title */
   .header {
     padding: 0.5rem;
-    text-align: center;
+    /* text-align: center; */
     background-color:#DDE1E9;
     color:#393b3f;
     margin-bottom: 0.2rem;
+    display:flex;
+    justify-content: flex-end;
+    gap:22rem;  
   }
-  
+  .logout{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+     font-size: 1.7rem;
+  }
   /* Increase the font size of the heading */
   .header h1 {
     font-size: 2.5rem;
