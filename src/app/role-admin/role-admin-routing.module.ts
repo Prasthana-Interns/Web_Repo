@@ -15,9 +15,11 @@ import { ProfileComponent } from '../core/profile/profile.component';
 const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:'full'},
                          {path:'admin',component:AdminComponent,
                            children:[{ path: 'devices', component: DevicesComponent,
-                                       children: [{ path: 'add-device', component: AddDeviceComponent},
+                                       children: [
                                                   { path: 'employeePopUp', component: EmployeePopUpComponent}]
                                      },
+                                     { path: 'add-device', component: AddDeviceComponent},
+
                                      { path: 'approvals', component: ApprovalsComponent },
                                      {
                                       path: 'employees', component: EmployeeListComponent,

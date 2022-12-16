@@ -4,7 +4,7 @@
     bottom:0;
     position:absolute;
     height:100%;
-    width:100%;
+    width:95%;
     z-index: 80;
     display:flex;
     justify-content: center;
@@ -12,7 +12,7 @@
 }
 .box{
     background-color: snow;
-    width:40rem;
+    width:35rem;
     margin-right:5rem;
     border-radius: 0.5rem;
 }
@@ -20,7 +20,7 @@ h1{
     display:flex;
     justify-content: center;
     font-size: 2rem;
-    margin:1rem;
+    margin-top:1rem;
     font-weight: bold;
     color:rgb(128,128,237)
 }
@@ -36,7 +36,7 @@ span{
     color:black;
 }
 label{
-    font-size:1.5rem;
+    font-size:1.2rem;
 }
 input{
     width:26rem;
@@ -51,12 +51,26 @@ input{
     border-radius:0.5rem;
     margin-bottom: 2rem;
 }
+input.ng-touched.ng-invalid{
+    border:0.09rem solid red;
+}
+.text-danger{
+    color:red;
+}
+.errorMessage{
+    display:flex;
+    align-items:center ;
+    justify-content: center;
+    font-size:1rem;
+    font-family: 'Times New Roman', Times, serif;
+    color:#fd3838
+}
 .btn1{
     border-radius:0.8rem;
     background-color: #514efe;
     padding:0.5rem;
     border:0;
-    border:0.1rem solid black;
+    /* border:0.1rem solid black; */
     color:#FFFFFF;
     font-weight: bold;
 }
@@ -72,6 +86,7 @@ input{
 .buttonDiv{
     display:flex;
     justify-content: flex-end;
+    gap:2rem;
 }
 .btn1:hover{
     background-color: #201dfc;

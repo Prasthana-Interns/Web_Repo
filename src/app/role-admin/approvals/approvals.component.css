@@ -9,16 +9,33 @@
     background-color: #ABAEB6;
   }
   .divs{
-    height:70rem;
+    height:50rem;
     overflow:scroll;
     margin: 0.3rem 0rem 0rem 0.3rem;
     background-color: #F0F1F5;
-    }
+  }
   .container{
     margin:auto;
     width:40%;
-  } 
+  }
+  .displayPicture{
+    font-size: 2.5rem;
+    color:#FFFFFF
+  }
+  .warning{
+    font-size:10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#c5c9d1
+  }
+  .warningText{
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    color:black
 
+  }
   .card{
   box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
   padding: 1rem;
@@ -29,10 +46,10 @@
   width:40rem;
   }
   .image{
-    width:4rem;
-    height:4rem;
-    background-color:rgb(177, 174, 174);
-    border-radius:0.2rem;
+    width:7rem;
+    height:7rem;
+    background-color:rgb(248, 164, 54);
+    border-radius:0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,7 +61,10 @@
   font-weight: bold;
   box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
-
+  border: 0.1rem solid black;
+  }
+  button:hover{
+    background-color: #bcbfc7;
   }
   html{
     font-size:62.5%;
