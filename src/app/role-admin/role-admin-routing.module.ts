@@ -10,31 +10,27 @@ import { EmpDetailViewComponent } from './emp-detail-view/emp-detail-view.compon
 import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devices.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
+import { ProfileComponent } from '../core/profile/profile.component';
 
 const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:'full'},
                          {path:'admin',component:AdminComponent,
                            children:[{ path: 'devices', component: DevicesComponent,
-                                       children: [{ path: 'add-device', component: AddDeviceComponent},
+                                       children: [
                                                   { path: 'employeePopUp', component: EmployeePopUpComponent}]
                                      },
+                                     { path: 'add-device', component: AddDeviceComponent},
+
                                      { path: 'approvals', component: ApprovalsComponent },
                                      {
                                       path: 'employees', component: EmployeeListComponent,
                                       children: [{ path: 'add-employee', component: AddEmployeeComponent }]
                                      },
-                                    { path: 'employees/:id', component: EmpDetailViewComponent,
-                                        children:[{path: 'unassigned-devices/:id', component: UnassignedDevicesComponent}]},
-                                                  { path: 'employees', component: EmployeeListComponent },
-                                                  { path: 'employees/:id', component: EmpDetailViewComponent },
-                            ]
-                                     
-                         },
-                        ];
-
-                              
-                            
-                             
-                        
+                                     { path: 'employees/:id', component: EmpDetailViewComponent },                                    
+                                     { path: 'unassigned-devices', component: UnassignedDevicesComponent },
+                                     { path: 'profile', component: ProfileComponent },
+                                 ]                                     
+                         }];
+                  
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

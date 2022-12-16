@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         }
         if(res?.user?.user_roles.length===1 && res?.user?.user_roles=='Employee'){
           console.log("FOR THE EMPLOYEE ROLE")  
-          this.route.navigate(["employee/employee-view"]);
+          this.route.navigate(["employee-profile"]);
         }
       },
       error=>{

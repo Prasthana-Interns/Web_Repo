@@ -24,9 +24,10 @@ export class EmployeePopUpComponent {
     this.router.navigate(['/admin/admin/devices']);
   }
   fetchAssignEmployee(){
-    this.http.get(`users`).subscribe((res)=>
+    this.http.get(`users`).subscribe((res)=>{
     this.allEmployees=res
-    );
+    console.log(res)
+  });
   }
   assignClicked(id:any){
     this.temp=id;
@@ -38,8 +39,9 @@ export class EmployeePopUpComponent {
   }
   console.log(id)
   console.log(this.deviceId)
-  this.http.put(`devices/${this.deviceId}`,body).subscribe((res)=>{})
-  // this.router.navigate(['/admin/admin/devices']);
+  this.http.put(`devices/${this.deviceId}`,body).subscribe((res)=>{
+    console.log(res)
+  })  
   this.location.back()
   }
 

@@ -15,8 +15,10 @@ export class DevicesComponent implements OnInit {
   devicesList:any;
   employeeList:any;
   deviceId:any;
-
-  private searchDeviceList:any;
+  noRecordFound=false;
+  text:any;
+  data:any;
+  imageUrl:any;
 
   constructor(private router :Router,private http:HttpRequestService,private confirmService:NgConfirmService) {
     this.router.events.subscribe((e) => {
@@ -27,11 +29,18 @@ export class DevicesComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.sizes();
     this.getAllDevices();
+    console.log(this.data)
     }
-
+    sizes(){
+      if(!!(this.devicesList?.length)){
+        this.noRecordFound=true;
+        this.text="No devices found"
+      }
+    }
   getAllDevices(){
-    this.http.get(`devices`).subscribe((res)=>{
+    this.http.get(`devices`).subscribe((res:any)=>{
     this.devicesList=res;
     console.log(res);
     })
@@ -44,10 +53,10 @@ export class DevicesComponent implements OnInit {
     }
   post(){
     this.getAllDevices();
-    this.router.navigate(['/admin/admin/devices/add-device'])
+    this.router.navigate(['/admin/admin/add-device'])
   }
   deleteDevice(id:any){
-    this.confirmService.showConfirm("Are you sure want to Delete?",
+    this.confirmService.showConfirm("Are you sure want to Delete ?",
      () => {
       this.http.delete(`devices`,id).subscribe((res)=>{
       })

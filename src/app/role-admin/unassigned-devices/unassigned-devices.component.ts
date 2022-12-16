@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,EventEmitter,Input,Output,OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
 
@@ -8,44 +8,32 @@ import { HttpRequestService } from '../http-request.service';
   styleUrls: ['./unassigned-devices.component.css']
 })
 export class UnassignedDevicesComponent implements OnInit{
-
+  @Input() _id: any;
+  @Output() public hasDevices: EventEmitter<any> = new EventEmitter();
   unAssignedDevices: any;
-  empId: any;
-
-  constructor(private router: Router,private activatedRoute:ActivatedRoute ,private httpService:HttpRequestService) { }
+  hasDevicesForm: boolean=false
   
-  ngOnInit(): void{
-    console.log("unassigned deices")
-    this.getUnAssignedDevices();
-    this.getEmployeeId();
-    // this.empId=this.httpService.getShareData()
-  }
-  getEmployeeId() {
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      let employeeId = params.get('id');
-      this.empId = employeeId;})
-  }
-  getUnAssignedDevices() {
-    console.log("hiiii")
-    this.httpService.get(`devices/unassigned`).subscribe(response => {
-      this.unAssignedDevices = response;
-    })
-  }
-  assignDevice(id: any) {
-    const body = {
-      "device": {
-        "user_id": this.empId
-      }
-    }
-    console.log("emp id", this.empId)
-    console.log("device id", id)
-    this.httpService.put(`users/${this.empId}`).subscribe(res=>{console.log})
-    this.httpService.put(`devices/${id}`, body).subscribe(res => { console.log(res)})
-
-    this.getEmployeeId();
-    this.router.navigate(['admin/admin/employees/',this.empId])
-  }
-
-
+constructor(private httpService:HttpRequestService) { }
   
+ngOnInit(): void{
+  this.getUnAssignedDevices();
+}
+getUnAssignedDevices() {
+  this.httpService.get(`devices/unassigned`).subscribe(response => {
+  this.unAssignedDevices = response; })
+}
+assignDevice(id: any) {
+  const body = {
+   "device": {
+        "user_id": this._id
+             }
+  }
+  this.httpService.put(`devices/${id}`, body).subscribe(res => {
+  this.hasDevices.emit(this.hasDevicesForm)
+  })
+  
+}
+closeDevicesForm() {
+  this.hasDevices.emit(this.hasDevicesForm)
+}
 }

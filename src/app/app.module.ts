@@ -7,6 +7,7 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginInterceptor } from './auth/login.interceptor';
 import { RoleAdminModule } from './role-admin/role-admin.module';
+import { RoleEmployeeModule } from './role-employee/role-employee.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RoleAdminModule } from './role-admin/role-admin.module';
     AppRoutingModule,
     AuthModule,
     RoleAdminModule,
+    RoleEmployeeModule,
     ReactiveFormsModule,
     FormsModule,
   ],

@@ -1,69 +1,34 @@
 <div class="card">
-    <div class="cardLayout">
-        <div class="left">
-            <ng-content select="[image]"></ng-content>
+  <div>
+    <div style="display: flex">
+      <div class="left"><ng-content select="[image]"></ng-content></div>
+      <div class="right">
+        <div class="content">
+          <div class="info">
+            <ng-content select="[name]"></ng-content>
+            <ng-content select="[device]" class="deviceCSS"></ng-content>
+          </div>
+          <div class="employeeLessDetails"style="display: flex; width: 100%;">
+              <ng-content select="[empId_]"></ng-content>
+              <ng-content select="[designation_]"></ng-content>
+              <ng-content select="[deviceSymbols_]"></ng-content>
+         </div>
+          <ng-content select="[line_1]"></ng-content>
+          <div class="deviceInfo">
+            <ng-content select="[line_2]"></ng-content>
+            <ng-content select="[line_3]"></ng-content>
+          </div>
         </div>
-
-        <div class="right">
-            <div class="content">
-                <div class="deviceInfo">
-                    <ng-content select="[deviceName]"></ng-content>
-                    <ng-content select="[device]" class="deviceCSS"></ng-content>
-                       </div>
-                    <div class="employeeLessDetails" style="display:flex;width:100%;justify-content: space-between;">
-                        <div>
-                        <ng-content select="[empId_]"></ng-content>
-                        <ng-content select="[empIdLabel_]"></ng-content> 
-                        </div>
-                        <div>
-                        <ng-content select="[designation_]"></ng-content>
-                        <ng-content select="[designationLabel_]"></ng-content> 
-                        </div>
-                        <div>
-                        <ng-content select="[deviceSymbols_]"></ng-content>
-                        <ng-content select="[deviceLabel_]"></ng-content>
-                    </div>
-                    
-                </div>
-                <ng-content select="[deviceOS]"></ng-content>
-                <ng-content select="[email]"></ng-content>
-                <ng-content select="[phoneNo]"></ng-content>
-
-                <div class="deviceInfo">
-                    <ng-content select="[deviceId]"></ng-content>
-                    <ng-content select="[assignedTo]"></ng-content>
-                </div>
-                
-            </div>
-        </div>
-        <div>
-            <div class="cardRightMost">
-                <ng-content select="[assignButton]"></ng-content>
-                <ng-content select="[assign]"></ng-content>
-                <div style="color:red"> <ng-content select="[deleteSymbol]"></ng-content></div>
-            </div>
-            <div><ng-content select="[arrow]"></ng-content></div>
-        </div>
-        </div>
-        </div>
-    <div>
-        <ng-content select="[bottomMost]"></ng-content>
+        <div class="cardRightMost">
+          <ng-content select="[clickButton]"></ng-content>
+          </div>
+      </div>
     </div>
-    <ng-content select="[marginPurpose]"></ng-content>
-          <div class="employeeLessDetails" style="display:flex;width:90%;justify-content: space-between;">
-                        <div>
-                        <ng-content select="[empId]"></ng-content>
-                        <ng-content select="[empIdLabel]"></ng-content> 
-                        </div>
-                        <div>
-                        <ng-content select="[designation]"></ng-content>
-                        <ng-content select="[designationLabel]"></ng-content> 
-                        </div>
-                        <div>
-                        <ng-content  select="[deviceSymbols]"></ng-content>
-                        <ng-content select="[deviceLabel]"></ng-content>
-
-                        </div>
-                    </div>
-
-<!-- </div> -->
+  </div>
+  <ng-content select="[marginPurpose]"></ng-content>
+  <div class="employeeLessDetails"style="display: flex; width: 90%;">
+              <ng-content select="[empId]"></ng-content>
+              <ng-content select="[designation]"></ng-content>
+              <ng-content select="[deviceSymbols]"></ng-content>
+  </div>
+  </div>
