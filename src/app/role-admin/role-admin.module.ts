@@ -16,9 +16,6 @@ import { HttpRequestService } from './http-request.service';
 import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devices.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
-// import { CoreModule } from '../core/core.module';
-import { CardComponent } from '../core/card/card.component';
-import { ProfileComponent } from './profile/profile.component';
 import { CoreModule } from '../core/core.module'; 
 
 @NgModule({
@@ -32,8 +29,8 @@ import { CoreModule } from '../core/core.module';
     UnassignedDevicesComponent,
     ApprovalsComponent,
     EmployeePopUpComponent,
-    // CardComponent,
-    ProfileComponent
+   
+    
   ],
 
   imports: [
@@ -43,7 +40,8 @@ import { CoreModule } from '../core/core.module';
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
     HttpClientModule, 
-    CoreModule
+    CoreModule,
+    NgConfirmModule
   ],
   
   providers:[HttpRequestService,{  provide:HTTP_INTERCEPTORS,useClass:RoleAdminInterceptor,multi:true},NgConfirmService],

@@ -10,7 +10,7 @@ import { EmpDetailViewComponent } from './emp-detail-view/emp-detail-view.compon
 import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devices.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from '../core/profile/profile.component';
 
 const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:'full'},
                          {path:'admin',component:AdminComponent,

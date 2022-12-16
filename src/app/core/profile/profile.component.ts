@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpRequestService } from '../http-request.service';
+import { HttpRequestService } from '../../role-admin/http-request.service';
 
 @Component({
   selector: 'app-profile',

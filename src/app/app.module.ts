@@ -22,7 +22,6 @@ import { CoreModule } from './core/core.module';
     RoleEmployeeModule,
     ReactiveFormsModule,
     FormsModule,
-    CoreModule
   ],
   providers:[
     {
