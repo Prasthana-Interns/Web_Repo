@@ -1,6 +1,7 @@
 <div class="blurDiv">
   <div class="box">
     <h1>Add Device</h1>
+    <label class="errorMessage">{{alertMsg}}</label>
     <hr>
     <div class="container">
         <div class="formdiv">
@@ -9,33 +10,30 @@
             <label for="name"> Device Name</label><br>
             <div>
               <input type="text" placeholder=" Device Name" class="form-control" formControlName="name" required><br>
-              <div class="text-danger"
-                *ngIf="addDeviceBody?.controls?.name?.touched && addDeviceBody?.controls?.name?.errors || addDeviceBody?.controls?.name?.untouched">
-                <p class="textForErrorMSg">*Device Name is required</p>
-              </div>
             </div>
 
             <label for="deviceType">Device Type</label><br>
-            <div>
-              <input type="text" placeholder="Device Type" class="form-control" formControlName="deviceType"
-                required><br>
-              <div class="text-danger"
-                *ngIf="addDeviceBody?.controls?.deviceType?.touched && addDeviceBody?.controls?.deviceType?.errors">
-                <p class="textForErrorMSg">*Device type is required</p>
-              </div>
-            </div>
+              <select class="selectDropdown" formControlName="deviceType" required>
+                <option value="Laptop">Laptop</option>
+                <option value="Mouse">Mouse</option>
+                <option value="Mobile">Mobile</option>
+                <option value="Charger">Charger</option>
+                <option value="Bag">Bag</option>
+              </select><br>    
 
             <label for="os">OS</label><br>
             <div>
-              <input type="text" placeholder="OS" class="form-control removescroll" formControlName="os"><br>
+              <input type="text" placeholder="OS" class="form-control" formControlName="os"><br>
             </div>
 
             <label for="assignedTo">Assigned To</label><br>
             <select class="selectDropdown" formControlName="user_id">
-              <option>Select an Employee</option>
-              <option *ngFor="let employee of listOfEmployees">
-                {{employee?.id}},{{employee?.name}}
-              </option>
+              <option value="null">Select an Employee</option>
+              <ng-container *ngFor="let employee of listOfEmployees">
+                <option value ="{{employee?.id}}">
+                  {{employee?.emp_id}},{{employee?.name}}
+                </option>
+            </ng-container>
             </select>
             
 
@@ -51,3 +49,4 @@
     </div>
   </div>
 </div>
+<app-devices data="mob"></app-devices>

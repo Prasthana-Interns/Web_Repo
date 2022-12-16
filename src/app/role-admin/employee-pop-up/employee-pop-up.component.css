@@ -1,11 +1,10 @@
 .blurDiv{
     background-color: rgba(0,0,0,0.8);
-    /* padding-top: 4rem; */
     top:0;
     bottom:0;
     position:absolute;
     height:100%;
-    width:100%;
+    width:95%;
     z-index: 80;
     display:flex;
     justify-content: center;
@@ -14,19 +13,52 @@
 .box{
     background-color: snow;
     width:40rem;
-    border-radius: 0.5rem;
     display:flex;
+    border-radius: 2rem;
 }
 .popuphead{
     display:flex;
     justify-content:space-between;
+    margin-top:2rem;
+}
+h3{
+    color:#6563FF;
+    font-weight: bold;
+}
+button{
+    border:0;
+    outline:0;
+    padding:0.7rem;
+    border-radius: 0.3rem;
+}
+.devices{
+    margin-top: 1rem;
+}
+.icondiv{
+    display: flex;
+    justify-content: flex-end;
+    width:100%;
+}
+.icon{
+    display: flex;
+    font-size:1.8rem;
+    margin-right:1rem;
+}
+.assignButton{
+    color:#FFFFFF;
+    font-weight: bold;
 }
 .employeeDp{
     display:flex;
     justify-content:space-around;
+    color:white;
+    align-items: center;
+    font-size: 1.5rem;
 }
 .closeButton{
-    font-size:3rem;
+    font-size:2.5rem;
+    color:red;
+    font-weight: 700;
 }
 .container{
     background-color: snow;
@@ -38,19 +70,13 @@
     margin-top:2rem; 
 }
 .image{
-    width:4rem;
-    height:4rem;
+    width:4.5rem;
+    height:4.5rem;
     border-radius:0.5rem;
-    background-color:rgb(177, 174, 174);;
+    background-color:orange;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-span{
-    color:#CBD0D7;
-}
-span:hover{
-    color: #393b3f;
 }
 .btn2{
     border-radius:0.8rem;

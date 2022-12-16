@@ -3,6 +3,10 @@
 </div>
 <div class="divs">
   <div class="container">
+    <div *ngIf="noRecordFound">
+      <!-- <span class="material-symbols-outlined warning">warning</span> -->
+      <label class="warningText">{{text}}</label>
+    </div>
     <div class="SearchBar">
       <fieldset>
         <span class="material-symbols-outlined searchIcon">search</span>
@@ -17,20 +21,17 @@
       <div class="rows" *ngFor="let devices of devicesList; let f=first; let l=last">
         <app-card>
           <div image>
-            <ng-template [ngIf]="devices?.device_type == 'Laptop' || devices?.device_type == 'laptop'"><img src="assets\images\laptopimg.jpeg"></ng-template>
-            <ng-template [ngIf]="devices?.device_type == 'Mouse' || devices?.device_type == 'mouse'"><img src="assets\images\Mouse.jpeg"></ng-template>
-            <ng-template [ngIf]="devices?.device_type == 'Mobile' || devices?.device_type == 'mobile'"><img src="assets\images\mobileP.jpeg"></ng-template>     
-            <ng-template [ngIf]="devices?.device_type == 'Charger' || devices?.device_type == 'charger'"><img src="assets\images\charger.jpeg"></ng-template>     
-            <ng-template [ngIf]="devices?.device_type == 'Bag' || devices?.device_type == 'bag'"><img src="assets\images\laptopBag.jpeg"></ng-template>     
-            <ng-template [ngIf]="devices?.device_type == 'Keyboard' || devices?.device_type == 'keyboard'"><img src="assets\images\keyboard.jpeg"></ng-template>     
+            <img src={{devices?.image_url}}>
           </div>
-          <h3 deviceName>{{devices?.name | titlecase}}</h3>
-          <label device>{{devices?.device_type | titlecase}}</label>
-          <label deviceOS>{{devices?.os | titlecase}}</label>
-          <label deviceId>{{devices?.device_no | titlecase}}</label>
-          <div *ngIf="devices?.user === null ||devices?.user=== '' else elseBlock" assignedTo ><a style="color:orange" (click)="getEmployeesToAssign(devices?.id)">Click here to assign</a></div>
-          <ng-template #elseBlock><label style="color:blue" assignedTo>{{"Assigned to "+devices?.user?.name}}</label></ng-template>
-          <span assignButton class="material-symbols-outlined delete" (click)="deleteDevice(devices?.id)">delete</span>     
+          <h3 deviceName><b>{{devices?.name}}</b></h3>
+          <label device class="deviceType">{{devices?.device_type}}</label>
+          <label deviceOS>{{devices?.os}}</label>
+          <label deviceId>{{devices?.device_no}}</label>
+          <div *ngIf="devices?.user === null ||devices?.user=== '' else elseBlock" assignedTo ><a style="color:orangered;cursor: pointer;text-decoration: underline;" (click)="getEmployeesToAssign(devices?.id)">Click here to assign</a></div>
+          <ng-template #elseBlock><label class="assignHere" assignedTo>{{"Assigned to "+devices?.user?.name}}</label></ng-template>
+          <!-- <div class="deleteDiv"> -->
+            <span assignButton class="material-symbols-outlined delete" (click)="deleteDevice(devices?.id)">delete</span>
+          <!-- </div> -->
         </app-card>
       </div>
     </ng-container>
@@ -39,4 +40,5 @@
 <div>
   <router-outlet></router-outlet>
 </div>
+<ng-template #err style="color: red"> error fetching data</ng-template>
 <ng-confirm></ng-confirm>

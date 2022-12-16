@@ -4,15 +4,14 @@
     background-color: #FFFFFF;
     margin-bottom:1rem;
     border-radius: 1rem; 
+    /* padding:1rem; */
     height:fit-content;
     display: flex;
     justify-content: flex-start;
     font-family: sans-serif;
-}employeeLessDetails
+}
 .left{
-    width:10rem;
     margin-right:1rem;
-    display:flex;
     justify-content: center;
     align-items: center;
 }
@@ -21,24 +20,23 @@
   justify-content: flex-end;
   align-items: center;
 }
+.cardRightMost{
+  width:100%;
+}
 .deviceCSS{
     background-color: blue;
     border-radius: 0.5rem;
  }
 .right{
   display: flex;
-  width:90%;
+  width:70%;
 }
 .content{
   width:70%;
   margin-left: 1rem;
 }
 .cardLayout{
-  display:flex;
   margin:0.2rem;
-}
-.cardRightMost{
-  width:20%
 }
 .deviceInfo{
   display:flex;
