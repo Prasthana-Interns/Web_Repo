@@ -10,16 +10,15 @@
     font-family: sans-serif;
 }
 .left{
-    width:10rem;
-    margin-right:1rem;
-    display:flex;
+    /* width:10rem; */
+    /* margin-right:1rem; */
+    /* display:flex; */
     justify-content: center;
     align-items: center;
 }
-.deviceInfo{
+.info{
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+
 }
 .deviceCSS{
     background-color: blue;

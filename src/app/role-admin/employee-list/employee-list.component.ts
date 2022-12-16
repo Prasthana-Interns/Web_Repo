@@ -30,6 +30,5 @@ export class EmployeeListComponent implements OnInit {
     this.httpService.get(`users/search/?search=${value}`).subscribe((res) => {
       this.employees = res
     })   
-  
-  }
+    }
   }

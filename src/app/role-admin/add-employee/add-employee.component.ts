@@ -1,7 +1,7 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 import { IDropdownSettings, } from 'ng-multiselect-dropdown';
-import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { HttpRequestService } from '../http-request.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { HttpRequestService } from '../http-request.service';
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.css']
 })
-export class AddEmployeeComponent  implements OnInit {
+export class AddEmployeeComponent  implements OnInit ,OnDestroy{
  addEmployeeForm:any;
   isApprove:boolean=true;
   dropdownList:any=[];
@@ -71,13 +71,25 @@ addEmployee() {
                         "roles":this.addEmployeeForm.controls['roles'].value=this.roles
               }
               console.log(body);
-    this.httpService.post(`users/signup`, body).subscribe((res: any) => { console.log(res) });
-    this.httpService.get(`users`).subscribe(res => { });
+    this.httpService.post(`users/signup`, body).subscribe((res: any) => {
+     this.getEmp();
+      console.log(res)});
+  
+   
     this.router.navigate(['admin/admin/employees']);
      }
 }
   cancelForm() {
     this.router.navigate(['admin/admin/employees'])
   }
+  getEmp() {
+    this.httpService.get(`users`).subscribe(res => { 
+       
+     });
+  }
+  ngOnDestroy(): void {
+    this.getEmp();
+  }
+  
 }
 

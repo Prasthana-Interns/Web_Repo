@@ -69,6 +69,7 @@ margin-left: 200px;
     height: 30%;
     padding-left: 7px;
     padding-right: 7px;
+    margin-left: 10px;
 }
 ::-webkit-scrollbar{
     display: none;

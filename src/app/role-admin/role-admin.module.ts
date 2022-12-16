@@ -20,9 +20,6 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
 import { CardComponent } from './card/card.component';
 import { ProfileComponent } from './profile/profile.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
-
-
 
 @NgModule({
   declarations: [
@@ -37,7 +34,6 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     EmployeePopUpComponent,
     CardComponent,
     ProfileComponent,
-    EditProfileComponent,
   ],
 
   imports: [

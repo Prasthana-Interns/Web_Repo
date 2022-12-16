@@ -8,33 +8,32 @@ import { HttpRequestService } from '../http-request.service';
   styleUrls: ['./unassigned-devices.component.css']
 })
 export class UnassignedDevicesComponent implements OnInit{
-  @Input() sendEmpId: any;
-  @Output() public un_assigned_devices: EventEmitter<any> = new EventEmitter();
+  @Input() _id: any;
+  @Output() public hasDevices: EventEmitter<any> = new EventEmitter();
   unAssignedDevices: any;
-  empId: any;
-  is_un_assigned_devices: boolean=false
+  hasDevicesForm: boolean=false
   
 constructor(private httpService:HttpRequestService) { }
   
 ngOnInit(): void{
-   this.getUnAssignedDevices();
+  this.getUnAssignedDevices();
 }
 getUnAssignedDevices() {
-   this.httpService.get(`devices/unassigned`).subscribe(response => {
-   this.unAssignedDevices = response;
-    })
- }
+  this.httpService.get(`devices/unassigned`).subscribe(response => {
+  this.unAssignedDevices = response; })
+}
 assignDevice(id: any) {
-    const body = {
-      "device": {
-        "user_id": this.sendEmpId
+  const body = {
+   "device": {
+        "user_id": this._id
              }
-          }
-    this.httpService.put(`devices/${id}`, body).subscribe(res => {
-    })
-    this.un_assigned_devices.emit(this.is_un_assigned_devices)
   }
-  unAssingnDevices() {
-  this.un_assigned_devices.emit(this.is_un_assigned_devices)
-  }
+  this.httpService.put(`devices/${id}`, body).subscribe(res => {
+  this.hasDevices.emit(this.hasDevicesForm)
+  })
+  
+}
+closeDevicesForm() {
+  this.hasDevices.emit(this.hasDevicesForm)
+}
 }

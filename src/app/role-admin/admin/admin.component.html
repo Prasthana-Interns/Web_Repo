@@ -5,12 +5,20 @@
 
   <div class="nav">
     <div class="side">
-      <div class="iconDiv" routerLink="/admin/admin/employees" routerLinkActive="active">
+      <div
+        class="iconDiv"
+        routerLink="/admin/admin/employees"
+        routerLinkActive="active"
+      >
         <span class="material-symbols-outlined">group</span><br />
         <a>Employees</a>
       </div>
 
-      <div class="iconDiv" routerLink="/admin/admin/devices" routerLinkActive="active">
+      <div
+        class="iconDiv"
+        routerLink="/admin/admin/devices"
+        routerLinkActive="active"
+      >
         <span class="material-symbols-outlined">devices</span><br />
         <a>Devices</a>
       </div>
@@ -23,12 +31,15 @@
         <span class="material-symbols-outlined">checklist</span><br />
         <a>Approvals</a>
       </div>
-    </div>
-    <div class="iconDiv" routerLink="/admin/admin/profile"routerLinkActive="active">
-      <span class="material-symbols-outlined">person</span><br />
-      <a>Profile</a>
-    </div>
-
+      <div
+        class="iconDiv"
+        routerLink="/admin/admin/profile"
+        routerLinkActive="active"
+      >
+        <span class="material-symbols-outlined">person</span><br />
+        <a>Profile</a>
+      </div>
+    </div>  
     <div class="main">
       <router-outlet></router-outlet>
     </div>

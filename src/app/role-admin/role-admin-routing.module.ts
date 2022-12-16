@@ -11,7 +11,6 @@ import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devi
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
 import { ProfileComponent } from './profile/profile.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:'full'},
                          {path:'admin',component:AdminComponent,
@@ -27,8 +26,7 @@ const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:
                                      { path: 'employees/:id', component: EmpDetailViewComponent },                                    
                                      { path: 'unassigned-devices', component: UnassignedDevicesComponent },
                                      { path: 'profile', component: ProfileComponent },
-                                     {path:'edit-profile',component:EditProfileComponent}
-                                    ]                                     
+                                 ]                                     
                          }];
                   
 @NgModule({

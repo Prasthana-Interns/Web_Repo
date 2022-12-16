@@ -1,27 +1,36 @@
-
 <!-- ..................card compon........ -->
-    <div class="form-wrappper">
-      <div class="box">
-      <div class="popUp"> 
-        <div class="header">
-          <h3  style="margin-left:50px">Devices list </h3> 
-          <span (click)="unAssingnDevices()" class="material-symbols-outlined cancel">close</span>
+<div class="form-wrappper">
+  <div class="box">
+    <div class="popUp">
+      <div class="header">
+        <h3 style="margin-left: 50px">Devices list</h3>
+        <span
+          (click)="closeDevicesForm()"
+          class="material-symbols-outlined cancel"
+          >close</span
+        >
+      </div>
+      <div class="deviceHolder">
+        <div class="card-comp">
+          <app-card *ngFor="let device of unAssignedDevices">
+            <div image>
+              <img src="assets\images\laptopimg.jpeg" />
+            </div>
+            <h5 name>{{ device?.name | titlecase }}</h5>
+            <label device class="deviceCSS">{{ device?.device_type }}</label>
+            <label line_1>{{ device?.os }}</label>
+            <label line_2>{{ device?.device_no }}</label>
+            <button
+              clickButton
+              type="submit"
+              class="btn btn-primary assign"
+              (click)="assignDevice(device?.id)"
+            >
+              Assign
+            </button>
+          </app-card>
         </div>
-        <div  class="deviceHolder">
-       <div class="card-comp">
-              <app-card *ngFor="let device of unAssignedDevices">
-                <div image>
-                  <img src="assets\laptopimg.jpeg">
-                </div>
-                <h5 name>{{device?.name+sendEmpId}}</h5>
-                <label device class="deviceCSS">{{device?.device_type}}</label>
-                <label deviceOS>{{device?.os}}</label>                
-                <label deviceId>{{device?.device_no}}</label>
-                <button  assign type="submit" class="btn btn-primary assign"(click)="assignDevice(device?.id)">Assign</button>
-              </app-card>
-          </div> 
-          </div>
-       </div>
-       </div>
-   </div> 
-
+      </div>
+    </div>
+  </div>
+</div>
