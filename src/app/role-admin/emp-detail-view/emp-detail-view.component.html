@@ -35,7 +35,7 @@
   <h4 class="dev-ass-heading">Devices Assigned</h4>
   <div class="card-comp">
     <app-card *ngFor="let device of employeeData?.devices">
-      <div image> <img src="assets\laptopimg.jpeg" /></div>
+      <div image> <img src={{device?.image_url}} /></div>
       <h3 name>{{device?.device_type}}</h3>
       <label device class="deviceCSS">{{device?.name}}</label>
       <label deviceOS>{{device?.os}}</label>

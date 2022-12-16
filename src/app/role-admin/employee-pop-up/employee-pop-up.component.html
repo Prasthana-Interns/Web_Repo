@@ -2,7 +2,7 @@
     <div class="box">
         <div class="container">
             <div class="popuphead">
-                <h4><u>Select an Employee to Assign</u> :</h4>
+                <h3>Select an Employee to Assign :</h3>
                 <span class="material-symbols-outlined closeButton" (click)="canceladdDevice()">clear</span>
             </div>
             <div class="innerContainer">
@@ -12,27 +12,24 @@
                             <div image class="image">
                                 <label class="employeeDp">{{employee.name.split("")[0]}}</label>
                             </div>
-                            <h5 deviceName>{{employee?.name}}</h5>
-                            <label device>{{employee?.emp_id}}</label>
+                            <h5 name>{{employee?.name}}</h5>
+                            <label deviceOS>{{employee?.emp_id}}</label>
                             <label assignedTo>{{employee?.designation}}</label>
                             <label deviceId>{{employee?.user_roles}}</label>
-                            <button assignButton (click)="assignClicked(employee?.id)">Assign</button>
-                            <!-- <h5 bottomMost>{{employee?.devices?.device_type |lowercase}}</h5> -->
-                            <ng-container bottomMost>
-                                <ng-container *ngIf="employee?.device_type  === 'laptop'">
-                                    <span class="material-symbols-outlined">laptop_mac</span>
-                                </ng-container>
-
-
-                            </ng-container>
+                            <button assignButton (click)="assignClicked(employee?.id)"
+                                class="btn btn-primary assignButton">Assign</button>
+                            <div bottomMost class="devices" *ngFor="let device of employee?.devices">
+                                <div class="icondiv">
+                                    <span *ngIf="device?.device_type === 'Laptop'" class="material-symbols-outlined icon">laptop_mac</span>
+                                    <span *ngIf="device?.device_type === 'Charger'" class="material-symbols-outlined icon">electrical_services</span>
+                                    <span *ngIf="device?.device_type === 'Bag'" class="material-symbols-outlined icon">backpack</span>
+                                    <span *ngIf="device?.device_type === 'Mobile'" class="material-symbols-outlined icon">phone_iphone</span>
+                                    <span *ngIf="device?.device_type === 'Mouse'" class="material-symbols-outlined icon">mouse</span>
+                                </div>
+                            </div>
                         </app-card>
                     </div>
-                    <!-- <span class="material-symbols-outlined">laptop_mac</span> -->
                 </div>
-                <!-- <div><span class="material-symbols-outlined">ev_charger</span></div>
-                <div><span class="material-symbols-outlined">backpack</span></div>
-                <div><span class="material-symbols-outlined">mouse</span></div>
-                <div><span class="material-symbols-outlined">ev_charger</span></div> -->
             </div>
         </div>
     </div>

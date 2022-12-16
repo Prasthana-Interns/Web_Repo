@@ -1,3 +1,6 @@
+*{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .compHeader{
   font-size: 1.5rem;
   padding:1rem;
@@ -36,6 +39,9 @@ fieldset{
   padding:0.5rem 1.5rem 1rem 1.5rem;
   margin:1rem 0rem 1rem 0.5rem;
 }
+.assignHere{
+  color:blue;
+}
 input{
   width:80%;
   border:0;
@@ -50,13 +56,22 @@ input{
   font-size:2.5rem;
   font-weight: bold;
 }
+.deviceType{
+  background-color: blue;
+  /* padding:0.3rem 0.6rem 0.3rem 0.6rem; */
+  color:#FFFFFF;
+  border-radius: 1rem;
+  width:4.5rem;
+  text-align: center;
+  font-weight: bold;
+}
 .delete{
   font-size: 1.5rem;
-  color:#ABAEB6;
-  padding: 0.4rem;
-}
-.delete:hover{
   color:red;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 3rem;
 }
 img{
   padding:1rem 0rem 0rem 0rem;
@@ -101,6 +116,10 @@ html{
 @media(max-width:998px){
   html{
     font-size:55%;
+  }
+  img{
+    width:6rem;
+    height:6rem;
   }
 }
 
