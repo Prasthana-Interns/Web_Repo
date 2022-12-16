@@ -1,7 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder } from '@angular/forms'
-import { Router } from '@angular/router';
+import {  Router} from '@angular/router';
+
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -14,13 +15,13 @@ export class LoginComponent implements OnInit {
   login: any;
   alertMsg:any;
   errorResponse:any;
+  hasError:boolean=false;
   constructor(private au: AuthService, private route: Router, private fb: FormBuilder) { }
   
   ngOnInit() {
     this.login = this.fb.group({
       empId: new FormControl(null, [Validators.required, Validators.minLength(7), Validators.maxLength(7)]),
       password: new FormControl(null, [Validators.required, Validators.minLength(4)]),
-
     })
     console.log(this.login);
   }
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
   submitLogin() {
     console.log(this.login)
     if (this.login.valid) {
+      this.hasError=false
       let body = {
         "user": {
           "emp_id": this.login.controls.empId.value,
@@ -39,7 +41,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token',res?.token)
         localStorage.setItem('id' ,res?.user?.id)
         if((res?.user?.user_roles).length===2) {
-          console.log(" FOR BOTH THE ROLES")              
+          console.log(" FOR BOTH THE ROLES")           
           this.route.navigate(["/admin/admin/employees"]);
         }
         if((res?.user?.user_roles).length===1 && res?.user?.user_roles=='Admin'){
@@ -58,7 +60,8 @@ export class LoginComponent implements OnInit {
       )
     }
     else {
-      this.alertMsg="*Invalid login details"; 
+      // this.alertMsg="*Invalid login details"; 
+      this.hasError=true
     }
   }
 } 
