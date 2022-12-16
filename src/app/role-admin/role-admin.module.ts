@@ -4,7 +4,7 @@ import { RoleAdminRoutingModule } from './role-admin-routing.module';
 import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import { NgConfirmModule} from 'ng-confirm-box';
+import { NgConfirmModule, NgConfirmService} from 'ng-confirm-box';
 import { AdminComponent } from './admin/admin.component';
 import { AddDeviceComponent } from './add-device/add-device.component';
 import { ApprovalsComponent } from './approvals/approvals.component';
@@ -29,8 +29,10 @@ import { CoreModule } from '../core/core.module';
     UnassignedDevicesComponent,
     ApprovalsComponent,
     EmployeePopUpComponent,
-
+   
+    
   ],
+
   imports: [
     CommonModule,
     RoleAdminRoutingModule,
@@ -38,9 +40,11 @@ import { CoreModule } from '../core/core.module';
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
     HttpClientModule, 
-    // CoreModule
+    CoreModule,
+    NgConfirmModule
   ],
-  providers:[HttpRequestService,{  provide:HTTP_INTERCEPTORS,useClass:RoleAdminInterceptor,multi:true}],
+  
+  providers:[HttpRequestService,{  provide:HTTP_INTERCEPTORS,useClass:RoleAdminInterceptor,multi:true},NgConfirmService],
   
     schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

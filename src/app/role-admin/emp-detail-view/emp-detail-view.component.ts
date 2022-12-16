@@ -1,6 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
+import { NgConfirmService } from 'ng-confirm-box';
 
 @Component({
   selector: 'app-emp-detail-view',
@@ -8,49 +9,53 @@ import { HttpRequestService } from '../http-request.service';
   styleUrls: ['./emp-detail-view.component.css']
 })
 export class EmpDetailViewComponent  implements OnInit{
-  public empDetailForm: any = true;
+  // public empDetailForm: any = true;
   public employeeId: any;
   public employeeData: any;
+  public _id: any;
+  hasDevicesForm = false;
 
-  constructor( private activatedRoute:ActivatedRoute,private httpService:HttpRequestService,private router:Router) { }
+  constructor( private activatedRoute:ActivatedRoute,private httpService:HttpRequestService,private router:Router,private confirmService:NgConfirmService) { }
   
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
     let id = params.get('id');
-    this.employeeId = id;
-    })
+    this.employeeId = id;})
     this.getEmployeeById()
   }
   getEmployeeById() {
-    console.log( "employee id",this.employeeId)
     this.httpService.get(`users/${this.employeeId}`).subscribe(response => {
-      this.employeeData = response;
-    })
+    this.employeeData = response;})
   }
-  addDevice(empId: any) {
-    this.employeeId = empId;
-    // this.httpService.setShareData(this.employeeId);
-    this.getEmployeeById();
-    this.router.navigate(['/admin/admin/employees/'+empId+'/unassigned-devices',empId])
-  }
-   deleteEmployee() {
-    console.log("delete employee" ,this.employeeId)
+  deleteEmployee() {
+    this.confirmService.showConfirm("Are you sure to delete", () => { 
     this.httpService.delete(`users`,this.employeeId).subscribe(res => {
-    console.log( 'deleted employee',res);})
-    this.httpService.get(`users`).subscribe(res => { })
+      this.httpService.get(`users`).subscribe(res => { })
+    })
     this.router.navigate(['/admin/admin/employees'])
+   }, () => {}) 
   } 
-  unAssignDevice(devId: any){
-    const body = {
-      "device":
-      {
-        "user_id": null
-      }
-    }
-    console.log ( "device id",devId)
-    this.httpService.put(`devices/${devId}`, body).subscribe(res=>console.log('devdeleted',res))
+  addDevice() {
+    this.hasDevicesForm=true
+    this._id = this.employeeId;
+  }
+  unassignDevicesList(data: any) {
+    this.hasDevicesForm = data;
     this.getEmployeeById();
   }
+  unAssignDevice_delete(devId: any) {
+    this.confirmService.showConfirm("Are you sure to delete",() => {
+    const body = {
+          "device":
+          {
+            "user_id": null
+          }
+        }
+    this.httpService.put(`devices/${devId}`, body).subscribe(res => {
+    this.getEmployeeById();
+    })
+    },() =>{})
+ }
   }
 
 

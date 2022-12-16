@@ -71,7 +71,8 @@ export class SignUpComponent implements OnInit {
   this.signUp.controls['roles'].value  = this.roles
   console.log(this.signUp)
   }
-  submitSignUp(){ 
+  submitSignUp() { 
+    
   if(this.signUp.valid){
     let body= { 
                "user": {
