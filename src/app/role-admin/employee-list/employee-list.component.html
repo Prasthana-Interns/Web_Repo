@@ -1,30 +1,31 @@
-<div class="compHeader">
+<div class="componentHeader">
   <label>Employees</label>
 </div>
-<div class="employee">
-  <div class="emp-list" *ngIf="employees; else err">
-    <div class="search-add" style="margin-bottom:12px">
+<div class="employeesHolder">
+  <div class="employees" *ngIf="employees; else err">
+    <div class="search-add">
       <fieldset>
         <span class="material-symbols-outlined search">search</span>
-        <input type="text" placeholder="Search for Employee"class="searchBox"/>
+        <input type="text" placeholder="Search for Employee"class="searchBox"#searchInput (keyup)="searchMethod(searchInput.value)"/>
       </fieldset>
-      <div class="add" (click)="addEmployee()"><span class="material-symbols-outlined addSymbol">person_add</span></div>
+      <div  (click)="addEmployee()"><span class="material-symbols-outlined addSymbol">add</span></div>
     </div>
  <app-card *ngFor="let employee of employees">
  <div image class="dp">{{ employee.name.split("")[0]}}</div>  
-      <h4 name style="font-weight:bold ;">{{ employee.name }}</h4>
-      <label empId_>{{employee.emp_id}}</label>
-      <label designation_>{{ employee.designation }}</label>
-      <label designation_>{{ employee.user_roles }}</label>
-      
-       <div deviceSymbols_ class="devices" *ngFor="let device of employee?.devices">
-      <span *ngIf="device?.device_type === 'Laptop'" class="material-symbols-outlined">laptop_mac</span>
-      <span style="display:flex" *ngIf="device?.device_type === 'Charger'" class="material-symbols-outlined">ev_charger</span>
-      <span style="display:flex" *ngIf="device?.device_type === 'Bag'" class="material-symbols-outlined">backpack</span>
-      <span style="display:flex" *ngIf="device?.device_type === 'Mobile'" class="material-symbols-outlined">phone_iphone</span>
-      <!-- <span style="display:flex"*ngIf="!device?.id"> No devices assigned</span> -->
-      </div> 
-      <div arrow  class="arrowDiv"(click)="empDetailView(employee)">
+      <h4 name class="name">{{ employee.name | titlecase }}</h4>
+      <label  empId_>{{employee.emp_id}}</label>
+      <label  designation_>{{ employee.designation }}</label>
+
+   <div deviceSymbols_ class="devices flex" *ngFor="let device of employee?.devices">
+      <span *ngIf="device?.device_type === 'Laptop'||device?.device_type === 'laptop'" class="material-symbols-outlined">laptop_mac</span>
+      <span  *ngIf="device?.device_type === 'Charger'||device?.device_type === 'charger'" class="material-symbols-outlined">electrical_services</span>
+      <span  *ngIf="device?.device_type === 'Bag'||device?.device_type === 'bag'" class="material-symbols-outlined">backpack</span>
+      <span  *ngIf="device?.device_type === 'Mobile'||device?.device_type === 'mobile'" class="material-symbols-outlined">phone_iphone</span>
+      <span  *ngIf="device?.device_type === 'Mouse'||device?.device_type === 'mouse'" class="material-symbols-outlined">mouse</span>
+      <span  *ngIf="!device?.device_type"> No devices assigned</span>
+   </div> 
+   
+      <div clickButton class="arrowSymbol" (click)="empDetailView(employee)">
         <span class="material-symbols-outlined detailview">arrow_forward_ios</span>
       </div>   
  </app-card>

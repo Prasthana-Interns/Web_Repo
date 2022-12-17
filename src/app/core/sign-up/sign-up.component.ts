@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { IDropdownSettings, } from 'ng-multiselect-dropdown';
 import {FormArray, FormBuilder, FormControl,Validators} from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -19,20 +20,27 @@ export class SignUpComponent implements OnInit {
   approve:boolean=false;
   dropdownList:any=[];
   dropdownSettings:IDropdownSettings={}
-  constructor(private au:AuthService, private route:Router, private fb: FormBuilder){}
+  errorText: any;
+  errorResponse: any;
+  Response: any;
+  hasError:boolean=false
+  constructor(private au:AuthService, private route:Router, private fb: FormBuilder,private location:Location){}
   ngOnInit(){
     if(!!localStorage.getItem('token')){
       this.heading="Add Employee"
       this.buttonText="Add"
       this.hideLogin=false;
       this.cancel=true;
+      this.approve=true;
     }
     else{
       this.heading="SignUp"
       this.buttonText="signUp"
       this.hideLogin=true;
       this.cancel=false;
+      this.approve=false;
     }
+    // this.closeForm();
     this.dropdownList = [
       { item_id: 1, item_text: 'Employee'},
       { item_id: 2, item_text: 'Admin'},
@@ -43,13 +51,16 @@ export class SignUpComponent implements OnInit {
       enableCheckAll: false,
     };
     this.signUp = this.fb.group ({
-    name: new FormControl(null,[Validators.required]),
-    email: new FormControl(null,[Validators.required,Validators.email]),
-    phoneNo: new FormControl(null,[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
-    designation:new FormControl(null,[Validators.required]),
+    name: new FormControl('',[Validators.required,Validators.minLength(3)]),  
+    email: new FormControl('',[Validators.required,Validators.email]),
+    phoneNo: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
+    designation:new FormControl('',[Validators.required]),
     roles:new FormControl([]), 
   })
   console.log(this.signUp)
+  }
+  closeForm(){
+    this.location.back();
   }
   roles = new Array()
   hello(data:any){
@@ -72,6 +83,7 @@ export class SignUpComponent implements OnInit {
   console.log(this.signUp)
   }
   submitSignUp(){ 
+    console.log(this.signUp)
   if(this.signUp.valid){
     let body= { 
                "user": {
@@ -85,11 +97,26 @@ export class SignUpComponent implements OnInit {
               }
             console.log(body);
      this.au.post(`users/signup`,body).subscribe((res:any)=>{
-     })
-     this.route.navigate(["/auth/login"]); 
+     console.log(res)
+
+     }
+    //  error=>{
+    //   this.errorText=error
+    //   this.errorResponse=this.errorText?.error?.error
+    //   if(this.errorResponse==="Validation failed: Email has already been taken")
+    //   {
+    //     this.Response="*Email has already been taken"
+    //   }
+    //   else if (this.errorResponse!="Validation failed: Email has already been taken") {
+    //     this.Response=""
+    //   } 
+    //  }
+     )
+     this.location.back()
    }
    else{
-    this.alertMsg="*Invalid details"; 
+    this.hasError=true
+    // this.alertMsg="*Invalid details"; 
    }
   }
 }

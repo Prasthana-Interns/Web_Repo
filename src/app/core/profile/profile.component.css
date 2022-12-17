@@ -1,27 +1,20 @@
-.componentHeader {
+.compHeader {
     background-color: #ABAEB6;
-    font-size:20px;
+    font-size: 20px;
     padding: 20px;
     font-weight: bold;
 }
-
-.details_holder {
+.employee-details {
     padding-top: 10px;
     background-color: #F0F1F5;
     margin: auto;
-    height: 570px;
+    padding-right: 20px;
+    height: 700px;
+ }
+.name {
+    font-weight: bold;
 }
-.details {
-    width: 55%;
-    max-height: 280px;
-    margin: auto;
-    margin-bottom: 20px;
-    border-radius: 10px;
-}
-.name{
-font-weight: bold;
-}
-.dp{
+.dp-Det {
     width: 100px;
     height: 80px;
     background-color: rgb(244, 169, 20);
@@ -33,27 +26,35 @@ font-weight: bold;
     display: flex;
     box-sizing: content-box;
 }
+input {
+    background: none;
+    outline: none;
+    border: none;
+}
 small {
     display: flex;
     font-size: 18px;
 }
-.delete {
-    color: red;
-    padding-left: 150px
+.marginPurpose {
+    margin-top: 20px
 }
-.singleLine {
-    font-weight: bold;
-    font-size: 18px;
-    justify-content:space-between ;
+.div-icons {
+    color: blue;
     display: flex;
-    width:45%;
 }
 .heading {
     padding-left: 23%;
 }
-.device-icons {
-color: blue;
-display: flex;
+.deviceHolder {
+    max-height: 270px;
+    overflow-y: scroll;
+}
+.card-comp {
+    width: 55%;
+    max-height: 280px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 img {
     height: 92px;
@@ -61,27 +62,27 @@ img {
     border-radius: 10px;
     border: 1px solid rgb(151, 145, 145);
 }
-.marginPurpose{
-margin-top: 20px
-}
-.button {
-    margin-left: 320px;
-    margin-top:5px ;
-    box-shadow: 1px 1px 2px rgb(91, 91, 93);
-}
-.devicelable {
-
+.deviceLabel {
     background-color: blue;
     border-radius: 20px;
     color: whitesmoke;
     height: 30%;
     padding-left: 7px;
     padding-right: 7px;
-    margin-left:15px;
 }
-.deviceHolder {
-    max-height: 270px;
-    overflow-y: scroll;
+.singleLine {
+    font-weight: bold;
+    font-size: 18px;
+    width:35%;
+}
+
+label{
+    margin-bottom: 0px;
+}
+.save {
+    color: green;
+    margin-left:100px ;
+    font-size: 40px;
 }
 ::-webkit-scrollbar {
     display: none;
@@ -90,11 +91,12 @@ margin-top: 20px
     .office-details {
         flex-direction: column;
     }
-   
-    .personal-details{
+
+    .personal-details {
         flex-direction: column;
     }
-    .delete{
-       flex-direction: column-reverse;
+
+    .delete {
+        flex-direction: column-reverse;
     }
 }

@@ -18,7 +18,7 @@ import { RoleEmployeeModule } from './role-employee/role-employee.module';
     AppRoutingModule,
     AuthModule,
     RoleAdminModule,
-    // RoleEmployeeModule,
+    RoleEmployeeModule,
     ReactiveFormsModule,
     FormsModule,
   ],

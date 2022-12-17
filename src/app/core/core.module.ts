@@ -6,11 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     SignUpComponent,
-    CardComponent  
+    CardComponent,
+    ProfileComponent
+
   ],
   imports: [
     CommonModule,
@@ -20,7 +23,7 @@ import { CardComponent } from './card/card.component';
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
-  exports:[CardComponent],
+  exports:[CardComponent,ProfileComponent],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA

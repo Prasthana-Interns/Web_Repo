@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-  export class EmployeeService {
+export class EmployeeService {
 
   constructor(private http:HttpClient) { }
   public baseurl="http://13.251.95.54:3000/"

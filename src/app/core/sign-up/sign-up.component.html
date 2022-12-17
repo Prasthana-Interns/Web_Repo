@@ -12,26 +12,31 @@
         <div class="row no-gutters">
           <div>
             <img src="assets\images\INVENTORY 1.jpg" class="invImg" alt="Inventory App" >
-            <span class="material-symbols-outlined closeButton" *ngIf="cancel">clear</span>
+            <span class="material-symbols-outlined closeButton" *ngIf="cancel" (click)="closeForm()">clear</span>
             <h4 class="heading">{{heading}}</h4>
-            <p class="errorMsg">{{alertMsg}}</p>
+            <p class="errorMsg">{{Response}}</p>
             <form [formGroup]="signUp">
               <div class="inputSignUp">
-                <input type="text" placeholder="Name" class="form-control" formControlName="name" required>
-
+                <input type="text" placeholder="Name" class="form-control" formControlName="name" [required]="'true'">
                 <div class="text-danger" *ngIf="signUp?.controls?.name.touched && signUp?.controls?.name?.errors"><p class="textForErrorMSg">*Name is required</p></div>
+                <!-- <div class="text-danger" *ngIf="signUp?.controls?.name.untouched && signUp?.controls?.name?.errors &&hasError"><p class="textForErrorMSg">*Name is required</p></div> -->
               </div>
               <div class="inputSignUp">
-                <input type="email" placeholder="Email" class="form-control" formControlName="email" required>
-                <div class="text-danger" *ngIf="signUp?.controls?.email.touched && signUp?.controls?.email?.errors"><p class="textForErrorMSg">*email is required</p></div>
+                <input type="email" placeholder="Email" class="form-control" formControlName="email" [required]="'true'">
+                <div class="text-danger" *ngIf="signUp?.controls?.email.touched  && signUp?.controls?.email?.errors"><p class="textForErrorMSg">*email is required</p>
+                </div>
+                <!-- <div class="text-danger" *ngIf="signUp?.controls?.name.untouched && signUp?.controls?.name?.errors &&hasError"><p class="textForErrorMSg">*email is required</p></div> -->
               </div>
               <div class="inputSignUp">
                 <input type="number" placeholder="Phone No." class="form-control removescroll" formControlName="phoneNo" required>
                 <div class="text-danger" *ngIf="signUp?.controls?.phoneNo.touched && signUp?.controls?.phoneNo?.errors"><p class="textForErrorMSg">*PhoneNo. is required</p></div>
+                <!-- <div class="text-danger" *ngIf="signUp?.controls?.name.untouched && signUp?.controls?.name?.errors &&hasError"><p class="textForErrorMSg">*PhoneNo. is required</p></div> -->
+                <div class="text-danger" *ngIf="signUp?.controls?.phoneNo.touched && signUp?.controls?.phoneNo?.errors?.minLength"><p class="textForErrorMSg">*PhoneNo. length required</p></div>
               </div>
               <div class="inputSignUp">
                 <input type="text" placeholder="Designation" class="form-control" formControlName="designation" required>
-                <div class="text-danger" *ngIf="signUp.controls?.designation.touched && signUp?.controls?.designation?.errors"><p class="textForErrorMSg">*Designation is required</p></div>
+                <div class="text-danger" *ngIf="signUp.controls?.designation.touched && signUp?.controls?.designation?.errors"><p class="textForErrorMSg">*designation is required</p></div>
+                <!-- <div class="text-danger" *ngIf="signUp?.controls?.name.untouched && signUp?.controls?.name?.errors &&hasError"><p class="textForErrorMSg">*designation is required</p></div> -->
               </div>   
               <div class="dropDown">
                 <ng-multiselect-dropdown
@@ -42,7 +47,7 @@
                   (onSelectAll)="hello($event)">
                 </ng-multiselect-dropdown>
               </div>
-              <button type="submit"  class="btn1" (click)="submitSignUp()"> {{buttonText}}</button>
+              <button type="submit"  class="btn1" [disabled]="!signUp.valid" (click)="submitSignUp()"> {{buttonText}}</button>
               <a class="backtologin" href="#" routerLink="/login" routerLinkActive="active" *ngIf="hideLogin">Back to Login</a><br><br>
             </form>
           </div>

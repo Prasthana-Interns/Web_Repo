@@ -12,21 +12,21 @@
         <div class="row no-gutters">
           <div class="">
             <img src="assets\images\INVENTORY 1.jpg" class="invImg" alt="Inventory App" width="150" height="20">
-            <p class="errorMsg">{{alertMsg}}</p>
+            <!-- <p class="errorMsg">{{alertMsg}}</p> -->
             <p class="errorMsg">{{errorResponse}}</p>
             <h6 class="font-weight-bold header">Login to Your Account</h6>
             <form [formGroup]="login">
               <div class="inputLog">
                 <input type="text" placeholder="EmpId" class="form-control" formControlName="empId" required />
-                <div class="text-danger" *ngIf="login?.controls?.empId?.touched &&login?.controls?.empId?.errors">*EmpId is required</div>
+                <div class="text-danger" *ngIf="login?.controls?.empId?.touched || login?.controls?.empId?.untouched &&login?.controls?.empId?.errors && hasError">*EmpId is required</div>
               </div>
               <div class="inputLog">
                 <input type="password" placeholder="password" class="form-control" formControlName="password" required/>
                 <div class="text-danger" *ngIf="login?.controls?.password?.touched && login?.controls?.password?.errors">*password is required</div>
-                <div class="text-danger" *ngIf="login?.controls?.password?.touched && login?.controls?.password?.minLength">***password is required</div>
+                <div class="text-danger" *ngIf="login?.controls?.password?.touched && login?.controls?.password?.errors?.minLength">***password is required</div>
               </div>
               <div>
-                <button type="button" class="btn1" (click)="submitLogin()"> Sign In </button>
+                <button type="button" [disabled]="!login.valid" class="btn1" (click)="submitLogin()"> Sign In </button>
               </div>
               <a class="fpName"href="#"  routerLink="/reset" routerLinkActive="active">Forgot Password?</a>
               <p class="signUpName">Don't have an account?<a href="#" routerLink="/core/signup" routerLinkActive="active">SignUp</a></p>

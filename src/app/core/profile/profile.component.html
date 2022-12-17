@@ -1,0 +1,51 @@
+
+<!-- employee details -->
+
+<div class="compHeader">
+  <label>Your Profile</label>
+</div>
+
+<div class="employee-details">
+   <div class="card-comp ">
+   <form [formGroup]="editForm" class="form">
+    <app-card class="card-component">
+      <div image class="dp-Det">{{ employeeData.name.split("")[0] }}</div>
+    <h3 name class="name"  (dblclick)="editEmployee()">
+         <label *ngIf="!isEdit">{{ employeeData?.name | titlecase }}</label>
+         <label  *ngIf="isEdit" ><input type="text" formControlName="name"></label>
+   </h3>
+     <small line_1>{{ employeeData?.email }}</small>
+       <div line_2 (dblclick)="editEmployee()" >
+         <small  *ngIf="!isEdit">{{employeeData?.phone_number }}</small>
+         <small  *ngIf="isEdit"><input type="text" formControlName="phoneNo"></small>
+     </div>
+     <span clickButton class="material-symbols-outlined save " [disabled]="editForm.invalid" *ngIf="isSave" (click)="saveEmployee()">check</span>
+        <div marginPurpose class=""></div>
+      <span empId class="singleLine" >{{ employeeData?.emp_id }}</span>
+      <span designation class="singleLine">{{ employeeData?.designation }}</span>
+     <div marginPurpose class="marginPurpose"></div>
+       <div deviceSymbols  class="div-icons flex"*ngFor="let device of employeeData?.devices">
+      <span style="display:flex" *ngIf="device?.device_type === 'Laptop'|| device?.device_type ==='laptop'" class="material-symbols-outlined">laptop_mac</span>
+      <span style="display:flex" *ngIf="device?.device_type === 'Charger'|| device?.device_type ==='charger'" class="material-symbols-outlined">ev_charger</span>
+      <span style="display:flex" *ngIf="device?.device_type === 'Bag'|| device?.device_type ==='bag'" class="material-symbols-outlined">backpack</span>
+      <span style="display:flex" *ngIf="device?.device_type === 'Mobile'|| device?.device_type ==='mobile'" class="material-symbols-outlined">phone_iphone</span>
+      <span style="display:flex" *ngIf="device?.device_type === 'Mouse'|| device?.device_type ==='mouse'" class="material-symbols-outlined">mouse</span>
+      </div> 
+      </app-card>
+   </form>
+  </div>
+  <!-- ..........Devices Assigned..... -->
+  <h4 class="heading">Devices Assigned</h4>
+   <div  class="deviceHolder">
+  <div class="card-comp">
+    <app-card *ngFor="let device of employeeData?.devices">
+      <div image> <img src="assets\laptopimg.jpeg" /></div>
+      <h3 name>{{device?.name | titlecase}}</h3>
+      <label device class="deviceLabel">{{device?.device_type}}</label>
+      <label deviceOS>{{device?.os}}</label>
+      <label deviceId>{{device?.device_no}}</label>
+    </app-card>
+  </div>
+</div>
+ </div>
+<router-outlet></router-outlet>

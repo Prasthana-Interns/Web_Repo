@@ -87,12 +87,12 @@
         <div class="dropDown">
           <label for="name">Role :</label>
           <ng-multiselect-dropdown
-            [placeholder]="'Role'"
-            [settings]="dropdownSettings"
-            [data]="dropdownList"
-            formControlName="role"
-          >
-          </ng-multiselect-dropdown>
+                  [placeholder]="'Role'"
+                  [settings]="dropdownSettings"
+                  [data]="dropdownList"
+                  (onSelect)="onItemSelect($event)"
+                  (onSelectAll)="hello($event)">
+                </ng-multiselect-dropdown>
         </div>
         <button
           type="submit"
