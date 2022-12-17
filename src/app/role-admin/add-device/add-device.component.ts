@@ -66,9 +66,9 @@ export class AddDeviceComponent implements OnInit {
     })
     this.router.navigate(['/admin/admin/devices']);
   }
-  else{
-    this.alertMsg="* Invalid Form";
-  }
+  // else{
+  //   this.alertMsg="* Invalid Form";
+  // }
   }
 
   

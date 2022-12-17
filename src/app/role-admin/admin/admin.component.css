@@ -6,20 +6,50 @@
   }
   /* Header/logo Title */
   .header {
-    padding: 0.5rem;
-    /* text-align: center; */
     background-color:#DDE1E9;
-    color:#393b3f;
     margin-bottom: 0.2rem;
     display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    /* gap:37rem; */
+  }
+  .cont{
+    width:100%;
+    display: flex;
+  }
+  .first{
+    background-color:#DDE1E9;
+    width:25%;
+    padding:1rem;
+  }
+  .second{
+    background-color:#DDE1E9;
+    width:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding:1rem;
+
+  }
+  .third{
+    background-color:#DDE1E9;
+    width:25%;
+    display: flex;
     justify-content: flex-end;
-    gap:22rem;  
+    align-items: center;
+    padding:0rem 2rem 0rem 2rem;
+    padding:1rem;
+
+  }
+  .subHeader{
+    display: flex;
   }
   .logout{
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     font-weight: 700;
-     font-size: 1.7rem;
+    font-size: 1.7rem;
   }
   /* Increase the font size of the heading */
   .header h1 {
@@ -81,6 +111,10 @@ html{
   html{
     font-size:45%;
   }
+  header{
+    gap:2rem;
+    flex-direction: row;
+  }
   /* .side{
     width:2rem;
   } */
@@ -105,4 +139,9 @@ html{
   /* a{
     font-size:0.5rem;
   } */
+}
+@media(max-width:998px){
+  header{
+    gap:20rem;
+  }
 }

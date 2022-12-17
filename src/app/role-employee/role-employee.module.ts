@@ -5,13 +5,11 @@ import { EmployeeViewComponent } from './employee-view/employee-view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditDetailsComponent } from './edit-details/edit-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CardComponent } from '../core/card/card.component';
 import { CoreModule } from '../core/core.module';
 @NgModule({
     declarations: [
         EmployeeViewComponent,
         EditDetailsComponent,
-        CardComponent,
     ],
     imports: [
         CommonModule,
@@ -19,7 +17,7 @@ import { CoreModule } from '../core/core.module';
         HttpClientModule,
         ReactiveFormsModule,
         FormsModule,
-        // CoreModule        
+        CoreModule        
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

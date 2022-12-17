@@ -38,7 +38,7 @@ import { CoreModule } from '../core/core.module';
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
     HttpClientModule, 
-    // CoreModule
+    CoreModule
   ],
   providers:[HttpRequestService,{  provide:HTTP_INTERCEPTORS,useClass:RoleAdminInterceptor,multi:true}],
   

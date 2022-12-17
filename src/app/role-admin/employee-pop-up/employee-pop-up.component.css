@@ -70,8 +70,8 @@ button{
     margin-top:2rem; 
 }
 .image{
-    width:4.5rem;
-    height:4.5rem;
+    width:5rem;
+    height:5rem;
     border-radius:0.5rem;
     background-color:orange;
     display: flex;

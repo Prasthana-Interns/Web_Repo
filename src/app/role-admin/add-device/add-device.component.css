@@ -46,10 +46,10 @@ input{
 }
 .selectDropdown{
     width:26rem;
-    padding:0.5rem;
+    /* padding:0.5rem; */
     font-size: 1rem;
     border-radius:0.5rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
 }
 input.ng-touched.ng-invalid{
     border:0.09rem solid red;
@@ -70,7 +70,7 @@ input.ng-touched.ng-invalid{
     background-color: #514efe;
     padding:0.5rem;
     border:0;
-    /* border:0.1rem solid black; */
+    border:0.1rem solid black;
     color:#FFFFFF;
     font-weight: bold;
 }
