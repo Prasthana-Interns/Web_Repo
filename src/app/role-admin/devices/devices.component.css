@@ -19,7 +19,7 @@
 }
 .container{
   margin:auto;
-  width:60%;
+  width:57%;
 }
 .SearchBar{
   display: flex;
@@ -58,12 +58,13 @@ input{
 }
 .deviceType{
   background-color: blue;
-  /* padding:0.3rem 0.6rem 0.3rem 0.6rem; */
+  padding:0.3rem 0.6rem 0.3rem 0.6rem;
   color:#FFFFFF;
   border-radius: 1rem;
-  width:4.5rem;
+  width:5rem;
   text-align: center;
   font-weight: bold;
+  align-items: center;
 }
 .delete{
   font-size: 1.5rem;
@@ -72,6 +73,8 @@ input{
   display: flex;
   justify-content: flex-end;
   margin-left: 3rem;
+  align-items: flex-start;
+  cursor: pointer;
 }
 img{
   padding:1rem 0rem 0rem 0rem;

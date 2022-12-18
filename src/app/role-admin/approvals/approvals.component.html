@@ -4,19 +4,18 @@
 <div class="divs">
     <div class="container">
                 <div *ngIf="noRecordFound">
-                    <!-- <span class="material-symbols-outlined warning">warning</span> -->
                     <label class="warningText">{{text}}</label>
                 </div>
         <ng-container *ngFor="let employee of approvalList">
-                <app-card>
+                <app-card style="width:5rem;">
                     <div image class="image">
-                        <label class="displayPicture">{{employee.name.split("")[0]}}</label>
+                        <label class="displayPicture">{{employee.name.split("")[0] | titlecase  }}</label>
                     </div>
-                    <h5 name>{{employee?.name}}</h5>
-                    <label deviceOS>{{employee?.emp_id}}</label>
-                    <div assignedTo>
-                        <button (click)="acceptEmp(employee?.id)">Accept </button>
-                        <button (click)="rejectEmp(employee?.id)">Reject</button>
+                    <h5 name>{{employee?.name | titlecase}}</h5>
+                    <label line_1>{{employee?.emp_id}}</label>
+                    <div line_3 class="buttondiv">
+                        <button class=buttons (click)="acceptEmp(employee?.id)"><label class="labels">Accept</label></button>
+                        <button class=buttons (click)="rejectEmp(employee?.id)"><label class="labels">Reject</label></button>
                     </div>
                 </app-card>
         </ng-container>
