@@ -20,7 +20,7 @@ export class EmployeeListComponent implements OnInit {
     })
   }
   addEmployee() {
-    this.router.navigate(['/core/signup'])
+    this.router.navigate(['/admin/admin/employees/popup-parent'])
   }
   empDetailView(emp: any) {
     this.router.navigate(['/admin/admin/employees/',emp.id])

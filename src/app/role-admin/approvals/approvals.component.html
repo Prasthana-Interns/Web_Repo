@@ -9,9 +9,9 @@
         <ng-container *ngFor="let employee of approvalList">
                 <app-card style="width:5rem;">
                     <div image class="image">
-                        <label class="displayPicture">{{employee.name.split("")[0]}}</label>
+                        <label class="displayPicture">{{employee.name.split("")[0] | titlecase  }}</label>
                     </div>
-                    <h5 name>{{employee?.name}}</h5>
+                    <h5 name>{{employee?.name | titlecase}}</h5>
                     <label line_1>{{employee?.emp_id}}</label>
                     <div line_3 class="buttondiv">
                         <button class=buttons (click)="acceptEmp(employee?.id)"><label class="labels">Accept</label></button>

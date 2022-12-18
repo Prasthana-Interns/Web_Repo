@@ -1,7 +1,7 @@
 <div class="blurDiv">
   <div class="box">
     <h1>Add Device</h1>
-    <label class="errorMessage">{{alertMsg}}</label>
+    <center><label class="errorMessage">{{alertMsg}}</label></center>
     <hr>
     <div class="container">
         <div class="formdiv">
@@ -14,7 +14,7 @@
               <ng-template #nameElseBlock><br></ng-template>
             </div>
 
-            <label for="deviceType">Device Type</label>
+            <label for="deviceType">Device Type</label><br>
               <select class="selectDropdown" formControlName="deviceType" required>
                 <option value="Laptop">Laptop</option>
                 <option value="Mouse">Mouse</option>
@@ -52,4 +52,3 @@
     </div>
   </div>
 </div>
-<app-devices data="mob"></app-devices>

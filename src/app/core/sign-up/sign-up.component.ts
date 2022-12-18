@@ -60,7 +60,9 @@ export class SignUpComponent implements OnInit {
   console.log(this.signUp)
   }
   closeForm(){
-    this.location.back();
+    // if(!! (!this.hideLogin)){
+      this.route.navigate(['admin/admin/employees'])
+    // }
   }
   roles = new Array()
   hello(data:any){
@@ -98,7 +100,7 @@ export class SignUpComponent implements OnInit {
             console.log(body);
      this.au.post(`users/signup`,body).subscribe((res:any)=>{
      console.log(res)
-
+     this.location.back()
      }
     //  error=>{
     //   this.errorText=error
@@ -112,7 +114,7 @@ export class SignUpComponent implements OnInit {
     //   } 
     //  }
      )
-     this.location.back()
+    //  this.location.back()
    }
    else{
     this.hasError=true

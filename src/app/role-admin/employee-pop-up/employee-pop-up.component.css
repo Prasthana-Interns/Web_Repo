@@ -47,6 +47,7 @@ button{
 .assignButton{
     color:#FFFFFF;
     font-weight: bold;
+    margin-left:1.5rem;
 }
 .employeeDp{
     display:flex;

@@ -3,6 +3,8 @@
   }
   .wholePage{
     overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
   }
   /* Header/logo Title */
   .header {

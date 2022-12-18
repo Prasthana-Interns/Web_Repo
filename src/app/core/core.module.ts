@@ -12,8 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [
     SignUpComponent,
     CardComponent,
-    ProfileComponent
-
+    ProfileComponent,
   ],
   imports: [
     CommonModule,

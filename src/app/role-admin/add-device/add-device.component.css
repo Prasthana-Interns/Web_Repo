@@ -4,7 +4,7 @@
     bottom:0;
     position:absolute;
     height:100%;
-    width:95%;
+    width:94%;
     z-index: 80;
     display:flex;
     justify-content: center;
@@ -12,17 +12,22 @@
 }
 .box{
     background-color: snow;
-    width:35rem;
+    width:40rem;
     margin-right:5rem;
     border-radius: 0.5rem;
+
 }
 h1{
     display:flex;
     justify-content: center;
     font-size: 2rem;
-    margin-top:1rem;
+    margin:1rem;
     font-weight: bold;
     color:rgb(128,128,237)
+}
+.errorMessage{
+    font-size: 1rem;
+    justify-content: center;
 }
 h4{
     margin-top:2rem;
@@ -36,34 +41,13 @@ span{
     color:black;
 }
 label{
-    font-size:1.2rem;
+    font-size:1.5rem;
 }
 input{
-    width:26rem;
+    width:25rem;
     padding:1rem;
     font-size: 1rem;
     border-radius:0.5rem;
-}
-.selectDropdown{
-    width:26rem;
-    /* padding:0.5rem; */
-    font-size: 1rem;
-    border-radius:0.5rem;
-    /* margin-bottom: 2rem; */
-}
-input.ng-touched.ng-invalid{
-    border:0.09rem solid red;
-}
-.text-danger{
-    color:red;
-}
-.errorMessage{
-    display:flex;
-    align-items:center ;
-    justify-content: center;
-    font-size:1rem;
-    font-family: 'Times New Roman', Times, serif;
-    color:#fd3838
 }
 .btn1{
     border-radius:0.8rem;
@@ -86,7 +70,8 @@ input.ng-touched.ng-invalid{
 .buttonDiv{
     display:flex;
     justify-content: flex-end;
-    gap:2rem;
+    margin-top: 2rem;
+    gap:2rem
 }
 .btn1:hover{
     background-color: #201dfc;
@@ -111,6 +96,12 @@ input.ng-touched.ng-invalid{
 section{
     display: flex;
     justify-content: center;
+}
+.selectDropdown{
+    width:25rem;
+    padding:0.5rem;
+    font-size: 1rem;
+    border-radius:0.5rem;
 }
 html{
 font-size:62.5%;
