@@ -23,7 +23,6 @@ export class SignUpComponent implements OnInit {
   errorText: any;
   errorResponse: any;
   Response: any;
-  hasError:boolean=false
   constructor(private au:AuthService, private route:Router, private fb: FormBuilder,private location:Location){}
   ngOnInit(){
     if(!!localStorage.getItem('token')){
@@ -51,11 +50,11 @@ export class SignUpComponent implements OnInit {
       enableCheckAll: false,
     };
     this.signUp = this.fb.group ({
-    name: new FormControl('',[Validators.required,Validators.minLength(3)]),  
-    email: new FormControl('',[Validators.required,Validators.email]),
-    phoneNo: new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
-    designation:new FormControl('',[Validators.required]),
-    roles:new FormControl([]), 
+    name: new FormControl(null,[Validators.required,Validators.minLength(3)]),  
+    email: new FormControl(null,[Validators.required,Validators.email]),
+    phoneNo: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
+    designation:new FormControl(null,[Validators.required]),
+    roles:new FormControl([null,Validators.required]), 
   })
   console.log(this.signUp)
   }
@@ -70,7 +69,6 @@ export class SignUpComponent implements OnInit {
         this.signUp.controls['roles'].value  = this.roles
   }
   onItemSelect(data:any){
-  console.log(data?.item_text)
   if(data?.item_text==='Employee' && data?.item_text==='Admin'){
   data.map((res: { item_text: any; })=>{
   return this.roles.push(res?.item_text);
@@ -95,28 +93,30 @@ export class SignUpComponent implements OnInit {
                       },
                         "roles":this.signUp.controls['roles'].value=this.roles
               }
-            console.log(body);
-     this.au.post(`users/signup`,body).subscribe((res:any)=>{
-     console.log(res)
-
-     }
-    //  error=>{
-    //   this.errorText=error
-    //   this.errorResponse=this.errorText?.error?.error
-    //   if(this.errorResponse==="Validation failed: Email has already been taken")
-    //   {
-    //     this.Response="*Email has already been taken"
-    //   }
-    //   else if (this.errorResponse!="Validation failed: Email has already been taken") {
-    //     this.Response=""
-    //   } 
-    //  }
-     )
-     this.location.back()
-   }
-   else{
-    this.hasError=true
-    // this.alertMsg="*Invalid details"; 
+      console.log(body);
+      this.au.post(`users/signup`,body).subscribe({
+      next: (res:any)=>{
+        console.log(res);
+        this.location.back();
+      },
+      error: (err:any)=>{
+        this.errorText=err
+        this.errorResponse=this.errorText?.error?.error
+        if(this.errorResponse==="Validation failed: Email has already been taken")
+        {
+          this.Response="*Email already exists"
+        }
+        else if(this.errorResponse==="Validation failed: Name is invalid")
+        {
+          this.Response="*Name is invalid"
+  
+        }
+        else if(this.errorResponse==="Validation failed: Name is invalid, Email has already been taken")
+        {
+          this.Response="*Name is invalid & Email already exists"
+        }
+       }
+     });
    }
   }
 }

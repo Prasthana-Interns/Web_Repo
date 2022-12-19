@@ -56,6 +56,9 @@ input{
     font-weight: bold;
     border-radius: 0.7rem;
 }
+.my-color{
+    background-color: #7e7cf2;
+}
 .errorMsg{
     padding-left: 2.8rem;
     color:red;
