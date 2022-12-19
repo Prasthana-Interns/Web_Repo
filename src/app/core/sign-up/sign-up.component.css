@@ -67,9 +67,6 @@ input{
     margin-left: 0rem;
     height:1.7rem;
 }
-.textForErrorMSg{
-    font-size: 1rem;
-}
 .btn1{
     margin:1.5rem 0px 1rem 7rem;
     border:none;
@@ -81,6 +78,9 @@ input{
     font-weight: bold;
     border-radius: 1rem;
     text-decoration: none;
+}
+.my-color{
+    background-color: #7e7cf2;
 }
 .backtologin{
     padding-left:13rem;
