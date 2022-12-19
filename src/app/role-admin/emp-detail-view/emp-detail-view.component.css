@@ -23,13 +23,14 @@ font-weight: bold;
 }
 .dp{
     width: 100px;
-    height: 90px;
+    height: 100px;
     background-color: rgb(244, 169, 20);
     color: white;
     justify-content: center;
-    padding-top: 10%;
+    padding-top: 20px;
     border-radius: 10px;
     font-size: 35px;
+    font-weight: bold;
     display: flex;
     box-sizing: content-box;
 }
@@ -39,7 +40,8 @@ small {
 }
 .delete {
     color: red;
-    padding-left: 150px
+    padding-left: 150px;
+    /* padding-top:-100px */
 }
 .singleLine {
     font-weight: bold;
@@ -72,15 +74,13 @@ margin-top: 20px
     margin-top:5px ;
     box-shadow: 1px 1px 2px rgb(91, 91, 93);
 }
-.devicelable {
-
+.deviceLabel {
     background-color: blue;
     border-radius: 20px;
     color: whitesmoke;
     height: 30%;
     padding-left: 7px;
     padding-right: 7px;
-    margin-left:15px;
 }
 .deviceHolder {
     max-height: 270px;

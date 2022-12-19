@@ -28,7 +28,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
-  exports:[CardComponent,ProfileComponent,],
+  exports:[CardComponent,ProfileComponent],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA

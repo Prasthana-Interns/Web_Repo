@@ -19,22 +19,21 @@ import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.compon
 import { CoreModule } from '../core/core.module';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { PopupParentComponent } from './popup-parent/popup-parent.component';
-
+import { FooterComponent } from '../auth/footer/footer.component';
 @NgModule({
   declarations: [
     AdminComponent,
     EmployeeListComponent,
-    EmpDetailViewComponent,
+    ApprovalsComponent,
+    UnassignedDevicesComponent,
+    PopupParentComponent,
     DevicesComponent,
     AddDeviceComponent,
     AddEmployeeComponent,
-    UnassignedDevicesComponent,
-    ApprovalsComponent,
     EmployeePopUpComponent,
     AdminProfileComponent,
-    PopupParentComponent,
-  ],
-
+    EmpDetailViewComponent
+],
   imports: [
     CommonModule,
     RoleAdminRoutingModule,

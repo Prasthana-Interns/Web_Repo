@@ -1,5 +1,3 @@
-<!-- employee details -->
-
 <div class="componentHeader">
   <label>Employee Details</label>
 </div>
@@ -9,8 +7,8 @@
     <app-card >
       <div image class="dp">{{ employeeData.name.split("")[0] }}</div>
       <h3 name class="name">{{ employeeData?.name | titlecase}}</h3>
-      <small line_1>{{ employeeData?.email }}</small>
-      <small line_2>{{ employeeData?.phone_number }}</small>
+      <small line_1 style="padding-top:8px">{{ employeeData?.email }}</small>
+      <small line_2 style="padding-top:10px" >{{ employeeData?.phone_number }}</small>
       <span clickButton class="material-symbols-outlined delete" (click)="deleteEmployee()">delete</span>
       <div marginPurpose class=""></div>
       <span empId class="singleLine">{{ employeeData?.emp_id }}</span>
@@ -27,24 +25,26 @@
     </app-card>
   </div>
  <!-- ..........Devices Assigned..... -->
+ <div *ngIf="employeeData?.devices else nodevices">
   <h4 class="heading">Devices Assigned</h4>
    <div  class="deviceHolder">
   <div class="details">
     <app-card *ngFor="let device of employeeData?.devices">
       <div image> <img src={{device?.image_url}} /></div>
       <h3 name>{{device?.device_type}}</h3>
-      <label device class="deviceCSS">{{device?.name}}</label>
-      <label deviceOS>{{device?.os}}</label>
-      <label deviceId>{{device?.device_no}}</label>
-      <span deleteSymbol class="material-symbols-outlined" (click)="unAssignDevice_delete(device?.id )">delete</span>
+      <label device class="deviceLabel">{{device?.name}}</label>
+      <label line_1>{{device?.os}}</label>
+      <label line_2>{{device?.device_no}}</label>
+      <span clickButton class="material-symbols-outlined delete" (click)="unAssignDevice_delete(device?.id )">delete</span>
     </app-card>
   </div>
-</div>
+</div></div>
+<ng-template #nodevices> No Devices assigned</ng-template>
+
+
   <div>
     <button type="button" class="btn btn-primary button" (click)="addDevice()">Assign Device</button>
   </div>
 </div>
-
 <app-unassigned-devices [_id]="employeeId" (hasDevices)="unassignDevicesList($event)" *ngIf="hasDevicesForm"></app-unassigned-devices>
-
 <router-outlet></router-outlet>

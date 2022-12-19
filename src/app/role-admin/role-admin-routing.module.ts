@@ -13,7 +13,6 @@ import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.compon
 // import { ProfileComponent } from '../core/profile/profile.component';
 import { ProfileComponent } from '../core/profile/profile.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
-import { PopupParentComponent } from './popup-parent/popup-parent.component';
 
 const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:'full'},
                          {path:'admin',component:AdminComponent,
@@ -27,7 +26,8 @@ const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:
                                      {
                                       path: 'employees', component: EmployeeListComponent,
                                       children: [{ path: 'add-employee', component: AddEmployeeComponent },
-                                                  {path:'popup-parent',component:PopupParentComponent}]
+                                        // { path: 'popup-parent', component: PopupParentComponent }
+                                      ]
                                      },
                                      { path: 'employees/:id', component: EmpDetailViewComponent },                                    
                                      { path: 'unassigned-devices', component: UnassignedDevicesComponent },

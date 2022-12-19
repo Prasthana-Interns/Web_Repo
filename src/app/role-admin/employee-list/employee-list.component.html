@@ -12,9 +12,9 @@
     </div>
  <app-card *ngFor="let employee of employees">
  <div image class="dp">{{ employee.name.split("")[0]}}</div>  
-      <h4 name class="name">{{ employee.name | titlecase }}</h4>
-      <label  empId_>{{employee.emp_id}}</label>
-      <label  designation_>{{ employee.designation }}</label>
+  <h4 name class="name">{{ employee.name | titlecase }}</h4>
+  <label Id>{{employee.emp_id}}</label>
+  <label designation_>{{ employee.designation }}</label>
 
    <div deviceSymbols_ class="devices flex" *ngFor="let device of employee?.devices">
       <span *ngIf="device?.device_type === 'Laptop'||device?.device_type === 'laptop'" class="material-symbols-outlined">laptop_mac</span>
@@ -24,10 +24,9 @@
       <span  *ngIf="device?.device_type === 'Mouse'||device?.device_type === 'mouse'" class="material-symbols-outlined">mouse</span>
       <span  *ngIf="!device?.device_type"> No devices assigned</span>
    </div> 
-   
-      <div clickButton class="arrowSymbol" (click)="empDetailView(employee)">
-        <span class="material-symbols-outlined detailview">arrow_forward_ios</span>
-      </div>   
+   <div clickButton class="arrowSymbol" (click)="empDetailView(employee)">
+      <span class="material-symbols-outlined detailview">arrow_forward_ios</span>
+   </div>   
  </app-card>
  </div>
 </div>

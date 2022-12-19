@@ -132,6 +132,9 @@ html{
   html{
     font-size:55%;
   }
+     header {
+       gap: 20rem;
+     }
   /* .side{
     width:6rem;
   } */
@@ -141,9 +144,4 @@ html{
   /* a{
     font-size:0.5rem;
   } */
-}
-@media(max-width:998px){
-  header{
-    gap:20rem;
-  }
 }

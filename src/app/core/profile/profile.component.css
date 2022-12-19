@@ -20,13 +20,14 @@
 
 .dp-Det {
     width: 100px;
-        height: 90px;
+        height: 100px;
         background-color: rgb(244, 169, 20);
         color: white;
         justify-content: center;
-        padding-top: 10%;
+        padding-top: 25px;
         border-radius: 10px;
         font-size: 35px;
+        font-weight: BOLD;;
         display: flex;
         box-sizing: content-box;
 }
@@ -100,10 +101,14 @@ label {
 
 .save {
     color: green;
-    margin-left: 100px;
+    padding-left: 150px;
     font-size: 40px;
+    /* margin */
 }
-
+.edit {
+    color: red;
+    padding-left: 150px
+}
 ::-webkit-scrollbar {
     display: none;
 }
