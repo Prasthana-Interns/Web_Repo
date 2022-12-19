@@ -16,8 +16,8 @@ import { HttpRequestService } from './http-request.service';
 import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devices.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
-import { CoreModule } from '../core/core.module'; 
-
+import { CoreModule } from '../core/core.module';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -29,6 +29,7 @@ import { CoreModule } from '../core/core.module';
     UnassignedDevicesComponent,
     ApprovalsComponent,
     EmployeePopUpComponent,
+    AdminProfileComponent,
    
     
   ],

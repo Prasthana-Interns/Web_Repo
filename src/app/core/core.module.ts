@@ -7,12 +7,17 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
     SignUpComponent,
     CardComponent,
-    ProfileComponent
+    ProfileComponent,
+    ViewProfileComponent,
+    EditProfileComponent,
+
 
   ],
   imports: [
@@ -23,7 +28,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
   ],
-  exports:[CardComponent,ProfileComponent],
+  exports:[CardComponent,ProfileComponent,],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
