@@ -39,7 +39,6 @@ export class SignUpComponent implements OnInit {
       this.cancel=false;
       this.approve=false;
     }
-    // this.closeForm();
     this.dropdownList = [
       { item_id: 1, item_text: 'Employee'},
       { item_id: 2, item_text: 'Admin'},
@@ -59,7 +58,7 @@ export class SignUpComponent implements OnInit {
   console.log(this.signUp)
   }
   closeForm(){
-    this.location.back();
+      this.route.navigate(['admin/admin/employees'])
   }
   roles = new Array()
   hello(data:any){
@@ -81,7 +80,7 @@ export class SignUpComponent implements OnInit {
   console.log(this.signUp)
   }
   submitSignUp(){ 
-    console.log(this.signUp)
+  console.log(this.signUp)
   if(this.signUp.valid){
     let body= { 
                "user": {
@@ -109,13 +108,24 @@ export class SignUpComponent implements OnInit {
         else if(this.errorResponse==="Validation failed: Name is invalid")
         {
           this.Response="*Name is invalid"
-  
         }
         else if(this.errorResponse==="Validation failed: Name is invalid, Email has already been taken")
         {
           this.Response="*Name is invalid & Email already exists"
         }
-       }
+        else if(this.errorResponse==="Validation failed: Name is invalid, Phone number has already been taken, Email has already been taken"){
+          this.Response="*Name is invalid & Email already exists & Phone number has already been taken"
+        }
+        else if(this.errorResponse==="Validation failed: Name is invalid, Phone number has already been taken"){
+          this.Response="*Name is invalid & Phone number has already been taken"
+        }
+        else if(this.errorResponse==="Validation failed: Phone number has already been taken, Email has already been taken"){
+          this.Response="*Email already exists & Phone number has already been taken"
+        }
+        else if(this.errorResponse==="Validation failed: Phone number has already been taken"){
+          this.Response="*Phone number has already been taken"
+        }
+       } 
      });
    }
   }

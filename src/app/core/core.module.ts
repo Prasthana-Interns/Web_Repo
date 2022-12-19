@@ -12,8 +12,7 @@ import { NgConfirmModule,NgConfirmService } from 'ng-confirm-box';
   declarations: [
     SignUpComponent,
     CardComponent,
-    ProfileComponent
-
+    ProfileComponent,
   ],
   imports: [
     CommonModule,

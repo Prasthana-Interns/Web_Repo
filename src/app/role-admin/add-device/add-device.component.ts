@@ -62,7 +62,6 @@ export class AddDeviceComponent implements OnInit {
         this.mob=res?.image_url;
         this.data=this.mob;
       }
-      console.log(res?.image_url)
     })
     this.router.navigate(['/admin/admin/devices']);
   }

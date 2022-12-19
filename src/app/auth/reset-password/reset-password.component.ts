@@ -12,6 +12,8 @@ import { AuthService } from '../auth.service';
 export class ResetPasswordComponent implements OnInit {
   resetPass:any
   alertMsg:any;
+  response:any;
+  errorText:any;
   constructor(private router:Router, private fb:FormBuilder, private as:AuthService){ }
 
 ngOnInit() {
@@ -24,14 +26,20 @@ submitResetPass(){
   let body={
      "emp_id": this.resetPass.controls.empId.value
     }
-    this.as.put(`reset_password`,body).subscribe((res)=>{
-      console.log(res)
+    this.as.put(`reset_password`,body).subscribe({
+      next: (res:any)=>{
+        this.router.navigate(["/login"]);
+      },
+      error: (err:any)=>{
+        this.errorText=err
+        this.alertMsg=this.errorText?.error?.error
+        if(this.alertMsg==="Couldn't find User"){
+          this.response="*Invalid Employee"
+        }
+      }
     })
-  this.router.navigate(["/login"]);
-}
-else{
-  this.alertMsg="*Invalid EmpId"
-}
+  
+  }
 }
 }
 

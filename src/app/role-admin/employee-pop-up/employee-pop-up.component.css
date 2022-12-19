@@ -47,6 +47,7 @@ button{
 .assignButton{
     color:#FFFFFF;
     font-weight: bold;
+    margin-left:1.5rem;
 }
 .employeeDp{
     display:flex;
@@ -70,8 +71,8 @@ button{
     margin-top:2rem; 
 }
 .image{
-    width:4.5rem;
-    height:4.5rem;
+    width:5rem;
+    height:5rem;
     border-radius:0.5rem;
     background-color:orange;
     display: flex;

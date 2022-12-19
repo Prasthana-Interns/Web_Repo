@@ -14,6 +14,10 @@
     margin: 0.3rem 0rem 0rem 0.3rem;
     background-color: #F0F1F5;
   }
+  .cardL{
+    display: flex;
+    justify-content: flex-start;
+  }
   .container{
     margin:auto;
     width:40%;
@@ -54,10 +58,17 @@
     align-items: center;
     justify-content: center;
   }
-  button{
+  label{
+    font-size:medium;
+  }
+  .buttondiv{
+    margin-left: 8rem;
+    width:100%;
+  }
+  .buttons{
   margin-left:1rem;
   margin-bottom:1rem;
-  padding:0.5rem;
+  padding:0.3rem;
   font-weight: bold;
   box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
@@ -73,10 +84,31 @@
     html{
       font-size:45%;
     }
+    .cardL{
+      flex-direction: column;
+    }
+    .image{
+      width:4rem;
+      height:4rem;
+    }
+    .buttons{
+      width:3rem;
+      height:2.5rem;
+      padding:0;
+    }
+    .labels{
+      font-size:small
+    }
+    /* .buttondiv{
+      margin-left:0rem;
+    } */
   }
-  @media(max-width:998px){
+  @media(max-width:1150px){
     html{
       font-size:55%;
+    }
+    .buttondiv{
+      margin-left:2rem;
     }
   }
     

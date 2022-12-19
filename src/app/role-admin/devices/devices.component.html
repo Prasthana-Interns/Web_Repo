@@ -4,7 +4,6 @@
 <div class="divs">
   <div class="container">
     <div *ngIf="noRecordFound">
-      <!-- <span class="material-symbols-outlined warning">warning</span> -->
       <label class="warningText">{{text}}</label>
     </div>
     <div class="SearchBar">
@@ -23,15 +22,13 @@
           <div image>
             <img src={{devices?.image_url}}>
           </div>
-          <h3 deviceName><b>{{devices?.name}}</b></h3>
+          <h3 name><b>{{devices?.name |titlecase}}</b></h3>
           <label device class="deviceType">{{devices?.device_type}}</label>
-          <label deviceOS>{{devices?.os}}</label>
-          <label deviceId>{{devices?.device_no}}</label>
-          <div *ngIf="devices?.user === null ||devices?.user=== '' else elseBlock" assignedTo ><a style="color:orangered;cursor: pointer;text-decoration: underline;" (click)="getEmployeesToAssign(devices?.id)">Click here to assign</a></div>
-          <ng-template #elseBlock><label class="assignHere" assignedTo>{{"Assigned to "+devices?.user?.name}}</label></ng-template>
-          <!-- <div class="deleteDiv"> -->
-            <span assignButton class="material-symbols-outlined delete" (click)="deleteDevice(devices?.id)">delete</span>
-          <!-- </div> -->
+          <label line_1>{{devices?.os | titlecase}}</label>
+          <label line_2>{{devices?.device_no}}</label>
+          <div *ngIf="devices?.user === null ||devices?.user=== '' else elseBlock" line_3 ><a style="color:orangered;cursor: pointer;text-decoration: underline;" (click)="getEmployeesToAssign(devices?.id)">Click here to assign</a></div>
+          <ng-template #elseBlock><label class="assignHere" line_3>{{"Assigned to "+devices?.user?.name | titlecase}}</label></ng-template>
+          <span clickButton class="material-symbols-outlined delete" (click)="deleteDevice(devices?.id)">delete</span>
         </app-card>
       </div>
     </ng-container>

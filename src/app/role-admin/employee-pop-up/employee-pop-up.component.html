@@ -13,10 +13,10 @@
                                 <label class="employeeDp">{{employee.name.split("")[0]}}</label>
                             </div>
                             <h5 name>{{employee?.name}}</h5>
-                            <label deviceOS>{{employee?.emp_id}}</label>
-                            <label assignedTo>{{employee?.designation}}</label>
-                            <label deviceId>{{employee?.user_roles}}</label>
-                            <button assignButton (click)="assignClicked(employee?.id)"
+                            <label line_1>{{employee?.emp_id}}</label>
+                            <label line_2>{{employee?.designation}}</label>
+                            <label line_3>{{employee?.user_roles}}</label>
+                            <button clickButton (click)="assignClicked(employee?.id)"
                                 class="btn btn-primary assignButton">Assign</button>
                             <div bottomMost class="devices" *ngFor="let device of employee?.devices">
                                 <div class="icondiv">

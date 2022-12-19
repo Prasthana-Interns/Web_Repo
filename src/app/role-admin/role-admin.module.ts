@@ -17,8 +17,8 @@ import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devi
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
 import { CoreModule } from '../core/core.module';
-import { AddEmployeeChildComponent } from './add-employee-child/add-employee-child.component'; 
-
+import { PopupParentComponent } from './popup-parent/popup-parent.component';
+import { FooterComponent } from '../auth/footer/footer.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -30,6 +30,7 @@ import { AddEmployeeChildComponent } from './add-employee-child/add-employee-chi
     UnassignedDevicesComponent,
     ApprovalsComponent,
     EmployeePopUpComponent,
+    PopupParentComponent,
   ],
 
   imports: [

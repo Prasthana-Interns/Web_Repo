@@ -8,11 +8,19 @@
    margin: 0rem;
    box-sizing: content-box;
 }
-body{
-    background-color: #F0F1F5;
+.body{
+    /* background-color: #F0F1F5; */
     width:100%;
     height:100%;
     position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+.colorBack{
+    background-color: #F0F1F5;
+}
+.blurBack{
+    background-color: rgba(0,0,0,0.8);
 }
 .invImg{
     padding-left: 13rem;
