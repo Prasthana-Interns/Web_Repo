@@ -1,4 +1,10 @@
 .foot{
-    height:10%;
+    height:100%;
     width:100%;
+    background-color:#6563FF;
+    /* display:flex; */
+    text-align: center;
+    /* margin-top: 1rem; */
+    font-weight: bold;
+    padding:1rem;
 }

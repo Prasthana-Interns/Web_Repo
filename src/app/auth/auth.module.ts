@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     HttpClientModule
   ],
+  exports:[FooterComponent]
 
 })
 export class AuthModule { }

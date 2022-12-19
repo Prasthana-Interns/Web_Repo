@@ -42,7 +42,6 @@ export class DevicesComponent implements OnInit {
   getAllDevices(){
     this.http.get(`devices`).subscribe((res:any)=>{
     this.devicesList=res;
-    console.log(res);
     })
   }
   getEmployeesToAssign(dId:any){
@@ -59,8 +58,8 @@ export class DevicesComponent implements OnInit {
     this.confirmService.showConfirm("Are you sure want to Delete ?",
      () => {
       this.http.delete(`devices`,id).subscribe((res)=>{
+        this.getAllDevices();
       })
-      this.getAllDevices();
     },
     () => {
       this.getAllDevices();

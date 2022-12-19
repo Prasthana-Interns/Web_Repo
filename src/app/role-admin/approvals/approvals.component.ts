@@ -28,7 +28,7 @@ export class ApprovalsComponent implements OnInit {
     }
   }
   fetchPendingEmp(){
-      this.httpservice.get(`users/pending_users`).subscribe((res)=>{
+      this.httpservice.get(`users/pending`).subscribe((res)=>{
       this.approvalList=res;
       console.log(res)
     },(err)=>{
@@ -42,11 +42,14 @@ export class ApprovalsComponent implements OnInit {
         approved:true
       }
     }
-    this.httpservice.put(`users/${id}`,body).subscribe((res)=>{})
-    this.fetchPendingEmp();
+    this.httpservice.put(`users/${id}`,body).subscribe((res)=>{
+      this.fetchPendingEmp();
+    })
   }
   rejectEmp(id:any){
-    this.httpservice.delete(`users`,id).subscribe((res)=>{})
-    this.fetchPendingEmp();
+    this.httpservice.delete(`users`,id).subscribe((res)=>{
+      this.fetchPendingEmp();
+    })
+
   }
 }
