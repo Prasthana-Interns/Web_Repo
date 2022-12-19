@@ -72,8 +72,8 @@ input{
   padding: 0.4rem;
   display: flex;
   justify-content: flex-end;
-  margin-left: 5rem;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  margin-bottom: 4rem;
   cursor: pointer;
 }
 img{
