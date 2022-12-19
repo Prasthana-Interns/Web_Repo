@@ -1,4 +1,4 @@
-.card{
+  .card{
     box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
     padding: 1rem 1rem;
     background-color: #FFFFFF;
@@ -15,18 +15,20 @@
 }
 .info{
   display: flex;
-
+  justify-content: space-between;
 }
 .deviceCSS{
     background-color: blue;
     border-radius: 0.5rem;
+    align-items: center;
  }
 .right{
   display: flex;
   width:90%;
+  align-items: center;
 }
 .content{
-  width:70%;
+  width:60%;
   margin-left: 1rem;
 }
 .cardLayout{
@@ -39,6 +41,10 @@
 .deviceInfo{
   display:flex;
   justify-content:space-between;
+}
+.row1{
+  display: flex;
+  justify-content: flex-start;
 }
  html{
   font-size:62.5%;
@@ -54,12 +60,16 @@
     .right{
       flex-direction: column;
     }
-    .deviceInfo{
+    .info{
       flex-direction: column;
     }
     .card{
       flex-direction: row;
     }.cardLayout{
+      flex-direction: column;
+    }
+    .row1{
+      display: flex;
       flex-direction: column;
     }
   }

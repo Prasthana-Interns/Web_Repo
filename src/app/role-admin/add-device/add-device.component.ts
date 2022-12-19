@@ -19,8 +19,12 @@ export class AddDeviceComponent implements OnInit {
 
   deviceId:any
   SId:any
+  alertMsg:any;
 
-  constructor(private router :Router,private ser:HttpRequestService,private fb:FormBuilder,private http:HttpRequestService) { }
+  data:any;
+  mob:any;
+
+  constructor(private router :Router,private fb:FormBuilder,private http:HttpRequestService) { }
 
   ngOnInit(){
     this.addDeviceBody= this.fb.group({
@@ -45,18 +49,26 @@ export class AddDeviceComponent implements OnInit {
   }
 
   submitAddDevice(){
+    if (this.addDeviceBody.valid) {
     let body={
               "name": this.addDeviceBody?.controls?.name?.value,
               "device_type": this.addDeviceBody?.controls?.deviceType?.value,
               "os":this.addDeviceBody?.controls?.os?.value,
               "user_id": this.addDeviceBody?.controls?.user_id?.value,               
               }
-    this.ser.post(`/devices`,body).subscribe((res:any)=>{
-      console.log(res )
+    this.http.post(`/devices`,body).subscribe((res:any)=>{
+      console.log(res)
+      if(res?.device_type=='mobile' || res?.device_type=='Mobile'){
+        this.mob=res?.image_url;
+        this.data=this.mob;
+      }
     })
     this.router.navigate(['/admin/admin/devices']);
+  }
+  else{
+    this.alertMsg="* Invalid Form";
+  }
   }
 
   
 }
-  // this.router.navigate(['/admin/admin/devices/add-device/employeeDropdown'])

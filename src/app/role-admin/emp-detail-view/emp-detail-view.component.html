@@ -31,12 +31,12 @@
    <div  class="deviceHolder">
   <div class="details">
     <app-card *ngFor="let device of employeeData?.devices">
-      <div image> <img src="assets\laptopimg.jpeg" /></div>
-      <h3 name>{{device?.name | titlecase}}</h3>
-      <label device class="devicelable">{{device?.device_type}}</label>
-      <label line_2>{{device?.os}}</label>
-      <label line_1>{{device?.device_no}}</label>
-      <span clickButton class="material-symbols-outlined delete" (click)="unAssignDevice_delete(device?.id )">delete</span>
+      <div image> <img src={{device?.image_url}} /></div>
+      <h3 name>{{device?.device_type}}</h3>
+      <label device class="deviceCSS">{{device?.name}}</label>
+      <label deviceOS>{{device?.os}}</label>
+      <label deviceId>{{device?.device_no}}</label>
+      <span deleteSymbol class="material-symbols-outlined" (click)="unAssignDevice_delete(device?.id )">delete</span>
     </app-card>
   </div>
 </div>

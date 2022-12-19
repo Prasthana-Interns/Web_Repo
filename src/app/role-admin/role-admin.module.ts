@@ -18,6 +18,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
 import { CoreModule } from '../core/core.module';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { PopupParentComponent } from './popup-parent/popup-parent.component';
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -30,8 +32,7 @@ import { AdminProfileComponent } from './admin-profile/admin-profile.component';
     ApprovalsComponent,
     EmployeePopUpComponent,
     AdminProfileComponent,
-   
-    
+    PopupParentComponent,
   ],
 
   imports: [

@@ -14,6 +14,8 @@ body{
    width:100%;
    position: fixed;
    height: 100%;
+   display: flex;
+   flex-direction: column;
 }
 .invImg{
     padding: 2.5rem 0rem 0.5rem 9.5rem;
@@ -38,15 +40,13 @@ body{
 }
 .inputLog{
     width:20rem;
-
     height:3rem;
-    margin-bottom:1rem;
+    margin-bottom:1.4rem;
     padding-left: 2.8rem;
 }
 input{
     height:1.7rem;
 }
-
 .btn1{  
     margin:0.3rem 1rem 1rem 2.8rem;
     border:none;
@@ -70,9 +70,6 @@ input{
 }
 input.ng-touched.ng-invalid{
     border:0.09rem solid red;
-}
-input.ng-touched.ng-valid{
-    border:0.09rem solid green;
 }
 .text-danger{
     color:red;

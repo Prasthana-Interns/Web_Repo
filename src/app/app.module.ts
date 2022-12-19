@@ -8,7 +8,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginInterceptor } from './auth/login.interceptor';
 import { RoleAdminModule } from './role-admin/role-admin.module';
 import { RoleEmployeeModule } from './role-employee/role-employee.module';
-import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
