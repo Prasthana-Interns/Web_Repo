@@ -22,15 +22,14 @@ export class ApprovalsComponent implements OnInit {
     this.fetchPendingEmp();
   }
   sizes(){
-    if(!!(this.approvalList?.length)){
+    if(!!(!this.approvalList?.length)){
       this.noRecordFound=true;
-      this.text="No pending approvals found"
+      this.text="No pending approvals found..."
     }
   }
   fetchPendingEmp(){
       this.httpservice.get(`users/pending`).subscribe((res)=>{
       this.approvalList=res;
-      console.log(res)
     },(err)=>{
       this.noRecordFound=true;
       this.text="Something went wrong"

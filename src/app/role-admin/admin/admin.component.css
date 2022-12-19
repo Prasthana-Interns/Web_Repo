@@ -18,6 +18,11 @@
     width:100%;
     display: flex;
   }
+  .logo{
+    width:13rem;
+    height:3.5rem;
+    margin-left: 1rem;
+  }
   .first{
     background-color:#DDE1E9;
     width:25%;

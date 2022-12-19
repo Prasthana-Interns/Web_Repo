@@ -1,5 +1,5 @@
 *{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family:Georgia, Times, 'Times New Roman', serif;
 }
   .compHeader{
     font-size: 1.5rem;
@@ -9,6 +9,9 @@
     position: sticky;
     position: -webkit-sticky;
     background-color: #ABAEB6;
+  }
+  .labelHead{
+    font-size:1.5rem;
   }
   .divs{
     height:50rem;
@@ -36,7 +39,7 @@
     color:#c5c9d1
   }
   .warningText{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     display: flex;
     justify-content: center;
     color:black

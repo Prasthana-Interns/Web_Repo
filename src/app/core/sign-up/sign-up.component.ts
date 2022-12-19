@@ -25,7 +25,7 @@ export class SignUpComponent implements OnInit {
   Response: any;
   constructor(private au:AuthService, private route:Router, private fb: FormBuilder,private location:Location){}
   ngOnInit(){
-    if(!!localStorage.getItem('token')){
+    if(!!sessionStorage.getItem('token')){
       this.heading="Add Employee"
       this.buttonText="Add"
       this.hideLogin=false;
