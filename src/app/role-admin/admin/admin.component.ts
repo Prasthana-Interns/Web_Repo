@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
   logout(){
     this.confirmService.showConfirm("Are you sure want to logout",
     ()=>{
-      sessionStorage.clear()
+      localStorage.clear()
       this.router.navigate(['/login'])
     },
     ()=>{
