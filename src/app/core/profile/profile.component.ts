@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpRequestService } from '../../role-admin/http-request.service';
-
+import { NgConfirmService } from 'ng-confirm-box';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

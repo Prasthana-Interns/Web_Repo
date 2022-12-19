@@ -15,21 +15,20 @@ export class LoginComponent implements OnInit {
   login: any;
   alertMsg:any;
   errorResponse:any;
-  hasError:boolean=false;
+  userForm: any;
+  Response: any;
   constructor(private au: AuthService, private route: Router, private fb: FormBuilder) { }
   
   ngOnInit() {
     this.login = this.fb.group({
-      empId: new FormControl(null, [Validators.required, Validators.minLength(7), Validators.maxLength(7)]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+      empId: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(7)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(4)]),
     })
     console.log(this.login);
-  }
-
+  } 
   submitLogin() {
     console.log(this.login)
     if (this.login.valid) {
-      this.hasError=false
       let body = {
         "user": {
           "emp_id": this.login.controls.empId.value,
@@ -56,12 +55,14 @@ export class LoginComponent implements OnInit {
       error=>{
         this.errorText=error
         this.errorResponse=this.errorText?.error?.error
+        if(this.errorResponse==="Invalid emp_id or password"){
+          this.Response="*Invalid Employee Id or Password"
+
+        }
       }
       )
     }
     else {
-      // this.alertMsg="*Invalid login details"; 
-      this.hasError=true
     }
   }
 } 
