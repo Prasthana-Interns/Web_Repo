@@ -14,6 +14,12 @@
 .name {
     font-weight: bold;
 }
+.logout{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+     font-size: 1.7rem;
+}
 .dp-Det {
     width: 100px;
     height: 80px;

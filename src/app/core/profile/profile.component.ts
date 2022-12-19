@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpRequestService } from '../../role-admin/http-request.service';
-
+import { NgConfirmService } from 'ng-confirm-box';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   isSave: boolean = false;
 
   public editForm: any;
-  constructor(private httpService: HttpRequestService, private router: Router, private fb: FormBuilder) { }
+  constructor(private httpService: HttpRequestService, private router: Router, private fb: FormBuilder,private confirmService:NgConfirmService) { }
   
   ngOnInit() {
  
@@ -59,5 +59,16 @@ export class ProfileComponent implements OnInit {
       }
      
     }
+  }
+  logout(){
+    console.log("clicked");
+    this.confirmService.showConfirm("Are you sure want to logout",
+    ()=>{
+      localStorage.clear()
+      this.router.navigate(['/login'])
+    },
+    ()=>{
+      
+    })
   }
 }

@@ -44,13 +44,12 @@ import { FooterComponent } from '../auth/footer/footer.component';
     NgConfirmModule
   ],
   
-  providers:[HttpRequestService,{  provide:HTTP_INTERCEPTORS,useClass:RoleAdminInterceptor,multi:true},NgConfirmService],
-  
+    providers:[HttpRequestService,{  provide:HTTP_INTERCEPTORS,useClass:RoleAdminInterceptor,multi:true},NgConfirmService],
     schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
-  ],
-  exports:[]
+    ],
+    exports:[]
   
 })
 export class RoleAdminModule { }

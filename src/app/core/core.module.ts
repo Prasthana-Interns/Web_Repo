@@ -7,7 +7,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { NgConfirmModule,NgConfirmService } from 'ng-confirm-box';
 @NgModule({
   declarations: [
     SignUpComponent,
@@ -21,12 +21,13 @@ import { ProfileComponent } from './profile/profile.component';
     ReactiveFormsModule,
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
+    NgConfirmModule
   ],
   exports:[CardComponent,ProfileComponent],
+  providers:[NgConfirmService],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
   ]
-
 })
 export class CoreModule { }
