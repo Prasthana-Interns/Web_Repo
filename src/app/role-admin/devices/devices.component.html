@@ -3,9 +3,6 @@
 </div>
 <div class="divs">
   <div class="container">
-    <div *ngIf="noRecordFound">
-      <label class="warningText">{{text}}</label>
-    </div>
     <div class="SearchBar">
       <fieldset>
         <span class="material-symbols-outlined searchIcon">search</span>
@@ -14,9 +11,11 @@
 
       <span routerLink="/admin/admin/devices/add-device" routerLinkActive="active" class="material-symbols-outlined add"
         (click)="post()">add</span>
-
     </div>
-    <ng-container>
+    <div *ngIf="noRecordFound else elses">
+      <label class="warningText">{{text}}</label>
+    </div>
+    <ng-template #elses>
       <div class="rows" *ngFor="let devices of devicesList; let f=first; let l=last">
         <app-card>
           <div image>
@@ -31,7 +30,7 @@
           <span clickButton class="material-symbols-outlined delete" (click)="deleteDevice(devices?.id)">delete</span>
         </app-card>
       </div>
-    </ng-container>
+    </ng-template>
   </div>
 </div>
 <div>

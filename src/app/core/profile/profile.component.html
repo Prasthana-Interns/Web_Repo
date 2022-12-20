@@ -40,7 +40,7 @@
    <div  class="deviceHolder">
   <div class="card-comp">
     <app-card *ngFor="let device of employeeData?.devices">
-      <div image> <img src="assets\laptopimg.jpeg" /></div>
+      <div image> <img src="{{device?.image_url}}" /></div>
       <h3 name>{{device?.name | titlecase}}</h3>
       <label device class="deviceLabel">{{device?.device_type}}</label>
       <label deviceOS>{{device?.os}}</label>

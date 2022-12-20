@@ -26,7 +26,6 @@ export class EmployeePopUpComponent {
   fetchAssignEmployee(){
     this.http.get(`users`).subscribe((res)=>{
     this.allEmployees=res
-    console.log(res)
   });
   }
   assignClicked(id:any){
@@ -40,7 +39,6 @@ export class EmployeePopUpComponent {
   console.log(id)
   console.log(this.deviceId)
   this.http.put(`devices/${this.deviceId}`,body).subscribe((res)=>{
-    console.log(res)
   })  
   this.location.back()
   }
