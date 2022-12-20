@@ -11,23 +11,24 @@
       <div  (click)="addEmployee()"><span class="material-symbols-outlined addSymbol">add</span></div>
     </div>
  <app-card *ngFor="let employee of employees">
- <div image class="dp">{{ employee.name.split("")[0]}}</div>  
-      <h4 name class="name">{{ employee.name | titlecase }}</h4>
-      <label  empId_>{{employee.emp_id}}</label>
-      <label  designation_>{{ employee.designation }}</label>
+ <div image class="dp">{{ employee.name|slice:0:1 }}</div>  
+ <!-- <div image class="dp">{{ employee.name.split(" ")[0][0]}}</div>   -->
+
+  <h4 name class="name">{{ employee.name | titlecase }}</h4>
+  <label class="singleLine" Id>{{employee.emp_id}}</label>
+  <label designation_ class="singleLine">{{ employee.designation }}</label>
 
    <div deviceSymbols_ class="devices flex" *ngFor="let device of employee?.devices">
-      <span *ngIf="device?.device_type === 'Laptop'||device?.device_type === 'laptop'" class="material-symbols-outlined">laptop_mac</span>
-      <span  *ngIf="device?.device_type === 'Charger'||device?.device_type === 'charger'" class="material-symbols-outlined">electrical_services</span>
-      <span  *ngIf="device?.device_type === 'Bag'||device?.device_type === 'bag'" class="material-symbols-outlined">backpack</span>
-      <span  *ngIf="device?.device_type === 'Mobile'||device?.device_type === 'mobile'" class="material-symbols-outlined">phone_iphone</span>
-      <span  *ngIf="device?.device_type === 'Mouse'||device?.device_type === 'mouse'" class="material-symbols-outlined">mouse</span>
+      <span *ngIf="device?.device_type === 'Laptop'||device?.device_type === 'laptop'" class="material-symbols-outlined deviceIcon">laptop_mac</span>
+      <span  *ngIf="device?.device_type === 'Charger'||device?.device_type === 'charger'" class="material-symbols-outlined deviceIcon">electrical_services</span>
+      <span  *ngIf="device?.device_type === 'Bag'||device?.device_type === 'bag'" class="material-symbols-outlined deviceIcon">backpack</span>
+      <span  *ngIf="device?.device_type === 'Mobile'||device?.device_type === 'mobile'" class="material-symbols-outlined deviceIcon">phone_iphone</span>
+      <span  *ngIf="device?.device_type === 'Mouse'||device?.device_type === 'mouse'" class="material-symbols-outlined deviceIcon">mouse</span>
       <span  *ngIf="!device?.device_type"> No devices assigned</span>
    </div> 
-   
-      <div clickButton class="arrowSymbol" (click)="empDetailView(employee)">
-        <span class="material-symbols-outlined detailview">arrow_forward_ios</span>
-      </div>   
+   <div clickButton class="arrowSymbol" (click)="empDetailView(employee)">
+      <span class="material-symbols-outlined detailview">arrow_forward_ios</span>
+   </div>   
  </app-card>
  </div>
 </div>

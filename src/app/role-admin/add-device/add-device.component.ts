@@ -16,11 +16,8 @@ export class AddDeviceComponent implements OnInit {
   deviceType:string="";
   os:string="";
   user_id:any;
-
   deviceId:any
   SId:any
-  alertMsg:any;
-
   data:any;
   mob:any;
 
@@ -65,10 +62,5 @@ export class AddDeviceComponent implements OnInit {
     })
     this.router.navigate(['/admin/admin/devices']);
   }
-  else{
-    this.alertMsg="* Invalid Form";
-  }
-  }
-
-  
+  }  
 }

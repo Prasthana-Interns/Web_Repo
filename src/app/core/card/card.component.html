@@ -10,6 +10,7 @@
           </div>
           <div class="employeeLessDetails" style="display: flex; width: 100%;">
               <ng-content select="[id]"></ng-content>
+
               <ng-content select="[designation_]"></ng-content>
               <ng-content select="[deviceSymbols_]"></ng-content>
           </div>
@@ -26,7 +27,7 @@
     </div>
   </div>
   <ng-content select="[marginPurpose]"></ng-content>
-  <div class="employeeLessDetails"style="display: flex; width: 90%;">
+  <div class="employeeLessDetails"style="display: flex; margin-left:120px; width: 90%;">
               <ng-content select="[empId]"></ng-content>
               <ng-content select="[designation]"></ng-content>
               <ng-content select="[deviceSymbols]"></ng-content>

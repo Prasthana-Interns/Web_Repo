@@ -23,13 +23,14 @@ font-weight: bold;
 }
 .dp{
     width: 100px;
-    height: 80px;
+    height: 100px;
     background-color: rgb(244, 169, 20);
     color: white;
     justify-content: center;
-    padding-top: 10%;
+    padding-top: 20px;
     border-radius: 10px;
     font-size: 35px;
+    font-weight: bold;
     display: flex;
     box-sizing: content-box;
 }
@@ -39,14 +40,16 @@ small {
 }
 .delete {
     color: red;
-    padding-left: 150px
+    padding-left: 150px;
+    /* padding-top:-100px */
 }
 .singleLine {
     font-weight: bold;
     font-size: 18px;
     justify-content:space-between ;
     display: flex;
-    width:45%;
+    width: 30%;
+    /* margin-left: 18%; */
 }
 .heading {
     padding-left: 23%;
@@ -54,6 +57,8 @@ small {
 .device-icons {
 color: blue;
 display: flex;
+/* justify-content: flex-end; */
+
 }
 img {
     height: 92px;
@@ -69,15 +74,13 @@ margin-top: 20px
     margin-top:5px ;
     box-shadow: 1px 1px 2px rgb(91, 91, 93);
 }
-.devicelable {
-
+.deviceLabel {
     background-color: blue;
     border-radius: 20px;
     color: whitesmoke;
     height: 30%;
     padding-left: 7px;
     padding-right: 7px;
-    margin-left:15px;
 }
 .deviceHolder {
     max-height: 270px;
@@ -87,14 +90,11 @@ margin-top: 20px
     display: none;
 }
 @media(max-width:850px) {
-    .office-details {
-        flex-direction: column;
-    }
-   
+
     .personal-details{
         flex-direction: column;
     }
     .delete{
-       flex-direction: column-reverse;
+       flex-direction: column;
     }
 }

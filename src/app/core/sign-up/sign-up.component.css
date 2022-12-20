@@ -60,7 +60,7 @@
     padding-left:3.5rem ;
     margin-bottom:1.8rem;
 }
-/* input::-webkit-inner-spin-button {
+input::-webkit-inner-spin-button {
     -webkit-appearance:none;
 } */
 input{
@@ -80,7 +80,7 @@ input{
     text-decoration: none;
 }
 .my-color{
-    background-color: #7e7cf2;
+    background-color: rgba(167, 166, 218, 0.936);
 }
 .backtologin{
     padding-left:13rem;

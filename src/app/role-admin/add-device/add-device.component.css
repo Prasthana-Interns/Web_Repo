@@ -73,9 +73,9 @@ input{
     margin-top: 2rem;
     gap:2rem
 }
-.btn1:hover{
-    background-color: #201dfc;
-}
+.my-color{
+    background-color: #7e7cf2;
+ }
 .btn2:hover{
     background-color:#fd3838 ;
 }
