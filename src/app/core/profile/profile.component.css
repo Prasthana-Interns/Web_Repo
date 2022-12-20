@@ -1,3 +1,7 @@
+.cont{
+    width:100%;
+    display: flex;
+  }
 .compHeader {
     background-color: #ABAEB6;
     font-size: 20px;

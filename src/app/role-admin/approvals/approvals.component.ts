@@ -28,7 +28,7 @@ export class ApprovalsComponent implements OnInit {
     }
   }
   fetchPendingEmp(){
-      this.httpservice.get(`users/pending_users`).subscribe((res)=>{
+      this.httpservice.get(`users/pending`).subscribe((res)=>{
       this.approvalList=res;
       console.log(res)
     },(err)=>{

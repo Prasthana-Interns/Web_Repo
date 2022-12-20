@@ -1,7 +1,6 @@
 <div class="blurDiv">
   <div class="box">
     <h1>Add Device</h1>
-    <center><label class="errorMessage">{{alertMsg}}</label></center>
     <hr>
     <div class="container">
         <div class="formdiv">
@@ -24,12 +23,10 @@
               </select>
               <div class="text-danger" *ngIf="addDeviceBody?.controls?.deviceType?.touched && addDeviceBody?.controls?.deviceType?.errors else deviceTypeElseBlock">*Device Type is required</div>
               <ng-template #deviceTypeElseBlock><br></ng-template>
-
             <label for="os">OS</label><br>
             <div>
               <input type="text" placeholder="OS" class="form-control" formControlName="os">
             </div>
-
             <label for="assignedTo">Assigned To</label><br>
             <select class="selectDropdown" formControlName="user_id">
               <option value="null">Select an Employee</option>
@@ -39,13 +36,10 @@
                 </option>
             </ng-container>
             </select>    
-
             <div class="buttonDiv">
-              <button type="button" class="btn1" (click)="submitAddDevice()"> Add Device</button>
+              <button type="button" class="btn1" (click)="submitAddDevice()"  [disabled]="!addDeviceBody.valid" [ngClass]="{'my-color': !addDeviceBody.valid}"> Add Device</button>
               <button type="button" class="btn2" (click)="canceladdDevice()"> Cancel</button>
             </div>
-
-
           </form>
         </div>
       <ng-template #err style="color: red"> error fetching data</ng-template>

@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
           "password": this.login.controls.password.value
         }    
       }
-        this.au.post(`users/signin`,body).subscribe((res: any) => {
+        this.au.post(`signin`,body).subscribe((res: any) => {
         console.log(res);
         localStorage.setItem('token',res?.token)
         localStorage.setItem('id' ,res?.user?.id)
