@@ -33,8 +33,6 @@
 input {
     background: none;
     outline: none;
-  
-    /* border: none; */
 }
 
 small {
@@ -48,11 +46,7 @@ small {
 
 .div-icons {
     color: blue;
-    display: flex;
-    /* width:5%;
-    padding-left:50px */
-
-}
+    display: flex;}
 
 .heading {
     padding-left: 23%;

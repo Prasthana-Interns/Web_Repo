@@ -48,7 +48,7 @@ input{
   outline:0;
   margin-top:0.8rem;
   font-size: 1rem;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(219, 216, 216); */
 }
 .add{
   font-size:4rem;

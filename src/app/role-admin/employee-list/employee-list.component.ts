@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
+import {  Router, TitleStrategy } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
 @Component({
   selector: 'app-employee-list',
@@ -17,6 +17,7 @@ export class EmployeeListComponent implements OnInit {
   getEmployees() {
     this.httpService.get(`users`).subscribe(response => {
       this.employees = response;
+
     })
   }
   addEmployee() {

@@ -13,8 +13,10 @@ export class EmpDetailViewComponent  implements OnInit{
   public employeeId: any;
   public employeeData: any;
   public _id: any;
+  dev:any
   hasDevicesForm = false;
-
+  noDevicesAssigned = false;
+  
   constructor( private activatedRoute:ActivatedRoute,private httpService:HttpRequestService,private router:Router,private confirmService:NgConfirmService) { }
   
   ngOnInit() {
@@ -22,10 +24,15 @@ export class EmpDetailViewComponent  implements OnInit{
     let id = params.get('id');
     this.employeeId = id;})
     this.getEmployeeById()
+  
   }
   getEmployeeById() {
     this.httpService.get(`users/${this.employeeId}`).subscribe(response => {
-    this.employeeData = response;})
+      this.employeeData = response;
+       if (this.employeeData.devices.length == 0)
+      { this.noDevicesAssigned = true }
+      
+    })
   }
   deleteEmployee() {
     this.confirmService.showConfirm("Are you sure to delete", () => { 
@@ -38,6 +45,8 @@ export class EmpDetailViewComponent  implements OnInit{
   addDevice() {
     this.hasDevicesForm=true
     this._id = this.employeeId;
+  this.noDevicesAssigned =false;
+
   }
   unassignDevicesList(data: any) {
     this.hasDevicesForm = data;

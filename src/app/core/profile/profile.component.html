@@ -1,13 +1,12 @@
 <div class="compHeader">
   <label>Your Profile</label>
-  <span class="material-symbols-outlined logout" (click)="logout()">logout</span>
 </div>
 
 <div class="employee-details">
    <div class="card-comp ">
    <form [formGroup]="editForm" >
     <app-card class="card-component">
-      <div image class="dp-Det">{{ employeeData.name.split("")[0] }}</div>
+      <div image class="dp-Det">{{ employeeData?.name|slice:0:1}}</div>
     <h3 name class="name">
          <label *ngIf="!isEdit" >{{ employeeData?.name | titlecase }}</label>
          <label  *ngIf="isEdit" ><input type="text"   class=" form-control col-12"formControlName="name"></label>
@@ -31,11 +30,14 @@
       <span style="display:flex" *ngIf="device?.device_type === 'Mobile'|| device?.device_type ==='mobile'" class="material-symbols-outlined">phone_iphone</span>
       <span style="display:flex" *ngIf="device?.device_type === 'Mouse'|| device?.device_type ==='mouse'" class="material-symbols-outlined">mouse</span>
       </div> 
+     <span  deviceSymbols *ngIf="noDevicesAssigned"  class="div-icons flex"> No devices assigned</span>
+
       </app-card>
    </form>
   </div>
   <!-- ..........Devices Assigned.....  -->
-  <h4 class="heading">Devices Assigned</h4>
+  <h4 *ngIf="!noDevicesAssigned" class="heading">Devices Assigned</h4>
+  <h4 *ngIf="noDevicesAssigned"  [ngStyle]="{'color':'rgb(92, 88, 88'}" class="heading"> No devices assigned</h4>
    <div  class="deviceHolder">
   <div class="card-comp">
     <app-card *ngFor="let device of employeeData?.devices">

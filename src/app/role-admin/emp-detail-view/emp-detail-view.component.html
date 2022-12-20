@@ -1,11 +1,12 @@
 <div class="componentHeader">
-  <label>Employee Details</label>
+  <label>Employee</label>
 </div>
 
 <div class="details_holder">
    <div class="details">
     <app-card >
-      <div image class="dp">{{ employeeData.name.split("")[0] }}</div>
+       <div image class="dp">{{ employeeData?.name|slice:0:1 }}</div>  
+
       <h3 name class="name">{{ employeeData?.name | titlecase}}</h3>
       <small line_1 style="padding-top:8px">{{ employeeData?.email }}</small>
       <small line_2 style="padding-top:10px" >{{ employeeData?.phone_number }}</small>
@@ -21,13 +22,19 @@
       <span *ngIf="device?.device_type === 'Bag'||device?.device_type === 'bag'" class="material-symbols-outlined">backpack</span>
       <span *ngIf="device?.device_type === 'Mobile'||device?.device_type === 'mobile'" class="material-symbols-outlined">phone_iphone</span>
       <span *ngIf="device?.device_type === 'Mouse'||device?.device_type === 'mouse'" class="material-symbols-outlined">mouse</span>
+     <!-- <span *ngIf="noDevicesAssigned" class="heading"> No devices assigned</span> -->
+
+
     </div>
+     <span  deviceSymbols *ngIf="noDevicesAssigned" class="device-icons flex" > No devices assigned</span>
+
     </app-card>
   </div>
  <!-- ..........Devices Assigned..... -->
- <div *ngIf="employeeData?.devices else nodevices">
-  <h4 class="heading">Devices Assigned</h4>
-   <div  class="deviceHolder">
+
+  <h4 *ngIf="!noDevicesAssigned" class="heading">Devices Assigned</h4>
+  <h4 *ngIf="noDevicesAssigned" class="heading" [ngStyle]="{'color':'rgb(92, 88, 88'}"> No devices assigned</h4>
+  <div  class="deviceHolder">
   <div class="details">
     <app-card *ngFor="let device of employeeData?.devices">
       <div image> <img src={{device?.image_url}} /></div>
@@ -38,8 +45,9 @@
       <span clickButton class="material-symbols-outlined delete" (click)="unAssignDevice_delete(device?.id )">delete</span>
     </app-card>
   </div>
-</div></div>
-<ng-template #nodevices> No Devices assigned</ng-template>
+</div>
+
+<ng-template #err> No Devices assigned</ng-template>
 
 
   <div>
