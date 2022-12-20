@@ -7,15 +7,18 @@
         <div class="formdiv">
           <form [formGroup]="addDeviceBody">
 
-            <label for="name"> Device Name</label><br>
+            <!-- <label for="name"> Device Name</label> -->
+            <br>
             <div>
               <input type="text" placeholder=" Device Name" class="form-control" formControlName="name" required>
               <div class="text-danger" *ngIf="addDeviceBody?.controls?.name?.touched && addDeviceBody?.controls?.name?.errors else nameElseBlock">*Device Name is required</div>
               <ng-template #nameElseBlock><br></ng-template>
             </div>
 
-            <label for="deviceType">Device Type</label><br>
+            <!-- <label for="deviceType">Device Type</label> -->
+            <br>
               <select class="selectDropdown" formControlName="deviceType" required>
+                <option value="null"><label class="nullOption">Device Type</label></option>
                 <option value="Laptop">Laptop</option>
                 <option value="Mouse">Mouse</option>
                 <option value="Mobile">Mobile</option>
@@ -25,14 +28,16 @@
               <div class="text-danger" *ngIf="addDeviceBody?.controls?.deviceType?.touched && addDeviceBody?.controls?.deviceType?.errors else deviceTypeElseBlock">*Device Type is required</div>
               <ng-template #deviceTypeElseBlock><br></ng-template>
 
-            <label for="os">OS</label><br>
+            <!-- <label for="os">OS</label> -->
+            <br>
             <div>
               <input type="text" placeholder="OS" class="form-control" formControlName="os">
             </div>
 
-            <label for="assignedTo">Assigned To</label><br>
+            <!-- <label for="assignedTo">Assigned To</label> -->
+            <br>
             <select class="selectDropdown" formControlName="user_id">
-              <option value="null">Select an Employee</option>
+              <option value="null">Select an Employee to Assign</option>
               <ng-container *ngFor="let employee of listOfEmployees">
                 <option value ="{{employee?.id}}">
                   {{employee?.emp_id}},{{employee?.name}}

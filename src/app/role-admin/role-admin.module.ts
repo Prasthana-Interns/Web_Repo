@@ -18,7 +18,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
 import { CoreModule } from '../core/core.module';
 import { PopupParentComponent } from './popup-parent/popup-parent.component';
-import { FooterComponent } from '../auth/footer/footer.component';
+// import { FooterComponent } from '../core/footer/footer.component';
 @NgModule({
   declarations: [
     AdminComponent,

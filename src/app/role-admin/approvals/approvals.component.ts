@@ -18,8 +18,8 @@ export class ApprovalsComponent implements OnInit {
     if(!!localStorage.getItem('token')){
       console.log("present")
     }
-    this.sizes();
     this.fetchPendingEmp();
+    this.sizes();
   }
   sizes(){
     if(!!(!this.approvalList?.length)){

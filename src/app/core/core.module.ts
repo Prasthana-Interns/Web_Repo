@@ -8,11 +8,14 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NgConfirmModule,NgConfirmService } from 'ng-confirm-box';
+import { FooterComponent } from './footer/footer.component';
+
 @NgModule({
   declarations: [
     SignUpComponent,
     CardComponent,
     ProfileComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -21,9 +24,9 @@ import { NgConfirmModule,NgConfirmService } from 'ng-confirm-box';
     ReactiveFormsModule,
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
-    NgConfirmModule
+    NgConfirmModule,
   ],
-  exports:[CardComponent,ProfileComponent],
+  exports:[CardComponent,ProfileComponent,FooterComponent],
   providers:[NgConfirmService],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,
