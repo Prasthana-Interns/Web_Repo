@@ -15,7 +15,6 @@
     width:40rem;
     margin-right:5rem;
     border-radius: 0.5rem;
-
 }
 h1{
     display:flex;
@@ -73,9 +72,9 @@ input{
     margin-top: 2rem;
     gap:2rem
 }
-.btn1:hover{
-    background-color: #201dfc;
-}
+.my-color{
+    background-color: #7e7cf2;
+ }
 .btn2:hover{
     background-color:#fd3838 ;
 }
