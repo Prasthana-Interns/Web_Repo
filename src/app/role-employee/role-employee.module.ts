@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
+
 @NgModule({
     declarations: [
         EmployeeProfileComponent,

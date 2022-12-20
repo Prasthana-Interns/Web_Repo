@@ -17,22 +17,23 @@ import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devi
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
 import { CoreModule } from '../core/core.module';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { PopupParentComponent } from './popup-parent/popup-parent.component';
 import { FooterComponent } from '../auth/footer/footer.component';
 @NgModule({
   declarations: [
     AdminComponent,
     EmployeeListComponent,
-    EmpDetailViewComponent,
+    ApprovalsComponent,
+    UnassignedDevicesComponent,
+    PopupParentComponent,
     DevicesComponent,
     AddDeviceComponent,
     AddEmployeeComponent,
-    UnassignedDevicesComponent,
-    ApprovalsComponent,
     EmployeePopUpComponent,
-    PopupParentComponent,
-  ],
-
+    AdminProfileComponent,
+    EmpDetailViewComponent
+],
   imports: [
     CommonModule,
     RoleAdminRoutingModule,

@@ -7,6 +7,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { ProfileComponent } from './profile/profile.component';
+
+
 import { NgConfirmModule,NgConfirmService } from 'ng-confirm-box';
 @NgModule({
   declarations: [

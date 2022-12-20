@@ -1,15 +1,20 @@
-
-.componentHeader {
-    background-color:#ABAEB6;
-    font-size: 20px;
-    padding: 20px;
-    font-weight: bold;
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.componentHeader {
+    font-size: 1.5rem;
+        padding: 0.6rem;
+        font-weight: bold;
+        margin: 0.3rem;
+        position: sticky;
+        position: -webkit-sticky;
+        background-color: #ABAEB6;
+    }
 .employeesHolder {
     background-color:#F0F1F5;
     margin:auto;
-    padding-top:20px;
-    height: 700px;
+    padding-top:1.3rem;
+  height:50rem;
     overflow-y: scroll;
 }
 .employees {
@@ -18,32 +23,33 @@
 }
 .search-add{
     display: flex;
-    margin-bottom: 12px;
+    margin-bottom: 0.8rem;
 }
 .searchBox{
-    width: 200px;
     border: 0;
     outline: 0;
     background-color: white;
-    margin-left: 20px;
-    height: 30px;
-    font-size: 15px;
-    padding-top: 5px;
+    margin-left: 1.2rem;
+   padding-top: 5px;
+}
+input {
+    width: 80%;
+    border: 0;
+    outline: 0;
 }
 fieldset {
     background-color: white;
-    border-radius: 30px;
+    border-radius: 2.6rem;
     box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
-    width: 690px;
+    width: 90%;
     display: flex;
     justify-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 0.7rem 0rem 0.7rem 0rem;
+    
 }
 .search {
-    margin-right: 5px;
-    margin-left: 25px;
-    padding-top: 5px;
+   margin:0rem 0.3rem 0rem 1.56rem;
+   padding-top:0.3rem
 }
 .addSymbol {
    justify-content: center;
@@ -52,36 +58,44 @@ fieldset {
     font-size: 40px;
 }
 .dp {
-    width: 85px;
-    height: 80px;
+    width: 5.5rem;
+    height: 5rem;
     background-color: rgb(244, 169, 20);
     color: white;
     justify-content: center;
-    padding-top: 10%;
-    border-radius: 10px;
-    font-size: 35px;
+    padding-top: 5%;
+    border-radius: 0.62rem;
+    font-size: 2.6rem;
     display: flex;
 }
 .name{
 font-weight: bold
+
 }
-label{
-width: 40%;
-padding-top: 10px
+.singleLine {
+    padding-top:10px;
+    justify-content: space-between;
+    display: flex;
+    width: 30%;
+    margin-right:30px
+ 
 }
 .devices {
     color: blue;
     display: flex;
-    padding-left: 10px;
-    padding-top: 13px;
+    justify-content: center;
+    padding-top:0.4rem; 
     justify-content: flex-end;
+}
+.deviceIcon{
+    font-size:1.87rem;
 }
 .detailview{
    justify-content: center;
    margin-top: 15px;
 }
 .arrowSymbol{
-    margin-left: 100px;
+    margin-left:12rem;
     padding-top: 10px;
 }
 ::-webkit-scrollbar-track {
@@ -89,16 +103,19 @@ padding-top: 10px
 }
 @media(max-width:850px){
     .singleline {
-            flex-direction: row;
+            flex-direction:column;
         }
         .hello {
             display: none;      
         }
         .devices{
             width: fit-content;
-            margin: 0%; 
-            padding: 2px; 
+            margin:-20%; 
+            padding: 2px;
+            flex-direction:column; 
         }
+        .deviceIcon{font-size:1.4rem}
+        .arrowSymbol{margin-left: 10px;}
         .dp{
             width:40
             0px;

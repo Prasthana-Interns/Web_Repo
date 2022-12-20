@@ -1,25 +1,25 @@
 
-<!-- employee details -->
-
-  
 <div class="compHeader">
-  <label style=>Your Profile</label>
+  <label>Your Profile</label>
+
 </div>
 <div class="employee-details">
    <div class="card-comp ">
-   <form [formGroup]="editForm" class="form">
+   <form [formGroup]="editForm" >
     <app-card class="card-component">
-      <div image class="dp-Det">{{ employeeData.name.split("")[0] }}</div>
-    <h3 name class="name"  (dblclick)="editEmployee()">
-         <label *ngIf="!isEdit">{{ employeeData?.name | titlecase }}</label>
-         <label  *ngIf="isEdit" ><input type="text" formControlName="name"></label>
+      <div image class="dp-Det">{{ employeeData?.name|slice:0:1}}</div>
+    <h3 name class="name">
+         <label *ngIf="!isEdit" >{{ employeeData?.name | titlecase }}</label>
+         <label  *ngIf="isEdit" ><input type="text"   class=" form-control col-12"formControlName="name"></label>
    </h3>
-     <small line_1>{{ employeeData?.email }}</small>
-       <div line_2 (dblclick)="editEmployee()" >
-         <small  *ngIf="!isEdit">{{employeeData?.phone_number }}</small>
-         <small  *ngIf="isEdit"><input type="text" formControlName="phoneNo"></small>
+     <small line_1  style="padding-top:8px">{{ employeeData?.email }}</small>
+       <div line_2 >
+         <small  *ngIf="!isEdit" style="padding-top:10px" >{{employeeData?.phone_number }}</small>
+         <small  *ngIf="isEdit"><input type="text"  class=" form-control col-12" formControlName="phoneNo"></small>
      </div>
+     <span clickButton class="material-symbols-outlined   edit " *ngIf="hasEditSymbol" (click)="editEmployee()">edit</span>
      <span clickButton class="material-symbols-outlined save " [disabled]="editForm.invalid" *ngIf="isSave" (click)="saveEmployee()">check</span>
+
         <div marginPurpose class=""></div>
       <span empId class="singleLine" >{{ employeeData?.emp_id }}</span>
       <span designation class="singleLine">{{ employeeData?.designation }}</span>
@@ -31,19 +31,24 @@
       <span style="display:flex" *ngIf="device?.device_type === 'Mobile'|| device?.device_type ==='mobile'" class="material-symbols-outlined">phone_iphone</span>
       <span style="display:flex" *ngIf="device?.device_type === 'Mouse'|| device?.device_type ==='mouse'" class="material-symbols-outlined">mouse</span>
       </div> 
+     <span  deviceSymbols *ngIf="noDevicesAssigned"  class="div-icons flex"> No devices assigned</span>
+
       </app-card>
    </form>
   </div>
-  <!-- ..........Devices Assigned..... -->
-  <h4 class="heading">Devices Assigned</h4>
+  <!-- ..........Devices Assigned.....  -->
+  <h4 *ngIf="!noDevicesAssigned" class="heading">Devices Assigned</h4>
+  <h4 *ngIf="noDevicesAssigned"  [ngStyle]="{'color':'rgb(92, 88, 88'}" class="heading"> No devices assigned</h4>
    <div  class="deviceHolder">
   <div class="card-comp">
     <app-card *ngFor="let device of employeeData?.devices">
-      <div image> <img src="{{device?.image_url}}" /></div>
+
+      <div image> <img src={{device?.image_url}} /></div>
+
       <h3 name>{{device?.name | titlecase}}</h3>
       <label device class="deviceLabel">{{device?.device_type}}</label>
-      <label deviceOS>{{device?.os}}</label>
-      <label deviceId>{{device?.device_no}}</label>
+      <label line_1>{{device?.os}}</label>
+      <label line_2>{{device?.device_no}}</label>
     </app-card>
   </div>
 </div>

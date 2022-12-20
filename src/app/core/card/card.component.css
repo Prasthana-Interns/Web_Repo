@@ -15,7 +15,7 @@
 }
 .info{
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .deviceCSS{
     background-color: blue;
@@ -25,7 +25,6 @@
 .right{
   display: flex;
   width:90%;
-  align-items: center;
 }
 .content{
   width:60%;
@@ -37,6 +36,7 @@
 }
 .cardRightMost{
   width:35%
+
 }
 .deviceInfo{
   display:flex;
@@ -61,7 +61,7 @@
       flex-direction: column;
     }
     .info{
-      flex-direction: column;
+      flex-direction:row;
     }
     .card{
       flex-direction: row;
