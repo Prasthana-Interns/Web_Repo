@@ -1,5 +1,5 @@
 *{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family:Georgia, Times, 'Times New Roman', serif;
 }
 .compHeader{
   font-size: 1.5rem;
@@ -72,8 +72,8 @@ input{
   padding: 0.4rem;
   display: flex;
   justify-content: flex-end;
-  margin-left: 3rem;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  margin-bottom: 4rem;
   cursor: pointer;
 }
 img{

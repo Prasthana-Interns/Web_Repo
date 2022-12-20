@@ -35,7 +35,8 @@
   margin:0.2rem;
 }
 .cardRightMost{
-  /* width:60% */
+  width:35%
+
 }
 .deviceInfo{
   display:flex;
