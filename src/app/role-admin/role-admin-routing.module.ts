@@ -13,6 +13,7 @@ import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.compon
 // import { ProfileComponent } from '../core/profile/profile.component';
 import { ProfileComponent } from '../core/profile/profile.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+// import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:'full'},
                          {path:'admin',component:AdminComponent,

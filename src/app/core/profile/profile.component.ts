@@ -12,15 +12,19 @@ selector: 'app-profile',
 export class ProfileComponent implements OnInit {
 
  employeeData: any;
- id = localStorage.getItem('id');
+     id = localStorage.getItem('id');
+     role: any;
  isEdit: boolean = false;
     isSave: boolean = false;
   hasEditSymbol: boolean = true;
      noDevicesAssigned = false;
+       errorText: any;
+  errorResponse: any;
+  Response: any;
    
 
  public editForm: any;
- constructor(private httpService: HttpRequestService, private router: Router, private fb: FormBuilder) { }
+ constructor(private httpService: HttpRequestService, private fb: FormBuilder) { }
  
  ngOnInit() {
  this.getProfile();
@@ -32,6 +36,17 @@ export class ProfileComponent implements OnInit {
       this.employeeData = res
        if (this.employeeData.devices.length == 0)
       { this.noDevicesAssigned = true }
+
+      if (this.employeeData?.user_roles.length == 2) {
+                  {
+                       console.log(this.employeeData?.user_roles)
+                       this.employeeData?.user_roles.map((res:any) => {
+                            if(res === 'Admin') this.role = res 
+                            
+                       })
+                  }
+      }
+      else this.role = 'Employee'
      this.formControls()
  };
  })
@@ -47,7 +62,13 @@ editEmployee() {
  this.isEdit = true;
       this.isSave = true;
       this.hasEditSymbol = false;
- }
+     }
+     cancelChanges() {
+          this.getProfile()
+           this.isSave = false
+            this.isEdit = false;
+            this.hasEditSymbol = true;   
+     }
  saveEmployee() {
  if (this.editForm.valid) {
  this.isSave = false
@@ -58,11 +79,22 @@ editEmployee() {
  "phone_number": this.editForm.controls.phoneNo.value,
  }
  }
- this.httpService.put(`users/${this.employeeData.id}`, body).subscribe((res: any) => {
- this.getProfile()
+      this.httpService.put(`users/${this.employeeData.id}`, body).subscribe({
+           next:(res: any) => {
+  this.getProfile()
             this.isEdit = false;
             this.hasEditSymbol = true;
- });
+           },
+           error: (err: any) => {
+                this.errorText = err
+                this.errorResponse = this.errorText?.error?.error
+                if (this.errorResponse === "Validation failed: Phone Numbr has already exists") {
+                     this.Response = "*Phone Number already exists"
+                }
+           }
+           
+      }
+ );
  }
  }
  }

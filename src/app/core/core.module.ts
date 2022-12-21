@@ -7,6 +7,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 import { NgConfirmModule,NgConfirmService } from 'ng-confirm-box';
@@ -15,6 +17,9 @@ import { NgConfirmModule,NgConfirmService } from 'ng-confirm-box';
     SignUpComponent,
     CardComponent,
     ProfileComponent,
+    ViewProfileComponent,
+    EditProfileComponent
+    
   ],
   imports: [
     CommonModule,
