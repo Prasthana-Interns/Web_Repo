@@ -32,11 +32,12 @@ export class LoginComponent implements OnInit {
       let body = {
         "user": {
           "emp_id": this.login.controls.empId.value,
-          "password": this.login.controls.password.value
+          "password":window.btoa (this.login.controls.password.value)
         }    
       }
+      console.log(body)
         this.au.post(`signin`,body).subscribe((res: any) => {
-        console.log(res);
+        console.log(res)
         localStorage.setItem('token',res?.token)
         localStorage.setItem('id' ,res?.user?.id)
         if((res?.user?.user_roles).length===2) {

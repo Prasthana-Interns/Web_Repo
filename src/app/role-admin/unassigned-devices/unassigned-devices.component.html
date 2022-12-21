@@ -3,13 +3,15 @@
   <div class="box">
     <div class="popUp">
       <div class="header">
-        <h3 style="margin-left: 50px">Devices list</h3>
+      
+        <h3 > <center>Devices list</center></h3>
         <span
           (click)="closeDevicesForm()"
           class="material-symbols-outlined cancel"
           >close</span
         >
       </div>
+      <hr>
       <div class="deviceHolder">
         <div class="card-comp">
           <app-card *ngFor="let device of unAssignedDevices">
@@ -17,8 +19,8 @@
               <img src="{{device?.image_url}}" />
             </div>
             <h5 name>{{ device?.name | titlecase }}</h5>
-            <label device class="deviceCSS">{{ device?.device_type }}</label>
-            <label line_1>{{ device?.os }}</label>
+            <label device class="deviceCSS">{{ device?.device_type|titlecase }}</label>
+            <label line_1>{{ device?.os|titlecase }}</label>
             <label line_2>{{ device?.device_no }}</label>
             <button
               clickButton
