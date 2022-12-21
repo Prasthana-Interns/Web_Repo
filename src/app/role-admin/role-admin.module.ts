@@ -14,7 +14,6 @@ import { EmpDetailViewComponent } from './emp-detail-view/emp-detail-view.compon
 import { RoleAdminInterceptor } from './role-admin.interceptor';
 import { HttpRequestService } from './http-request.service';
 import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devices.component';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
 import { CoreModule } from '../core/core.module';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
@@ -28,7 +27,6 @@ import { PopupParentComponent } from './popup-parent/popup-parent.component';
     PopupParentComponent,
     DevicesComponent,
     AddDeviceComponent,
-    AddEmployeeComponent,
     EmployeePopUpComponent,
     AdminProfileComponent,
     EmpDetailViewComponent
