@@ -46,7 +46,6 @@ export class DevicesComponent implements OnInit {
     this.confirmService.showConfirm("Are you sure want to Delete ?",
      () => {
       this.http.delete(`devices`,id).subscribe((res)=>{
-        console.log(res)
         this.getAllDevices();
       })
     },
