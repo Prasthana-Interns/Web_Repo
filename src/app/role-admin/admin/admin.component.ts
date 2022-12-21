@@ -13,6 +13,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   logout(){
     this.confirmService.showConfirm("Are you sure want to logout",
     ()=>{

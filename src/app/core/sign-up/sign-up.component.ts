@@ -53,7 +53,7 @@ export class SignUpComponent implements OnInit {
     email: new FormControl('',[Validators.required,Validators.email]),
     phoneNo: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
     designation:new FormControl('',[Validators.required]),
-    roles:new FormControl([null,Validators.required]), 
+    roles:new FormControl(null,[Validators.required]), 
   })
   console.log(this.signUp)
   }
@@ -96,7 +96,6 @@ export class SignUpComponent implements OnInit {
       this.au.post(`users`,body).subscribe({
       next: (res:any)=>{
         console.log(res);
-       
         if(!!localStorage.getItem('token')){
           console.log("ROUTE TO BACK")
           this.route.navigate(["/admin/admin/employees"]);

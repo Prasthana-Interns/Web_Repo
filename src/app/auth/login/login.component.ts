@@ -14,7 +14,8 @@ export class LoginComponent implements OnInit {
   errorText: any;
   login: any;
   alertMsg:any;
-  errorResponse:any;
+  errorResponse1:any;
+  errorResponse2:any;
   userForm: any;
   Response: any;
   constructor(private au: AuthService, private route: Router, private fb: FormBuilder) { }
@@ -55,10 +56,11 @@ export class LoginComponent implements OnInit {
       },
       error=>{
         this.errorText=error
-        this.errorResponse=this.errorText?.error?.error
-        if(this.errorResponse==="Invalid emp_id or password"){
+        console.log(error?.error)
+        this.errorResponse1=this.errorText?.error?.error
+        this.errorResponse2=this.errorText?.error?.message
+        if(this.errorResponse1==="Invalid emp_id or password" ||this.errorResponse2==="unauthorized" ){
           this.Response="*Invalid Employee Id or Password"
-
         }
       }
       )

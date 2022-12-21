@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
-import { NavigationEnd } from '@angular/router';
 import { NgConfirmService} from 'ng-confirm-box'
 
 @Component({
@@ -20,13 +19,7 @@ export class DevicesComponent implements OnInit {
   data:any;
   imageUrl:any;
 
-  constructor(private router :Router,private http:HttpRequestService,private confirmService:NgConfirmService) {
-    // this.router.events.subscribe((e) => {
-    //   if (e instanceof NavigationEnd) {
-    //       this.getAllDevices();
-    //   }
-    // });
-   }
+  constructor(private router :Router,private http:HttpRequestService,private confirmService:NgConfirmService) {}
 
   ngOnInit(): void {
     this.getAllDevices();
@@ -56,6 +49,7 @@ export class DevicesComponent implements OnInit {
     this.confirmService.showConfirm("Are you sure want to Delete ?",
      () => {
       this.http.delete(`devices`,id).subscribe((res)=>{
+        console.log(res)
         this.getAllDevices();
       })
     },
@@ -65,11 +59,18 @@ export class DevicesComponent implements OnInit {
   }
 
 searchMethod(value?:string){
-this.http.get(`devices/search/?search=${value}`).subscribe((res)=>{
+this.http.get(`devices/search/?search=${value}`).subscribe((res:any)=>{
   console.log(value);
   this.devicesList=res
-  this.getAllDevices();
-  this.sizes();
+  if(res?.length==0){
+    this.noRecordFound=true;
+    this.text="No devices found"
+    this.getAllDevices();
+  }
+  else{
+    this.noRecordFound=false;
+    this.getAllDevices();
+  }
 })
 }
 }
