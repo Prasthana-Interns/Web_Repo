@@ -54,13 +54,9 @@ export class AddDeviceComponent implements OnInit {
               "user_id": this.addDeviceBody?.controls?.user_id?.value,               
               }
     this.http.post(`/devices`,body).subscribe((res:any)=>{
-      console.log(res)
-      if(res?.device_type=='mobile' || res?.device_type=='Mobile'){
-        this.mob=res?.image_url;
-        this.data=this.mob;
-      }
+      this.router.navigate(['/admin/admin/devices']);
     })
-    this.router.navigate(['/admin/admin/devices']);
+    
   }
   }  
 }

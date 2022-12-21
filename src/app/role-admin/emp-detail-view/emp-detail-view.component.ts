@@ -1,7 +1,8 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component ,OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
 import { NgConfirmService } from 'ng-confirm-box';
+import { EmployeeListComponent } from '../employee-list/employee-list.component';
 
 @Component({
   selector: 'app-emp-detail-view',
@@ -10,10 +11,12 @@ import { NgConfirmService } from 'ng-confirm-box';
 })
 export class EmpDetailViewComponent  implements OnInit{
   // public empDetailForm: any = true;
+
   public employeeId: any;
   public employeeData: any;
   public _id: any;
-  dev:any
+  role: any
+  
   hasDevicesForm = false;
   noDevicesAssigned = false;
   
@@ -24,15 +27,26 @@ export class EmpDetailViewComponent  implements OnInit{
     let id = params.get('id');
     this.employeeId = id;})
     this.getEmployeeById()
+   
   
   }
   getEmployeeById() {
     this.httpService.get(`users/${this.employeeId}`).subscribe(response => {
-      this.employeeData = response;
-       if (this.employeeData.devices.length == 0)
-      { this.noDevicesAssigned = true }
-      
-    })
+     
+      if (response) {
+         this.employeeData = response;
+        console.log(response)
+        if (this.employeeData.devices.length == 0) {
+          this.noDevicesAssigned = true
+        }
+        if (this.employeeData?.user_roles?.includes('Admin')) {
+          this.role = 'Admin'
+        }
+        else {
+          this.role = 'Employee'
+        }
+      }
+      })
   }
   deleteEmployee() {
     this.confirmService.showConfirm("Are you sure to delete", () => { 

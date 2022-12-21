@@ -66,26 +66,36 @@
   label{
     font-size:medium;
   }
+  .designation{
+    margin-right:5rem
+  }
   .btns{
     margin-left: 1rem;
-    padding-top:6rem;
+    padding-top:4rem;
   }
 
   .accept{
     font-weight: bold;
-    color:#FFFFFF;
+    color:black;
+    width:4.5rem;
     border-radius: 0.5rem;
     border: 0.1rem solid black;
-    background-color:#514efe;
-    border-color:#514efe;
+    background-color:#FFFFFF;
+    border:0.1rem solid #a9aaad;
+    box-shadow: 0 0.5rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+    padding-top:0.3rem;
   }
   .reject{
-    margin-left:1rem;
+    margin-left:0.5rem;
     font-weight: bold;
-    color:#FFFFFF;
+    color:black;
+    width:4.5rem;
     border-radius: 0.5rem;
-    background-color: #fd3838;
-    border-color: #fd3838;
+    border: 0.1rem solid black;
+    background-color:#FFFFFF;
+    border:0.1rem solid #a9aaad;
+    box-shadow: 0 0.5rem 0.8rem 0 rgba(0, 0, 0, 0.2);
+    padding-top:0.3rem;
   }
   html{
     font-size:62.5%;

@@ -21,7 +21,7 @@ export class EmployeePopUpComponent {
     this.deviceId=this.http.getShareData();
   }
   canceladdDevice(){
-    this.router.navigate(['/admin/admin/devices']);
+      this.location.back()
   }
   fetchAssignEmployee(){
     this.http.get(`users`).subscribe((res)=>{
@@ -36,11 +36,11 @@ export class EmployeePopUpComponent {
                     "user_id":this.temp
                   }
   }
-  console.log(id)
-  console.log(this.deviceId)
   this.http.put(`devices/${this.deviceId}`,body).subscribe((res)=>{
+    this.router.navigate(['/admin/admin/devices']);
   })  
-  this.location.back()
+  // this.location.back()
+  
   }
 
 }
