@@ -16,10 +16,10 @@ export class EmpDetailViewComponent  implements OnInit{
   public employeeData: any;
   public _id: any;
   role: any
-  
+  disableDelete=true;
   hasDevicesForm = false;
   noDevicesAssigned = false;
-  
+  getId=localStorage.getItem('id');
   constructor( private activatedRoute:ActivatedRoute,private httpService:HttpRequestService,private router:Router,private confirmService:NgConfirmService) { }
   
   ngOnInit() {
@@ -27,12 +27,9 @@ export class EmpDetailViewComponent  implements OnInit{
     let id = params.get('id');
     this.employeeId = id;})
     this.getEmployeeById()
-   
-  
   }
   getEmployeeById() {
     this.httpService.get(`users/${this.employeeId}`).subscribe(response => {
-     
       if (response) {
          this.employeeData = response;
         console.log(response)
@@ -44,6 +41,9 @@ export class EmpDetailViewComponent  implements OnInit{
         }
         else {
           this.role = 'Employee'
+        }
+        if(this.getId==this.employeeData?.id){
+           this.disableDelete=false;
         }
       }
       })

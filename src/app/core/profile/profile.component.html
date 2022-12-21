@@ -28,21 +28,15 @@
            <small *ngIf="hasError" class="text-danger">{{Response}}</small>
         </div>
         </div>
-     <span clickButton class="material-symbols-outlined   edit " *ngIf="hasEditSymbol" (click)="editEmployee()">edit</span>
-     
-     <span clickButton class="material-symbols-outlined save " [disabled]="editForm.invalid && !!hasError" *ngIf="isSave" (click)="saveEmployee()">check</span>
-     
 
-
-     <span clickButton class="material-symbols-outlined edit " [disabled]="editForm.invalid" *ngIf="isSave" (click)="cancelChanges()">close</span>
-       <div marginPurpose class="marginPurpose"></div>
+      <span clickButton class="material-symbols-outlined   edit " *ngIf="hasEditSymbol" (click)="editEmployee()">edit</span>    
+      <span clickButton class="material-symbols-outlined save " [disabled]="editForm.invalid && !!hasError" *ngIf="isSave" (click)="saveEmployee()">check</span>
+      <span clickButton class="material-symbols-outlined edit " [disabled]="editForm.invalid" *ngIf="isSave" (click)="cancelChanges()">close</span>
+      <div marginPurpose class="marginPurpose"></div>
+      
       <span empId class="singleLine"[ngStyle]="{'margin-left':'16%'}" >{{ employeeData?.emp_id }}</span>
       <span designation class="singleLine">{{ employeeData?.designation |titlecase}}</span>
-      <span role class="singleLine">{{role}}</span>
-
-
-
-     
+      <span role class="singleLine">{{role}}</span> 
       <div deviceSymbols  class="devices flex">
        <div *ngFor="let device of employeeData?.devices">
       <span style="display:flex" *ngIf="device?.device_type === 'Laptop'|| device?.device_type ==='laptop'" class="material-symbols-outlined deviceIcon">laptop_mac</span>
@@ -61,9 +55,7 @@
    <div  class="deviceHolder">
   <div class="card-comp" [ngStyle]="{'overflow-y':'scroll','padding-bottom':'2px'}">
     <app-card *ngFor="let device of employeeData?.devices">
-
       <div image> <img src={{device?.image_url}} /></div>
-
       <h3 name>{{device?.name | titlecase}}</h3>
       <label device class="deviceLabel">{{device?.device_type |titlecase}}</label>
       <label line_2>{{device?.os |titlecase}}</label>

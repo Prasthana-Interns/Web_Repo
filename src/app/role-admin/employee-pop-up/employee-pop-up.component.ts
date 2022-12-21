@@ -13,9 +13,7 @@ export class EmployeePopUpComponent {
   allEmployees:any;
   temp:any;
   deviceId:any;
-
   constructor(private router:Router,private http:HttpRequestService,private location:Location){}
-
   ngOnInit(){
     this.fetchAssignEmployee();
     this.deviceId=this.http.getShareData();
@@ -39,8 +37,6 @@ export class EmployeePopUpComponent {
   this.http.put(`devices/${this.deviceId}`,body).subscribe((res)=>{
     this.router.navigate(['/admin/admin/devices']);
   })  
-  // this.location.back()
-  
   }
 
 }

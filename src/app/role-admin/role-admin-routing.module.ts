@@ -8,9 +8,7 @@ import { DevicesComponent } from './devices/devices.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmpDetailViewComponent } from './emp-detail-view/emp-detail-view.component';
 import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devices.component';
-import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
-// import { ProfileComponent } from '../core/profile/profile.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { PopupParentComponent } from './popup-parent/popup-parent.component';
 
@@ -25,7 +23,7 @@ const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:
                                      { path: 'approvals', component: ApprovalsComponent },
                                      {
                                       path: 'employees', component: EmployeeListComponent,
-                                      children: [{ path: 'add-employee', component: AddEmployeeComponent },
+                                      children: [
                                         { path: 'popup-parent', component: PopupParentComponent }
                                       ]
                                      },
