@@ -36,7 +36,6 @@
 }
 .cardRightMost{
   width:25%
-
 }
 .deviceInfo{
   display:flex;
@@ -45,6 +44,11 @@
 .row1{
   display: flex;
   justify-content: flex-start;
+}
+.down{
+  display: flex;
+    /* margin-left: 120px; */
+    width: 100%
 }
  html{
   font-size:62.5%;
@@ -71,6 +75,14 @@
     .row1{
       display: flex;
       flex-direction: column;
+    }
+      
+    .down{
+      margin:0px;
+      /* display: inline-block; */
+      flex-direction: column  ;
+      /* flex-direction:column-reverse; */
+
     }
   }
 
