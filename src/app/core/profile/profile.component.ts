@@ -42,8 +42,7 @@ export class ProfileComponent implements OnInit {
                   {
                        console.log(this.employeeData?.user_roles)
                        this.employeeData?.user_roles.map((res:any) => {
-                            if(res === 'Admin') this.role = res 
-                            
+                       if(res === 'Admin') this.role = res                            
                        })
                   }
       }
@@ -54,53 +53,52 @@ export class ProfileComponent implements OnInit {
  })
  }
  formControls() {
- console.log(this.employeeData)
- this.editForm = this.fb.group({
- name: new FormControl(this.employeeData.name, [Validators.required, Validators.minLength(3)]),
- phoneNo: new FormControl(this.employeeData.phone_number, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
-})
+     console.log(this.employeeData)
+     this.editForm = this.fb.group({
+     name: new FormControl(this.employeeData.name, [Validators.required, Validators.minLength(3)]),
+     phoneNo: new FormControl(this.employeeData.phone_number, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+     })
  }
 editEmployee() {
- this.isEdit = true;
-      this.isSave = true;
-      this.hasEditSymbol = false;
-     }
-     cancelChanges() {
-          this.getProfile()
-           this.isSave = false
-            this.isEdit = false;
-            this.hasEditSymbol = true;   
-     }
+     this.isEdit = true;
+     this.isSave = true;
+     this.hasEditSymbol = false;
+}
+cancelChanges() {
+     this.getProfile()
+     this.isSave = false
+     this.isEdit = false;
+     this.hasEditSymbol = true;   
+}
  saveEmployee() {
- if (this.editForm.valid) {
- this.isSave = false
- if (this.editForm.valid) {
- let body = {
-"user": {
- "name": this.editForm.controls.name.value,
- "phone_number": this.editForm.controls.phoneNo.value,
- }
- }
-      this.httpService.put(`users/${this.employeeData.id}`, body).subscribe({
-           next:(res: any) => {
-            this.getProfile()
-            this.isEdit = false;
-            this.hasEditSymbol = true;
-           },
-           error: (err: any) => {
-                this.errorText = err
-                this.errorResponse = this.errorText?.error?.error
-                if (this.errorResponse === "Validation failed: Phone number has already been taken") {
-                     this.Response = "*Phone Number already exists"
-                     this.hasError=true
-                     this.isSave = true
-                     this.isEdit = true;   
-             }
-           }
-           
-      }
- );
- }
- }
- }
+     if (this.editForm.valid) {
+     this.isSave = false
+     if (this.editForm.valid) {
+     let body = {
+     "user": {
+     "name": this.editForm.controls.name.value,
+     "phone_number": this.editForm.controls.phoneNo.value,
+     }
+     }
+     this.httpService.put(`users/${this.employeeData.id}`, body).subscribe({
+          next:(res: any) => {
+          this.getProfile()
+          this.isEdit = false;
+          this.hasEditSymbol = true;
+          },
+          error: (err: any) => {
+               this.errorText = err
+               this.errorResponse = this.errorText?.error?.error
+               if (this.errorResponse === "Validation failed: Phone number has already been taken") {
+                    this.Response = "*Phone Number already exists"
+                    this.hasError=true
+                    this.isSave = true
+                    this.isEdit = true;   
+               }
+               }         
+               }
+               );
+            }
+          }
+     }
 }

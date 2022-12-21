@@ -47,8 +47,6 @@ small {
 .delete {
     color: red;
     padding-left: 70%;
-    /* padding-left: 200px; */
-    /* padding-top:-100px */
 }
 .singleLine {
     font-weight: bold;
@@ -102,27 +100,25 @@ background-color: blue;
 }
 .deviceHolder {
     max-height: 270px;
-   
 }
-
 @media(max-width:850px) {
 
-    .personal-details{
-        flex-direction: column;
+.personal-details{
+    flex-direction: column;
+}
+.delete{
+    flex-direction: column;
+}
+.singleLine {
+    margin-right: 0px;
+}
+.noDevices{
+    margin-left: 0px;
+}
+.device-icons {
+flex-direction:row;
+}
+.button{
+margin-left: 23%;
     }
-    .delete{
-       flex-direction: column;
-    }
-        .singleLine {
-            /* flex-direction: column; */
-            margin-right: 0px;
-    
-        }
-    .noDevices{margin-left: 0px;}
-        .device-icons {
-            display: flex;
-        }
-        .button{
-   margin-left: 23%;
-        }
 }

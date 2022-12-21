@@ -18,8 +18,7 @@ export class EmployeeProfileComponent {
       localStorage.clear();
       this.router.navigate(['/login']);
     },
-    ()=>{
-      
+    ()=>{ 
     })
   }
 }

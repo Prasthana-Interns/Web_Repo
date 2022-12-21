@@ -10,16 +10,14 @@ import { EmployeeListComponent } from '../employee-list/employee-list.component'
   styleUrls: ['./emp-detail-view.component.css']
 })
 export class EmpDetailViewComponent  implements OnInit{
-  // public empDetailForm: any = true;
-
   public employeeId: any;
   public employeeData: any;
   public _id: any;
   role: any
-  
+  disableDelete=true;
   hasDevicesForm = false;
   noDevicesAssigned = false;
-  
+  getId=localStorage.getItem('id');
   constructor( private activatedRoute:ActivatedRoute,private httpService:HttpRequestService,private router:Router,private confirmService:NgConfirmService) { }
   
   ngOnInit() {
@@ -27,12 +25,9 @@ export class EmpDetailViewComponent  implements OnInit{
     let id = params.get('id');
     this.employeeId = id;})
     this.getEmployeeById()
-   
-  
   }
   getEmployeeById() {
     this.httpService.get(`users/${this.employeeId}`).subscribe(response => {
-     
       if (response) {
          this.employeeData = response;
         console.log(response)
@@ -44,6 +39,9 @@ export class EmpDetailViewComponent  implements OnInit{
         }
         else {
           this.role = 'Employee'
+        }
+        if(this.getId==this.employeeData?.id){
+           this.disableDelete=false;
         }
       }
       })
@@ -57,28 +55,27 @@ export class EmpDetailViewComponent  implements OnInit{
    }, () => {}) 
   } 
   addDevice() {
-    this.hasDevicesForm=true
-    this._id = this.employeeId;
+  this.hasDevicesForm=true
+  this._id = this.employeeId;
   this.noDevicesAssigned =false;
-
   }
   unassignDevicesList(data: any) {
-    this.hasDevicesForm = data;
-    this.getEmployeeById();
-  }
-  unAssignDevice_delete(devId: any) {
-    this.confirmService.showConfirm("Are you sure to delete",() => {
-    const body = {
-          "device":
-          {
-            "user_id": null
-          }
-        }
-    this.httpService.put(`devices/${devId}`, body).subscribe(res => {
-    this.getEmployeeById();
-    })
-    },() =>{})
- }
-  }
+  this.hasDevicesForm = data;
+  this.getEmployeeById();
+}
+unAssignDevice_delete(devId: any) {
+  this.confirmService.showConfirm("Are you sure to delete",() => {
+  const body = {
+      "device":
+      {
+        "user_id": null
+      }
+    }
+  this.httpService.put(`devices/${devId}`, body).subscribe(res => {
+  this.getEmployeeById();
+  })
+  },() =>{})
+}
+}
 
 

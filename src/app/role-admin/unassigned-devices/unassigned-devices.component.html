@@ -3,36 +3,22 @@
   <div class="box">
     <div class="popUp">
       <div class="header">
-      
-        <h3 > <center>Devices list</center></h3>
-        <span
-          (click)="closeDevicesForm()"
-          class="material-symbols-outlined cancel"
-          >close</span
-        >
+        <h3><center>Devices list</center></h3>
+        <span (click)="closeDevicesForm()" class="material-symbols-outlined cancel">close</span>
       </div>
       <hr>
       <div class="deviceHolder">
         <div class="card-comp">
           <app-card *ngFor="let device of unAssignedDevices">
-            <div image>
-              <img src="{{device?.image_url}}" />
-            </div>
+            <div image><img src="{{device?.image_url}}"/></div>
             <h5 name>{{ device?.name | titlecase }}</h5>
             <label device class="deviceCSS">{{ device?.device_type|titlecase }}</label>
             <label line_1>{{ device?.os|titlecase }}</label>
             <label line_2>{{ device?.device_no }}</label>
-            <button
-              clickButton
-              type="submit"
-              class="btn btn-primary assign"
-              (click)="assignDevice(device?.id)"
-            >
-              Assign
-            </button>
+            <button clickButton type="submit" class="btn btn-primary assign" (click)="assignDevice(device?.id)">Assign</button>
           </app-card>
         </div>
-      </div>
+      </div>   
     </div>
   </div>
 </div>
