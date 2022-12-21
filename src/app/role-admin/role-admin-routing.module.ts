@@ -31,7 +31,7 @@ const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:
                                      },
                                      { path: 'employees/:id', component: EmpDetailViewComponent },                                    
                                      { path: 'unassigned-devices', component: UnassignedDevicesComponent },
-                                     { path:'admin/admin/profile', component: AdminProfileComponent },
+                                     { path:'profile', component: AdminProfileComponent },
                                  ]                                     
                          }];
                   

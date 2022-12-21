@@ -1,7 +1,6 @@
-.cont{
-    width:100%;
-    display: flex;
-  }
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .compHeader {
     background-color: #ABAEB6;
     font-size: 20px;
@@ -9,7 +8,6 @@
     font-weight: bold;
     text-align: center;
 }
-
 .employee-details {
     padding-top: 10px;
     background-color: #F0F1F5;
@@ -38,7 +36,6 @@ input {
     background: none;
     outline: none;
 }
-
 small {
     display: flex;
     font-size: 18px;
@@ -48,25 +45,37 @@ small {
     margin-top: 20px
 }
 
-.div-icons {
+.devices {
     color: blue;
-    display: flex;}
+    display: flex;
+   margin-left:8%
+}
+.deviceIcon {
+    font-size: 1.7rem;
+    gap: 0.7rem
+}
 
 .heading {
     padding-left: 23%;
+    font-weight: bold;
+}
+.noDevices {
+    color: rgb(92, 88, 88);
+    margin-left: 16rem
 }
 
 .deviceHolder {
     max-height: 270px;
-    overflow-y: scroll;
+   
 }
 
 .card-comp {
     width: 55%;
     max-height: 280px;
     margin: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-radius: 10px;
+   
 }
 
 img {
@@ -77,20 +86,24 @@ img {
 }
 
 .deviceLabel {
-    background-color: blue;
+background-color: blue;
     border-radius: 20px;
     color: whitesmoke;
     height: 30%;
     padding-left: 7px;
     padding-right: 7px;
+    margin-left: 10px;
 }
 
 .singleLine {
     font-weight: bold;
         font-size: 18px;
-        justify-content: space-between;
+        /* width:20%; */
+        /* justify-content: space-between; */
         display: flex;
-        width: 30%;
+    margin-right: 7%;
+        /* margin-right: 30px;
+        width: 20%; */
 }
 label {
     margin-bottom: 0px;
@@ -98,19 +111,16 @@ label {
 
 .save {
     color: green;
-    padding-left: 150px;
-    font-size: 40px;
+        padding-left: 50%;
+    font-size: 32px;
     /* margin */
 }
 .edit {
     color: red;
-    padding-left: 150px
-}
-::-webkit-scrollbar {
-    display: none;
+    padding-left: 50%
 }
 
-@media(max-width:850px) {
+@media(max-width:760px) {
     .office-details {
         flex-direction: column;
     }
@@ -122,4 +132,17 @@ label {
     .delete {
         flex-direction: column-reverse;
     }
+    .singleLine{
+        flex-direction: column-reverse;
+        margin-right:0px;
+
+    }
+        .devices {
+            margin-left:0px
+        }
+    .noDevices {
+        margin-left: 0px;
+    }
+    
+    
 }
