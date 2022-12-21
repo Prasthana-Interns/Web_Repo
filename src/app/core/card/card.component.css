@@ -23,7 +23,7 @@
  }
 .right{
   display: flex;
-  width:90%;
+  width:100%;
 }
 .content{
   width:60%;
@@ -34,7 +34,7 @@
   margin:0.2rem;
 }
 .cardRightMost{
-  width:25%
+  width:30%
 }
 .deviceInfo{
   display:flex;

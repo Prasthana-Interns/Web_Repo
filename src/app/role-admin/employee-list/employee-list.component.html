@@ -18,9 +18,7 @@
         <span class="material-symbols-outlined addSymbol">add</span>
       </div>
     </div>
-    <ng-container *ngIf="noEmployees; else elses">
-      No results found</ng-container
-    >
+    <label class="warningText" *ngIf="noEmployees; else elses">No results found</label>
     <ng-template #elses>
       <app-card *ngFor="let employee of employees">
         <div image class="dp">{{ employee.name|titlecase|slice:0:1}}</div>  
