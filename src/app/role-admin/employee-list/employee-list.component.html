@@ -6,88 +6,31 @@
     <div class="search-add">
       <fieldset>
         <span class="material-symbols-outlined search">search</span>
-        <input
-          type="text"
-          placeholder="Search by Employee Name or Employee Id"
-          class="searchBox"
-          #searchInput
-          (keyup)="searchMethod(searchInput.value)"
-        />
+        <input type="text" placeholder="Search by Employee Name or Employee Id" class="searchBox"
+         #searchInput (keyup)="searchMethod(searchInput.value)"/>
       </fieldset>
-      <div (click)="addEmployee()">
-        <span class="material-symbols-outlined addSymbol">add</span>
-      </div>
+      <div (click)="addEmployee()"><span class="material-symbols-outlined addSymbol">add</span></div>
     </div>
     <ng-container *ngIf="noEmployees; else elses">
-      No results found</ng-container
-    >
-    <ng-template #elses>
-      <app-card *ngFor="let employee of employees">
-        <div image class="dp">{{ employee.name|titlecase|slice:0:1}}</div>  
-        <!-- <div image class="dp">{{ employee.name.split(" ")[0][0] }}</div> -->
-        <!-- <div image class="dp">{{dp}}</div> -->
-
-
-
-        <h4 name class="name">{{ employee.name | titlecase }}</h4>
-        <span class="singleLine" id>{{ employee.emp_id }}</span>
-        <span designation_ class="singleLine">{{
-          employee.designation | titlecase
-        }}</span>
-        <span role_ class="singleLine">{{ employee.user_roles }}</span>
-
-        <div deviceSymbols_ class="devices flex">
-          <div *ngFor="let device of employee?.devices">
-            <span
-              *ngIf="
-                device?.device_type === 'Laptop' ||
-                device?.device_type === 'laptop'
-              "
-              class="material-symbols-outlined deviceIcon"
-              >laptop_mac</span
-            >
-            <span
-              *ngIf="
-                device?.device_type === 'Charger' ||
-                device?.device_type === 'charger'
-              "
-              class="material-symbols-outlined deviceIcon"
-              >electrical_services</span
-            >
-            <span
-              *ngIf="
-                device?.device_type === 'Bag' || device?.device_type === 'bag'
-              "
-              class="material-symbols-outlined deviceIcon"
-              >backpack</span
-            >
-            <span
-              *ngIf="
-                device?.device_type === 'Mobile' ||
-                device?.device_type === 'mobile'
-              "
-              class="material-symbols-outlined deviceIcon"
-              >phone_iphone</span
-            >
-            <span
-              *ngIf="
-                device?.device_type === 'Mouse' ||
-                device?.device_type === 'mouse'
-              "
-              class="material-symbols-outlined deviceIcon"
-              >mouse</span
-            >
-            <span *ngIf="!device?.device_type"> No devices assigned</span>
-          </div>
-        </div>
-
-        <span
-          clickButton
-          class="material-symbols-outlined arrowSymbol"
-          (click)="empDetailView(employee)"
-          >arrow_forward_ios</span
-        >
-      </app-card>
+      No results found</ng-container>
+<ng-template #elses>
+ <app-card *ngFor="let employee of employees">
+ <div image class="dp">{{ employee.name | titlecase | slice : 0 : 1 }}</div>
+    <h4 name class="name">{{ employee.name | titlecase }}</h4>
+    <span class="singleLine" id>{{ employee.emp_id }}</span>
+    <span designation_ class="singleLine">{{employee.designation | titlecase}}</span>
+    <span role_ class="singleLine" >{{employee.user_roles}}</span>
+    <div deviceSymbols_ class="devices flex">
+    <div *ngFor="let device of employee?.devices">
+      <span *ngIf="device?.device_type === 'Laptop' ||device?.device_type === 'laptop'"class="material-symbols-outlined deviceIcon">laptop_mac</span>
+      <span *ngIf=" device?.device_type === 'Charger' ||device?.device_type === 'charger'" class="material-symbols-outlined deviceIcon">electrical_services</span>
+      <span *ngIf="device?.device_type === 'Bag' || device?.device_type === 'bag' " class="material-symbols-outlined deviceIcon">backpack</span>
+      <span *ngIf=" device?.device_type === 'Mobile' || device?.device_type === 'mobile'" class="material-symbols-outlined deviceIcon">phone_iphone</span>
+      <span *ngIf=" device?.device_type === 'Mouse' || device?.device_type === 'mouse'"class="material-symbols-outlined deviceIcon">mouse</span>
+    </div>
+  </div>
+  <span clickButton class="material-symbols-outlined arrowSymbol" (click)="empDetailView(employee)" >arrow_forward_ios</span>
+  </app-card>
     </ng-template>
   </div>
 </div>
