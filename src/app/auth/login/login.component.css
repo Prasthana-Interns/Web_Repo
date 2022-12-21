@@ -24,7 +24,6 @@ body{
     margin-bottom: 2rem;
     width:150;
     height:20;
-
 }
 .header{
      margin:1rem 0rem 1rem 3rem; 
@@ -46,6 +45,9 @@ body{
 }
 input{
     height:1.7rem;
+}
+input::placeholder {
+    color: black;
 }
 .btn1{  
     margin:0.3rem 1rem 1rem 2.8rem;
