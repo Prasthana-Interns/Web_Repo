@@ -42,17 +42,17 @@
                 </div>        
                 <div class="dropDown">
                   <ng-multiselect-dropdown
-                  formControlName="roles"
+                    formControlName="roles"
+                    required
                     [placeholder]="'Role'"
                     [settings]="dropdownSettings"
                     [data]="dropdownList"
                     (onSelect)="onItemSelect($event)"
-                    (onSelectAll)="hello($event)"
-                    required >
+                    (onSelectAll)="hello($event)">
                   </ng-multiselect-dropdown>
-                  <div class="text-danger" *ngIf="signUp?.controls?.roles?.touched && signUp?.controls?.roles?.errors">*Role is required</div>
+                  <div class="text-danger" *ngIf="signUp?.controls?.roles?.status=='INVALID' && signUp?.controls?.roles?.errors==null ">*Role is required</div>
                 </div>
-                <button type="submit"  class="btn1" [disabled]="!signUp.valid" (click)="submitSignUp()"> {{buttonText}}</button>
+                <button type="submit"  class="btn1" [disabled]="!signUp.valid" [ngClass]="{'my-color': !signUp.valid}" (click)="submitSignUp()"> {{buttonText}}</button>
                 <a class="backtologin" href="#" routerLink="/login" routerLinkActive="active" *ngIf="hideLogin">Back to Login</a><br><br>
               </form>
             </div>
