@@ -25,7 +25,7 @@
   }
   .container{
     margin:auto;
-    width:40%;
+    width:50%;
   }
   .displayPicture{
     font-size: 2.5rem;
@@ -66,21 +66,26 @@
   label{
     font-size:medium;
   }
-  .buttondiv{
-    margin-left: 8rem;
-    width:100%;
+  .btns{
+    margin-left: 1rem;
+    padding-top:6rem;
   }
-  .buttons{
-  margin-left:1rem;
-  margin-bottom:1rem;
-  padding:0.3rem;
-  font-weight: bold;
-  box-shadow: 0 0.4rem 0.8rem 0 rgba(0, 0, 0, 0.2);
-  border-radius: 0.5rem;
-  border: 0.1rem solid black;
+
+  .accept{
+    font-weight: bold;
+    color:#FFFFFF;
+    border-radius: 0.5rem;
+    border: 0.1rem solid black;
+    background-color:#514efe;
+    border-color:#514efe;
   }
-  button:hover{
-    background-color: #bcbfc7;
+  .reject{
+    margin-left:1rem;
+    font-weight: bold;
+    color:#FFFFFF;
+    border-radius: 0.5rem;
+    background-color: #fd3838;
+    border-color: #fd3838;
   }
   html{
     font-size:62.5%;
@@ -104,16 +109,18 @@
     .labels{
       font-size:small
     }
-    /* .buttondiv{
-      margin-left:0rem;
-    } */
+    .btns{
+      flex-direction: column;
+    }
+
   }
   @media(max-width:1150px){
     html{
       font-size:55%;
     }
     .buttondiv{
-      margin-left:2rem;
+      flex-direction: column;
+      margin-left: 0rem;
     }
   }
     

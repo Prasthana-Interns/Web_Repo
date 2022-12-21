@@ -54,6 +54,7 @@ export class SignUpComponent implements OnInit {
     phoneNo: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
     designation:new FormControl('',[Validators.required]),
     roles:new FormControl([null,Validators.required]), 
+
   })
   console.log(this.signUp)
   }

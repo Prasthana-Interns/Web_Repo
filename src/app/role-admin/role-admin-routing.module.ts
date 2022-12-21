@@ -11,7 +11,6 @@ import { UnassignedDevicesComponent } from './unassigned-devices/unassigned-devi
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { EmployeePopUpComponent } from './employee-pop-up/employee-pop-up.component';
 // import { ProfileComponent } from '../core/profile/profile.component';
-import { ProfileComponent } from '../core/profile/profile.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { PopupParentComponent } from './popup-parent/popup-parent.component';
 
