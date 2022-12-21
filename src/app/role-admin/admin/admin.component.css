@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family:Georgia, Times, 'Times New Roman', serif;
   }
   .wholePage{
     overflow-y: hidden;
@@ -70,12 +71,15 @@
   .side {
     width:7rem;
     background-color: #CBD0D7;
-    /* padding: 1rem; */
     text-align:center;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
     display:block;
+  }
+  .AnchorTag{
+    font-weight: bold;
+    font-size:1rem;
   }
 
   span{
