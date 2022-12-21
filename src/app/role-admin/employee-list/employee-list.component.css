@@ -10,6 +10,11 @@
         position: -webkit-sticky;
         background-color: #ABAEB6;
     }
+    .warningText{
+        display: flex;
+        justify-content: center;
+        font-size: 2rem;
+      }
 .employeesHolder {
     background-color:#F0F1F5;
     margin:auto;

@@ -16,6 +16,9 @@
     margin-right:5rem;
     border-radius: 0.5rem;
 }
+input::placeholder{
+    color:black;
+}
 h1{
     display:flex;
     justify-content: center;
@@ -46,7 +49,7 @@ input{
     width:25rem;
     padding:1rem;
     font-size: 1rem;
-    border-radius:0.5rem;
+    border-radius:0.3rem;
     margin-bottom:1rem;
 }
 .btn1{

@@ -10,9 +10,9 @@
 }
 .body{
     width:100%;
-    height:100%;
+    height:100%; 
     position: fixed;
-   
+
 }
 .colorBack{
     background-color: #F0F1F5;
@@ -52,10 +52,6 @@
 input::placeholder {
     color: black;
 }
-/* ng-multiselect-dropdown::placeholder{
-    color:black;
-    border:solid 1px black
-} */
 .inputSignUp{
     width:25rem;
     padding-left:3.5rem ;

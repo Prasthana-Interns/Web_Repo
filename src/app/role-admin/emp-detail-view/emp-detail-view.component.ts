@@ -14,47 +14,52 @@ export class EmpDetailViewComponent  implements OnInit{
   public employeeData: any;
   public _id: any;
   role: any
+  disableDelete=true;
   hasDevicesForm = false;
   noDevicesAssigned = false;
+  getId=localStorage.getItem('id');
+  constructor( private activatedRoute:ActivatedRoute,private httpService:HttpRequestService,private router:Router,private confirmService:NgConfirmService) { }
   
-constructor( private activatedRoute:ActivatedRoute,private httpService:HttpRequestService,private router:Router,private confirmService:NgConfirmService) { }
-
-ngOnInit() {
-  this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-  let id = params.get('id');
-  this.employeeId = id;})
-  this.getEmployeeById()
-}
-getEmployeeById() {
-  this.httpService.get(`users/${this.employeeId}`).subscribe(response => {
-  if (response) {
-    this.employeeData = response;
-    if (this.employeeData.devices.length == 0) {
-    this.noDevicesAssigned = true
-    }
-    if (this.employeeData?.user_roles?.includes('Admin')) {
-    this.role = 'Admin'
-    }
-   else {
-    this.role = 'Employee'
-    }
-    }
-  })
-}
-deleteEmployee() {
-  this.confirmService.showConfirm("Are you sure to delete", () => { 
-  this.httpService.delete(`users`,this.employeeId).subscribe(res => {
-  this.httpService.get(`users`).subscribe(res => { })
-  })
-  this.router.navigate(['/admin/admin/employees'])
-  }, () => {}) 
-} 
-addDevice() {
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+    let id = params.get('id');
+    this.employeeId = id;})
+    this.getEmployeeById()
+  }
+  getEmployeeById() {
+    this.httpService.get(`users/${this.employeeId}`).subscribe(response => {
+      if (response) {
+         this.employeeData = response;
+        console.log(response)
+        if (this.employeeData.devices.length == 0) {
+          this.noDevicesAssigned = true
+        }
+        if (this.employeeData?.user_roles?.includes('Admin')) {
+          this.role = 'Admin'
+        }
+        else {
+          this.role = 'Employee'
+        }
+        if(this.getId==this.employeeData?.id){
+           this.disableDelete=false;
+        }
+      }
+      })
+  }
+  deleteEmployee() {
+    this.confirmService.showConfirm("Are you sure to delete", () => { 
+    this.httpService.delete(`users`,this.employeeId).subscribe(res => {
+      this.httpService.get(`users`).subscribe(res => { })
+    })
+    this.router.navigate(['/admin/admin/employees'])
+   }, () => {}) 
+  } 
+  addDevice() {
   this.hasDevicesForm=true
   this._id = this.employeeId;
   this.noDevicesAssigned =false;
-}
-unassignDevicesList(data: any) {
+  }
+  unassignDevicesList(data: any) {
   this.hasDevicesForm = data;
   this.getEmployeeById();
 }

@@ -15,7 +15,6 @@
 }
 .info{
   display: flex;
-  /* justify-content: space-between; */
 }
 .deviceCSS{
     background-color: blue;
@@ -24,7 +23,7 @@
  }
 .right{
   display: flex;
-  width:90%;
+  width:100%;
 }
 .content{
   width:60%;
@@ -47,7 +46,6 @@
 }
 .down{
   display: flex;
-    /* margin-left: 120px; */
     width: 100%
 }
  html{

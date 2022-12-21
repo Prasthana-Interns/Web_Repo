@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
         this.errorResponse1=this.errorText?.error?.error
         this.errorResponse2=this.errorText?.error?.message
         if(this.errorResponse1==="Invalid emp_id or password" ||this.errorResponse2==="unauthorized" ){
-          this.Response="*Invalid Employee Id or Password"
+          this.Response="*Invalid Employee Id or Password";
         }
       }
       )
