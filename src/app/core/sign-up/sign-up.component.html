@@ -30,9 +30,17 @@
                   <input type="text" placeholder="Phone Number" class="form-control removescroll" formControlName="phoneNo" required>
                   <div class="text-danger" *ngIf="signUp?.controls?.phoneNo.touched && signUp?.controls?.phoneNo?.errors">*PhoneNo. is required</div>
                 </div>
-                <div class="inputSignUp">
-                  <input type="text" placeholder="Designation" class="form-control" formControlName="designation" >
-                </div>   
+                <div>
+                  <select class="dropDownDesignation" formControlName="designation" required>
+                    <option value="" disabled selected hidden > Designation</option>
+                    <option value="Web Developer">Web Developer</option>
+                    <option value="Android Developer">Android Developer</option>
+                    <option value="Api Developer">Api Developer</option>
+                    <option value="Project Manager">Project Manager</option>
+                    <option value="Test Engineer">Test Engineer</option>
+                  </select>
+                  <div class="errorMsg" *ngIf="signUp?.controls?.designation?.touched && signUp?.controls?.designation?.errors">*Designation is required</div>
+                </div>        
                 <div class="dropDown">
                   <ng-multiselect-dropdown
                     formControlName="roles"
