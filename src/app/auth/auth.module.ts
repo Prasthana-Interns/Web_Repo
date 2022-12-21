@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +20,11 @@ import { CoreModule } from '../core/core.module';
     HttpClientModule,
     CoreModule
   ],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA,
+    
+  ],
+
 
 })
 export class AuthModule { }
