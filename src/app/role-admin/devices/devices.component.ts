@@ -62,17 +62,13 @@ searchMethod(value?:string){
 this.http.get(`devices/search/?search=${value}`).subscribe((res:any)=>{
   console.log(value);
   this.devicesList=res
- 
-  // this.getAllDevices();
-  // this.sizes();
   if(res?.length==0){
-    // this.deviceFound="No Devices Found";
     this.noRecordFound=true;
-    console.log(res)
     this.text="No devices found"
     this.getAllDevices();
   }
   else{
+    this.noRecordFound=false;
     this.getAllDevices();
   }
 })

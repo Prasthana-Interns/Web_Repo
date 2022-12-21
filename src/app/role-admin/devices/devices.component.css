@@ -19,7 +19,7 @@
 }
 .container{
   margin:auto;
-  width:57%;
+  width:55%;
 }
 .SearchBar{
   display: flex;
@@ -39,6 +39,11 @@ fieldset{
   padding:0.5rem 1.5rem 1rem 1.5rem;
   margin:1rem 0rem 1rem 0.5rem;
 }
+.warningText{
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}
 .assignHere{
   color:blue;
 }
@@ -48,7 +53,6 @@ input{
   outline:0;
   margin-top:0.8rem;
   font-size: 1rem;
-  /* background-color: rgb(219, 216, 216); */
 }
 .add{
   font-size:4rem;
@@ -73,7 +77,6 @@ input{
   padding: 0.4rem;
   display: flex;
   justify-content: flex-end;
-  /* align-items: flex-start; */
   margin-bottom: 4rem;
   cursor: pointer;
 }
@@ -81,6 +84,9 @@ img{
   padding:1rem 0rem 0rem 0rem;
   width:8rem;
   height:8rem;
+}
+.nameDiv{
+  display:flex;
 }
 h2{
   font-family:Poppins,sans-serif;
@@ -114,6 +120,9 @@ html{
 @media(max-width:768px){
   html{
     font-size:45%;
+  }
+  .nameDiv{
+    flex-direction: column;
   }
 }
 
