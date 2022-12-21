@@ -84,6 +84,9 @@ html{
     html{
         font-size: 45%;
     }
+    input{
+        width:5rem;
+    }
 } 
 @media(max-width: 998px){
     html{

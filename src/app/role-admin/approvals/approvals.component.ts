@@ -15,21 +15,16 @@ export class ApprovalsComponent implements OnInit {
   constructor(private httpservice:HttpRequestService) { }
 
   ngOnInit(): void {
-    if(!!localStorage.getItem('token')){
-      console.log("present")
-    }
     this.fetchPendingEmp();
-    this.sizes();
-  }
-  sizes(){
-    if(!!(!this.approvalList?.length)){
-      this.noRecordFound=true;
-      this.text="No pending approvals found..."
-    }
   }
   fetchPendingEmp(){
-      this.httpservice.get(`users/pending`).subscribe((res)=>{
+      this.httpservice.get(`users/pending`).subscribe((res:any)=>{
       this.approvalList=res;
+      console.log(res)
+      if(res==null){
+        this.noRecordFound=true;
+        this.text="No pending approvals found..."
+      }
     },(err)=>{
       this.noRecordFound=true;
       this.text="Something went wrong"

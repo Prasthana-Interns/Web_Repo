@@ -9,11 +9,13 @@
 }
 .logo{
     width:13rem;
+    height:5rem;
 }
 .logoDiv{
     width:34%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 .footerInfo{
     width:30%;
