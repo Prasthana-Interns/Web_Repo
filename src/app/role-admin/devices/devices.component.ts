@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpRequestService } from '../http-request.service';
-import { NavigationEnd } from '@angular/router';
 import { NgConfirmService} from 'ng-confirm-box'
-import { TitleCasePipe } from '@angular/common';
+
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.component.html',
@@ -20,29 +19,20 @@ export class DevicesComponent implements OnInit {
   data:any;
   imageUrl:any;
 
-  constructor(private router :Router,private http:HttpRequestService,private confirmService:NgConfirmService) {
-    this.router.events.subscribe((e) => {
-      if (e instanceof NavigationEnd) {
-          this.getAllDevices();
-      }
-    });
-   }
+  constructor(private router :Router,private http:HttpRequestService,private confirmService:NgConfirmService) {}
 
   ngOnInit(): void {
-    this.sizes();
     this.getAllDevices();
-    console.log(this.data)
     }
-    sizes(){
-      if(!!(this.devicesList?.length)){
-        this.noRecordFound=true;
-        this.text="No devices found"
-      }
+  sizes(){
+    if(!!(!this.devicesList?.length)){
+      this.noRecordFound=true;
+      this.text="No devices found"
     }
+  }
   getAllDevices(){
     this.http.get(`devices`).subscribe((res:any)=>{
     this.devicesList=res;
-    console.log(res);
     })
   }
   getEmployeesToAssign(dId:any){
@@ -59,8 +49,9 @@ export class DevicesComponent implements OnInit {
     this.confirmService.showConfirm("Are you sure want to Delete ?",
      () => {
       this.http.delete(`devices`,id).subscribe((res)=>{
+        console.log(res)
+        this.getAllDevices();
       })
-      this.getAllDevices();
     },
     () => {
       this.getAllDevices();
@@ -68,8 +59,18 @@ export class DevicesComponent implements OnInit {
   }
 
 searchMethod(value?:string){
-this.http.get(`devices/search/?search=${value}`).subscribe((res)=>{
+this.http.get(`devices/search/?search=${value}`).subscribe((res:any)=>{
+  console.log(value);
   this.devicesList=res
+  if(res?.length==0){
+    this.noRecordFound=true;
+    this.text="No devices found"
+    this.getAllDevices();
+  }
+  else{
+    this.noRecordFound=false;
+    this.getAllDevices();
+  }
 })
 }
 }

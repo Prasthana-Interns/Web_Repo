@@ -34,7 +34,7 @@ export class SignUpComponent implements OnInit {
     }
     else{
       this.heading="SignUp"
-      this.buttonText="signUp"
+      this.buttonText="SignUp"
       this.hideLogin=true;
       this.cancel=false;
       this.approve=false;
@@ -49,11 +49,11 @@ export class SignUpComponent implements OnInit {
       enableCheckAll: false,
     };
     this.signUp = this.fb.group ({
-    name: new FormControl(null,[Validators.required,Validators.minLength(3)]),  
-    email: new FormControl(null,[Validators.required,Validators.email]),
+    name: new FormControl('',[Validators.required,Validators.minLength(3)]),  
+    email: new FormControl('',[Validators.required,Validators.email]),
     phoneNo: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
-    designation:new FormControl(null,[Validators.required]),
-    roles:new FormControl([null,Validators.required]), 
+    designation:new FormControl('',[]),
+    roles:new FormControl(null,[Validators.required]), 
   })
   console.log(this.signUp)
   }
@@ -93,7 +93,7 @@ export class SignUpComponent implements OnInit {
                         "roles":this.signUp.controls['roles'].value=this.roles
               }
       console.log(body);
-      this.au.post(`users/signup`,body).subscribe({
+      this.au.post(`users`,body).subscribe({
       next: (res:any)=>{
         console.log(res);
         this.location.back();

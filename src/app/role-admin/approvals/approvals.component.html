@@ -1,5 +1,5 @@
 <div class="compHeader">
-    <label>Approvals</label>
+    <label class="labelHead">Approvals</label>
 </div>
 <div class="divs">
     <div class="container">
@@ -7,16 +7,19 @@
                     <label class="warningText">{{text}}</label>
                 </div>
         <ng-container *ngFor="let employee of approvalList">
-                <app-card style="width:5rem;">
+                <app-card>
                     <div image class="image">
                         <label class="displayPicture">{{employee.name.split("")[0] | titlecase  }}</label>
                     </div>
-                    <h5 name>{{employee?.name | titlecase}}</h5>
+                    <h4 name><b>{{employee?.name | titlecase}}</b></h4>
                     <label line_1>{{employee?.emp_id}}</label>
-                    <div line_3 class="buttondiv">
-                        <button class=buttons (click)="acceptEmp(employee?.id)"><label class="labels">Accept</label></button>
-                        <button class=buttons (click)="rejectEmp(employee?.id)"><label class="labels">Reject</label></button>
+                    <label line_2>{{employee?.user_roles}}</label>
+                    <label line_3>{{employee?.designation | titlecase}}</label>
+                    <div clickButton class="btns">
+                        <button class=accept (click)="acceptEmp(employee?.id)"><label class="labels">Accept</label></button>
+                        <button class=reject (click)="rejectEmp(employee?.id)"><label class="labels">Reject</label></button>
                     </div>
+                    
                 </app-card>
         </ng-container>
     </div>

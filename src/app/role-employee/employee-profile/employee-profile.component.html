@@ -1,1 +1,24 @@
-<app-profile></app-profile>
+<div class="wholePage">
+    <div class="cont">
+        <div class="first">
+          <a href="https://www.prasthana.com/" target="_blank"><img src="assets\images\originalLogo.png" class="logo" alt="Prasthana"></a>
+        </div>
+        <div class="second">
+          <h1>Inventory Management System</h1>
+        </div>
+        <div class="third">
+          <span class="material-symbols-outlined logout" (click)="logout()">logout</span>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="side">
+            <div class="iconDiv">
+                <span class="material-symbols-outlined person">person</span><br />
+                <label>Profile</label>
+            </div>
+        </div>
+        <div class="main">
+            <app-profile></app-profile>
+        </div>
+    </div>
+</div>

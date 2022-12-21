@@ -12,14 +12,14 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 import { NgConfirmModule,NgConfirmService } from 'ng-confirm-box';
+import { FooterComponent } from './footer/footer.component';
+
 @NgModule({
   declarations: [
     SignUpComponent,
     CardComponent,
     ProfileComponent,
-    ViewProfileComponent,
-    EditProfileComponent
-    
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -28,9 +28,9 @@ import { NgConfirmModule,NgConfirmService } from 'ng-confirm-box';
     ReactiveFormsModule,
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),
-    NgConfirmModule
+    NgConfirmModule,
   ],
-  exports:[CardComponent,ProfileComponent],
+  exports:[CardComponent,ProfileComponent,FooterComponent],
   providers:[NgConfirmService],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,

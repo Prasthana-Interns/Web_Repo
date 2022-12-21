@@ -30,12 +30,7 @@ submitResetPass(){
       next: (res:any)=>{
         this.router.navigate(["/login"]);
       },
-      error: (err:any)=>{
-        this.errorText=err
-        this.alertMsg=this.errorText?.error?.error
-        if(this.alertMsg==="Couldn't find User"){
-          this.response="*Invalid Employee"
-        }
+      error: (err:any)=>{   
       }
     })
   

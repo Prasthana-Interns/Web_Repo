@@ -1,7 +1,8 @@
+
 <div class="compHeader">
   <label>Your Profile</label>
-</div>
 
+</div>
 <div class="employee-details">
    <div class="card-comp ">
    <form [formGroup]="editForm" >
@@ -60,7 +61,9 @@
    <div  class="deviceHolder">
   <div class="card-comp" [ngStyle]="{'overflow-y':'scroll','padding-bottom':'2px'}">
     <app-card *ngFor="let device of employeeData?.devices">
+
       <div image> <img src={{device?.image_url}} /></div>
+
       <h3 name>{{device?.name | titlecase}}</h3>
       <label device class="deviceLabel">{{device?.device_type |titlecase}}</label>
       <label line_2>{{device?.os |titlecase}}</label>

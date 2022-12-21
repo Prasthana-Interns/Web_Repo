@@ -13,11 +13,15 @@
     display:flex;
     justify-content:flex-end;
     align-items:center;
-    /* gap:37rem; */
   }
   .cont{
     width:100%;
     display: flex;
+  }
+  .logo{
+    width:13rem;
+    height:3.5rem;
+    margin-left: 1rem;
   }
   .first{
     background-color:#DDE1E9;
@@ -132,9 +136,10 @@ html{
   html{
     font-size:55%;
   }
-     header {
-       gap: 20rem;
-     }
+
+  header{
+    gap:20rem;
+  }
   /* .side{
     width:6rem;
   } */

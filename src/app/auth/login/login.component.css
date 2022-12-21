@@ -59,7 +59,7 @@ input{
     border-radius: 0.7rem;
 }
 .my-color{
-    background-color: #7e7cf2;
+    background-color: rgba(167, 166, 218, 0.936);
 }
 .errorMsg{
     padding-left: 2.8rem;
@@ -83,6 +83,9 @@ html{
 @media(max-width: 768px){
     html{
         font-size: 45%;
+    }
+    input{
+        width:5rem;
     }
 } 
 @media(max-width: 998px){
