@@ -16,7 +16,7 @@
       <label class="warningText">{{text}}</label>
     </div>
     <ng-template #elses>
-      <div class="rows" *ngFor="let devices of devicesList; let f=first; let l=last">
+      <div class="rows" *ngFor="let devices of devicesList">
         <app-card>
           <div image>
             <img src={{devices?.image_url}}>

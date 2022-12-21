@@ -12,12 +12,9 @@ export class DevicesComponent implements OnInit {
 
 
   devicesList:any;
-  employeeList:any;
   deviceId:any;
   noRecordFound=false;
   text:any;
-  data:any;
-  imageUrl:any;
 
   constructor(private router :Router,private http:HttpRequestService,private confirmService:NgConfirmService) {}
 
@@ -60,16 +57,13 @@ export class DevicesComponent implements OnInit {
 
 searchMethod(value?:string){
 this.http.get(`devices/search/?search=${value}`).subscribe((res:any)=>{
-  console.log(value);
-  this.devicesList=res
   if(res?.length==0){
     this.noRecordFound=true;
     this.text="No devices found"
-    this.getAllDevices();
   }
   else{
     this.noRecordFound=false;
-    this.getAllDevices();
+    this.devicesList=res;
   }
 })
 }

@@ -18,15 +18,6 @@
                             <label line_3>{{employee?.user_roles}}</label>
                             <button clickButton (click)="assignClicked(employee?.id)"
                                 class="btn btn-primary assignButton">Assign</button>
-                            <div empId class="devices" *ngFor="let device of employee?.devices">
-                                <div class="icondiv">
-                                    <span *ngIf="device?.device_type === 'Laptop'" class="material-symbols-outlined icon">laptop_mac</span>
-                                    <span *ngIf="device?.device_type === 'Charger'" class="material-symbols-outlined icon">electrical_services</span>
-                                    <span *ngIf="device?.device_type === 'Bag'" class="material-symbols-outlined icon">backpack</span>
-                                    <span *ngIf="device?.device_type === 'Mobile'" class="material-symbols-outlined icon">phone_iphone</span>
-                                    <span *ngIf="device?.device_type === 'Mouse'" class="material-symbols-outlined icon">mouse</span>
-                                </div>
-                            </div>
                         </app-card>
                     </div>
                 </div>

@@ -14,7 +14,7 @@
         <div class="card-comp">
           <app-card *ngFor="let device of unAssignedDevices">
             <div image>
-              <img src="assets\images\laptopimg.jpeg" />
+              <img src="{{device?.image_url}}" />
             </div>
             <h5 name>{{ device?.name | titlecase }}</h5>
             <label device class="deviceCSS">{{ device?.device_type }}</label>
