@@ -1,6 +1,6 @@
 
 * {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Times New Roman';
 }
 .componentHeader {
     font-size: 1.5rem;
@@ -56,6 +56,11 @@ small {
     width: 20%;
     margin-top:2rem;
 }
+.warningText{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+  }
 .heading {
     padding-left: 23%;
     width: 55%;;

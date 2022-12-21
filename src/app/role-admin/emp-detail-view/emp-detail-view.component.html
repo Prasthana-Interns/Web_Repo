@@ -1,20 +1,24 @@
 <div class="componentHeader">
   <label>Employee</label>
 </div>
+
 <div class="details_holder">
    <div class="details">
     <app-card >
        <div image class="dp">{{ employeeData?.name|titlecase|slice:0:1}}</div>  
+
       <h3 name class="name">{{ employeeData?.name | titlecase}}</h3>
       <small line_1 style="padding-top:8px">{{ employeeData?.email }}</small>
       <small line_2 style="padding-top:10px" >{{ employeeData?.phone_number }}</small>
-      <span *ngIf="disableDelete" clickButton class="material-symbols-outlined delete" (click)="deleteEmployee()">delete</span>
-      <div marginPurpose class=""></div>
+      <span clickButton class="material-symbols-outlined delete" (click)="deleteEmployee()">delete</span>
+      <!-- <div marginPurpose class=""></div> -->
       <span empId class="singleLine"[ngStyle]="{'margin-left':'16%'}">{{ employeeData?.emp_id }}</span>
       <span designation class="singleLine">{{ employeeData?.designation |titlecase}}</span>
       <span role class="singleLine">{{role}}</span>
 
-    <div marginPurpose class="marginPurpose"></div>
+
+
+     <!-- <div marginPurpose class="marginPurpose"></div> -->
        <div deviceSymbols class="device-icons flex" *ngFor="let device of employeeData?.devices">
       <span *ngIf="device?.device_type === 'Laptop'||device?.device_type === 'laptop'" class="material-symbols-outlined deviceIcon">laptop_mac</span>
       <span *ngIf="device?.device_type === 'Charger'||device?.device_type === 'charger'" class="material-symbols-outlined deviceIcon">electrical_services</span>
@@ -25,21 +29,25 @@
       </app-card>
   </div>
  <!-- ..........Devices Assigned..... -->
+
   <h4 *ngIf="!noDevicesAssigned" class="heading">Devices Assigned</h4>
   <h4 *ngIf="noDevicesAssigned" class="heading noDevices" > No devices assigned</h4>
   <div  class="deviceHolder" >
   <div class="details" [ngStyle]="{'overflow-y':'scroll','padding-bottom':'2px'}">
     <app-card *ngFor="let device of employeeData?.devices">
       <div image> <img src={{device?.image_url}} /></div>
-      <h3 name>{{device?.name|titlecase}}</h3>
-      <label device class="deviceLabel">{{device?.device_type|titlecase}}</label>
+      <h3 name>{{device?.device_type|titlecase}}</h3>
+      <label device class="deviceLabel">{{device?.name|titlecase}}</label>
       <label line_2>{{device?.os|titlecase}}</label>
       <label line_1>{{device?.device_no}}</label>
-      <span  clickButton class="material-symbols-outlined delete" (click)="unAssignDevice_delete(device?.id )">delete</span>
+      <span clickButton class="material-symbols-outlined delete" (click)="unAssignDevice_delete(device?.id )">delete</span>
     </app-card>
   </div>
 </div>
+
 <ng-template #err> No Devices assigned</ng-template>
+
+
   <div>
     <button type="button" class="btn btn-primary button" (click)="addDevice()">Assign Device</button>
   </div>
