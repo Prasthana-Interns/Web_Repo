@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
+import { NgConfirmModule, NgConfirmService} from 'ng-confirm-box';
 
 @NgModule({
     declarations: [
@@ -16,8 +17,10 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
         HttpClientModule,
         ReactiveFormsModule,
         FormsModule,
-        CoreModule        
+        CoreModule,
+        NgConfirmModule        
     ],
+    providers:[NgConfirmService],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class RoleEmployeeModule { }
