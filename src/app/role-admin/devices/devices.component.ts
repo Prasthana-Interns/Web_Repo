@@ -15,6 +15,8 @@ export class DevicesComponent implements OnInit {
   deviceId:any;
   noRecordFound=false;
   text:any;
+  value: any;
+  hasform:any
 
   constructor(private router :Router,private http:HttpRequestService,private confirmService:NgConfirmService) {}
 
@@ -46,7 +48,6 @@ export class DevicesComponent implements OnInit {
     this.confirmService.showConfirm("Are you sure want to Delete ?",
      () => {
       this.http.delete(`devices`,id).subscribe((res)=>{
-        console.log(res)
         this.getAllDevices();
       })
     },
@@ -54,6 +55,9 @@ export class DevicesComponent implements OnInit {
       this.getAllDevices();
     })
   }
+  form(value:any){
+    this.hasform=value
+  } 
 
 searchMethod(value?:string){
 this.http.get(`devices/search/?search=${value}`).subscribe((res:any)=>{
