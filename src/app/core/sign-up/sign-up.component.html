@@ -19,33 +19,34 @@
               <form [formGroup]="signUp">
                 <div class="inputSignUp">
                   <input type="text" placeholder="Name" class="form-control" formControlName="name" [required]="'true'">
-                  <div class="text-danger" *ngIf="signUp?.controls?.name.touched && signUp?.controls?.name?.errors">*Name is required</div>
-               
+                  <div class="text-danger" *ngIf="signUp?.controls?.name.touched && signUp?.controls?.name?.errors"><p class="textForErrorMSg">*Name is required</p></div>
+                  <!-- <div class="text-danger" *ngIf="signUp?.controls?.name.untouched && signUp?.controls?.name?.errors &&hasError"><p class="textForErrorMSg">*Name is required</p></div> -->
                 </div>
                 <div class="inputSignUp">
                   <input type="email" placeholder="Email" class="form-control" formControlName="email" [required]="'true'">
-                  <div class="text-danger" *ngIf="signUp?.controls?.email.touched  && signUp?.controls?.email?.errors">*email is required</div>
+                  <div class="text-danger" *ngIf="signUp?.controls?.email.touched  && signUp?.controls?.email?.errors"><p class="textForErrorMSg">*email is required</p>
+                  </div>
+                  <!-- <div class="text-danger" *ngIf="signUp?.controls?.name.untouched && signUp?.controls?.name?.errors &&hasError"><p class="textForErrorMSg">*email is required</p></div> -->
                 </div>
                 <div class="inputSignUp">
-                  <input type="text" placeholder="Phone Number" class="form-control removescroll" formControlName="phoneNo" required>
-                  <div class="text-danger" *ngIf="signUp?.controls?.phoneNo.touched && signUp?.controls?.phoneNo?.errors">*PhoneNo. is required</div>
+                  <input type="text" placeholder="Phone No." class="form-control removescroll" formControlName="phoneNo" required>
+                  <div class="text-danger" *ngIf="signUp?.controls?.phoneNo.touched && signUp?.controls?.phoneNo?.errors"><p class="textForErrorMSg">*PhoneNo. is required</p></div>
+                  <!-- <div class="text-danger" *ngIf="signUp?.controls?.name.untouched && signUp?.controls?.name?.errors &&hasError"><p class="textForErrorMSg">*PhoneNo. is required</p></div> -->
+                  <div class="text-danger" *ngIf="signUp?.controls?.phoneNo.touched && signUp?.controls?.phoneNo?.errors?.minLength"><p class="textForErrorMSg">*PhoneNo. length required</p></div>
                 </div>
                 <div class="inputSignUp">
                   <input type="text" placeholder="Designation" class="form-control" formControlName="designation" >
                 </div>   
                 <div class="dropDown">
                   <ng-multiselect-dropdown
-                    formControlName="roles"
                     [placeholder]="'Role'"
                     [settings]="dropdownSettings"
                     [data]="dropdownList"
                     (onSelect)="onItemSelect($event)"
-                    (onSelectAll)="hello($event)"
-                    required>
+                    (onSelectAll)="hello($event)">
                   </ng-multiselect-dropdown>
-                  <div class="text-danger" *ngIf="signUp?.controls?.roles?.status=='VALID' &&  signUp?.controls?.value?.roles?.length==0 && signUp?.controls?.roles?.errors">*role is required</div>
                 </div>
-                <button type="submit"  class="btn1" [disabled]="!signUp.valid" [ngClass]="{'my-color': !signUp.valid}"  (click)="submitSignUp()"> {{buttonText}}</button>
+                <button type="submit"  class="btn1" [disabled]="!signUp.valid" (click)="submitSignUp()"> {{buttonText}}</button>
                 <a class="backtologin" href="#" routerLink="/login" routerLinkActive="active" *ngIf="hideLogin">Back to Login</a><br><br>
               </form>
             </div>
@@ -53,9 +54,10 @@
         </div>
       </section>
     </div>
-    <div>
-    <app-footer></app-footer>
+    <div *ngIf="!cancel">
+      <app-footer></app-footer>
     </div>
+
 
 
 
@@ -67,5 +69,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   
+    
   </body>
 </html>

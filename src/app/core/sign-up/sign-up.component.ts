@@ -53,7 +53,7 @@ export class SignUpComponent implements OnInit {
     email: new FormControl('',[Validators.required,Validators.email]),
     phoneNo: new FormControl('', [Validators.required, Validators.minLength(10),Validators.maxLength(10)]),
     designation:new FormControl('',[]),
-    roles:new FormControl([null,Validators.required]), 
+    roles:new FormControl(null,[Validators.required]), 
   })
   console.log(this.signUp)
   }

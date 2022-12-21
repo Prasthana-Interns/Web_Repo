@@ -6,7 +6,7 @@
     <div class="SearchBar">
       <fieldset>
         <span class="material-symbols-outlined searchIcon">search</span>
-        <input type="text" placeholder="Search for Device" #searchInput (keyup)="searchMethod(searchInput.value)">
+        <input type="text" placeholder="Search by Device Name or Device Id" #searchInput (keyup)="searchMethod(searchInput.value)">
       </fieldset>
 
       <span routerLink="/admin/admin/devices/add-device" routerLinkActive="active" class="material-symbols-outlined add"
@@ -21,8 +21,12 @@
           <div image>
             <img src={{devices?.image_url}}>
           </div>
-          <h3 name><b>{{devices?.name |titlecase}}</b></h3>
-          <label device class="deviceType">{{devices?.device_type}}</label>
+          <div name >
+            <div class="nameDiv">
+              <h3 ><b>{{devices?.name |titlecase}}</b></h3>
+              <label class="deviceType">{{devices?.device_type}}</label>
+            </div>
+          </div>
           <label line_1>{{devices?.os | titlecase}}</label>
           <label line_2>{{devices?.device_no}}</label>
           <div *ngIf="devices?.user === null ||devices?.user=== '' else elseBlock" line_3 ><a style="color:orangered;cursor: pointer;text-decoration: underline;" (click)="getEmployeesToAssign(devices?.id)">Click here to assign</a></div>
