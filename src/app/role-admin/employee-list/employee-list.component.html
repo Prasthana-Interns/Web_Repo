@@ -23,14 +23,14 @@
     >
     <ng-template #elses>
       <app-card *ngFor="let employee of employees">
-        <!-- <div image class="dp">{{ employee.name|titlecase|slice:0:1}}</div>   -->
+        <div image class="dp">{{ employee.name|titlecase|slice:0:1}}</div>  
         <!-- <div image class="dp">{{ employee.name.split(" ")[0][0] }}</div> -->
-        <div image class="dp">{{dp}}</div>
+        <!-- <div image class="dp">{{dp}}</div> -->
 
 
 
         <h4 name class="name">{{ employee.name | titlecase }}</h4>
-        <span class="singleLine" Id>{{ employee.emp_id }}</span>
+        <span class="singleLine" id>{{ employee.emp_id }}</span>
         <span designation_ class="singleLine">{{
           employee.designation | titlecase
         }}</span>

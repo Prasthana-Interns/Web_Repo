@@ -22,15 +22,15 @@
          <small  *ngIf="!isEdit" style="padding-top:10px" >{{employeeData?.phone_number }}</small>
           <div *ngIf="isEdit" class="inp flex">
           <input type="text"   class=" form-control col-12"formControlName="phoneNo">
-          <div class="text-danger" *ngIf="editForm?.controls?.phoneNo.touched && editForm?.controls.phoneNo?.errors">
-            <small >*minimum 10 digits required</small>
-            <small  class="errorMsg" >{{Response}}</small>
+          <div class="text-danger" *ngIf="editForm?.controls?.phoneNo.touched && editForm?.controls?.phoneNo?.errors">
+            <small >*minimum 10 digits required</small>          
           </div>
+           <small *ngIf="hasError" class="text-danger">{{Response}}</small>
         </div>
         </div>
      <span clickButton class="material-symbols-outlined   edit " *ngIf="hasEditSymbol" (click)="editEmployee()">edit</span>
      
-     <span clickButton class="material-symbols-outlined save " [disabled]="editForm.invalid" *ngIf="isSave" (click)="saveEmployee()">check</span>
+     <span clickButton class="material-symbols-outlined save " [disabled]="editForm.invalid && !!hasError" *ngIf="isSave" (click)="saveEmployee()">check</span>
      
 
 

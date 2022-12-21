@@ -20,7 +20,8 @@ export class ProfileComponent implements OnInit {
      noDevicesAssigned = false;
        errorText: any;
   errorResponse: any;
-  Response: any;
+     Response: any;
+     hasError:boolean=false
    
 
  public editForm: any;
@@ -47,6 +48,7 @@ export class ProfileComponent implements OnInit {
                   }
       }
       else this.role = 'Employee'
+      this.hasError=false
      this.formControls()
  };
  })
@@ -81,16 +83,19 @@ editEmployee() {
  }
       this.httpService.put(`users/${this.employeeData.id}`, body).subscribe({
            next:(res: any) => {
-  this.getProfile()
+            this.getProfile()
             this.isEdit = false;
             this.hasEditSymbol = true;
            },
            error: (err: any) => {
                 this.errorText = err
                 this.errorResponse = this.errorText?.error?.error
-                if (this.errorResponse === "Validation failed: Phone Numbr has already exists") {
+                if (this.errorResponse === "Validation failed: Phone number has already been taken") {
                      this.Response = "*Phone Number already exists"
-                }
+                     this.hasError=true
+                     this.isSave = true
+                     this.isEdit = true;   
+             }
            }
            
       }

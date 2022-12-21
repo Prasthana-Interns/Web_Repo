@@ -36,22 +36,17 @@ export class EmpDetailViewComponent  implements OnInit{
       if (response) {
          this.employeeData = response;
         console.log(response)
-        if (this.employeeData.devices.length == 0) { this.noDevicesAssigned = true }
-
-        if (this.employeeData?.user_roles.length == 2) {
-          {
-            console.log(this.employeeData?.user_roles)
-            this.employeeData?.user_roles.map((res: any) => {
-              if (res === 'Admin') this.role = res
-              else this.role = res
-            })
-          }
-        
+        if (this.employeeData.devices.length == 0) {
+          this.noDevicesAssigned = true
         }
-         else this.role ='Employee'
+        if (this.employeeData?.user_roles?.includes('Admin')) {
+          this.role = 'Admin'
+        }
+        else {
+          this.role = 'Employee'
+        }
       }
-      
-    })
+      })
   }
   deleteEmployee() {
     this.confirmService.showConfirm("Are you sure to delete", () => { 
