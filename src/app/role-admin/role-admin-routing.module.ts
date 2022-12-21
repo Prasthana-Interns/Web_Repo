@@ -26,7 +26,7 @@ const routes: Routes = [{path:' ',redirectTo:'/EmployeeListComponent',pathMatch:
                                      {
                                       path: 'employees', component: EmployeeListComponent,
                                       children: [{ path: 'add-employee', component: AddEmployeeComponent },
-                                        { path: 'popup-parent', component: PopupParentComponent}
+                                        { path: 'popup-parent', component: PopupParentComponent }
                                       ]
                                      },
                                      { path: 'employees/:id', component: EmpDetailViewComponent },                                    

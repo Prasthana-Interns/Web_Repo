@@ -21,7 +21,7 @@
                 <div class="text-danger" *ngIf="login?.controls?.empId?.touched &&login?.controls?.empId?.errors ">*Employee Id is required</div>
               </div>
               <div class="inputLog">
-                <input type="password" placeholder="Password" class="form-control" formControlName="password" required />
+                <input type="password" placeholder="Password" class="form-control" formControlName="password"  required />
                 <div class="text-danger" *ngIf="login?.controls?.password?.touched && login?.controls?.password?.errors">*Password is required</div>
                 <div class="text-danger" *ngIf="login?.controls?.password?.touched && login?.password?.errors?.minlength">*minlength is 4 characters</div>
               </div>

@@ -12,6 +12,7 @@ export class EmployeeProfileComponent {
   constructor(private router:Router,private confirmService:NgConfirmService){}
 
   logout(){
+    console.log("clicked")
     this.confirmService.showConfirm("Are you sure want to logout",
     ()=>{
       localStorage.clear();
