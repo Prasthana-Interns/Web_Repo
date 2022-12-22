@@ -13,7 +13,7 @@ export class HttpRequestService {
 
 
   getToken() {
-    return localStorage.getItem('token')
+    return sessionStorage.getItem('token')
   }
   get(url?:any,body?:any){
     return this.http_.get(this.domain_url+url,body);

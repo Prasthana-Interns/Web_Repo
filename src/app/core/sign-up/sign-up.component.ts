@@ -25,7 +25,7 @@ export class SignUpComponent implements OnInit {
   Response: any;
   constructor(private au:AuthService, private route:Router, private fb: FormBuilder,private location:Location){}
   ngOnInit(){
-    if(!!localStorage.getItem('token')){
+    if(!!sessionStorage.getItem('token')){
       this.heading="Add Employee"
       this.buttonText="Add"
       this.hideLogin=false;
@@ -96,7 +96,7 @@ export class SignUpComponent implements OnInit {
       this.au.post(`users`,body).subscribe({
       next: (res:any)=>{
         console.log(res);
-        if(!!localStorage.getItem('token')){
+        if(!!sessionStorage.getItem('token')){
           console.log("ROUTE TO BACK")
           this.route.navigate(["/admin/admin/employees"]);
         }
