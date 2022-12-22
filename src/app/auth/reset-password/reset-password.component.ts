@@ -28,13 +28,13 @@ submitResetPass(){
     }
     this.as.put(`reset_password`,body).subscribe({
       next: (res:any)=>{
+        console.log(res);
         this.router.navigate(["/login"]);
       },
       error: (err:any)=>{   
       }
     })
-  
   }
-}
+ }
 }
 
