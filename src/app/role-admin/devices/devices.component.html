@@ -38,6 +38,7 @@
   </div>
 </div>
 <div>
+  <app-employee-pop-up (hasEmployees)="employeepopupList($event)" *ngIf="hasEmployeePopup"></app-employee-pop-up>
   <router-outlet></router-outlet>
 </div>
 <ng-template #err style="color: red"> error fetching data</ng-template>
