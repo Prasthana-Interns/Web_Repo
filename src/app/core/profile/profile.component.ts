@@ -12,7 +12,7 @@ selector: 'app-profile',
 export class ProfileComponent implements OnInit {
 
 employeeData: any;
-id = localStorage.getItem('id');
+id = sessionStorage.getItem('id');
 role: any;
 isEdit: boolean = false;
 isSave: boolean = false;
@@ -65,7 +65,6 @@ editEmployee() {
      this.hasEditSymbol = false;
 }
 cancelChanges() {
-     this.getProfile()
      this.isEdit = false;
      this.isSave = false;
      this.hasEditSymbol = true;   
