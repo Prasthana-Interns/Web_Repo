@@ -10,7 +10,6 @@ img {
     height: 100px;
     width: 100px;
     border-radius: 10px;
-    border: 1px solid rgb(151, 145, 145);
 }
 .assign{
 margin-left: 2%;
@@ -38,8 +37,8 @@ margin-top: 20px;
 }
 .deviceHolder{
     height: 430px;
-        overflow-y: scroll;
-        margin-top: 20px
+    overflow-y: scroll;
+    margin-top: 20px
 }
 .popUp{
     justify-content: center;
@@ -76,13 +75,26 @@ margin-left: 200px;
     display: none;
 }
 @media(max-width:820px){
-    .card-comp{
-        flex-direction: column;
-    }
-    .cancel{margin-left:2% ;}
-    .popUp{
-        margin: 0px;
-    }
-    .box{margin-left: 5%;}
-/* .assign{wi} */
+.card-comp{
+    flex-direction: column;
+}
+.cancel{
+    margin-left:2% ;
+}
+
+.box{margin-left: 5%;}
+}
+@media(max-width:1080px) {
+.popUp {
+    margin: 0px;
+}
+.box{
+    margin-left: 20%;
+}
+}
+@media(max-width:1023px) {
+.assign{
+    flex-direction: column;
+    margin-left:0%;
+   }
 }

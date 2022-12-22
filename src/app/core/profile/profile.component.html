@@ -8,33 +8,33 @@
    <form [formGroup]="editForm" >
     <app-card class="card-component">
       <div image class="dp-Det">{{ employeeData?.name|titlecase|slice:0:1}}</div>
-    <h3 name class="name flex">
+         <h3 name class="name flex">
          <label *ngIf="!isEdit" >{{ employeeData?.name | titlecase }}</label>
          <div *ngIf="isEdit" class="inp flex">
-          <input type="text"   class=" form-control col-12"formControlName="name">
-          <div class="text-danger" *ngIf="editForm?.controls?.name.touched && editForm?.controls.name?.errors">
-            <small >*Name is required</small>
-          </div>
+            <input type="text"   class=" form-control col-12"formControlName="name" required>
+            <div class="text-danger" *ngIf="editForm?.controls?.name?.touched && editForm?.controls?.name?.errors">
+              <small >*Name should be minimum 3 characters</small>
+            </div>
         </div>
     </h3>
-     <small line_1  style="padding-top:8px">{{ employeeData?.email }}</small>
+     <small line_1 >{{ employeeData?.email }}</small>
        <div line_2 >
-         <small  *ngIf="!isEdit" style="padding-top:10px" >{{employeeData?.phone_number }}</small>
-          <div *ngIf="isEdit" class="inp flex">
-          <input type="text"   class=" form-control col-12"formControlName="phoneNo">
-          <div class="text-danger" *ngIf="editForm?.controls?.phoneNo.touched && editForm?.controls?.phoneNo?.errors">
-            <small >*minimum 10 digits required</small>          
+          <small  *ngIf="!isEdit">{{employeeData?.phone_number }}</small>
+            <div *ngIf="isEdit" class="inp flex">
+            <input type="text"   class=" form-control col-12"formControlName="phoneNo" required>
+            <div class="text-danger" *ngIf="editForm?.controls?.phoneNo?.touched && editForm?.controls?.phoneNo?.errors">
+              <small >*minimum 10 digits required</small>          
+            </div>
+             <small *ngIf="hasError" class="text-danger">{{Response1}}</small>
           </div>
-           <small *ngIf="hasError" class="text-danger">{{Response}}</small>
-        </div>
         </div>
 
-      <span clickButton class="material-symbols-outlined   edit " *ngIf="hasEditSymbol" (click)="editEmployee()">edit</span>    
+      <span clickButton class="material-symbols-outlined edit " *ngIf="hasEditSymbol" (click)="editEmployee()">edit</span>    
       <span clickButton class="material-symbols-outlined save " [disabled]="editForm.invalid && !!hasError" *ngIf="isSave" (click)="saveEmployee()">check</span>
       <span clickButton class="material-symbols-outlined edit " [disabled]="editForm.invalid" *ngIf="isSave" (click)="cancelChanges()">close</span>
       <div marginPurpose class="marginPurpose"></div>
       
-      <span empId class="singleLine"[ngStyle]="{'margin-left':'16%'}" >{{ employeeData?.emp_id }}</span>
+      <span empId class="singleLine"[ngStyle]="{'margin-left':'19%' ,'width':'20%'}" >{{ employeeData?.emp_id }}</span>
       <span designation class="singleLine">{{ employeeData?.designation |titlecase}}</span>
       <span role class="singleLine">{{role}}</span> 
       <div deviceSymbols  class="devices flex">

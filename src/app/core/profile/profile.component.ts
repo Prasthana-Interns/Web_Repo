@@ -11,18 +11,18 @@ selector: 'app-profile',
 })
 export class ProfileComponent implements OnInit {
 
- employeeData: any;
-     id = localStorage.getItem('id');
-     role: any;
- isEdit: boolean = false;
-    isSave: boolean = false;
-  hasEditSymbol: boolean = true;
-     noDevicesAssigned = false;
-       errorText: any;
-  errorResponse: any;
-     Response: any;
-     hasError:boolean=false
-   
+employeeData: any;
+id = localStorage.getItem('id');
+role: any;
+isEdit: boolean = false;
+isSave: boolean = false;
+hasEditSymbol: boolean = true;
+noDevicesAssigned = false;
+errorText: any;
+errorResponse: any;
+Response1: any;
+hasError: boolean = false
+hasCharctersError = false;
 
  public editForm: any;
  constructor(private httpService: HttpRequestService, private fb: FormBuilder) { }
@@ -35,9 +35,9 @@ export class ProfileComponent implements OnInit {
  console.log(res)
  if (res) {
       this.employeeData = res
-       if (this.employeeData.devices.length == 0)
-      { this.noDevicesAssigned = true }
-
+      if (this.employeeData.devices.length == 0) {
+           this.noDevicesAssigned = true
+      }
       if (this.employeeData?.user_roles.length == 2) {
                   {
                        console.log(this.employeeData?.user_roles)
@@ -66,18 +66,17 @@ editEmployee() {
 }
 cancelChanges() {
      this.getProfile()
-     this.isSave = false
      this.isEdit = false;
+     this.isSave = false;
      this.hasEditSymbol = true;   
 }
  saveEmployee() {
-     if (this.editForm.valid) {
+    if (this.editForm.valid) {
      this.isSave = false
-     if (this.editForm.valid) {
      let body = {
      "user": {
-     "name": this.editForm.controls.name.value,
-     "phone_number": this.editForm.controls.phoneNo.value,
+     "name": this.editForm?.controls?.name.value,
+     "phone_number": this.editForm?.controls?.phoneNo.value,
      }
      }
      this.httpService.put(`users/${this.employeeData.id}`, body).subscribe({
@@ -89,16 +88,40 @@ cancelChanges() {
           error: (err: any) => {
                this.errorText = err
                this.errorResponse = this.errorText?.error?.error
-               if (this.errorResponse === "Validation failed: Phone number has already been taken") {
-                    this.Response = "*Phone Number already exists"
+                if (this.errorResponse === "Validation failed: Name is invalid") {
+                    this.Response1 = "*Name is invalid"
+                    this.hasError=true
+                    this.isSave = true
+                    this.isEdit = true;  
+               }
+                else if (this.errorResponse === "Validation failed: Phone number has already been taken" ) {
+                    this.Response1 = "*Phone Number already exists"
                     this.hasError=true
                     this.isSave = true
                     this.isEdit = true;   
                }
-               }         
+
+               else if (this.errorResponse==="Validation failed: Phone number is the wrong length (should be 10 characters)") {
+                    this.Response1 = "*PhoneNo. is invalid"
+                    this.hasError=true
+                    this.isSave = true
+                    this.isEdit = true; 
                }
-               );
+               else if(this.errorResponse==="Validation failed: Name is invalid, Phone number has already been taken" ){
+                    this.Response1 = "Name is invalid & Phone Number already exists"
+                     this.hasError=true
+                    this.isSave = true
+                    this.isEdit = true; 
+               }
+               else if (this.errorResponse==="Validation failed: Name is invalid, Phone number is the wrong length (should be 10 characters)") {
+                    this.Response1 = "*Name is invalid & PhoneNo. is invalid"
+                     this.hasError=true
+                    this.isSave = true
+                    this.isEdit = true; 
+               }
+               }         
+               });
             }
-          }
+          
      }
 }

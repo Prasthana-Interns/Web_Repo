@@ -1,0 +1,62 @@
+token:
+1.header=tokentype and value stored
+2.payload=contains data,url
+verify Singnatre =  id,token,expiring data
+
+
+
+if login success ====>store the tken in local sorag by setItem method   
+--> setItem(token)
+    set token value during singup,login,add employee,                                               .....> post to Server
+        
+       singupEmployee(){                                                                               singnup(user){return this.http.post(this.ur,user)}
+        this.service.signup(this.singnupform.value["name,id,designation..etc"])                         login(user){return this.http.post(this.ur,user)}
+        .subscribe({ res=>                                                                              loginCheck( ){return localStorage.get("token)}
+        if(res)
+        {
+            localStorage.Setitem( "token",res.token )                                              //by using canload route gaurd
+            navigate to admin module basedd                                                            canload(){
+        }                                                                                                 if(employee.role==admin){navigate to admin module}    
+                                                                                                          else (naigate to employee modlul)                                                                                                             
+        }
+
+        })
+       }
+                      
+0[[4r ]]
+
+
+-----Headers---
+create a reference for httpHeader class
+
+
+.>>>>>>.GET TokenValue
+
+ public header=new httpHeader(  //accepts an object        
+    {    
+           1.tokentype,2.TokenValue                                   if an user enter his  currect credentials then we have get that token which is stored in local storage already.
+      "token":localStorage.getItem("token")                            we have get that token by getItem method in local storage  
+    })
+
+
+
+
+ use in methods header in an object form                                       
+  
+       getEmployee()
+       {
+        return this.http.get(this.url,{header : this.header})
+       }
+       getEmployeeById(id:any){
+       return this.http.get(this.url+"/"+id,  {header : this.header})     
+       }
+
+
+                                                                               //detailComponent   //employee/:id
+
+                                                                                 this.service.getEmployeeById(this.id).subscribe(res=>{
+                                                                                 this.data=res
+                                                                                 this.employee=this.data 00
+
+                                                                                  }) 
+     

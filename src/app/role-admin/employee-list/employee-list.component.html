@@ -11,14 +11,13 @@
       </fieldset>
       <div (click)="addEmployee()"><span class="material-symbols-outlined addSymbol">add</span></div>
     </div>
-    <ng-container *ngIf="noEmployees; else elses">
-      No results found</ng-container>
-<ng-template #elses>
+    <label class="warningText" *ngIf="noEmployees; else result">No results found</label>
+<ng-template #result>
  <app-card *ngFor="let employee of employees">
  <div image class="dp">{{ employee.name | titlecase | slice : 0 : 1 }}</div>
     <h4 name class="name">{{ employee.name | titlecase }}</h4>
-    <span class="singleLine" id>{{ employee.emp_id }}</span>
-    <span designation_ class="singleLine">{{employee.designation | titlecase}}</span>
+    <span class="singleLine" [ngStyle]="{'width':'20%'}" id>{{ employee.emp_id }}</span>
+    <span designation_ class="singleLine"[ngStyle]="{'margin-right':'5%'}">{{employee.designation | titlecase}}</span>
     <span role_ class="singleLine" >{{employee.user_roles}}</span>
     <div deviceSymbols_ class="devices flex">
     <div *ngFor="let device of employee?.devices">

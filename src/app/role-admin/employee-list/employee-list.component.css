@@ -80,7 +80,6 @@ font-weight: bold
 .singleLine {
     padding-top:10px;
     display: flex;
-    width: 25%;
     font-size:1.12rem
  
 }
@@ -89,6 +88,7 @@ font-weight: bold
     display: flex;
     padding-top:0.4rem; 
     padding-left: 14%;
+    width:8%
  }
  .deviceIcon{
     font-size:1.7rem;
@@ -102,24 +102,28 @@ font-weight: bold
 ::-webkit-scrollbar-track {
     background-color: rgb(184, 184, 194);
 }
-@media(max-width:850px){
-    .singleline {
-            flex-direction:column-reverse;
-    width: 0%;
-        }
-        .hello {
-            display: none;      
-        }
-        .deviceIcon{font-size:1.4rem}
-        .arrowSymbol{margin-left: 10px;}
-        .dp{
-            width:40
-            0px;
-            margin-left: 4px;
-            margin-right: 4px;
-        }
-        .devices{
-            margin-left:0px;
-            flex-direction:row;
-        }
+@media(max-width:1093px){
+.singleline {
+ flex-direction:column-reverse;
+     width:10%   
+}
+.hello {
+  display: none;      
+}
+.deviceIcon{
+    font-size:1.4rem
+}
+.arrowSymbol{
+    margin-left: 10px;
+}
+.dp{
+    width:40
+    0px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.devices{
+    margin-left:0px;
+    flex-direction:row;
+}
 }
