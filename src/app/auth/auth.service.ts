@@ -18,13 +18,6 @@ put(url:any,body:any){
 post(url:any,body:any){
   return this.http.post(this.baseurl+url,body)
 }
-// .pipe(catchError(this.handleError));
-// handleError(err:any){
-//   if(err instanceof HttpErrorResponse){}
-//   else{}
-//   return throwError(err);
-  
-// }
 }
 
 

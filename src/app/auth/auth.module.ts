@@ -22,9 +22,6 @@ import { CoreModule } from '../core/core.module';
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,
-    
   ],
-
-
 })
 export class AuthModule { }

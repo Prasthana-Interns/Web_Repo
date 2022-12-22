@@ -12,12 +12,12 @@
       <small line_1>{{ employeeData?.email }}</small>
       <small line_2  >{{ employeeData?.phone_number }}</small>
       <span *ngIf="disableDelete" clickButton class="material-symbols-outlined delete" (click)="deleteEmployee()">delete</span>
-      <div marginPurpose class=""></div>
-      <span empId class="singleLine"[ngStyle]="{'margin-left':'18%'}">{{ employeeData?.emp_id }}</span>
+      <div marginPurpose class="marginPurpose"></div>
+      <span empId class="singleLine"[ngStyle]="{'margin-left':'16%'}">{{ employeeData?.emp_id }}</span>
       <span designation class="singleLine" >{{ employeeData?.designation |titlecase}}</span>
       <span role class="singleLine">{{role}}</span>
 
-     <!-- <div marginPurpose class="marginPurpose"></div> -->
+      <!-- <div marginPurpose class="marginPurpose"></div> -->
        <div deviceSymbols class="device-icons flex" *ngFor="let device of employeeData?.devices">
       <span *ngIf="device?.device_type === 'Laptop'||device?.device_type === 'laptop'" class="material-symbols-outlined deviceIcon">laptop_mac</span>
       <span *ngIf="device?.device_type === 'Charger'||device?.device_type === 'charger'" class="material-symbols-outlined deviceIcon">electrical_services</span>

@@ -53,6 +53,7 @@ small {
 .devices {
     color: blue;
     display: flex;
+    margin-top: 2rem;
    }
 .deviceIcon {
     font-size: 1.7rem;
@@ -96,7 +97,8 @@ background-color: blue;
         font-size: 18px;
         justify-content: space-between;
         display: flex;
-        width: 30%;
+        width: 25%;
+        margin-top: 2rem;
 }
 label {
     margin-bottom: 0px;

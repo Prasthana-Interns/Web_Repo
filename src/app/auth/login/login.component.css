@@ -33,10 +33,6 @@ body{
     background: #FFFFFF; 
     border-radius: 0.3rem;
  }
-.col-lg-7{
-    padding-right:10rem;
-    margin-top: 2.5rem; 
-}
 .inputLog{
     width:20rem;
     height:3rem;
