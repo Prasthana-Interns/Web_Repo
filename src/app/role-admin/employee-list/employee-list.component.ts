@@ -8,19 +8,19 @@ import { HttpRequestService } from '../http-request.service';
 })
 export class EmployeeListComponent implements OnInit {
 
-  employees: any;
-  id: any
-  noEmployees:boolean=false
+employees: any;
+id: any
+noEmployees:boolean=false
 constructor(private router: Router, private httpService: HttpRequestService) { }
 
 ngOnInit(): void {
-this. getEmployees()
+  this. getEmployees()
 }
 getEmployees() {
   this.httpService.get(`users`).subscribe((response:any) => {
-    if (response) {
-      this.employees = response;
-    }
+  if (response) {
+  this.employees = response;
+  }
   })
 }
 addEmployee() {
@@ -31,15 +31,14 @@ empDetailView(emp: any) {
 }
 searchMethod(value?:string) {
   this.httpService.get(`users/search/?search=${value}`).subscribe((res: any) => {
-    console.log(res)
-    if (res?.length == 0)
+   if (res?.length == 0)
     {
-      this.noEmployees = true;
+    this.noEmployees = true;
     }
-    else {
-      this.noEmployees = false;
-      this.employees = res;
-    }
-  })   
+  else {
+    this.noEmployees = false;
+    this.employees = res;
   }
+  })   
+}
 }

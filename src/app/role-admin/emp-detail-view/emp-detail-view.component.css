@@ -43,6 +43,7 @@ font-weight: bold;
 small {
     display: flex;
     font-size: 18px;
+    padding-top: 10px
 }
 .delete {
     color: red;
@@ -53,7 +54,7 @@ small {
     font-size: 18px;
     justify-content:space-between ;
     display: flex;
-    width: 20%;
+    width: 30%;
 }
 .heading {
     padding-left: 23%;
@@ -98,6 +99,7 @@ background-color: blue;
 .deviceHolder {
     max-height: 270px;
 }
+
 @media(max-width:850px) {
 
 .personal-details{
@@ -106,16 +108,20 @@ background-color: blue;
 .delete{
     flex-direction: column;
 }
-.singleLine {
-    margin-right: 0px;
-}
-.noDevices{
-    margin-left: 0px;
-}
+
 .device-icons {
 flex-direction:row;
 }
-.button{
-margin-left: 23%;
-    }
 }
+@media(max-width:1000px) {
+.noDevices {
+ margin-left: 0px;
+}
+.button {
+ margin-left: 23%;
+}
+small{padding-top: 0px;}
+}
+
+
+

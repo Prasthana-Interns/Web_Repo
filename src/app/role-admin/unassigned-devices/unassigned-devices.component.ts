@@ -13,25 +13,25 @@ export class UnassignedDevicesComponent implements OnInit{
   unAssignedDevices: any;
   hasDevicesForm: boolean=false
 
-  constructor(private httpService:HttpRequestService) { }
-  ngOnInit(): void{
-    this.getUnAssignedDevices();
+constructor(private httpService:HttpRequestService) { }
+ngOnInit(): void{
+  this.getUnAssignedDevices();
+}
+getUnAssignedDevices() {
+  this.httpService.get(`devices/unassigned`).subscribe(response => {
+  this.unAssignedDevices = response; })
+}
+assignDevice(id: any) {
+  const body = {
+  "device": {
+        "user_id": this._id
+            }
   }
-  getUnAssignedDevices() {
-    this.httpService.get(`devices/unassigned`).subscribe(response => {
-    this.unAssignedDevices = response; })
-  }
-  assignDevice(id: any) {
-    const body = {
-    "device": {
-          "user_id": this._id
-              }
-    }
-    this.httpService.put(`devices/${id}`, body).subscribe(res => {
-    this.hasDevices.emit(this.hasDevicesForm)
-    }) 
-  }
-  closeDevicesForm() {
-    this.hasDevices.emit(this.hasDevicesForm)
-  }
-  }
+  this.httpService.put(`devices/${id}`, body).subscribe(res => {
+  this.hasDevices.emit(this.hasDevicesForm)
+  }) 
+}
+closeDevicesForm() {
+  this.hasDevices.emit(this.hasDevicesForm)
+}
+}
