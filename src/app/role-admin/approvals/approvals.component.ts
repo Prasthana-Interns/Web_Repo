@@ -21,7 +21,7 @@ export class ApprovalsComponent implements OnInit {
       this.httpservice.get(`users/pending`).subscribe((res:any)=>{
       this.approvalList=res;
       console.log(res)
-      if(res==null){
+      if(res.length==0){
         this.noRecordFound=true;
         this.text="No pending approvals found..."
       }

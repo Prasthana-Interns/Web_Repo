@@ -16,7 +16,7 @@ export class DevicesComponent implements OnInit {
   noRecordFound=false;
   text:any;
   value: any;
-  hasform:any
+  hasEmployeePopup=false;
 
   constructor(private router :Router,private http:HttpRequestService,private confirmService:NgConfirmService) {}
 
@@ -38,11 +38,18 @@ export class DevicesComponent implements OnInit {
     this.deviceId=dId;
     this.http.setShareData(this.deviceId)
     this.getAllDevices();
-    this.router.navigate(['/admin/admin/devices/employeePopUp'])
+    this.hasEmployeePopup=true;
+    
     }
   post(){
+    // this.hasEmployeePopup=true;
     this.getAllDevices();
     this.router.navigate(['/admin/admin/add-device'])
+
+  }
+  employeepopupList(data:any){
+    this.hasEmployeePopup=data;
+    this.getAllDevices();
   }
   deleteDevice(id:any){
     this.confirmService.showConfirm("Are you sure want to Delete ?",
@@ -55,9 +62,6 @@ export class DevicesComponent implements OnInit {
       this.getAllDevices();
     })
   }
-  form(value:any){
-    this.hasform=value
-  } 
 
 searchMethod(value?:string){
 this.http.get(`devices/search/?search=${value}`).subscribe((res:any)=>{
