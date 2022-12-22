@@ -1,11 +1,11 @@
 
 *{
     font-family: 'Times New Roman';
-  }
+}
 .cont{
     width:100%;
     display: flex;
-  }
+}
 .compHeader {
     font-size: 2rem;
     background-color: #ABAEB6;
@@ -46,7 +46,6 @@ small {
     font-size: 18px;
     padding-top:10px;
 }
-
 .marginPurpose {
     margin-top: 20px
 }
@@ -59,7 +58,6 @@ small {
     font-size: 1.7rem;
     gap: 0.7rem
 }
-
 .heading {
     padding-left: 23%;
     font-weight: bold;
@@ -68,28 +66,22 @@ small {
     color: rgb(92, 88, 88);
     margin-left: 16rem
 }
-
 .deviceHolder {
     max-height: 270px;
-   
 }
-
 .card-comp {
     width: 55%;
     max-height: 280px;
     margin: auto;
     margin-bottom: 10px;
-    border-radius: 10px;
-   
+    border-radius: 10px; 
 }
-
 img {
     height: 92px;
     width: 100px;
     border-radius: 10px;
     border: 1px solid rgb(151, 145, 145);
 }
-
 .deviceLabel {
 background-color: blue;
     border-radius: 20px;
@@ -99,7 +91,6 @@ background-color: blue;
     padding-right: 7px;
     margin-left: 10px;
 }
-
 .singleLine {
     font-weight: bold;
         font-size: 18px;
@@ -110,7 +101,6 @@ background-color: blue;
 label {
     margin-bottom: 0px;
 }
-
 .save {
     color: green;
     padding-left: 75%;
@@ -120,7 +110,6 @@ label {
     color: red;
     padding-left: 75%
 }
-
 @media(max-width:760px) {
 .office-details {
   flex-direction: column;
