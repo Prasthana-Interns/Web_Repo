@@ -8,15 +8,14 @@
        <div image class="dp">{{ employeeData?.name|titlecase|slice:0:1}}</div>  
 
       <h3 name class="name">{{ employeeData?.name | titlecase}}</h3>
-      <small line_1 style="padding-top:8px">{{ employeeData?.email }}</small>
-      <small line_2 style="padding-top:10px" >{{ employeeData?.phone_number }}</small>
-      <span clickButton class="material-symbols-outlined delete" (click)="deleteEmployee()">delete</span>
-      <!-- <div marginPurpose class=""></div> -->
-      <span empId class="singleLine"[ngStyle]="{'margin-left':'16%'}">{{ employeeData?.emp_id }}</span>
-      <span designation class="singleLine">{{ employeeData?.designation |titlecase}}</span>
+
+      <small line_1>{{ employeeData?.email }}</small>
+      <small line_2  >{{ employeeData?.phone_number }}</small>
+      <span *ngIf="disableDelete" clickButton class="material-symbols-outlined delete" (click)="deleteEmployee()">delete</span>
+      <div marginPurpose class=""></div>
+      <span empId class="singleLine"[ngStyle]="{'margin-left':'18%'}">{{ employeeData?.emp_id }}</span>
+      <span designation class="singleLine" >{{ employeeData?.designation |titlecase}}</span>
       <span role class="singleLine">{{role}}</span>
-
-
 
      <!-- <div marginPurpose class="marginPurpose"></div> -->
        <div deviceSymbols class="device-icons flex" *ngFor="let device of employeeData?.devices">

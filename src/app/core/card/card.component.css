@@ -66,7 +66,8 @@
       flex-direction:row;
     }
     .card{
-      flex-direction: row;
+      flex-direction: column;
+      max-height: 80%;
     }.cardLayout{
       flex-direction: column;
     }
@@ -77,12 +78,18 @@
       
     .down{
       margin:0px;
-      /* display: inline-block; */
+    
       flex-direction: column  ;
-      /* flex-direction:column-reverse; */
+      
 
     }
   }
+@media(max-width:1098px) {
+.closer{
+  margin: 0px;
+  flex-direction: column
+}
+}
 
   @media(max-width:998px){
     html{

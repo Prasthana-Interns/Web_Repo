@@ -15,8 +15,6 @@ export class HttpRequestService {
   getToken() {
     return localStorage.getItem('token')
   }
-  
-  //Mayur fetchAllDevices
   get(url?:any,body?:any){
     return this.http_.get(this.domain_url+url,body);
   }
